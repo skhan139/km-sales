@@ -1,0 +1,12 @@
+specVersion: "v1beta"
+serviceId: "km-sales"
+location: "us-central1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "fdcdb"
+      cloudSql:
+        instanceId: "km-sales-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
