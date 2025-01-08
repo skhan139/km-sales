@@ -15,7 +15,7 @@ const MembersPage = () => {
 
   return (
     <div>
-      <h1>Members Only Product Gallery</h1>
+      <h1>Browse Our Entire Product Gallery</h1>
       <ProductGallery />
     </div>
   );

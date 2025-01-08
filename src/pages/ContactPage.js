@@ -1,15 +1,40 @@
+// src/pages/ContactPage.js
+
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './ContactPage.css'; // Import the CSS file for styling
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className="contact-page">
       <h1>Contact Us</h1>
-      <h2>K&M Keyser Office: (304)-788-5310 <br />  <br />
-          Rich Everett: <br />  <br />
-          Sami Khan: (443)-789-6803
-      </h2>
+      <div className="flex-container">
+        <div className="flex-item">
+          <h3>K&M Keyser Office</h3>
+          <p>(304)-788-5310</p>
+        </div>
+        <div className="flex-item">
+          <h3>Rich Everett (Allegheny County Representive) </h3>
+          <p>(301)-876-0862</p>
+        </div>
+        <div className="flex-item">
+          <h3>Sami Khan (West Virginia Representive)</h3>
+          <p>(443)-789-6803</p>
+        </div>
+        <div className="flex-item">
+          <h3>General Inquiries</h3>
+          <p>Email: info@kmsales.com</p>
+        </div>
+        <div className="flex-item">
+          <h3>Customer Support</h3>
+          <p>Support Hotline: (800)-123-4567</p>
+        </div>
+        <div className="flex-item">
+          <h3>Product Gallery</h3>
+          <p>To browse our product gallery and place an order, login <Link to="/login">here</Link>.</p>
+        </div>
+      </div>
     </div>
-    
   );
 };
 

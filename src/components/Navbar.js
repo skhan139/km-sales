@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/styles/Navbar.css'; // Ensure this path is correct
 
+
 const Navbar = () => {
   return (
     <nav className="navbar">
