@@ -6,6 +6,7 @@ import './ContactPage.css'; // Import the CSS file for styling
 
 const ContactPage = () => {
   return (
+    <div className="page-container">
     <div className="contact-page">
       <h1>Contact Us</h1>
       <div className="flex-container">
@@ -34,6 +35,7 @@ const ContactPage = () => {
           <p>To browse our product gallery and place an order, login <Link to="/login">here</Link>.</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -22,6 +22,7 @@ const LoginPage = () => {
   };
 
   return (
+    <div className="page-container">
     <div className="login-page-container">
       <h1>Exisiting K&M Customers Login Here!</h1>
       <div className="login-page">
@@ -44,6 +45,7 @@ const LoginPage = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

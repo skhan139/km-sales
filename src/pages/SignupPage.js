@@ -22,6 +22,7 @@ const SignupPage = () => {
   };
 
   return (
+    <div className="page-container">
     <div className="signup-page-container">
       <h1>Create An Account To Login And View Our Products!</h1>
       <div className="signup-page">
@@ -44,6 +45,7 @@ const SignupPage = () => {
           </form>
         </div>
       </div>
+    </div>
     </div>
   );
 };

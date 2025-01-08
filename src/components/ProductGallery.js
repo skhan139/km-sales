@@ -2,7 +2,7 @@
 
 import React from 'react';
 import products from '../data/Products';
-import './ProductGallery.css'; // Create a CSS file for styling
+import './ProductGallery.css'; // Import the CSS file for styling
 
 const ProductGallery = () => {
   return (

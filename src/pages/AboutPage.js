@@ -5,6 +5,7 @@ import './AboutPage.css'; // Import the CSS file for styling
 
 const AboutPage = () => {
   return (
+    <div className="page-container">
     <div className="about-page">
       <h2>About Us</h2>
       <p>K&M Sales has been the leading distributor in bingo and gaming supplies for Western Maryland and West Virginia for over 40 years!</p>
@@ -34,6 +35,7 @@ const AboutPage = () => {
           <p>Reach out to us for any inquiries or support. We're here to help!</p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

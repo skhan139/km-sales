@@ -30,3 +30,17 @@
   .flex-item p {
     margin-bottom: 0;
   }
+
+  /* src/pages/AboutPage.css */
+
+.page-container {
+  background-image: url('/public/assets/images/background.jpeg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Adjust text color for visibility */
+}

@@ -14,9 +14,11 @@ const MembersPage = () => {
   }
 
   return (
+    <div className="homepage-container">
     <div>
       <h1>Browse Our Entire Product Gallery</h1>
       <ProductGallery />
+    </div>
     </div>
   );
 };

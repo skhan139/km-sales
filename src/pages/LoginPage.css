@@ -5,9 +5,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  background-color: #f4f4f4;
-  text-align: center; /* Center text inside the container */
+  min-height: calc(100vh - 120px); /* Full viewport height minus space for navbar and footer */
+  background-color: #000000;
+  padding: 2px 2px; /* Add padding to prevent touching navbar and footer */
 }
 
 .login-page {
@@ -18,7 +18,7 @@
 }
 
 .login-container {
-  background-color: #fff;
+  background-color: #000000;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -48,7 +48,7 @@
   padding: 10px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #333;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -56,4 +56,16 @@
 
 .login-container button:hover {
   background-color: #0056b3;
+}
+
+.homepage-container {
+  background-image: url('/public/assets/images/background.jpeg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 0, 0); /* Adjust text color for visibility */
 }
