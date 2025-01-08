@@ -10,15 +10,15 @@ const AboutPage = () => {
       <p>K&M Sales has been the leading distributor in bingo and gaming supplies for Western Maryland and West Virginia for over 40 years!</p>
       <div className="flex-container">
         <div className="flex-item">
-          <h3>Our History</h3>
-          <p>Founded in 1977, K&M Sales has a rich history of providing quality products and services.</p>
+          <h3>Custom Printing</h3>
+          <p>We produce all types of printing like Political Posters, Drawing Tickets, Envelopes, Glass and Plastic Mugs, Pens, Pencils, Note Pads, Invoices, Brochures, Bingo Paper, Pull Tabs, Jar Tickets, Bingo Event Games, Seal Cards, Bonus Boards. In other words we have the ability to produce just about anything you could need.</p>
         </div>
         <div className="flex-item">
-          <h3>Our Mission</h3>
-          <p>We aim to supply the best bingo and gaming supplies to our customers with unmatched service.</p>
+          <h3>Coin Boards</h3>
+          <p>We are also the Manufacturer of Custom Coin Boards & Merchandise Games with over 500 different boards and games available.</p>
         </div>
         <div className="flex-item">
-          <h3>Our Values</h3>
+          <h3>Tip Jars</h3>
           <p>Integrity, commitment, and customer satisfaction are at the core of our business.</p>
         </div>
         <div className="flex-item">
