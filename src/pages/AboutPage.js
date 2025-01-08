@@ -11,7 +11,7 @@ const AboutPage = () => {
       <div className="flex-container">
         <div className="flex-item">
           <h3>Our History</h3>
-          <p>Founded in 1980, K&M Sales has a rich history of providing quality products and services.</p>
+          <p>Founded in 1977, K&M Sales has a rich history of providing quality products and services.</p>
         </div>
         <div className="flex-item">
           <h3>Our Mission</h3>
