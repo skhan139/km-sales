@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/km-sales/static/css/main.a055e297.css",
+    "main.js": "/km-sales/static/js/main.3eed5a37.js",
+    "static/media/background.jpeg": "/km-sales/static/media/background.288e325cb14210d04362.jpeg",
+    "index.html": "/km-sales/index.html",
+    "main.a055e297.css.map": "/km-sales/static/css/main.a055e297.css.map",
+    "main.3eed5a37.js.map": "/km-sales/static/js/main.3eed5a37.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a055e297.css",
+    "static/js/main.3eed5a37.js"
+  ]
+}
