@@ -1,25 +1,34 @@
 // src/components/Cart.js
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
+import CheckoutFormModal from './CheckoutFormModal';
+import Modal from 'react-modal'; // Import Modal from react-modal
 import './Cart.css'; // Import the CSS file for styling
 
 const Cart = () => {
   const { cart, removeItemFromCart, clearCart } = useCart();
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const handleCheckout = () => {
     if (user) {
-      // Implement checkout logic here
-      clearCart();
-      navigate('/checkout-success');
+      setIsModalOpen(true);
     } else {
       navigate('/login');
     }
+  };
+
+  const handleFormSubmit = (formData) => {
+    console.log('Form Data:', formData);
+    setIsModalOpen(false);
+    clearCart();
+    setIsSuccessModalOpen(true);
   };
 
   return (
@@ -42,6 +51,24 @@ const Cart = () => {
         </div>
       )}
       <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
+
+      <CheckoutFormModal
+        isOpen={isModalOpen}
+        onRequestClose={() => setIsModalOpen(false)}
+        onSubmit={handleFormSubmit}
+      />
+
+      <Modal
+        isOpen={isSuccessModalOpen}
+        onRequestClose={() => setIsSuccessModalOpen(false)}
+        contentLabel="Success Modal"
+        className="modal-content"
+        overlayClassName="modal-overlay"
+      >
+        <h2>Order Successful</h2>
+        <p>A representative will be in touch shortly.</p>
+        <button onClick={() => setIsSuccessModalOpen(false)}>Close</button>
+      </Modal>
     </div>
   );
 };
