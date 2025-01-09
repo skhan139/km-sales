@@ -5,6 +5,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 import { Navigate } from 'react-router-dom';
 import ProductGallery from '../components/ProductGallery';
+import './MembersPage.css'; // Import the CSS file for styling
 
 const MembersPage = () => {
   const [user] = useAuthState(auth);
@@ -14,11 +15,9 @@ const MembersPage = () => {
   }
 
   return (
-    <div className="homepage-container">
-    <div>
+    <div className="members-page-container">
       <h1>Browse Our Entire Product Gallery</h1>
       <ProductGallery />
-    </div>
     </div>
   );
 };

@@ -12,15 +12,15 @@ const ContactPage = () => {
       <div className="flex-container">
         <div className="flex-item">
           <h3>K&M Keyser Office</h3>
-          <p>(304)-788-5310</p>
+          <p>365 Sunset Place, Keyser, WV 26726 <br /> <br />(304)-788-5310</p>
         </div>
         <div className="flex-item">
-          <h3>Rich Everett (Allegheny County Representive) </h3>
-          <p>(301)-876-0862</p>
+          <h3>Rich Everett (Allegheny And Garrett County Representive) </h3>
+          <p>(301)-876-0862 <br /> <br />Email: everettr627@gmail.com</p>
         </div>
         <div className="flex-item">
           <h3>Sami Khan (West Virginia Representive)</h3>
-          <p>(443)-789-6803</p>
+          <p>(443)-789-6803 <br /> <br />Email: Skhan139@icloud.com</p>
         </div>
         <div className="flex-item">
           <h3>General Inquiries</h3>

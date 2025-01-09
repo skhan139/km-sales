@@ -1,13 +1,35 @@
-/* src/pages/HomePage.css */
-
 .homepage-container {
-    background-image: url('/public/assets/images/background.jpeg'); /* Path to your background image */
-    background-size: cover;
-    background-position: center;
-    height: 100vh; /* Full viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white; /* Adjust text color for visibility */
-  }
+  background-image: url('/public/assets/images/background.jpeg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Adjust text color for visibility */
+  padding: 20px; /* Add some padding for responsiveness */
+}
+
+.info-box {
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  border-radius: 10px; /* Rounded corners */
+  width: 80%; /* Adjust width as needed */
+  max-width: 600px; /* Set a maximum width for larger screens */
+  text-align: center; /* Center text */
+  color: white; /* Ensure text is readable */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+}
+
+.info-box h2 {
+  margin-bottom: 10px;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.info-box p {
+  font-size: 1em;
+  line-height: 1.5;
+}

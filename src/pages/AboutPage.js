@@ -23,12 +23,12 @@ const AboutPage = () => {
           <p>Integrity, commitment, and customer satisfaction are at the core of our business.</p>
         </div>
         <div className="flex-item">
-          <h3>Our Team</h3>
-          <p>Our dedicated team works tirelessly to meet and exceed our customers' expectations.</p>
+          <h3>Tip Boards</h3>
+          <p>We offer a wide range of bingo and gaming supplies to cater to all needs.</p>
         </div>
         <div className="flex-item">
-          <h3>Our Products</h3>
-          <p>We offer a wide range of bingo and gaming supplies to cater to all needs.</p>
+          <h3>Our Home Office</h3>
+          <p>365 Sunset Place, Keyser, WV 26726</p>
         </div>
         <div className="flex-item">
           <h3>Contact Us</h3>

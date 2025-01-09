@@ -19,7 +19,7 @@
 
 .login-container {
   background-color: #000000;
-  padding: 20px;
+  padding: 30px; /* Increased padding for better spacing */
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -27,8 +27,14 @@
   max-width: 400px;
 }
 
+.login-container h1,
 .login-container h2 {
-  margin-bottom: 20px;
+  margin: 20px 0; /* Space above and below */
+  padding: 10px 50px; /* Add internal spacing for h1 and h2, increased left/right padding */
+  background-color: transparent; /* Ensure no background interference */
+  text-align: center; /* Center the text */
+  box-sizing: border-box; /* Include padding in the element's dimensions */
+  width: 100%; /* Ensure it respects the container width */
 }
 
 .login-container form {
@@ -68,4 +74,11 @@
   align-items: center;
   justify-content: center;
   color: rgb(0, 0, 0); /* Adjust text color for visibility */
+}
+
+.error-message {
+  color: red; /* Error text color */
+  margin-top: 10px; /* Add space above the message */
+  font-size: 0.9em; /* Adjust font size */
+  text-align: center; /* Center-align the message */
 }
