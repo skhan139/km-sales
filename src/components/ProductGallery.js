@@ -1,10 +1,14 @@
+// src/components/ProductGallery.js
+
 import React, { useState, useEffect } from 'react';
 import products from '../data/Products';
+import { useCart } from '../context/CartContext';
 import './ProductGallery.css'; // Import the CSS file for styling
 
 const ProductGallery = ({ searchTerm }) => {
   const [sortCriteria, setSortCriteria] = useState('all');
   const [filteredProducts, setFilteredProducts] = useState([...products]);
+  const { addItemToCart } = useCart(); // Use the Cart context
 
   useEffect(() => {
     filterProducts(searchTerm, sortCriteria);
@@ -44,6 +48,7 @@ const ProductGallery = ({ searchTerm }) => {
             <img src={product.image} alt={product.name} className="product-image" />
             <h2 className="product-name">{product.name}</h2>
             <p className="product-price">{product.price}</p>
+            <button onClick={() => addItemToCart(product)}>Add to Cart</button> {/* Add to Cart button */}
           </div>
         ))}
       </div>
