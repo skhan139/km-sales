@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/km-sales/static/css/main.e5cdea7a.css",
+    "main.js": "/km-sales/static/js/main.4e62f746.js",
+    "static/media/background1.avif": "/km-sales/static/media/background1.c409a84b2f5baacce0b9.avif",
+    "static/media/slick.svg": "/km-sales/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/km-sales/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/km-sales/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/km-sales/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/km-sales/index.html",
+    "main.e5cdea7a.css.map": "/km-sales/static/css/main.e5cdea7a.css.map",
+    "main.4e62f746.js.map": "/km-sales/static/js/main.4e62f746.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e5cdea7a.css",
+    "static/js/main.4e62f746.js"
+  ]
+}
