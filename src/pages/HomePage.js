@@ -20,7 +20,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage-container">
-      <Banner></Banner>
       <div className="info-box">
         <h1>Welcome to K&M Sales.</h1>
         <h2>Proudly serving West Virginia and Maryland for over 40 years!</h2>
@@ -30,6 +29,7 @@ const HomePage = () => {
         </p>
       </div>
       <div className="slider-container">
+        <h3>Our Best Sellers!</h3>
         <Slider {...sliderSettings}>
           <div>
             <img src="/assets/images/image1.jpg" alt="Image 1" className="slider-image" />

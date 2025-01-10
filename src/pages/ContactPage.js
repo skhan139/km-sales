@@ -7,6 +7,7 @@ import './ContactPage.css'; // Import the CSS file for styling
 const ContactPage = () => {
   return (
     <div className="page-container">
+      <h1>For All Your Custom Order Needs, Questions, Or Concerns</h1>
     <div className="contact-page">
       <h1>Contact Us</h1>
       <div className="flex-container">

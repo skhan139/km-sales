@@ -1,46 +1,33 @@
 /* src/pages/ContactPage.css */
 
 .contact-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .flex-item {
-    flex: 1 1 calc(33.333% - 40px); /* 3 items per row with 20px gap */
-    background-color: #f4f4f4;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .flex-item h3 {
-    margin-top: 0;
-  }
-  
-  .flex-item p {
-    margin-bottom: 0;
-  }
-
-  /* src/pages/AboutPage.css */
-
-.page-container {
-  background-image: url('/public/assets/images/background1.avif'); /* Path to your background image */
-  background-size: cover;
-  background-position: center;
-  height: 100vh; /* Full viewport height */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Adjust text color for visibility */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.flex-item {
+  flex: 1 1 calc(33.333% - 40px); /* 3 items per row with 20px gap */
+  background-color: #f4f4f4;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flex-item h3 {
+  margin-top: 0;
+}
+
+.flex-item p {
+  margin-bottom: 0;
+}
+
