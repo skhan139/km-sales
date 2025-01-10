@@ -1,3 +1,4 @@
+// src/pages/HomePage.js
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -17,25 +18,24 @@ const HomePage = () => {
 
   return (
     <div className="homepage-container">
-      {/* Remove the unused Banner component */}
       <div className="info-box">
         <h1>Welcome to K&M Sales.</h1>
         <h2>Proudly serving West Virginia and Maryland for over 40 years!</h2>
         <p>
           We supply to Bingo Halls, Cash Bashes. Military Organizations, Private Clubs, Bars, and Fire Departments. <br /> <br />
-          Please Signup/Login to view our products and place an order <a href="/login" style={{ color: 'white' }}>here</a>.
+          Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
         </p>
       </div>
       <div className="slider-container">
         <Slider {...sliderSettings}>
           <div>
-            <img src="/assets/images/image1.jpg" alt="Product display 1" className="slider-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Product display 1" className="slider-image" />
           </div>
           <div>
-            <img src="/assets/images/image2.jpg" alt="Product display 2" className="slider-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/images/image2.jpg`} alt="Product display 2" className="slider-image" />
           </div>
           <div>
-            <img src="/assets/images/image3.jpg" alt="Product display 3" className="slider-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Product display 3" className="slider-image" />
           </div>
           {/* Add more images as needed */}
         </Slider>

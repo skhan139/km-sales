@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <CartProvider> {/* Wrap the application with CartProvider */}
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}> {/* Set the basename for GitHub Pages */}
         <div className="app-container">
           <Navbar />
           <Routes>
