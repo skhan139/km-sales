@@ -14,6 +14,7 @@ import ContactPage from './pages/ContactPage';
 import MembersPage from './pages/MembersPage';
 import Cart from './components/Cart';
 import CheckoutPage from './pages/CheckoutPage'; // Import CheckoutPage
+import Footer from './components/Footer'; // Import Footer
 
 const App = () => {
   const [user] = useAuthState(auth);
@@ -21,18 +22,21 @@ const App = () => {
   return (
     <CartProvider> {/* Wrap the application with CartProvider */}
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/members" element={user ? <MembersPage /> : <Navigate to="/login" />} />
-          <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
-          <Route path="/checkout" element={user ? <CheckoutPage /> : <Navigate to="/login" />} /> {/* Add CheckoutPage route */}
-          <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
-        </Routes>
+        <div className="app-container">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/members" element={user ? <MembersPage /> : <Navigate to="/login" />} />
+            <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
+            <Route path="/checkout" element={user ? <CheckoutPage /> : <Navigate to="/login" />} /> {/* Add CheckoutPage route */}
+            <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
+          </Routes>
+          <Footer /> {/* Include the Footer at the bottom */}
+        </div>
       </Router>
     </CartProvider>
   );

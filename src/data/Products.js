@@ -48,7 +48,19 @@ const products = [
   { id: 47, name: "Product 47", price: "$240.00", image: "path/to/image47.jpg", category: "coin boards", tags: ["coin", "board"] },
   { id: 48, name: "Product 48", price: "$245.00", image: "path/to/image48.jpg", category: "tip jars", tags: ["tip", "jar"] },
   { id: 49, name: "Product 49", price: "$250.00", image: "path/to/image49.jpg", category: "instant winners", tags: ["instant", "winner"] },
-  { id: 50, name: "Product 50", price: "$255.00", image: "path/to/image50.jpg", category: "bingo dobbers", tags: ["bingo", "dobber"] }
+  { id: 50, name: "Product 50", price: "$255.00", image: "path/to/image50.jpg", category: "bingo dobbers", tags: ["bingo", "dobber"] },
+  { id: 51, name: "Product 51", price: "$260.00", image: "path/to/image51.jpg", category: "bonus boards", tags: ["bonus", "board"] }, // New product
+  { id: 52, name: "Product 52", price: "$265.00", image: "path/to/image52.jpg", category: "bonus boards", tags: ["bonus", "board"] }, // New product
+  { id: 53, name: "Product 53", price: "$270.00", image: "path/to/image53.jpg", category: "bingo games", tags: ["bingo", "game"] }, // New product
+  { id: 54, name: "Product 54", price: "$275.00", image: "path/to/image54.jpg", category: "bingo games", tags: ["bingo", "game"] }, // New product
+  { id: 55, name: "Product 55", price: "$280.00", image: "path/to/image55.jpg", category: "scratch off boards", tags: ["scratch", "off", "board"] }, // New product
+  { id: 56, name: "Product 56", price: "$285.00", image: "path/to/image56.jpg", category: "scratch off boards", tags: ["scratch", "off", "board"] }, // New product
+  { id: 57, name: "Product 57", price: "$290.00", image: "path/to/image57.jpg", category: "bingo card games", tags: ["bingo", "card", "game"] }, // New product
+  { id: 58, name: "Product 58", price: "$295.00", image: "path/to/image58.jpg", category: "bingo card games", tags: ["bingo", "card", "game"] }, // New product
+  { id: 59, name: "Product 59", price: "$300.00", image: "path/to/image59.jpg", category: "raffle tickets", tags: ["raffle", "ticket"] }, // New product
+  { id: 60, name: "Product 60", price: "$305.00", image: "path/to/image60.jpg", category: "raffle tickets", tags: ["raffle", "ticket"] }, // New product
+  { id: 61, name: "Product 59", price: "$300.00", image: "path/to/image59.jpg", category: "raffle tickets", tags: ["raffle", "ticket"] }, // New product
+  { id: 62, name: "Product 60", price: "$305.00", image: "path/to/image60.jpg", category: "raffle tickets", tags: ["raffle", "ticket"] } // New product
 ];
 
 export default products;

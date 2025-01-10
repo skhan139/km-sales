@@ -40,6 +40,11 @@ const ProductGallery = ({ searchTerm }) => {
           <option value="tip jars">Tip Jars</option>
           <option value="instant winners">Instant Winners</option>
           <option value="bingo dobbers">Bingo Dobbers</option>
+          <option value="bonus boards">Bonus Boards</option> {/* New sorting option */}
+          <option value="bingo games">Bingo Games</option> {/* New sorting option */}
+          <option value="scratch off boards">Scratch Off Boards</option> {/* New sorting option */}
+          <option value="bingo card games">Bingo Card Games</option> {/* New sorting option */}
+          <option value="raffle tickets">Raffle Tickets</option> {/* New sorting option */}
         </select>
       </div>
       <div className="product-gallery">
@@ -48,7 +53,7 @@ const ProductGallery = ({ searchTerm }) => {
             <img src={product.image} alt={product.name} className="product-image" />
             <h2 className="product-name">{product.name}</h2>
             <p className="product-price">{product.price}</p>
-            <button onClick={() => addItemToCart(product)}>Add to Cart</button> {/* Add to Cart button */}
+            <button onClick={() => addItemToCart(product)} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
           </div>
         ))}
       </div>

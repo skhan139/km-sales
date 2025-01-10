@@ -1,55 +1,55 @@
 /* src/pages/MembersPage.css */
 
 .members-page-container {
-    padding: 80px 20px 20px; /* Add padding to top and bottom to prevent overlap with navbar and footer */
-    text-align: center;
-  }
-  
-  .product-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .product-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: calc(33.333% - 40px); /* 3 items per row with 20px gap */
-  }
-  
-  .product-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
-  
-  .product-name {
-    margin: 10px 0;
-  }
-  
-  .product-price {
-    color: #007bff;
-    font-weight: bold;
-  }
+  padding: 80px 20px 20px; /* Add padding to top and bottom to prevent overlap with navbar and footer */
+  text-align: center;
+  background-image: url('/public/assets/images/background1.avif'); /* Specify the path to your background image */
+  background-size: cover; /* Ensure the background image covers the entire container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
+  color: white; /* Ensure the text is readable against the background */
+}
 
-  h2 {
-    color: white;
-  }
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-  .members-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .search-bar {
-    margin-bottom: 20px;
-    padding: 10px;
-    width: 300px;
-    font-size: 16px;
-  }
+.product-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: calc(33.333% - 40px); /* 3 items per row with 20px gap */
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.product-name {
+  margin: 10px 0;
+}
+
+.product-price {
+  color: #007bff;
+  font-weight: bold;
+}
+
+h2 {
+  color: white;
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 300px;
+  font-size: 16px;
+}

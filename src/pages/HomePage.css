@@ -1,5 +1,5 @@
 .homepage-container {
-  background-image: url('/public/assets/images/background.jpeg'); /* Path to your background image */
+  background-image: url('/public/assets/images/background1.avif'); /* Path to your background image */
   background-size: cover;
   background-position: center;
   height: 100vh; /* Full viewport height */
@@ -32,4 +32,34 @@
 .info-box p {
   font-size: 1em;
   line-height: 1.5;
+}
+
+/* src/pages/HomePage.css */
+
+.homepage-container {
+  text-align: center;
+}
+
+.slider-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.slider-image {
+  max-width: 300px; /* Set a maximum width for the images */
+  height: 200px;    /* Maintain the aspect ratio */
+  margin: 0 auto;  /* Center the images horizontally */
+}
+
+.info-box {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.link-white {
+  color: white;
 }
