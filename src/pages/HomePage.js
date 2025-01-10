@@ -1,10 +1,7 @@
-// src/pages/HomePage.js
-
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Banner from '../components/Banner';
 import './HomePage.css'; // Import the CSS file for styling
 
 const HomePage = () => {
@@ -20,25 +17,25 @@ const HomePage = () => {
 
   return (
     <div className="homepage-container">
+      {/* Remove the unused Banner component */}
       <div className="info-box">
         <h1>Welcome to K&M Sales.</h1>
         <h2>Proudly serving West Virginia and Maryland for over 40 years!</h2>
         <p>
           We supply to Bingo Halls, Cash Bashes. Military Organizations, Private Clubs, Bars, and Fire Departments. <br /> <br />
-          Please Signup/Login to view our products and place an order <a href="/login" className="link-white">here</a>.
+          Please Signup/Login to view our products and place an order <a href="/login" style={{ color: 'white' }}>here</a>.
         </p>
       </div>
       <div className="slider-container">
-        <h3>Our Best Sellers!</h3>
         <Slider {...sliderSettings}>
           <div>
-            <img src="/assets/images/image1.jpg" alt="Image 1" className="slider-image" />
+            <img src="/assets/images/image1.jpg" alt="Product display 1" className="slider-image" />
           </div>
           <div>
-            <img src="/assets/images/image2.jpg" alt="Image 2" className="slider-image" />
+            <img src="/assets/images/image2.jpg" alt="Product display 2" className="slider-image" />
           </div>
           <div>
-            <img src="/assets/images/image3.jpg" alt="Image 3" className="slider-image" />
+            <img src="/assets/images/image3.jpg" alt="Product display 3" className="slider-image" />
           </div>
           {/* Add more images as needed */}
         </Slider>
