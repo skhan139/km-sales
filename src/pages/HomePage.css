@@ -1,14 +1,17 @@
+/* src/pages/HomePage.css */
+
 .homepage-container {
   background-image: url('/public/assets/images/background1.avif'); /* Path to your background image */
   background-size: cover;
   background-position: center;
-  height: 100vh; /* Full viewport height */
+  min-height: 120vh; /* Increase the minimum height to allow for scrolling */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* Space between top content and sliders */
   color: white; /* Adjust text color for visibility */
   padding: 20px; /* Add some padding for responsiveness */
+  padding-bottom: 60px; /* Add bottom padding to ensure space below sliders */
 }
 
 .info-box {
@@ -34,36 +37,65 @@
   line-height: 1.5;
 }
 
-/* src/pages/HomePage.css */
+.sliders-row {
+  display: flex;
+  justify-content: space-around; /* Space sliders evenly */
+  width: 100%;
+  margin-bottom: 60px; /* Add margin at the bottom of the sliders row */
+}
 
-.homepage-container {
+.slider-section {
+  flex: 1; /* Each slider takes up an equal portion of the available space */
+  max-width: 30%; /* Limit the maximum width of each slider */
   text-align: center;
 }
 
 .slider-container {
-  width: 80%;
-  margin: 0 auto;
+  position: relative; /* Ensure positioning context for arrows */
   padding: 20px 0;
 }
 
 .slider-image {
-  max-width: 300px; /* Set a maximum width for the images */
-  height: 200px;    /* Maintain the aspect ratio */
-  margin: 0 auto;  /* Center the images horizontally */
+  max-width: 100%; /* Ensure the images fit within the slider */
+  height: auto;
+  max-height: 200px; /* Set a maximum height for the images */
+  display: block; /* Ensure images are block level elements */
+  margin: 0 auto; /* Center images horizontally within container */
 }
 
-.info-box {
-  padding: 20px;
-  background-color: #333;
-  color: white;
-  border-radius: 8px;
-  margin-top: 20px;
+/* Custom styles for the slick slider arrows */
+.slick-prev,
+.slick-next {
+  color: black !important; /* Set the arrow color to black */
+  z-index: 1; /* Ensure arrows are above other elements */
+  position: absolute; /* Position the arrows absolutely */
+  top: 50%; /* Vertically center the arrows */
+  transform: translateY(-50%); /* Adjust for centering */
 }
 
-.link-white {
-  color: white;
+.slick-prev {
+  left: -20px; /* Adjust the position to the left */
 }
 
-h3 {
-  color: white;
+.slick-next {
+  right: -20px; /* Adjust the position to the right */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black; /* Set the arrow icon color to black */
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  color: black !important; /* Keep the arrow color black on hover */
+}
+
+.slick-prev:before:hover,
+.slick-next:before:hover {
+  color: black; /* Keep the arrow icon color black on hover */
+}
+
+.sliderHead {
+  color: black;
 }

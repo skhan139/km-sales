@@ -1,7 +1,7 @@
 .members-page-container {
   padding: 80px 20px 100px; /* Add extra padding to the bottom to prevent overlap with the footer */
   text-align: center;
-  background-image: url('/public/assets/images/background2.avif'); /* Specify the path to your background image */
+  background-color: #fff; /* Specify the path to your background image */
   background-size: cover; /* Ensure the background image covers the entire container */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the background image from repeating */

@@ -26,19 +26,64 @@ const HomePage = () => {
           Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
         </p>
       </div>
-      <div className="slider-container">
-        <Slider {...sliderSettings}>
-          <div>
-            <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Product display 1" className="slider-image" />
+
+      <div className="sliders-row">
+        {/* Newest Arrivals Slider */}
+        <div className="slider-section">
+          <h2 className='sliderHead'>Newest Arrivals</h2>
+          <div className="slider-container">
+            <Slider {...sliderSettings}>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Newest arrival 1" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image2.jpg`} alt="Newest arrival 2" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Newest arrival 3" className="slider-image" />
+              </div>
+              {/* Add more images as needed */}
+            </Slider>
           </div>
-          <div>
-            <img src={`${process.env.PUBLIC_URL}/assets/images/image2.jpg`} alt="Product display 2" className="slider-image" />
+        </div>
+
+        {/* Best Sellers Slider */}
+        <div className="slider-section">
+          <h2 className='sliderHead'>Our Best Sellers</h2>
+          <div className="slider-container">
+            <Slider {...sliderSettings}>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Best seller 1" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Best seller 2" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Best seller 3" className="slider-image" />
+              </div>
+              {/* Add more images as needed */}
+            </Slider>
           </div>
-          <div>
-            <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Product display 3" className="slider-image" />
+        </div>
+
+        {/* Hot This Month Slider */}
+        <div className="slider-section">
+          <h2 className='sliderHead'>Hot This Month</h2>
+          <div className="slider-container">
+            <Slider {...sliderSettings}>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Hot this month 1" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image2.jpg`} alt="Hot this month 2" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Hot this month 3" className="slider-image" />
+              </div>
+              {/* Add more images as needed */}
+            </Slider>
           </div>
-          {/* Add more images as needed */}
-        </Slider>
+        </div>
       </div>
     </div>
   );
