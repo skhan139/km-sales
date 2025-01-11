@@ -1,7 +1,5 @@
-// src/App.js
-
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
 import { CartProvider } from './context/CartContext'; // Import CartProvider
@@ -21,23 +19,21 @@ const App = () => {
 
   return (
     <CartProvider> {/* Wrap the application with CartProvider */}
-      <Router basename={process.env.PUBLIC_URL}> {/* Set the basename for GitHub Pages */}
-        <div className="app-container">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/members" element={user ? <MembersPage /> : <Navigate to="/login" />} />
-            <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
-            <Route path="/checkout" element={user ? <CheckoutPage /> : <Navigate to="/login" />} /> {/* Add CheckoutPage route */}
-            <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
-          </Routes>
-          <Footer /> {/* Include the Footer at the bottom */}
-        </div>
-      </Router>
+      <div className="app-container">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/members" element={user ? <MembersPage /> : <Navigate to="/login" />} />
+          <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
+          <Route path="/checkout" element={user ? <CheckoutPage /> : <Navigate to="/login" />} /> {/* Add CheckoutPage route */}
+          <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
+        </Routes>
+        <Footer /> {/* Include the Footer at the bottom */}
+      </div>
     </CartProvider>
   );
 };

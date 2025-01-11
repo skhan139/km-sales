@@ -55,7 +55,7 @@
 }
 
 .about-box {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -79,4 +79,8 @@
   .flex-item {
     padding: 10px;
   }
+}
+
+.at {
+  color:black;
 }

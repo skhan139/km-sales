@@ -8,7 +8,7 @@ const AboutPage = () => {
     <div className="page-container">
       <div className="about-page">
         <div className="about-box">
-          <h3>At K&M Sales, we have proudly served as the leading distributor of bingo and gaming supplies in Western Maryland and West Virginia for over 40 years. Our dedication to quality and customer satisfaction has made us a trusted partner in the industry!</h3>
+          <h3 className='at'>At K&M Sales, we have proudly served as the leading distributor of bingo and gaming supplies in Western Maryland and West Virginia for over 40 years. Our dedication to quality and customer satisfaction has made us a trusted partner in the industry!</h3>
         </div>
         <div className="flex-container">
           <div className="flex-item">

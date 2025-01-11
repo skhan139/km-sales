@@ -2,7 +2,6 @@
   "name": "km-sales",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://skhan139.github.io/km-sales",
   "dependencies": {
     "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "cra-template": "1.2.0",

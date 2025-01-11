@@ -19,8 +19,8 @@ const MembersPage = () => {
 
   return (
     <div className="members-page-container">
-      <h1>Browse Our Entire Product Gallery</h1>
-      <h2>** Note, Some Orders May Take Longer To Fulfill Than Others Depending On Stock**</h2>
+      <h1 className='color'>Browse Our Entire Product Gallery</h1>
+      <h2 className='color'>** Note, Some Orders May Take Longer To Fulfill Than Others Depending On Stock**</h2>
       <input 
         type="text" 
         placeholder="Search by tag or category..." 

@@ -7,7 +7,7 @@ const products = [
   { id: 6, name: "Product 6", price: "$35.00", image: "path/to/image6.jpg", category: "tip boards", tags: ["tip", "board"] },
   { id: 7, name: "Product 7", price: "$40.00", image: "path/to/image7.jpg", category: "coin boards", tags: ["coin", "board"] },
   { id: 8, name: "Product 8", price: "$45.00", image: "path/to/image8.jpg", category: "tip jars", tags: ["tip", "jar"] },
-  { id: 9, name: "Product 9", price: "$50.00", image: "path/to/image9.jpg", category: "instant winners", tags: ["instant", "winner"] },
+  { id: 9, name: "Captain Jacks", price: "$50.00", image: "path/to/image9.jpg", category: "instant winners", tags: ["instant", "winner"] },
   { id: 10, name: "Product 10", price: "$55.00", image: "path/to/image10.jpg", category: "bingo dobbers", tags: ["bingo", "dobber"] },
   { id: 11, name: "Product 11", price: "$60.00", image: "path/to/image11.jpg", category: "tip boards", tags: ["tip", "board"] },
   { id: 12, name: "Product 12", price: "$65.00", image: "path/to/image12.jpg", category: "coin boards", tags: ["coin", "board"] },
