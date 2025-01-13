@@ -34,13 +34,13 @@ const HomePage = () => {
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Newest arrival 1" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/turkeybowl.jpg`} alt="Newest arrival 1" className="slider-image" />
               </div>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image2.jpg`} alt="Newest arrival 2" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/gamblingghouls.jpg`} alt="Newest arrival 2" className="slider-image" />
               </div>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Newest arrival 3" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/boobees.jpg`} alt="Newest arrival 3" className="slider-image" />
               </div>
               {/* Add more images as needed */}
             </Slider>
@@ -53,13 +53,22 @@ const HomePage = () => {
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Best seller 1" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/doublejugs.jpg`} alt="Best seller 1" className="slider-image" />
               </div>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Best seller 2" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/betterthansex.jpg`} alt="Best seller 2" className="slider-image" />
               </div>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Best seller 3" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/33kmsuperjar.jpg`} alt="Best seller 3" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/captainjacks.jpg`} alt="Best seller 1" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/moolah.jpg`} alt="Best seller 2" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/gusher.jpg`} alt="Best seller 3" className="slider-image" />
               </div>
               {/* Add more images as needed */}
             </Slider>
@@ -72,13 +81,22 @@ const HomePage = () => {
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image1.jpg`} alt="Hot this month 1" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/doubledeal.jpg`} alt="Hot this month 1" className="slider-image" />
               </div>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image2.jpg`} alt="Hot this month 2" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/gusher.jpg`} alt="Hot this month 2" className="slider-image" />
               </div>
               <div>
-                <img src={`${process.env.PUBLIC_URL}/assets/images/image3.jpg`} alt="Hot this month 3" className="slider-image" />
+                <img src={`${process.env.PUBLIC_URL}/assets/images/victorylane.jpg`} alt="Hot this month 3" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/happyhookers.jpg`} alt="Hot this month 1" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/thedoghouse.jpg`} alt="Hot this month 2" className="slider-image" />
+              </div>
+              <div>
+                <img src={`${process.env.PUBLIC_URL}/assets/images/miniclub.jpg`} alt="Hot this month 3" className="slider-image" />
               </div>
               {/* Add more images as needed */}
             </Slider>
