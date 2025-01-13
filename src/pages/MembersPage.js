@@ -23,7 +23,7 @@ const MembersPage = () => {
       <h2 className='color'>** Note, Some Orders May Take Longer To Fulfill Than Others Depending On Stock**</h2>
       <input 
         type="text" 
-        placeholder="Search by tag or category..." 
+        placeholder="Search by name, tag, or category..." 
         value={searchTerm} 
         onChange={handleSearchChange} 
         className="search-bar"

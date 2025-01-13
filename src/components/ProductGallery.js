@@ -20,10 +20,11 @@ const ProductGallery = ({ searchTerm }) => {
 
   const filterProducts = (searchTerm, criteria) => {
     let filteredArray = products.filter(product => {
+      const matchesName = product.name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesCategory = product.category.toLowerCase().includes(searchTerm.toLowerCase());
       const matchesTag = product.tags && product.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
       const matchesCriteria = criteria === 'all' || product.category === criteria;
-      return (matchesCategory || matchesTag) && matchesCriteria;
+      return (matchesName || matchesCategory || matchesTag) && matchesCriteria;
     });
 
     setFilteredProducts(filteredArray);

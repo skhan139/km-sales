@@ -1,5 +1,3 @@
-// src/components/Cart.js
-
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -15,10 +13,17 @@ const Cart = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [error, setError] = useState('');
 
   const handleCheckout = () => {
+    if (cart.length === 0) {
+      setError('You have no items in your cart');
+      return;
+    }
+
     if (user) {
       setIsModalOpen(true);
+      setError(''); // Clear any previous error
     } else {
       navigate('/login');
     }
@@ -61,6 +66,7 @@ const Cart = () => {
           ))}
         </div>
       )}
+      {error && <p className="error-message">{error}</p>}
       <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
 
       <CheckoutFormModal
