@@ -1,14 +1,16 @@
+// src/components/Cart.js
+
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import CheckoutFormModal from './CheckoutFormModal';
-import Modal from 'react-modal'; // Import Modal from react-modal
-import './Cart.css'; // Import the CSS file for styling
+import Modal from 'react-modal';
+import './Cart.css';
 
 const Cart = () => {
-  const { cart, removeItemFromCart, clearCart } = useCart();
+  const { cart, removeItemFromCart, clearCart, updateQuantity } = useCart();
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,6 +31,12 @@ const Cart = () => {
     setIsSuccessModalOpen(true);
   };
 
+  const handleQuantityChange = (id, quantity) => {
+    if (quantity > 0) {
+      updateQuantity(id, quantity);
+    }
+  };
+
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
@@ -42,6 +50,11 @@ const Cart = () => {
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
                 <span className="cart-item-price">{item.price}</span>
+                <div className="cart-item-quantity">
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
+                </div>
               </div>
               <button className="remove-item-button" onClick={() => removeItemFromCart(item.id)}>Remove</button>
             </div>

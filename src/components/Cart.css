@@ -94,3 +94,20 @@ p {
 .ordertwo {
   color: black;
 }
+
+
+.cart-item-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-quantity button {
+  background-color: #ddd;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cart-item-quantity span {
+  margin: 0 10px;
+}

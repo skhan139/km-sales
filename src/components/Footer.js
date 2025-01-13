@@ -6,7 +6,7 @@ import '../assets/styles/Footer.css'; // Ensure this path is correct
 const Footer = () => {
   return (
     <footer className="footer">
-      <p className="footer-text">Copyright K&M Sales 2025 All Rights Reserved</p>
+      <p className="footer-text">©, K&M Sales, 2025, All Rights Reserved</p>
       <div className="footer-images">
         <p>Proudly Partnered With:</p>
         <img src='/assets/images/bonanza.avif' alt='Bonanza' />

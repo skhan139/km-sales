@@ -30,7 +30,7 @@ const Navbar = () => {
             <li>
               <Link to="/cart">
                 <span className="cart-icon">
-                  Cart ({cart.length})
+                  Cart ({cart ? cart.length : 0})
                 </span>
               </Link>
             </li>
