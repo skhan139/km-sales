@@ -1,5 +1,3 @@
-// src/components/Cart.js
-
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -35,7 +33,7 @@ const Cart = () => {
     <div className="cart-container">
       <h2>Your Cart</h2>
       {cart.length === 0 ? (
-        <p>Your cart is empty</p>
+        <p>You have no items in your cart</p>
       ) : (
         <div className="cart-items">
           {cart.map((item) => (

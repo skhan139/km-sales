@@ -8,7 +8,7 @@ const AboutPage = () => {
     <div className="page-container">
       <div className="about-page">
         <div className="about-box">
-          <h3 className='at'>At K&M Sales, we have proudly served as the leading distributor of bingo and gaming supplies in Western Maryland and West Virginia for over 40 years. Our dedication to quality and customer satisfaction has made us a trusted partner in the industry!</h3>
+          <h3 className='at'>At K&M Sales, we have proudly served as the leading distributor of bingo and gaming supplies in Western Maryland and West Virginia for over 40 years. Our founder Roy "Buzz" Mills has set a standard that takes pride in dedication to quality and customer satisfaction, which has made us a trusted partner in the industry!</h3>
         </div>
         <div className="flex-container">
           <div className="flex-item">
@@ -33,7 +33,7 @@ const AboutPage = () => {
           </div>
           <div className="flex-item">
             <h3>Custom Games</h3>
-            <p>Looking for something unique? We specialize in designing and manufacturing custom games that add a personal touch to any event or fundraiser.</p>
+            <p>Looking for something unique? We specialize in designing and manufacturing custom games that add a personal touch to any event or fundraiser. Please contact us through email or give us a call if interested.</p>
           </div>
         </div>
       </div>

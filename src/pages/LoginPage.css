@@ -84,3 +84,7 @@
   font-size: 0.9em; /* Adjust font size */
   text-align: center; /* Center-align the message */
 }
+
+.loginHeader {
+  color: white
+}

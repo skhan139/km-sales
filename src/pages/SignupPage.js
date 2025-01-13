@@ -41,7 +41,7 @@ const SignupPage = () => {
         <h1>Create An Account To Login And View Our Products!</h1>
         <div className="signup-page">
           <div className="signup-container">
-            <h2>Signup</h2>
+            <h2 className='signupHeader'>Signup</h2>
             {signupSuccess && <p className="success-message">Signup successful!</p>} {/* Display success message */}
             {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
             <form onSubmit={handleSignup}>

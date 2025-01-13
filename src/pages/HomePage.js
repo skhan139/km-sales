@@ -20,7 +20,7 @@ const HomePage = () => {
     <div className="homepage-container">
       <div className="info-box">
         <h1>Welcome to K&M Sales.</h1>
-        <h2>Proudly serving West Virginia and Maryland for over 40 years!</h2>
+        <h2 className='produly'>Proudly serving West Virginia and Maryland for over 40 years!</h2>
         <p>
           We supply to Bingo Halls, Cash Bashes. Military Organizations, Private Clubs, Bars, and Fire Departments. <br /> <br />
           Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.

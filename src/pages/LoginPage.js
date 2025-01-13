@@ -56,7 +56,7 @@ const LoginPage = () => {
         <h1>Existing K&M Customers Login Here!</h1>
         <div className="login-page">
           <div className="login-container">
-            <h2>Login</h2>
+            <h2 className='loginHeader'>Login</h2>
             {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
             <form onSubmit={handleLogin}>
               <input

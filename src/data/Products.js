@@ -1,18 +1,18 @@
 const products = [
   { id: 1, name: "Product 1", price: "$10.00", image: "path/to/image1.jpg", category: "tip boards", tags: ["tip", "board"] },
-  { id: 2, name: "Product 2", price: "$15.00", image: "path/to/image2.jpg", category: "coin boards", tags: ["coin", "board"] },
+  { id: 2, name: "Knife Board", price: "$15.00", image: "path/to/image2.jpg", category: "coin boards", tags: ["coin", "board"] },
   { id: 3, name: "Product 3", price: "$20.00", image: "path/to/image3.jpg", category: "tip jars", tags: ["tip", "jar"] },
   { id: 4, name: "Product 4", price: "$25.00", image: "path/to/image4.jpg", category: "instant winners", tags: ["instant", "winner"] },
   { id: 5, name: "Product 5", price: "$30.00", image: "path/to/image5.jpg", category: "bingo dobbers", tags: ["bingo", "dobber"] },
   { id: 6, name: "Product 6", price: "$35.00", image: "path/to/image6.jpg", category: "tip boards", tags: ["tip", "board"] },
   { id: 7, name: "Product 7", price: "$40.00", image: "path/to/image7.jpg", category: "coin boards", tags: ["coin", "board"] },
   { id: 8, name: "Product 8", price: "$45.00", image: "path/to/image8.jpg", category: "tip jars", tags: ["tip", "jar"] },
-  { id: 9, name: "Captain Jacks", price: "$50.00", image: "path/to/image9.jpg", category: "instant winners", tags: ["instant", "winner"] },
+  { id: 9, name: "Captain Jacks", price: "$110.00", image: "public/assets/productimages/captainJack.HEIC", category: "instant winners", tags: ["instant", "winner"] },
   { id: 10, name: "Product 10", price: "$55.00", image: "path/to/image10.jpg", category: "bingo dobbers", tags: ["bingo", "dobber"] },
   { id: 11, name: "Product 11", price: "$60.00", image: "path/to/image11.jpg", category: "tip boards", tags: ["tip", "board"] },
   { id: 12, name: "Product 12", price: "$65.00", image: "path/to/image12.jpg", category: "coin boards", tags: ["coin", "board"] },
   { id: 13, name: "Product 13", price: "$70.00", image: "path/to/image13.jpg", category: "tip jars", tags: ["tip", "jar"] },
-  { id: 14, name: "Product 14", price: "$75.00", image: "path/to/image14.jpg", category: "instant winners", tags: ["instant", "winner"] },
+  { id: 14, name: "BigFoots", price: "$75.00", image: "public/assets/productimages/bigfoot.heic", category: "instant winners", tags: ["instant", "winner"] },
   { id: 15, name: "Product 15", price: "$80.00", image: "path/to/image15.jpg", category: "bingo dobbers", tags: ["bingo", "dobber"] },
   { id: 16, name: "Product 16", price: "$85.00", image: "path/to/image16.jpg", category: "tip boards", tags: ["tip", "board"] },
   { id: 17, name: "Product 17", price: "$90.00", image: "path/to/image17.jpg", category: "coin boards", tags: ["coin", "board"] },
@@ -55,8 +55,8 @@ const products = [
   { id: 54, name: "Product 54", price: "$275.00", image: "path/to/image54.jpg", category: "bingo games", tags: ["bingo", "game"] }, // New product
   { id: 55, name: "Product 55", price: "$280.00", image: "path/to/image55.jpg", category: "scratch off boards", tags: ["scratch", "off", "board"] }, // New product
   { id: 56, name: "Product 56", price: "$285.00", image: "path/to/image56.jpg", category: "scratch off boards", tags: ["scratch", "off", "board"] }, // New product
-  { id: 57, name: "Product 57", price: "$290.00", image: "path/to/image57.jpg", category: "bingo card games", tags: ["bingo", "card", "game"] }, // New product
-  { id: 58, name: "Product 58", price: "$295.00", image: "path/to/image58.jpg", category: "bingo card games", tags: ["bingo", "card", "game"] }, // New product
+  { id: 57, name: "287 Bee Ball", price: "$290.00", image: "path/to/image57.jpg", category: "bingo card games", tags: ["bingo", "card", "game"] }, // New product
+  { id: 58, name: "287 Big Rig", price: "$295.00", image: "path/to/image58.jpg", category: "bingo card games", tags: ["bingo", "card", "game"] }, // New product}
   { id: 59, name: "Product 59", price: "$300.00", image: "path/to/image59.jpg", category: "raffle tickets", tags: ["raffle", "ticket"] }, // New product
   { id: 60, name: "Product 60", price: "$305.00", image: "path/to/image60.jpg", category: "raffle tickets", tags: ["raffle", "ticket"] }, // New product
   { id: 61, name: "Product 59", price: "$300.00", image: "path/to/image59.jpg", category: "raffle tickets", tags: ["raffle", "ticket"] }, // New product
