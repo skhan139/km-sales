@@ -4,9 +4,12 @@ import { useCart } from '../context/CartContext';
 import ProductModal from './ProductModal'; // Import the ProductModal component
 import './ProductGallery.css'; // Import the CSS file for styling
 
+const itemsPerPage = 30; // Number of items to display per page
+
 const ProductGallery = ({ searchTerm }) => {
   const [sortCriteria, setSortCriteria] = useState('all');
   const [filteredProducts, setFilteredProducts] = useState([...products]);
+  const [currentPage, setCurrentPage] = useState(1); // State for the current page
   const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
   const { addItemToCart } = useCart(); // Use the Cart context
 
@@ -28,6 +31,7 @@ const ProductGallery = ({ searchTerm }) => {
     });
 
     setFilteredProducts(filteredArray);
+    setCurrentPage(1); // Reset to the first page whenever the filter changes
   };
 
   const handleProductClick = (product) => {
@@ -37,6 +41,13 @@ const ProductGallery = ({ searchTerm }) => {
   const handleCloseModal = () => {
     setSelectedProduct(null);
   };
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+  const displayedProducts = filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
     <div className="product-gallery-container">
@@ -56,14 +67,36 @@ const ProductGallery = ({ searchTerm }) => {
           <option value="raffle tickets">Raffle Tickets</option>
         </select>
       </div>
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
+          >
+            {index + 1}
+          </button>
+        ))}
+      </div>
       <div className="product-gallery">
-        {filteredProducts.map((product) => (
+        {displayedProducts.map((product) => (
           <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
             <img src={product.image} alt={product.name} className="product-image" />
             <h2 className="product-name">{product.name}</h2>
             <p className="product-price">{product.price}</p>
             <button onClick={(e) => { e.stopPropagation(); addItemToCart(product); }} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
           </div>
+        ))}
+      </div>
+      <div className="pagination">
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button
+            key={index + 1}
+            onClick={() => handlePageChange(index + 1)}
+            className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
+          >
+            {index + 1}
+          </button>
         ))}
       </div>
       <ProductModal product={selectedProduct} onClose={handleCloseModal} />

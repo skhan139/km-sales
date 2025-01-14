@@ -7,22 +7,29 @@ import { useNavigate } from 'react-router-dom';
 import './SignupPage.css'; // Import the CSS file for styling
 
 const SignupPage = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [companyName, setCompanyName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState(''); // State to manage phone number
-  const [signupSuccess, setSignupSuccess] = useState(false); // State to manage signup success message
-  const [errorMessage, setErrorMessage] = useState(''); // State to manage error messages
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [businessAddress, setBusinessAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [organizationRole, setOrganizationRole] = useState('');
+  const [signupSuccess, setSignupSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      // Here you would typically also send the phone number to your backend or save it in the user profile
+      // Here you would typically also send the additional fields to your backend or save them in the user profile
       await createUserWithEmailAndPassword(auth, email, password);
-      setSignupSuccess(true); // Set signup success state to true
+      setSignupSuccess(true);
       setTimeout(() => {
-        navigate('/login'); // Navigate to the login page after a delay
-      }, 2000); // Adjust the delay as needed
+        navigate('/login');
+      }, 2000);
     } catch (error) {
       console.error("Error signing up:", error);
       if (error.code === 'auth/email-already-in-use') {
@@ -42,9 +49,30 @@ const SignupPage = () => {
         <div className="signup-page">
           <div className="signup-container">
             <h2 className='signupHeader'>Signup</h2>
-            {signupSuccess && <p className="success-message">Signup successful!</p>} {/* Display success message */}
-            {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
+            {signupSuccess && <p className="success-message">Signup successful!</p>}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <form onSubmit={handleSignup}>
+              <input
+                type="text"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Company Name"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                required
+              />
               <input
                 type="email"
                 placeholder="Email"
@@ -64,6 +92,34 @@ const SignupPage = () => {
                 placeholder="Phone Number"
                 value={phoneNumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Business Address"
+                value={businessAddress}
+                onChange={(e) => setBusinessAddress(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="City"
+                value={city}
+                onChange={(e) => setCity(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Zip Code"
+                value={zipCode}
+                onChange={(e) => setZipCode(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Organization Role"
+                value={organizationRole}
+                onChange={(e) => setOrganizationRole(e.target.value)}
                 required
               />
               <button type="submit">Signup</button>

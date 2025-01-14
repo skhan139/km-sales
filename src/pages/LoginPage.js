@@ -54,6 +54,7 @@ const LoginPage = () => {
     <div className="page-container">
       <div className="login-page-container">
         <h1>Existing K&M Customers Login Here!</h1>
+        <h2>View Our Products, Place Orders, And More!</h2>
         <div className="login-page">
           <div className="login-container">
             <h2 className='loginHeader'>Login</h2>

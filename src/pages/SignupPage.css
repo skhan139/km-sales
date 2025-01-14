@@ -82,6 +82,12 @@
   margin-bottom: 20px;
 }
 
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 .signupHeader {
-  color: white
+  color: white;
 }

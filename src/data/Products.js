@@ -29,8 +29,8 @@ const products = [
   { id: 28, name: "Who's In The Dog House?", price: "$145.00", image: "/assets/images/whosinthedoghouse.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU028", takeIn: "$116.00", payout: "$29.00", profit: "$28.00", profitPercent: "19.31%", dealsPerCase: "20" },
   { id: 29, name: "Witches, Turkey's, And Elves", price: "$150.00", image: "/assets/images/witches-turkeys-elves.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU029", takeIn: "$120.00", payout: "$30.00", profit: "$29.00", profitPercent: "19.33%", dealsPerCase: "5" },
   { id: 30, name: "Moohlah", price: "$155.00", image: "/assets/images/moolah.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU030", takeIn: "$124.00", payout: "$31.00", profit: "$30.00", profitPercent: "19.35%", dealsPerCase: "10" },
-  { id: 31, name: "Doubloons", price: "$155.00", image: "/assets/images/doubloons.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU030", takeIn: "$124.00", payout: "$31.00", profit: "$30.00", profitPercent: "19.35%", dealsPerCase: "10" },
-  { id: 32, name: "Beeball", price: "$155.00", image: "/assets/images/beeball.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU030", takeIn: "$124.00", payout: "$31.00", profit: "$30.00", profitPercent: "19.35%", dealsPerCase: "10" },
+  { id: 31, name: "287 Doubloons", price: "$155.00", image: "/assets/images/doubloons.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU030", takeIn: "$20.00", payout: "$31.00", profit: "$30.00", profitPercent: "19.35%", dealsPerCase: "10" },
+  { id: 32, name: "287 Beeball", price: "$155.00", image: "/assets/images/beeball.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU030", takeIn: "$20.00", payout: "$31.00", profit: "$30.00", profitPercent: "19.35%", dealsPerCase: "10" },
 ];
 
 export default products;
