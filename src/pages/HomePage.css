@@ -4,18 +4,20 @@
   background-image: url('/public/assets/images/background1.avif'); /* Path to your background image */
   background-size: cover;
   background-position: center;
-  min-height: 120vh; /* Increase the minimum height to allow for scrolling */
+  background-repeat: repeat-y; /* Repeat the background image vertically */
+  min-height: 120vh; /* Base minimum height */
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between; /* Space between top content and sliders */
+  justify-content: flex-start; /* Align items at the start */
   color: white; /* Adjust text color for visibility */
   padding: 20px; /* Add some padding for responsiveness */
   padding-bottom: 60px; /* Add bottom padding to ensure space below sliders */
+  margin-top: 60px; /* Add top margin to avoid overlapping with navbar */
 }
 
 .info-box {
-  margin-top: 20px;
+  margin-top: 0; /* Remove extra margin on top */
   padding: 20px;
   background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   border-radius: 10px; /* Rounded corners */
@@ -41,7 +43,8 @@
   display: flex;
   justify-content: space-around; /* Space sliders evenly */
   width: 100%;
-  margin-bottom: 60px; /* Add margin at the bottom of the sliders row */
+  margin-top: 20px; /* Add some margin on top to separate from info-box */
+  margin-bottom: 20px; /* Reduce margin at the bottom of the sliders row */
 }
 
 .slider-section {
@@ -102,4 +105,55 @@
 
 .produly {
   color: white;
+}
+
+/* Styles for mobile screens */
+@media (max-width: 768px) {
+  .homepage-container {
+    min-height: 160vh; /* Increase minimum height for smaller screens */
+    margin-top: 100px; /* Increase top margin to avoid overlapping with navbar */
+    padding-bottom: 120px; /* Increase bottom padding to ensure space below sliders */
+  }
+
+  .info-box {
+    width: 90%; /* Increase the width slightly for smaller screens */
+    padding: 15px; /* Reduce padding for smaller screens */
+    margin-top: 20px; /* Add top margin to avoid touching the navbar */
+  }
+
+  .sliders-row {
+    flex-direction: column;
+    align-items: center; /* Center the sliders in the column layout */
+  }
+
+  .slider-section {
+    max-width: 100%; /* Allow the sliders to take full width */
+    margin-bottom: 20px; /* Add some margin between stacked sliders */
+  }
+}
+
+@media (max-width: 480px) {
+  .homepage-container {
+    min-height: 200vh; /* Further increase minimum height for the smallest screens */
+    margin-top: 120px; /* Increase top margin to avoid overlapping with navbar */
+    padding-bottom: 160px; /* Increase bottom padding to ensure space below sliders */
+  }
+
+  .info-box {
+    width: 90%; /* Increase the width slightly for smaller screens */
+    padding: 10px; /* Further reduce padding for the smallest screens */
+    margin-top: 30px; /* Add more top margin to avoid touching the navbar */
+  }
+
+  .info-box h2 {
+    font-size: 1.5em;
+  }
+
+  .info-box p {
+    font-size: 0.9em;
+  }
+
+  .slider-image {
+    max-height: 150px; /* Reduce the maximum height for smaller screens */
+  }
 }

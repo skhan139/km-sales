@@ -30,5 +30,41 @@
 }
 
 p {
-  color: white
+  color: white;
+}
+
+/* Styles for mobile screens */
+@media (max-width: 768px) {
+  .footer {
+    padding: 5px 10px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+
+  .footer-images img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .footer-text {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .footer-images {
+    gap: 10px;
+  }
+
+  .footer-images img {
+    height: 30px;
+  }
 }

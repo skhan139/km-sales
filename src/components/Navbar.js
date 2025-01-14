@@ -1,15 +1,20 @@
 // src/components/Navbar.js
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../firebase';
 import { useCart } from '../context/CartContext';
-import '../assets/styles/Navbar.css'; // Ensure this path is correct
+import '../assets/styles/Navbar.css';
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const { cart } = useCart();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <nav className="navbar">
@@ -20,7 +25,12 @@ const Navbar = () => {
           className="logo" 
         />
       </Link>
-      <ul>
+      <button className="toggle-button" onClick={toggleNavbar}>
+        <span className="bar"></span>
+        <span className="bar"></span>
+        <span className="bar"></span>
+      </button>
+      <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
@@ -29,8 +39,8 @@ const Navbar = () => {
             <li><Link to="/members">Products</Link></li>
             <li>
               <Link to="/cart">
-                <span className="cart-icon">
-                  Cart ({cart ? cart.length : 0})
+                <span className="cart-icon" data-count={cart ? cart.length : 0}>
+                  Cart
                 </span>
               </Link>
             </li>
