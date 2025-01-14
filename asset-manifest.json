@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "https://skhan139.github.io/km-sales/static/css/main.fcc376a2.css",
-    "main.js": "https://skhan139.github.io/km-sales/static/js/main.5ccde9e2.js",
-    "static/media/background1.avif": "https://skhan139.github.io/km-sales/static/media/background1.c409a84b2f5baacce0b9.avif",
-    "static/media/slick.svg": "https://skhan139.github.io/km-sales/static/media/slick.2630a3e3eab21c607e21.svg",
-    "static/media/slick.eot": "https://skhan139.github.io/km-sales/static/media/slick.a4e97f5a2a64f0ab1323.eot",
-    "static/media/slick.ttf": "https://skhan139.github.io/km-sales/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/slick.woff": "https://skhan139.github.io/km-sales/static/media/slick.295183786cd8a1389865.woff",
-    "index.html": "https://skhan139.github.io/km-sales/index.html",
-    "main.fcc376a2.css.map": "https://skhan139.github.io/km-sales/static/css/main.fcc376a2.css.map",
-    "main.5ccde9e2.js.map": "https://skhan139.github.io/km-sales/static/js/main.5ccde9e2.js.map"
+    "main.css": "/km-sales/static/css/main.db62a5e4.css",
+    "main.js": "/km-sales/static/js/main.b3826651.js",
+    "static/media/background1.avif": "/km-sales/static/media/background1.3085b315b88f8d47aed7.avif",
+    "static/media/slick.svg": "/km-sales/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/km-sales/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/km-sales/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/km-sales/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/km-sales/index.html",
+    "main.db62a5e4.css.map": "/km-sales/static/css/main.db62a5e4.css.map",
+    "main.b3826651.js.map": "/km-sales/static/js/main.b3826651.js.map"
   },
   "entrypoints": [
-    "static/css/main.fcc376a2.css",
-    "static/js/main.5ccde9e2.js"
+    "static/css/main.db62a5e4.css",
+    "static/js/main.b3826651.js"
   ]
 }
