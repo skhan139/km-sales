@@ -1,5 +1,3 @@
-// src/components/Navbar.js
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -34,6 +32,8 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/legacy">Legacy</Link></li> {/* Add Legacy Link */}
+        <li><Link to="/testimonial">Testimonials</Link></li> {/* Add Testimonial Link */}
         {user ? (
           <>
             <li><Link to="/members">Products</Link></li>

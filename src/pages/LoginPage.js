@@ -75,7 +75,7 @@ const LoginPage = () => {
                 />
               )}
               <button type="submit">Login</button>
-              <p>Need To Create An Account? Sign Up <a href={`${process.env.PUBLIC_URL}/signup`} style={{ color: 'white' }}>Here!</a>.</p>
+              <p className='need'>Need To Create An Account? Sign Up <a href={`${process.env.PUBLIC_URL}/signup`} style={{ color: 'white' }}>Here!</a>.</p>
             </form>
             <div id="recaptcha-container"></div> {/* Recaptcha container for phone number auth */}
           </div>

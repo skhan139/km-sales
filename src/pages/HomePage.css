@@ -157,3 +157,11 @@
     max-height: 150px; /* Reduce the maximum height for smaller screens */
   }
 }
+
+.welcome {
+  color: white;
+}
+
+.intro {
+  color: white;
+}

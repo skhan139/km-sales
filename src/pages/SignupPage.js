@@ -123,7 +123,7 @@ const SignupPage = () => {
                 required
               />
               <button type="submit">Signup</button>
-              <p>Already Have An Account? Sign In <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>Here!</a>.</p>
+              <p className='already'>Already Have An Account? Sign In <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>Here!</a>.</p>
             </form>
           </div>
         </div>
