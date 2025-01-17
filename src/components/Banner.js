@@ -5,10 +5,10 @@ const Banner = () => {
   return (
     <div className="banner">
       <div className="banner-content">
-        <p>
+        <h3>
           Interested in creating a custom game? 
           <a href="mailto:skhan139@icloud.com?subject=Custom%20Game%20Inquiry"> Message us here!</a>
-        </p>
+        </h3>
       </div>
     </div>
   );
