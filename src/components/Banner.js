@@ -5,12 +5,10 @@ const Banner = () => {
   return (
     <div className="banner">
       <div className="banner-content">
-        <h1>
-          Proudly Partnered With 
-          <img src='/public/assets/images/paramount.avif' alt='Partner Logo' />
-          <img src='/src/assets/images/bonanza.avif' alt='Partner Logo' />
-          <img src='/src/assets/images/bonanza.avif' alt='Partner Logo' />
-        </h1>
+        <p>
+          Interested in creating a custom game? 
+          <a href="mailto:skhan139@icloud.com?subject=Custom%20Game%20Inquiry"> Message us here!</a>
+        </p>
       </div>
     </div>
   );

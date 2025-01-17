@@ -50,6 +50,7 @@ We will notify you once we’ve received and inspected your return, and let you 
 If more than 15 business days have passed since we’ve approved your return, please contact us at kandmsales17@gmail.com.
         </p>
       </div>
+      <Footer /> {/* Add Footer here */}
     </div>
   );
 };

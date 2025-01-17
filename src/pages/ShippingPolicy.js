@@ -12,6 +12,7 @@ const ShippingPolicy = () => {
           section to include your company's shipping policy details.
         </p>
       </div>
+      <Footer /> {/* Add Footer here */}
     </div>
   );
 };
