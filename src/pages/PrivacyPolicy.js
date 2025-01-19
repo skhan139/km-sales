@@ -75,7 +75,6 @@ Email: [kandmsales17@gmail.com]
 [Insert Mailing Address]
         </p>
       </div>
-      <Footer /> {/* Add Footer here */}
     </div>
   );
 };

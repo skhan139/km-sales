@@ -54,7 +54,7 @@ const Cart = () => {
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
-                <span className="cart-item-price">{item.price}</span>
+                {/* <span className="cart-item-price">{item.price}</span> */}
                 <div className="cart-item-quantity">
                   <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
                   <span>{item.quantity}</span>

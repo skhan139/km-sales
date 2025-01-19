@@ -1,9 +1,9 @@
 .banner {
-  width: 100%;
+  width: 150%;
   height: 150px; /* Adjust the height as needed */
   background-size: cover;
   background-position: center;
-  background-color: #000000; /* Fallback background color */
+  background-color: #333; /* Fallback background color */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,7 @@
 }
 
 .banner-content {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+  background-color: #333; /* Semi-transparent background for readability */
   padding: 10px; /* Adjust padding if needed */
   border-radius: 10px;
 }
