@@ -47,7 +47,7 @@
 
 .cart-item-price {
   font-size: 16px;
-  color: #888;
+  color: #000;
 }
 
 .remove-item-button {
@@ -65,7 +65,7 @@
 }
 
 .checkout-button {
-  background-color: #4CAF50;
+  background-color: #000;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -76,7 +76,7 @@
 }
 
 .checkout-button:hover {
-  background-color: #45a049;
+  background-color: #DAA520;
 }
 
 h2 {

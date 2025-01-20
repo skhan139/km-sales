@@ -1,7 +1,7 @@
 .members-page-container {
   padding: 80px 20px 100px; /* Add extra padding to the bottom to prevent overlap with the footer */
   text-align: center;
-  background-color: #fff; /* Specify the path to your background image */
+  background-color: whitesmoke; /* Specify the path to your background image */
   background-size: cover; /* Ensure the background image covers the entire container */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Prevent the background image from repeating */
@@ -50,4 +50,11 @@
   padding: 10px;
   width: 300px;
   font-size: 16px;
+}
+h1, h2 {
+  text-shadow: 
+    -1px -1px 0 #fff, /* Top-left shadow */
+    1px -1px 0 #fff,  /* Top-right shadow */
+    -1px 1px 0 #fff,  /* Bottom-left shadow */
+    1px 1px 0 #fff;   /* Bottom-right shadow */
 }

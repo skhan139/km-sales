@@ -26,6 +26,10 @@ const HomePage = () => {
           We supply to Bingo Halls, Cash Bashes. Military Organizations, Private Clubs, Bars, and Fire Departments. <br /> <br />
           Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
         </p>
+        <p className='intro'>
+          Interested in creating a custom game? 
+          <a href="mailto:skhan139@icloud.com?subject=Custom%20Game%20Inquiry"> Message us here!</a>
+        </p>
       </div>
 
       <div className="sliders-row">

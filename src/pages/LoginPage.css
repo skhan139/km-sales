@@ -73,7 +73,7 @@
 }
 
 .login-container button:hover {
-  background-color: #0056b3;
+  background-color: #DAA520;
 }
 
 .homepage-container {
@@ -96,7 +96,8 @@
 }
 
 .loginHeader {
-  color: white;
+  color: white; /* Set text color to white */
+  text-shadow: none; /* Remove any text shadow */
 }
 
 .need {
@@ -113,4 +114,12 @@
 .footer {
   margin-top: 0; /* Remove top margin */
   padding-top: 0; /* Remove top padding */
+}
+
+.view {
+  text-shadow: 
+    -1px -1px 0 #fff, /* Top-left shadow */
+    1px -1px 0 #fff,  /* Top-right shadow */
+    -1px 1px 0 #fff,  /* Bottom-left shadow */
+    1px 1px 0 #fff;   /* Bottom-right shadow */
 }

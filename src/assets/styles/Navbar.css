@@ -34,6 +34,11 @@ li a, .nav-button {
   font-size: 16px;
   transition: background-color 0.3s;
   cursor: pointer;
+  text-shadow: 
+    -1px -1px 0 #000, /* Top-left shadow */
+    1px -1px 0 #000,  /* Top-right shadow */
+    -1px 1px 0 #000,  /* Bottom-left shadow */
+    1px 1px 0 #000;   /* Bottom-right shadow */
 }
 
 li a:hover, .nav-button:hover {

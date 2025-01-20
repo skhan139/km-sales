@@ -64,6 +64,11 @@
 h1 {
   color: black;
   font-weight: bold; /* Make the h1 font bold */
+  text-shadow: 
+    -1px -1px 0 #ffffff, /* Top-left shadow */
+    1px -1px 0 #ffffff,  /* Top-right shadow */
+    -1px 1px 0 #ffffff,  /* Bottom-left shadow */
+    1px 1px 0 #ffffff;   /* Bottom-right shadow */
 }
 
 .legacy-story {
@@ -71,4 +76,9 @@ h1 {
   color: black; /* Ensure text is readable */
   max-width: 800px; /* Limit the width of the text for better readability */
   line-height: 1.6; /* Improve line spacing for readability */
+  text-shadow: 
+    -1px -1px 0 #ffffff, /* Top-left shadow */
+    1px -1px 0 #ffffff,  /* Top-right shadow */
+    -1px 1px 0 #ffffff,  /* Bottom-left shadow */
+    1px 1px 0 #ffffff;   /* Bottom-right shadow */
 }

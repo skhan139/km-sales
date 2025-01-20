@@ -100,4 +100,9 @@
 
 .at {
   color:black;
+  text-shadow: 
+    -1px -1px 0 #ffffff, /* Top-left shadow */
+    1px -1px 0 #ffffff,  /* Top-right shadow */
+    -1px 1px 0 #ffffff,  /* Bottom-left shadow */
+    1px 1px 0 #ffffff;   /* Bottom-right shadow */
 }

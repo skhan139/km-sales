@@ -30,6 +30,17 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
 }
 
+.info-box h1,
+.info-box h2,
+.info-box p,
+.info-box a {
+  text-shadow: 
+    -1px -1px 0 #000, /* Top-left shadow */
+    1px -1px 0 #000,  /* Top-right shadow */
+    -1px 1px 0 #000,  /* Bottom-left shadow */
+    1px 1px 0 #000;   /* Bottom-right shadow */
+}
+
 .info-box h2 {
   margin-bottom: 10px;
   font-size: 1.8em;
@@ -68,6 +79,15 @@
   margin: 0 auto; /* Center images horizontally within container */
 }
 
+.sliderHead {
+  color: black;
+  text-shadow: 
+    -1px -1px 0 #fff, /* Top-left shadow */
+    1px -1px 0 #fff,  /* Top-right shadow */
+    -1px 1px 0 #fff,  /* Bottom-left shadow */
+    1px 1px 0 #fff;   /* Bottom-right shadow */
+}
+
 /* Custom styles for the slick slider arrows */
 .slick-prev,
 .slick-next {
@@ -99,10 +119,6 @@
 .slick-prev:before:hover,
 .slick-next:before:hover {
   color: black; /* Keep the arrow icon color black on hover */
-}
-
-.sliderHead {
-  color: black;
 }
 
 .produly {
@@ -165,5 +181,9 @@
 }
 
 .intro {
+  color: white;
+}
+
+a {
   color: white;
 }
