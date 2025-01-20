@@ -1,12 +1,22 @@
 /* src/pages/LoginPage.css */
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to start (top) */
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 2px 2px; /* Add padding to prevent touching navbar and footer */
+  padding-top: 40px; /* Optional: Add padding to adjust the top spacing */
+  color: #000000;
+}
+
 .login-page-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* Align items to start (top) */
   align-items: center;
-  min-height: calc(100vh - 120px); /* Full viewport height minus space for navbar and footer */
-  background-color: #ffffff;
+  min-height: calc(100vh - 60px); /* Full viewport height minus space for navbar and footer */
   padding: 2px 2px; /* Add padding to prevent touching navbar and footer */
   padding-top: 40px; /* Optional: Add padding to adjust the top spacing */
   color: #000000;
@@ -67,7 +77,7 @@
 }
 
 .homepage-container {
-  background-image: url('/public/assets/images/background1.avif'); /* Path to your background image */
+  background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
   background-size: cover;
   background-position: center;
   height: 100vh; /* Full viewport height */
@@ -86,9 +96,21 @@
 }
 
 .loginHeader {
-  color: white
+  color: white;
 }
 
 .need {
   color: white;
+}
+
+/* Adjust the margin of the last div to shrink the space between it and the footer */
+.login-container {
+  margin-bottom: 0; /* Remove bottom margin */
+  padding-bottom: 0; /* Remove bottom padding */
+}
+
+/* Adjust the footer margin to shrink the space between it and the last div */
+.footer {
+  margin-top: 0; /* Remove top margin */
+  padding-top: 0; /* Remove top padding */
 }

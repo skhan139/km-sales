@@ -1,9 +1,9 @@
 .banner {
   width: 100%;
-  height: 150px; /* Adjust the height as needed */
+  height: 100px; /* Adjust the height as needed */
   background-size: cover;
   background-position: center;
-  background-color: #333; /* Fallback background color */
+  background-image: url(/public/assets/images/matteblackbg.jpg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,6 @@
 }
 
 .banner-content {
-  background-color: #333; /* Semi-transparent background for readability */
   padding: 10px; /* Adjust padding if needed */
   border-radius: 10px;
 }

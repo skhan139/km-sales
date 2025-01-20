@@ -3,7 +3,7 @@ import './LegacyPage.css'; // Import the updated CSS for styling
 
 const LegacyPage = () => {
   return (
-    <div className="legacy-page page-container">
+    <div className="page-container">
       <h1>Legacy</h1>
       <p className="legacy-story">
       Over forty years ago, our founder Roy “Buzz” Mills had a vision to build a brand that thrived on the principles of hard work, commitment to customer service, and honesty.

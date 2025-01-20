@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className="navbar">
       <Link to="/">
         <img 
-          src="/assets/images/km.jpeg" 
+          src="/assets/images/kmicologo.png" 
           alt="K&M Sales Logo" 
           className="logo" 
         />

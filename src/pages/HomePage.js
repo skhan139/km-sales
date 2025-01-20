@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './HomePage.css'; // Import the CSS file for styling
-import Banner from '../components/Banner'; // Import the Banner component
 
 const HomePage = () => {
   const sliderSettings = {
@@ -19,7 +18,6 @@ const HomePage = () => {
 
   return (
     <div className="homepage-container">
-      <Banner /> {/* Add the Banner component here */}
       
       <div className="info-box">
         <h1 className='welcome'>Welcome to K&M Sales.</h1>

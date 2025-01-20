@@ -1,7 +1,7 @@
 /* src/pages/HomePage.css */
 
 .homepage-container {
-  background-image: url('/public/assets/images/background1.avif'); /* Path to your background image */
+  background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
   background-size: cover;
   background-position: center;
   background-repeat: repeat-y; /* Repeat the background image vertically */
@@ -12,12 +12,14 @@
   justify-content: flex-start; /* Align items at the start */
   color: white; /* Adjust text color for visibility */
   padding: 20px; /* Add some padding for responsiveness */
+  padding-top: 0px; /* Remove top padding */
   padding-bottom: 60px; /* Add bottom padding to ensure space below sliders */
-  margin-top: 60px; /* Add top margin to avoid overlapping with navbar */
+  margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 .info-box {
-  margin-top: 0; /* Remove extra margin on top */
+  margin-top: 40px; /* Add margin to slide the info-box down */
   padding: 20px;
   background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
   border-radius: 10px; /* Rounded corners */
@@ -111,7 +113,7 @@
 @media (max-width: 768px) {
   .homepage-container {
     min-height: 160vh; /* Increase minimum height for smaller screens */
-    margin-top: 100px; /* Increase top margin to avoid overlapping with navbar */
+    margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
     padding-bottom: 120px; /* Increase bottom padding to ensure space below sliders */
   }
 
@@ -135,7 +137,7 @@
 @media (max-width: 480px) {
   .homepage-container {
     min-height: 200vh; /* Further increase minimum height for the smallest screens */
-    margin-top: 120px; /* Increase top margin to avoid overlapping with navbar */
+    margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
     padding-bottom: 160px; /* Increase bottom padding to ensure space below sliders */
   }
 
