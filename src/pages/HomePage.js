@@ -33,8 +33,14 @@ const HomePage = () => {
       </div>
 
       <div className="image-row">
-        <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Image 1" className="row-image" />
-        <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Image 2" className="row-image" />
+        <div className="image-container">
+          <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Image 1" className="row-image" />
+          <h3 className="image-overlay">Contact Maryland Offices</h3>
+        </div>
+        <div className="image-container">
+          <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Image 2" className="row-image" />
+          <h3 className="image-overlay">Contact West Virginia Offices</h3>
+        </div>
       </div>
 
       <div className="sliders-row">

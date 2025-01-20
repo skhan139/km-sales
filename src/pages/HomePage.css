@@ -5,15 +5,15 @@
   background-size: cover;
   background-position: center;
   background-repeat: repeat-y; /* Repeat the background image vertically */
-  min-height: 140vh; /* Increase base minimum height */
+  min-height: 160vh; /* Increase base minimum height */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; /* Align items at the start */
   color: white; /* Adjust text color for visibility */
   padding: 20px; /* Add some padding for responsiveness */
-  padding-top: 0px; /* Remove top padding */
-  padding-bottom: 80px; /* Increase bottom padding to ensure space below sliders */
+  padding-top: 20px; /* Add top padding */
+  padding-bottom: 100px; /* Increase bottom padding to ensure space below sliders */
   margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
   box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
@@ -59,11 +59,30 @@
   margin-top: 20px;
 }
 
+.image-container {
+  position: relative;
+  width: 45%; /* Set a fixed width for the container */
+  height: 300px; /* Set a fixed height for the container */
+}
+
 .row-image {
-  max-width: 45%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the container */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .sliders-row {
@@ -142,9 +161,9 @@
 /* Styles for mobile screens */
 @media (max-width: 768px) {
   .homepage-container {
-    min-height: 280vh; /* Increase minimum height for smaller screens */
+    min-height: 300vh; /* Increase minimum height for smaller screens */
     margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
-    padding-bottom: 240px; /* Increase bottom padding to ensure space below sliders */
+    padding-bottom: 260px; /* Increase bottom padding to ensure space below sliders */
   }
 
   .info-box {
@@ -158,8 +177,13 @@
     align-items: center;
   }
 
+  .image-container {
+    width: 90%; /* Adjust width for smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+  }
+
   .row-image {
-    max-width: 90%;
+    max-width: 100%;
     margin-bottom: 20px;
   }
 
@@ -176,9 +200,9 @@
 
 @media (max-width: 480px) {
   .homepage-container {
-    min-height: 400vh; /* Further increase minimum height for the smallest screens */
+    min-height: 440vh; /* Further increase minimum height for the smallest screens */
     margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
-    padding-bottom: 340px; /* Increase bottom padding to ensure space below sliders */
+    padding-bottom: 380px; /* Increase bottom padding to ensure space below sliders */
   }
 
   .info-box {
@@ -195,8 +219,13 @@
     font-size: 0.9em;
   }
 
+  .image-container {
+    width: 100%; /* Adjust width for smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+  }
+
   .row-image {
-    max-width: 90%;
+    max-width: 100%;
     margin-bottom: 20px;
   }
 
