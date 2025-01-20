@@ -5,7 +5,7 @@
   flex-direction: column;
   justify-content: flex-start; /* Align items to start (top) */
   align-items: center;
-  min-height: 100vh; /* Full viewport height */
+  min-height: 80vh; /* Reduce viewport height */
   padding: 2px 2px; /* Add padding to prevent touching navbar and footer */
   padding-top: 40px; /* Optional: Add padding to adjust the top spacing */
   color: #000000;
@@ -16,7 +16,7 @@
   flex-direction: column;
   justify-content: flex-start; /* Align items to start (top) */
   align-items: center;
-  min-height: calc(100vh - 60px); /* Full viewport height minus space for navbar and footer */
+  min-height: calc(80vh - 60px); /* Reduce viewport height minus space for navbar and footer */
   padding: 2px 2px; /* Add padding to prevent touching navbar and footer */
   padding-top: 40px; /* Optional: Add padding to adjust the top spacing */
   color: #000000;

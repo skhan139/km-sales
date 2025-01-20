@@ -112,9 +112,9 @@
 /* Styles for mobile screens */
 @media (max-width: 768px) {
   .homepage-container {
-    min-height: 160vh; /* Increase minimum height for smaller screens */
+    min-height: 200vh; /* Increase minimum height for smaller screens */
     margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
-    padding-bottom: 120px; /* Increase bottom padding to ensure space below sliders */
+    padding-bottom: 160px; /* Increase bottom padding to ensure space below sliders */
   }
 
   .info-box {
@@ -136,9 +136,9 @@
 
 @media (max-width: 480px) {
   .homepage-container {
-    min-height: 200vh; /* Further increase minimum height for the smallest screens */
+    min-height: 260vh; /* Further increase minimum height for the smallest screens */
     margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
-    padding-bottom: 160px; /* Increase bottom padding to ensure space below sliders */
+    padding-bottom: 200px; /* Increase bottom padding to ensure space below sliders */
   }
 
   .info-box {
