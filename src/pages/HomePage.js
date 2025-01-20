@@ -32,6 +32,11 @@ const HomePage = () => {
         </p>
       </div>
 
+      <div className="image-row">
+        <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Image 1" className="row-image" />
+        <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Image 2" className="row-image" />
+      </div>
+
       <div className="sliders-row">
         {/* Newest Arrivals Slider */}
         <div className="slider-section">
