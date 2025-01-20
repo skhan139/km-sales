@@ -34,12 +34,16 @@ const HomePage = () => {
 
       <div className="image-row">
         <div className="image-container">
-          <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Image 1" className="row-image" />
-          <h3 className="image-overlay">Contact Maryland Offices</h3>
+          <a href="mailto:everettr627@gmail.com?subject=Contact%20Maryland%20Offices">
+            <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Image 1" className="row-image" />
+            <h3 className="image-overlay">Contact Maryland Offices</h3>
+          </a>
         </div>
         <div className="image-container">
-          <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Image 2" className="row-image" />
-          <h3 className="image-overlay">Contact West Virginia Offices</h3>
+          <a href="mailto:skhan139@icloud.com.com?subject=Contact%20West%20Virginia%20Offices">
+            <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Image 2" className="row-image" />
+            <h3 className="image-overlay">Contact West Virginia Offices</h3>
+          </a>
         </div>
       </div>
 

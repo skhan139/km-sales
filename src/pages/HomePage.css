@@ -63,6 +63,7 @@
   position: relative;
   width: 45%; /* Set a fixed width for the container */
   height: 300px; /* Set a fixed height for the container */
+  overflow: hidden; /* Ensure the image doesn't overflow the container */
 }
 
 .row-image {
@@ -71,6 +72,11 @@
   object-fit: cover; /* Ensure the image covers the container */
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease; /* Add transition for smooth scaling */
+}
+
+.image-container:hover .row-image {
+  transform: scale(1.1); /* Scale the image on hover */
 }
 
 .image-overlay {

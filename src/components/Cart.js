@@ -5,6 +5,7 @@ import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import CheckoutFormModal from './CheckoutFormModal';
 import Modal from 'react-modal';
+import ConfirmationPopup from './ConfirmationPopup'; // Import the ConfirmationPopup component
 import './Cart.css';
 
 const Cart = () => {
@@ -13,6 +14,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false); // State for the confirmation popup
   const [error, setError] = useState('');
 
   const handleCheckout = () => {
@@ -42,6 +44,23 @@ const Cart = () => {
     }
   };
 
+  const handleClearCart = () => {
+    if (cart.length === 0) {
+      setError('You have no items in your cart');
+      return;
+    }
+    setIsPopupOpen(true);
+  };
+
+  const handleConfirmClearCart = () => {
+    clearCart();
+    setIsPopupOpen(false);
+  };
+
+  const handleCancelClearCart = () => {
+    setIsPopupOpen(false);
+  };
+
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
@@ -67,7 +86,10 @@ const Cart = () => {
         </div>
       )}
       {error && <p className="error-message">{error}</p>}
-      <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
+      <div className="cart-buttons">
+        <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
+        <button className="clear-cart-button" onClick={handleClearCart}>Clear Cart</button>
+      </div>
 
       <CheckoutFormModal
         isOpen={isModalOpen}
@@ -86,6 +108,14 @@ const Cart = () => {
         <p className='ordertwo'>A representative will be in touch shortly.</p>
         <button onClick={() => setIsSuccessModalOpen(false)}>Close</button>
       </Modal>
+
+      {isPopupOpen && (
+        <ConfirmationPopup
+          message="Are you sure you want to clear your entire cart?"
+          onConfirm={handleConfirmClearCart}
+          onCancel={handleCancelClearCart}
+        />
+      )}
     </div>
   );
 };

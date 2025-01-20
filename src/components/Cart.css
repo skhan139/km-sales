@@ -79,6 +79,22 @@
   background-color: #DAA520;
 }
 
+.clear-cart-button {
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+  margin-left: 10px; /* Add margin to space out the buttons */
+}
+
+.clear-cart-button:hover {
+  background-color: #DAA520;
+}
+
 h2 {
   color: rgb(0, 0, 0);
 }
@@ -94,7 +110,6 @@ p {
 .ordertwo {
   color: black;
 }
-
 
 .cart-item-quantity {
   display: flex;
@@ -116,4 +131,10 @@ p {
   color: red;
   font-size: 14px;
   margin-top: 10px;
+}
+
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }

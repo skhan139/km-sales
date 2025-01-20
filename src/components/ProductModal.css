@@ -14,17 +14,19 @@
 
 .modal-content {
   background: #fff;
-  padding: 20px;
+  padding: 40px; /* Increase padding for better spacing */
   border-radius: 8px;
-  width: 80%;
-  max-width: 600px;
-  text-align: center;
+  width: 95%; /* Increase width */
+  max-width: 1200px; /* Increase max-width for better layout */
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between image and details */
+  align-items: flex-start; /* Align items at the start */
   position: relative;
 }
 
 .modal-close {
   position: absolute;
-  top: 10px;
+  bottom: 10px; /* Move to the bottom */
   right: 10px;
   background: none;
   border: none;
@@ -33,19 +35,25 @@
 }
 
 .modal-image {
-  max-width: 100%;
+  max-width: 45%; /* Set max-width for the image */
   height: auto;
   border-radius: 8px;
 }
 
+.modal-details {
+  max-width: 50%; /* Set max-width for the details */
+  margin-left: 20px; /* Add margin to separate from the image */
+  text-align: left; /* Align text to the left */
+}
+
 .modal-name {
-  font-size: 24px;
+  font-size: 28px; /* Increase font size for better readability */
   font-weight: bold;
   margin: 10px 0;
 }
 
 .modal-description {
-  font-size: 16px;
+  font-size: 18px; /* Increase font size for better readability */
   margin-bottom: 10px;
 }
 
@@ -56,7 +64,27 @@
 .modal-profit,
 .modal-profit-percent,
 .modal-deals-per-case {
-  font-size: 14px;
+  font-size: 16px; /* Increase font size for better readability */
+  font-weight: bold; /* Make text bold */
   margin: 5px 0;
-  color: black
+  color: black;
+}
+
+/* Styles for mobile screens */
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column; /* Stack image and details vertically */
+    align-items: center; /* Center align items */
+  }
+
+  .modal-image {
+    max-width: 100%; /* Allow image to take full width */
+    margin-bottom: 20px; /* Add margin below the image */
+  }
+
+  .modal-details {
+    max-width: 100%; /* Allow details to take full width */
+    margin-left: 0; /* Remove left margin */
+    text-align: center; /* Center align text */
+  }
 }

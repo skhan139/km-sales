@@ -120,3 +120,7 @@
   color: white;
   border-color: #000;
 }
+
+label {
+  color: black;
+}
