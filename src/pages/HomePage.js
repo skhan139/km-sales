@@ -23,7 +23,8 @@ const HomePage = () => {
         <h1 className='welcome'>Welcome to K&M Sales.</h1>
         <h2 className='produly'>Proudly serving West Virginia and Maryland for over 40 years!</h2>
         <p className='intro'>
-          We supply to Bingo Halls, Cash Bashes. Military Organizations, Private Clubs, Bars, and Fire Departments. <br /> <br />
+          Want to Buy Our Products?
+Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
           Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
         </p>
         <p className='intro'>
@@ -36,6 +37,7 @@ const HomePage = () => {
         <div className="image-container">
           <a href="mailto:everettr627@gmail.com?subject=Contact%20Maryland%20Offices">
             <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Image 1" className="row-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} className="row-image" />
             <h3 className="image-overlay">Contact Maryland Offices</h3>
           </a>
         </div>

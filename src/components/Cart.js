@@ -137,6 +137,7 @@ const Cart = () => {
         overlayClassName="modal-overlay"
       >
         <h2 className='order'>Order Successful</h2>
+        <br />
         <p className='ordertwo'>A representative will be in touch shortly.</p>
         <button onClick={() => setIsSuccessModalOpen(false)}>Close</button>
       </Modal>
