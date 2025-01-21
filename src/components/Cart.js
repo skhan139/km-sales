@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase';
+import { auth } from '../firebase'; // Remove db import
 import { useNavigate } from 'react-router-dom';
+import emailjs from 'emailjs-com'; // Import EmailJS
 import CheckoutFormModal from './CheckoutFormModal';
 import Modal from 'react-modal';
 import ConfirmationPopup from './ConfirmationPopup'; // Import the ConfirmationPopup component
@@ -31,11 +32,42 @@ const Cart = () => {
     }
   };
 
-  const handleFormSubmit = (formData) => {
+  const handleFormSubmit = async (formData) => {
     console.log('Form Data:', formData);
-    setIsModalOpen(false);
-    clearCart();
-    setIsSuccessModalOpen(true);
+
+    // Example of sending order information via EmailJS
+    try {
+      const orderData = {
+        user: user.email,
+        cart,
+        formData,
+        createdAt: new Date(),
+      };
+
+      console.log('Order Data:', orderData);
+
+      const templateParams = {
+        to_email: 'skhan139@icloud.com',
+        subject: 'New Order',
+        message: JSON.stringify(orderData, null, 2),
+      };
+
+      await emailjs.send(
+        'service_0fzyzws', // Replace with your EmailJS service ID
+        'template_446ao1n', // Replace with your EmailJS template ID
+        templateParams,
+        'JEDoAfpGovlaq9jU4' // Replace with your EmailJS user ID
+      );
+
+      console.log('Order successfully sent via email');
+
+      setIsModalOpen(false);
+      clearCart();
+      setIsSuccessModalOpen(true);
+    } catch (error) {
+      console.error('Error submitting order:', error);
+      setError('Failed to submit order. Please try again.');
+    }
   };
 
   const handleQuantityChange = (id, quantity) => {
