@@ -74,21 +74,6 @@ Add your products to cart and register with us to checkout. Once you checkout, o
                   <img src={`${process.env.PUBLIC_URL}/assets/images/potogold.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
-              <div>
-                <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/hogsandkisses.jpg`} alt="Newest arrival 5" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-                <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/easterbunnymoney.jpg`} alt="Newest arrival 6" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-                <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/silvermine.jpg`} alt="Newest arrival 7" className="slider-image" />
-                </Link>
-              </div>
             </Slider>
           </div>
         </div>
