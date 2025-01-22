@@ -51,6 +51,15 @@ const products = [
   { id: 50, name: "Cops & Crooks", image: "/assets/images/cops&crooks.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU041", takeIn: "$192.00", payout: "$105.00", profit: "$87", profitPercent: "45.31", dealsPerCase: "8" },
   { id: 51, name: "Doggy Style", image: "/assets/images/doggystyle.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU042", takeIn: "$240.00", payout: "$157.00", profit: "$83.00", profitPercent: "35%", dealsPerCase: "12" },
   { id: 52, name: "The Tourists", image: "/assets/images/thetourists.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU033", takeIn: "$390.00", payout: "$300.00", profit: "$90.00", profitPercent: "23%", dealsPerCase: "10" },
+  { id: 53, name: "Pot O' Gold (2460 Ticket Count)", image: "/assets/images/potogold.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2460.00", payout: "$1,825", profit: "$635.00", profitPercent: "25.6%", dealsPerCase: "1" },
+  { id: 54, name: "Easter Bunny Money (2460 Ticket Count)", image: "/assets/images/easterbunnymoney.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2460.00", payout: "$1,825", profit: "$635.00", profitPercent: "25.6%", dealsPerCase: "1" },
+  { id: 55, name: "Silver Mine (3000 Ticket Count)", image: "/assets/images/silvermine.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$3000.00", payout: "$1,200", profit: "$1,800.00", profitPercent: "60%", dealsPerCase: "1" },
+  { id: 56, name: "Easter Prize (2460 Ticket Count)", image: "/assets/images/easterprize.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2460.00", payout: "$1,625", profit: "$835.00", profitPercent: "34%", dealsPerCase: "1" },
+  { id: 57, name: "St. Patty's (2460 Ticket Count)", image: "/assets/images/stpattys.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2460.00", payout: "$1,625", profit: "$835.00", profitPercent: "34%", dealsPerCase: "1" },
+  { id: 58, name: "Valentines Day (2460 Ticket Count)", image: "/assets/images/valentinesday.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2460.00", payout: "$1,825", profit: "$635.00", profitPercent: "25.6%", dealsPerCase: "1" },
+  { id: 60, name: "Hogs And Kisses (1740 Ticket Count)", image: "/assets/images/hogsandkisses.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$1740.00", payout: "$1,115", profit: "$625.00", profitPercent: "36%", dealsPerCase: "1" },
+  { id: 61, name: "Pot O' Gold (1740 Ticket Count)", image: "/assets/images/potogold.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$1740.00", payout: "$1,115", profit: "$625.00", profitPercent: "36%", dealsPerCase: "1" },
+  
 ];
 
 export default products;

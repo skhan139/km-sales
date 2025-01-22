@@ -57,20 +57,39 @@ Add your products to cart and register with us to checkout. Once you checkout, o
             <Slider {...sliderSettings}>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/turkeybowl.jpg`} alt="Newest arrival 1" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/easterprize.jpg`} alt="Newest arrival 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/gamblingghouls.jpg`} alt="Newest arrival 2" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/stpattys.jpg`} alt="Newest arrival 2" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/boobees.jpg`} alt="Newest arrival 3" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/valentinesday.jpg`} alt="Newest arrival 3" className="slider-image" />
                 </Link>
               </div>
-              {/* Add more images as needed */}
+              <div>
+                <Link to="/login">
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/potogold.jpg`} alt="Newest arrival 4" className="slider-image" />
+                </Link>
+              </div>
+              <div>
+                <Link to="/login">
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/hogsandkisses.jpg`} alt="Newest arrival 5" className="slider-image" />
+                </Link>
+              </div>
+              <div>
+                <Link to="/login">
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/easterbunnymoney.jpg`} alt="Newest arrival 6" className="slider-image" />
+                </Link>
+              </div>
+              <div>
+                <Link to="/login">
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/silvermine.jpg`} alt="Newest arrival 7" className="slider-image" />
+                </Link>
+              </div>
             </Slider>
           </div>
         </div>
