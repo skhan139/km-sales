@@ -36,14 +36,13 @@ Add your products to cart and register with us to checkout. Once you checkout, o
       <div className="image-row">
         <div className="image-container">
           <a href="mailto:everettr627@gmail.com?subject=Contact%20Maryland%20Offices">
-            <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Image 1" className="row-image" />
-            <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} className="row-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Baltimore" className="row-image" />
             <h3 className="image-overlay">Contact Maryland Offices</h3>
           </a>
         </div>
         <div className="image-container">
           <a href="mailto:skhan139@icloud.com.com?subject=Contact%20West%20Virginia%20Offices">
-            <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Image 2" className="row-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Keyser" className="row-image" />
             <h3 className="image-overlay">Contact West Virginia Offices</h3>
           </a>
         </div>
@@ -141,32 +140,32 @@ Add your products to cart and register with us to checkout. Once you checkout, o
             <Slider {...sliderSettings}>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/doubledeal.jpg`} alt="Hot this month 1" className="slider-image" />
+                  <img src="/assets/images/doubledeal.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/gusher.jpg`} alt="Hot this month 2" className="slider-image" />
+                  <img src="/assets/images/gusher.jpg" alt="Hot this month 2" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/victorylane.jpg`} alt="Hot this month 3" className="slider-image" />
+                  <img src="/assets/images/victorylane.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/happyhookers.jpg`} alt="Hot this month 1" className="slider-image" />
+                  <img src="/assets/images/happyhookers.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/thedoghouse.jpg`} alt="Hot this month 2" className="slider-image" />
+                  <img src="/assets/images/thedoghouse.jpg" alt="Hot this month 2" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/miniclub.jpg`} alt="Hot this month 3" className="slider-image" />
+                  <img src="/assets/images/miniclub.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>
               {/* Add more images as needed */}
