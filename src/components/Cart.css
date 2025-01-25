@@ -1,4 +1,11 @@
-/* src/components/Cart.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .cart-container {
   padding: 20px;
@@ -10,6 +17,7 @@
   background-repeat: no-repeat; /* Prevent the background image from repeating */
   min-height: 100vh; /* Ensure the container takes at least the full viewport height */
   color: rgb(0, 0, 0); /* Ensure the text is readable against the background */
+  animation: fadeIn 1s ease-in; /* Apply the fade-in animation */
 }
 
 .cart-items {

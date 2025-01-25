@@ -17,19 +17,19 @@ const ContactPage = () => {
         </div>
         <div className="flex-item">
           <h3>Rich Everett (Allegheny And Garrett County Representive) </h3>
-          <p>(301)-876-0862 <br /> <br />Email: everettr627@gmail.com</p>
+          <p>Cell: (301)-876-0862 <br /> <br />Email: Everettr627@gmail.com</p>
         </div>
         <div className="flex-item">
           <h3>Sami Khan (West Virginia Representive)</h3>
-          <p>(443)-789-6803 <br /> <br />Email: Skhan139@icloud.com</p>
+          <p>Cell: (443)-789-6803 <br /> <br />Email: Skhan139@icloud.com</p>
         </div>
         <div className="flex-item">
-          <h3>General Inquiries</h3>
-          <p>Email: info@kmsales.com</p>
+          <h3>Alec Pulliam (West Virginia Representive)</h3>
+          <p>Cell: (304)-813-5138 <br /> <br /> Email: Alecpulliam13@gmail.com</p>
         </div>
         <div className="flex-item">
-          <h3>Customer Support</h3>
-          <p>Support Hotline: (800)-123-4567</p>
+          <h3>Jeff Haines (Garrett County Representive)</h3>
+          <p>Cell:: (301)-268-0634</p>
         </div>
         <div className="flex-item">
           <h3>Product Gallery</h3>

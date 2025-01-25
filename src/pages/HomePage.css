@@ -1,4 +1,11 @@
-/* src/pages/HomePage.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .homepage-container {
   background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
@@ -16,6 +23,7 @@
   padding-bottom: 100px; /* Increase bottom padding to ensure space below sliders */
   margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
   box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  animation: fadeIn 1s ease-in; /* Apply the fade-in animation */
 }
 
 .info-box {

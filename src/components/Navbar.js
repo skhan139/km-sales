@@ -33,7 +33,7 @@ const Navbar = () => {
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/legacy">K&M Legacy</Link></li> {/* Add Legacy Link */}
-        <li><Link to="/testimonial">Testimonials</Link></li> {/* Add Testimonial Link */}
+        <li><Link to="/testimonial">Why K&M?</Link></li> {/* Add Testimonial Link */}
         {user ? (
           <>
             <li><Link to="/members">Products</Link></li>

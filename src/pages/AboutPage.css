@@ -1,4 +1,11 @@
-/* src/pages/AboutPage.css */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .page-container {
   background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
@@ -14,6 +21,7 @@
   padding-top: 60px; /* Add top padding to prevent overlapping with navbar */
   box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
   overflow-y: auto; /* Allow vertical scrolling */
+  animation: fadeIn 1s ease-in; /* Apply the fade-in animation */
 }
 
 .about-page {
