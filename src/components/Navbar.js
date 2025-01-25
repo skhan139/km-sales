@@ -34,6 +34,7 @@ const Navbar = () => {
         <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/legacy">K&M Legacy</Link></li> {/* Add Legacy Link */}
         <li><Link to="/testimonial">Why K&M?</Link></li> {/* Add Testimonial Link */}
+        <li><a href="https://kmsalesdatabase.vercel.app/" target="_blank" rel="noopener noreferrer">Admin</a></li> {/* Add Admin Link */}
         {user ? (
           <>
             <li><Link to="/members">Products</Link></li>
