@@ -58,7 +58,8 @@ const ProductGallery = ({ searchTerm }) => {
           <option value="tip boards">Tip Boards</option>
           <option value="coin boards">Coin Boards</option>
           <option value="tip jars">Tip Jars</option>
-          <option value="instant winners">Instant Winners</option>
+          <option value="instant winner 180's">Instant Winner 180's</option>
+          <option value="instant winner 220's">Instant Winner 220's</option>
           <option value="bingo dobbers">Bingo Dobbers</option>
           <option value="bonus boards">Bonus Boards</option>
           <option value="bingo games">Bingo Games</option>
