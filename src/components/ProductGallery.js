@@ -17,8 +17,8 @@ const ProductGallery = ({ searchTerm }) => {
     filterProducts(searchTerm, sortCriteria);
   }, [searchTerm, sortCriteria]);
 
-  const handleSortChange = (e) => {
-    setSortCriteria(e.target.value);
+  const handleSortChange = (criteria) => {
+    setSortCriteria(criteria);
   };
 
   const filterProducts = (searchTerm, criteria) => {
@@ -52,21 +52,20 @@ const ProductGallery = ({ searchTerm }) => {
   return (
     <div className="product-gallery-container">
       <div className="sorting-options">
-        <label htmlFor="sort">Sort By: </label>
-        <select id="sort" value={sortCriteria} onChange={handleSortChange}>
-          <option value="all">All</option>
-          <option value="tip boards">Tip Boards</option>
-          <option value="coin boards">Coin Boards</option>
-          <option value="tip jars">Tip Jars</option>
-          <option value="instant winner 180's">Instant Winner 180's</option>
-          <option value="instant winner 220's">Instant Winner 220's</option>
-          <option value="bingo dobbers">Bingo Dobbers</option>
-          <option value="bonus boards">Bonus Boards</option>
-          <option value="bingo games">Bingo Games</option>
-          <option value="scratch off boards">Scratch Off Boards</option>
-          <option value="bingo card games">Bingo Card Games</option>
-          <option value="raffle tickets">Raffle Tickets</option>
-        </select>
+        <nav className="sort-navbar">
+          <button onClick={() => handleSortChange('all')}>All</button>
+          <button onClick={() => handleSortChange('tip boards')}>Tip Boards</button>
+          <button onClick={() => handleSortChange('coin boards')}>Coin Boards</button>
+          <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button>
+          <button onClick={() => handleSortChange("instant winner 180's")}>Instant Winner 180's</button>
+          <button onClick={() => handleSortChange("instant winner 220's")}>Instant Winner 220's</button>
+          <button onClick={() => handleSortChange('bingo dobbers')}>Bingo Dobbers</button>
+          <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
+          <button onClick={() => handleSortChange('bingo games')}>Bingo Games</button>
+          <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
+          <button onClick={() => handleSortChange('bingo card games')}>Bingo Card Games</button>
+          <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
+        </nav>
       </div>
       <div className="pagination">
         {Array.from({ length: totalPages }, (_, index) => (
@@ -80,14 +79,18 @@ const ProductGallery = ({ searchTerm }) => {
         ))}
       </div>
       <div className="product-gallery">
-        {displayedProducts.map((product) => (
-          <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
-            <img src={product.image} alt={product.name} className="product-image" />
-            <h2 className="product-name">{product.name}</h2>
-            <p className="product-price">{product.price}</p>
-            <button onClick={(e) => { e.stopPropagation(); addItemToCart(product); }} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
-          </div>
-        ))}
+        {displayedProducts.length === 0 ? (
+          <p>Sorry, there are no products in this category.</p>
+        ) : (
+          displayedProducts.map((product) => (
+            <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
+              <img src={product.image} alt={product.name} className="product-image" />
+              <h2 className="product-name">{product.name}</h2>
+              <p className="product-price">{product.price}</p>
+              <button onClick={(e) => { e.stopPropagation(); addItemToCart(product); }} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
+            </div>
+          ))
+        )}
       </div>
       <div className="pagination">
         {Array.from({ length: totalPages }, (_, index) => (

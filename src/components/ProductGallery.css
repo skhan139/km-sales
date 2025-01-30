@@ -24,8 +24,35 @@
 
 .sorting-options {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.sort-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sort-navbar button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #000;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sort-navbar button:hover {
+  background-color: #333;
+}
+
+.sort-navbar button.active {
+  background-color: #DAA520;
+  color: white;
+  border-color: #000;
 }
 
 .product-gallery {
@@ -103,7 +130,7 @@
 }
 
 .pagination-button {
-  background-color: #f0f0f0;
+  background-color: #000;
   border: 1px solid #ddd;
   padding: 10px;
   margin: 0 5px;

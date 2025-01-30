@@ -21,7 +21,7 @@ const HomePage = () => {
       
       <div className="info-box">
         <h1 className='welcome'>Welcome to K&M Sales.</h1>
-        <h2 className='produly'>Proudly serving West Virginia and Maryland for over 40 years!</h2>
+        <h2 className='produly'>Proudly supplying bingo products to West Virginia and Maryland for over 40 years!</h2>
         <p className='intro'>
           Want to Buy Our Products?
 Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
