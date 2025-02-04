@@ -1,5 +1,3 @@
-/* src/components/ProductModal.css */
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -18,6 +16,7 @@
   border-radius: 8px;
   width: 95%; /* Increase width */
   max-width: 1200px; /* Increase max-width for better layout */
+  min-height: 400px; /* Set minimum height to prevent overlap */
   display: flex; /* Use flexbox for layout */
   justify-content: space-between; /* Space between image and details */
   align-items: flex-start; /* Align items at the start */
@@ -43,7 +42,7 @@
 .modal-details {
   max-width: 50%; /* Set max-width for the details */
   margin-left: 20px; /* Add margin to separate from the image */
-  text-align: left; /* Align text to the left */
+  text-align: center; /* Center align text */
 }
 
 .modal-name {
@@ -68,6 +67,7 @@
   font-weight: bold; /* Make text bold */
   margin: 5px 0;
   color: black;
+  text-align: center; /* Center align text */
 }
 
 /* Styles for mobile screens */

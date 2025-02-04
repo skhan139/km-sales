@@ -1,6 +1,6 @@
 const products = [
   { id: 1, name: "33 KM Super Jar", image: "/assets/images/33kmsuperjar.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU001", takeIn: "$8.00", payout: "$2.00", profit: "$1.50", profitPercent: "18.75%", dealsPerCase: "10" },
-  { id: 2, name: "Knife Board", image: "/assets/images/knifeboard.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 2, name: "Schrade Knife Board", image: "/assets/images/knifeboard.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
   { id: 3, name: "Barking Betty", image: "/assets/images/barkingbetty.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU003", takeIn: "$1,736.00", payout: "$859.00", profit: "$877.00", profitPercent: "51%", dealsPerCase: "1" },
   { id: 4, name: "Better Than Sex", image: "/assets/images/betterthansex.jpg", category: "instant winner 180's", tags: ["instant", "winner"], sku: "SKU004", takeIn: "$240.00", payout: "$157.00", profit: "$83.00", profitPercent: "35.00%", dealsPerCase: "40" },
   { id: 5, name: "Big Balls", image: "/assets/images/bigballs.jpeg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU005", takeIn: "$4,000.00", payout: "$3,2000.00", profit: "$800.00", profitPercent: "20%", dealsPerCase: "8" },
@@ -59,7 +59,13 @@ const products = [
   { id: 58, name: "Valentines Day (2460 Ticket Count)", image: "/assets/images/valentinesday.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2460.00", payout: "$1,825", profit: "$635.00", profitPercent: "25.6%", dealsPerCase: "1" },
   { id: 60, name: "Hogs And Kisses (1740 Ticket Count)", image: "/assets/images/hogsandkisses.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$1740.00", payout: "$1,115", profit: "$625.00", profitPercent: "36%", dealsPerCase: "1" },
   { id: 61, name: "Pot O' Gold (1740 Ticket Count)", image: "/assets/images/potogold.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$1740.00", payout: "$1,115", profit: "$625.00", profitPercent: "36%", dealsPerCase: "1" },
-  
+  { id: 62, name: "Schrade Fishing Knife Board", image: "/assets/images/knifeboard2.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 63, name: "Case Knife Board", image: "/assets/images/knifeboard3.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 64, name: "Spring Fling Scratch Board", image: "/assets/images/coinboard1.jpg", category: "scratch boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 65, name: "All Aboard", image: "/assets/images/coinboard2.jpg", category: "scratch off boards", tags: ["scratch","off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 66, name: "Bite The Bullet Scratch Off Board", image: "/assets/images/coinboard3.jpg", category: "scratch off boards", tags: ["scratch","off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 67, name: "The American Scratch Off Board", image: "/assets/images/coinboard4.jpg", category: "scratch off boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 68, name: "God Bless America Scratch Off Board", image: "/assets/images/coinboard5.jpg", category: "scratch off boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
 ];
 
 export default products;
