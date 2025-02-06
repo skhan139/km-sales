@@ -66,6 +66,10 @@ const products = [
   { id: 66, name: "Bite The Bullet Scratch Off Board", image: "/assets/images/coinboard3.jpg", category: "scratch off boards", tags: ["scratch","off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
   { id: 67, name: "The American Scratch Off Board", image: "/assets/images/coinboard4.jpg", category: "scratch off boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
   { id: 68, name: "God Bless America Scratch Off Board", image: "/assets/images/coinboard5.jpg", category: "scratch off boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
+  { id: 69, name: "Schrade Hunting Knife Board", image: "/assets/images/schrade2.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,120", profit: "$1,160.00", profitPercent: "50.9%", dealsPerCase: "1" },
+  { id: 70, name: "Schrade Hunting Knife Board", image: "/assets/images/schrade3.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1" },
+  { id: 71, name: "Buck Hunting Knife Board", image: "/assets/images/buckhuntingknife.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,150", profit: "$1,130.00", profitPercent: "49.6%", dealsPerCase: "1" },
+  { id: 72, name: "Whiskey Bent Knife Board", image: "/assets/images/whiskeyboard.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
 ];
 
 export default products;
