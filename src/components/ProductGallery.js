@@ -4,7 +4,7 @@ import { useCart } from '../context/CartContext';
 import ProductModal from './ProductModal'; // Import the ProductModal component
 import './ProductGallery.css'; // Import the CSS file for styling
 
-const itemsPerPage = 30; // Number of items to display per page
+const itemsPerPage = 20; // Number of items to display per page
 
 const ProductGallery = ({ searchTerm }) => {
   const [sortCriteria, setSortCriteria] = useState('all');
