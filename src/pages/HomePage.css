@@ -109,13 +109,20 @@
 
 .slider-section {
   flex: 1; /* Each slider takes up an equal portion of the available space */
-  max-width: 30%; /* Limit the maximum width of each slider */
+  max-width: 28%; /* Limit the maximum width of each slider */
   text-align: center;
+  background: url('/public/assets/images/matteblackbg.jpg'); /* Background image for sliders */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the background image */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px; /* Reduce padding inside the black box */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+  margin: 0 5px; /* Reduce margin between sliders */
 }
 
 .slider-container {
   position: relative; /* Ensure positioning context for arrows */
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 .slider-image {
@@ -129,7 +136,7 @@
 /* Custom styles for the slick slider arrows */
 .slick-prev,
 .slick-next {
-  color: black !important; /* Set the arrow color to black */
+  color: white !important; /* Set the arrow color to white */
   z-index: 1; /* Ensure arrows are above other elements */
   position: absolute; /* Position the arrows absolutely */
   top: 50%; /* Vertically center the arrows */
@@ -137,35 +144,35 @@
 }
 
 .slick-prev {
-  left: -20px; /* Adjust the position to the left */
+  left: -10px; /* Move the arrow closer to the right */
 }
 
 .slick-next {
-  right: -20px; /* Adjust the position to the right */
+  right: -10px; /* Move the arrow closer to the left */
 }
 
 .slick-prev:before,
 .slick-next:before {
-  color: black; /* Set the arrow icon color to black */
+  color: white; /* Set the arrow icon color to white */
 }
 
 .slick-prev:hover,
 .slick-next:hover {
-  color: black !important; /* Keep the arrow color black on hover */
+  color: white !important; /* Keep the arrow color white on hover */
 }
 
 .slick-prev:before:hover,
 .slick-next:before:hover {
-  color: black; /* Keep the arrow icon color black on hover */
+  color: white; /* Keep the arrow icon color white on hover */
 }
 
 .sliderHead {
-  color: black;
+  color: white;
   text-shadow: 
-    -1px -1px 0 #fff, /* Top-left shadow */
-    1px -1px 0 #fff,  /* Top-right shadow */
-    -1px 1px 0 #fff,  /* Bottom-left shadow */
-    1px 1px 0 #fff;   /* Bottom-right shadow */
+    -1px -1px 0 #000, /* Top-left shadow */
+    1px -1px 0 #000,  /* Top-right shadow */
+    -1px 1px 0 #000,  /* Bottom-left shadow */
+    1px 1px 0 #000;   /* Bottom-right shadow */
 }
 
 .produly {

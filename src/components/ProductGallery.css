@@ -114,6 +114,62 @@
   background-color: #DAA520;
 }
 
+/* Category Gallery Styles */
+.category-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.category-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  text-align: center;
+  width: 150px; /* Set a fixed width for category cards */
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Back to Main Page Button */
+.back-button {
+  position: absolute;
+  top: 150px; /* Adjust this value to lower the button */
+  left: 20px;
+  background-color: #000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #333;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .product-card {
