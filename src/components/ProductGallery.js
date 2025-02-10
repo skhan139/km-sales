@@ -92,7 +92,7 @@ const ProductGallery = ({ searchTerm }) => {
               <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button>
               <button onClick={() => handleSortChange("instant winner 180's")}>Instant Winner 180's</button>
               <button onClick={() => handleSortChange("instant winner 220's")}>Instant Winner 220's</button>
-              <button onClick={() => handleSortChange('bingo dobbers')}>Bingo Dobbers</button>
+              <button onClick={() => handleSortChange('bingo daubers')}>Bingo Daubers</button>
               <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
               <button onClick={() => handleSortChange('bingo games')}>Bingo Games</button>
               <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>

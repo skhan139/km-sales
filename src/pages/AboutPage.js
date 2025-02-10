@@ -20,8 +20,8 @@ const AboutPage = () => {
             <p>Keep the excitement alive with our Instant Winner Tickets! Designed to engage and thrill, these tickets are perfect for quick-play games, promotions, or giveaways. With customizable options and eye-catching designs, our tickets make every moment a winner, ensuring your players enjoy an unforgettable gaming experience.</p>
           </div>
           <div className="flex-item">
-            <h3>Bingo Games and Bingo Dobbers</h3>
-            <p>At the heart of our business are integrity, commitment, and a focus on exceeding customer expectations. We offer high-quality bingo games and a variety of bingo dobbers designed to enhance your gaming experience.</p>
+            <h3>Bingo Games and Bingo Daubers</h3>
+            <p>At the heart of our business are integrity, commitment, and a focus on exceeding customer expectations. We offer high-quality bingo games and a variety of bingo daubers designed to enhance your gaming experience.</p>
           </div>
           <div className="flex-item">
             <h3>Bonus Boards and Scratch Off Boards</h3>

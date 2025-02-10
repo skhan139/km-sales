@@ -33,6 +33,19 @@
   cursor: pointer;
 }
 
+.add-to-cart-button-modal {
+  position: absolute;
+  bottom: 10px; /* Move to the bottom */
+  right: 80px; /* Adjust to sit next to the close button */
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 4px 8px; /* Adjust padding to make the button smaller */
+  font-size: 12px; /* Adjust font size to make the button smaller */
+  cursor: pointer;
+  border-radius: 4px;
+}
+
 .modal-image {
   max-width: 45%; /* Set max-width for the image */
   height: auto;
@@ -86,5 +99,11 @@
     max-width: 100%; /* Allow details to take full width */
     margin-left: 0; /* Remove left margin */
     text-align: center; /* Center align text */
+  }
+
+  .modal-close,
+  .add-to-cart-button-modal {
+    position: static; /* Reset position for mobile */
+    margin-top: 20px; /* Add margin for spacing */
   }
 }

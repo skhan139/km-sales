@@ -75,6 +75,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative; /* Add relative positioning */
 }
 
 .product-card:hover {
@@ -104,10 +105,15 @@
   background-color: #000;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 20px; /* Adjust padding to make the button less tall and wider */
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  position: absolute; /* Position the button absolutely */
+  bottom: 10px; /* Position it at the bottom */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Center it horizontally */
+  width: 80%; /* Set a fixed width to make it more rectangular */
 }
 
 .add-to-cart-button:hover {
