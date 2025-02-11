@@ -92,14 +92,50 @@ const products = [
       {
         name: "12 on Bingo Paper",
         sku: "SKU003-12",
-        takeIn: "$1,500.00",
-        payout: "$800",
-        profit: "$700.00",
-        profitPercent: "46.7%",
+        takeIn: "N/A",
+        payout: "N/A",
+        profit: "N/A",
+        profitPercent: "N/A",
+        dealsPerCase: "1"
+      },
+      {
+        name: "9 on Bingo Paper",
+        sku: "SKU003-6",
+        takeIn: "N/A",
+        payout: "N/A",
+        profit: "$N/A",
+        profitPercent: "N/A",
         dealsPerCase: "1"
       },
       {
         name: "6 on Bingo Paper",
+        sku: "SKU003-6",
+        takeIn: "$N/A",
+        payout: "N/A",
+        profit: "$N/A",
+        profitPercent: "N/A",
+        dealsPerCase: "1"
+      },
+      {
+        name: "3 on Bingo Paper",
+        sku: "N/A",
+        takeIn: "$N/A",
+        payout: "$N/A",
+        profit: "$N/A",
+        profitPercent: "N/A",
+        dealsPerCase: "1"
+      },
+      {
+        name: "2 on Bingo Paper",
+        sku: "N/A",
+        takeIn: "N/A",
+        payout: "N/A",
+        profit: "N/A",
+        profitPercent: "N/A",
+        dealsPerCase: "1"
+      },
+      {
+        name: "1 on Bingo Paper",
         sku: "SKU003-6",
         takeIn: "$800.00",
         payout: "$400",
