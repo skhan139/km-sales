@@ -70,9 +70,9 @@ const Cart = () => {
     }
   };
 
-  const handleQuantityChange = (id, quantity) => {
+  const handleQuantityChange = (id, quantity, quantityType) => {
     if (quantity > 0) {
-      updateQuantity(id, quantity);
+      updateQuantity(id, quantity, quantityType);
     }
   };
 
@@ -105,11 +105,15 @@ const Cart = () => {
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
-                {/* <span className="cart-item-price">{item.price}</span> */}
+                <span className="cart-item-quantity-type">
+                  {item.quantityType === 'cases' 
+                    ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}` 
+                    : `${item.quantity} ${item.quantity === 1 ? 'game' : 'games'}`}
+                </span>
                 <div className="cart-item-quantity">
-                  <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)}>-</button>
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.quantityType)}>-</button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>+</button>
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity + 1, item.quantityType)}>+</button>
                 </div>
               </div>
               <button className="remove-item-button" onClick={() => removeItemFromCart(item.id)}>Remove</button>

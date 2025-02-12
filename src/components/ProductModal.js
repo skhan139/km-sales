@@ -5,10 +5,16 @@ import './ProductModal.css'; // Import the CSS file for styling
 const ProductModal = ({ product, onClose }) => {
   const { addItemToCart } = useCart(); // Use the Cart context
   const [selectedVariant, setSelectedVariant] = useState(product?.variants ? product.variants[0] : product);
+  const [quantity, setQuantity] = useState(1); // State for the number of cases or boards
+  const [customQuantity, setCustomQuantity] = useState(''); // State for the custom number of games
+  const [quantityType, setQuantityType] = useState('cases'); // State for the quantity type
 
   useEffect(() => {
     if (product) {
       setSelectedVariant(product.variants ? product.variants[0] : product);
+      if (product.tags.includes('boards')) {
+        setQuantityType('boards');
+      }
     }
   }, [product]);
 
@@ -20,7 +26,8 @@ const ProductModal = ({ product, onClose }) => {
   };
 
   const handleAddToCart = () => {
-    addItemToCart(selectedVariant);
+    const quantityToAdd = customQuantity ? parseInt(customQuantity, 10) : quantity;
+    addItemToCart({ ...selectedVariant, quantity: quantityToAdd, quantityType: customQuantity ? 'games' : quantityType });
     onClose(); // Close the modal after adding to cart
   };
 
@@ -52,6 +59,43 @@ const ProductModal = ({ product, onClose }) => {
             </select>
           </div>
         )}
+        <div className="quantity-container">
+          {product.tags.includes('boards') ? (
+            <div className="quantity-selection">
+              <label htmlFor="quantity-select">Number of boards:</label>
+              <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+                {[...Array(10).keys()].map((num) => (
+                  <option key={num + 1} value={num + 1}>
+                    {num + 1} {num + 1 === 1 ? 'board' : 'boards'}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : (
+            <>
+              <div className="quantity-selection">
+                <label htmlFor="quantity-select">Number of cases:</label>
+                <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+                  {[...Array(11).keys()].map((num) => (
+                    <option key={num} value={num}>
+                      {num}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="custom-quantity">
+                <label htmlFor="custom-quantity-input">Or enter number of games:</label>
+                <input
+                  type="number"
+                  id="custom-quantity-input"
+                  value={customQuantity}
+                  onChange={(e) => setCustomQuantity(e.target.value)}
+                  min="1"
+                />
+              </div>
+            </>
+          )}
+        </div>
         <button className="add-to-cart-button-modal" onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>

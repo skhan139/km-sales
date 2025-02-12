@@ -1,5 +1,3 @@
-// src/context/CartContext.js
-
 import React, { createContext, useContext, useReducer } from 'react';
 
 const CartContext = createContext();
@@ -7,15 +5,15 @@ const CartContext = createContext();
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_ITEM':
-      const existingItem = state.find(item => item.id === action.payload.id);
+      const existingItem = state.find(item => item.id === action.payload.id && item.quantityType === action.payload.quantityType);
       if (existingItem) {
         return state.map(item =>
-          item.id === action.payload.id
-            ? { ...item, quantity: item.quantity + 1 }
+          item.id === action.payload.id && item.quantityType === action.payload.quantityType
+            ? { ...item, quantity: item.quantity + action.payload.quantity }
             : item
         );
       } else {
-        return [...state, { ...action.payload, quantity: 1 }];
+        return [...state, { ...action.payload }];
       }
     case 'REMOVE_ITEM':
       return state.filter(item => item.id !== action.payload);
@@ -23,7 +21,7 @@ const cartReducer = (state, action) => {
       return [];
     case 'UPDATE_QUANTITY':
       return state.map(item =>
-        item.id === action.payload.id
+        item.id === action.payload.id && item.quantityType === action.payload.quantityType
           ? { ...item, quantity: action.payload.quantity }
           : item
       );
@@ -47,8 +45,8 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: 'CLEAR_CART' });
   };
 
-  const updateQuantity = (id, quantity) => {
-    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity } });
+  const updateQuantity = (id, quantity, quantityType) => {
+    dispatch({ type: 'UPDATE_QUANTITY', payload: { id, quantity, quantityType } });
   };
 
   return (

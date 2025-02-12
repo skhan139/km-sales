@@ -83,6 +83,36 @@
   text-align: center; /* Center align text */
 }
 
+.quantity-container {
+  display: flex;
+  flex-direction: column; /* Display options in a column */
+  align-items: flex-start; /* Align items to the start */
+  margin-top: 20px;
+}
+
+.quantity-selection,
+.custom-quantity {
+  margin-bottom: 20px; /* Add margin to separate the elements */
+  text-align: left;
+}
+
+.quantity-selection label,
+.custom-quantity label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.quantity-selection select,
+.custom-quantity input {
+  padding: 5px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+
 /* Styles for mobile screens */
 @media (max-width: 768px) {
   .modal-content {
@@ -105,5 +135,16 @@
   .add-to-cart-button-modal {
     position: static; /* Reset position for mobile */
     margin-top: 20px; /* Add margin for spacing */
+  }
+
+  .quantity-container {
+    align-items: center; /* Center align items for mobile */
+  }
+
+  .quantity-selection,
+  .custom-quantity {
+    position: static; /* Reset position for mobile */
+    margin-top: 20px; /* Add margin for spacing */
+    transform: none; /* Reset transform for mobile */
   }
 }
