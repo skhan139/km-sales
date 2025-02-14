@@ -37,13 +37,19 @@ Add your products to cart and register with us to checkout. Once you checkout, o
         <div className="image-container">
           <a href="mailto:everettr627@gmail.com?subject=Contact%20Maryland%20Offices">
             <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Baltimore" className="row-image" />
-            <h3 className="image-overlay">Contact Maryland Offices</h3>
+            <h3 className="image-overlay">Contact Maryland (Allegany County) Offices</h3>
           </a>
         </div>
         <div className="image-container">
           <a href="mailto:skhan139@icloud.com.com?subject=Contact%20West%20Virginia%20Offices">
             <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Keyser" className="row-image" />
             <h3 className="image-overlay">Contact West Virginia Offices</h3>
+          </a>
+        </div>
+        <div className="image-container">
+          <a href="mailto:jeff.haines@comcast.net?subject=Contact%20West%20Virginia%20Offices">
+            <img src={`${process.env.PUBLIC_URL}/assets/images/garrett.jpg`} alt="Keyser" className="row-image" />
+            <h3 className="image-overlay">Contact Maryland (Garrett/Allegany County) Offices</h3>
           </a>
         </div>
       </div>

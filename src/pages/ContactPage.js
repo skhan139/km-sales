@@ -16,7 +16,7 @@ const ContactPage = () => {
           <p>365 Sunset Place, Keyser, WV 26726 <br /> <br />(304)-788-5310</p>
         </div>
         <div className="flex-item">
-          <h3>Rich Everett (Allegheny And Garrett County Representive) </h3>
+          <h3>Rich Everett (Allegany/Garrett County Representive) </h3>
           <p>Cell: (301)-876-0862 <br /> <br />Email: Everettr627@gmail.com</p>
         </div>
         <div className="flex-item">
@@ -28,8 +28,8 @@ const ContactPage = () => {
           <p>Cell: (304)-813-5138 <br /> <br /> Email: Alecpulliam13@gmail.com</p>
         </div>
         <div className="flex-item">
-          <h3>Jeff Haines (Garrett County Representive)</h3>
-          <p>Cell:: (301)-268-0634</p>
+          <h3>Jeff Haines (Garrett/Allegany County Representive)</h3>
+          <p>Cell:: (301)-268-0634 <br /> <br /> Email: Jeff.Haines@comcast.net</p>
         </div>
         <div className="flex-item">
           <h3>Product Gallery</h3>
