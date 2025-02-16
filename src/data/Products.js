@@ -1,5 +1,5 @@
 const products = [
-  { id: 1, name: "33 KM Super Jar", image: "/assets/images/33kmsuperjar.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU001", takeIn: "$0", payout: "$0", profit: "$210.00", profitPercent: "18.75%", dealsPerCase: "10" },
+  { id: 1, name: "33 KM Super Jar", image: "/assets/images/33kmsuperjar.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU001", takeIn: "$810", payout: "$600", profit: "$210.00", profitPercent: "18.75%", dealsPerCase: "10" },
   { id: 2, name: "Schrade Knife Board", image: "/assets/images/knifeboard.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1" },
   { id: 3, name: "Barking Betty", image: "/assets/images/barkingbetty.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU003", takeIn: "$1,736.00", payout: "$1,111.00", profit: "$625.00", profitPercent: "51%", dealsPerCase: "1" },
   { id: 4, name: "Better Than Sex", image: "/assets/images/betterthansex.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU004", takeIn: "$240.00", payout: "$157.00", profit: "$83.00", profitPercent: "35.00%", dealsPerCase: "40" },

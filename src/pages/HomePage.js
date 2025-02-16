@@ -47,7 +47,7 @@ Add your products to cart and register with us to checkout. Once you checkout, o
           </a>
         </div>
         <div className="image-container">
-          <a href="mailto:jeff.haines@comcast.net?subject=Contact%20West%20Virginia%20Offices">
+          <a href="mailto:jeff.haines@comcast.net?subject=Contact%20Garrett/Allegany%20Offices">
             <img src={`${process.env.PUBLIC_URL}/assets/images/garrett.jpg`} alt="Keyser" className="row-image" />
             <h3 className="image-overlay">Contact Maryland (Garrett/Allegany County) Offices</h3>
           </a>

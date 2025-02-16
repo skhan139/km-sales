@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import products from '../data/Products';
 import { useCart } from '../context/CartContext';
 import ProductModal from './ProductModal'; // Import the ProductModal component
+import QuantitySelectionModal from './QuantitySelectionModal'; // Import the QuantitySelectionModal component
 import './ProductGallery.css'; // Import the CSS file for styling
 
 const itemsPerPage = 20; // Number of items to display per page
@@ -12,6 +13,7 @@ const ProductGallery = ({ searchTerm }) => {
   const [currentPage, setCurrentPage] = useState(1); // State for the current page
   const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
   const [viewMode, setViewMode] = useState('categories'); // State for the view mode
+  const [isQuantityModalOpen, setIsQuantityModalOpen] = useState(false); // State for the quantity selection modal
   const { addItemToCart } = useCart(); // Use the Cart context
 
   useEffect(() => {
@@ -51,6 +53,22 @@ const ProductGallery = ({ searchTerm }) => {
   const handleBackToMainPage = () => {
     setViewMode('categories');
     setSortCriteria('all');
+  };
+
+  const handleAddToCartClick = (product) => {
+    setSelectedProduct(product);
+    setIsQuantityModalOpen(true);
+  };
+
+  const handleQuantityModalClose = () => {
+    setIsQuantityModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const handleQuantityModalSubmit = (quantity, quantityType) => {
+    addItemToCart({ ...selectedProduct, quantity, quantityType });
+    setIsQuantityModalOpen(false);
+    setSelectedProduct(null);
   };
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
@@ -120,7 +138,7 @@ const ProductGallery = ({ searchTerm }) => {
                   <img src={product.image} alt={product.name} className="product-image" />
                   <h2 className="product-name">{product.name}</h2>
                   <p className="product-price">{product.price}</p>
-                  <button onClick={(e) => { e.stopPropagation(); addItemToCart(product); }} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
+                  <button onClick={(e) => { e.stopPropagation(); handleAddToCartClick(product); }} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
                 </div>
               ))
             )}
@@ -139,6 +157,14 @@ const ProductGallery = ({ searchTerm }) => {
         </>
       )}
       <ProductModal product={selectedProduct} onClose={handleCloseModal} />
+      {selectedProduct && (
+        <QuantitySelectionModal
+          isOpen={isQuantityModalOpen}
+          onRequestClose={handleQuantityModalClose}
+          onSubmit={handleQuantityModalSubmit}
+          product={selectedProduct}
+        />
+      )}
     </div>
   );
 };

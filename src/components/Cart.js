@@ -106,9 +106,19 @@ const Cart = () => {
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
                 <span className="cart-item-quantity-type">
-                  {item.quantityType === 'cases' 
-                    ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}` 
-                    : `${item.quantity} ${item.quantity === 1 ? 'game' : 'games'}`}
+                  {item.tags.includes('boards') 
+                    ? `${item.quantity} ${item.quantity === 1 ? 'board' : 'boards'}` 
+                    : item.tags.includes('daubers')
+                      ? item.quantityType === 'cases'
+                        ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}`
+                        : `${item.quantity} ${item.quantity === 1 ? 'dauber' : 'daubers'}`
+                      : item.tags.includes('paper')
+                        ? item.quantityType === 'cases'
+                          ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}`
+                          : `${item.quantity} ${item.quantity === 1 ? 'sheet' : 'sheets'}`
+                        : item.quantityType === 'cases' 
+                          ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}` 
+                          : `${item.quantity} ${item.quantity === 1 ? 'game' : 'games'}`}
                 </span>
                 <div className="cart-item-quantity">
                   <button onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.quantityType)}>-</button>
