@@ -1,42 +1,49 @@
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 90%;
-    max-width: 500px;
-    text-align: center;
-  }
-  
-  .quantity-selection,
-  .custom-quantity {
-    margin-bottom: 20px;
-  }
-  
-  .quantity-selection label,
-  .custom-quantity label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  .quantity-selection select,
-  .custom-quantity input {
-    padding: 5px;
-    font-size: 14px;
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
-    display: block;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quantity-selection,
+.custom-quantity {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quantity-selection label,
+.custom-quantity label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.quantity-selection select,
+.custom-quantity input {
+  padding: 5px;
+  font-size: 14px;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  display: block;
+}

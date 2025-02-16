@@ -84,7 +84,7 @@ const products = [
   { id: 84, name: "Assorted Bingo Daubers", image: "/assets/images/violetdobbers.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "12" },
   { 
     id: 85, 
-    name: "Assorted Bingo Paper", 
+    name: "Assorted Bingo Paper (12 Sheets Per Book)", 
     image: "/assets/images/bingopaper.jpg", 
     category: "bingo paper", 
     tags: ["bingo", "paper"], 

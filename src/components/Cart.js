@@ -105,6 +105,9 @@ const Cart = () => {
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
+                {item.tags.includes('paper') && (
+                  <span className="cart-item-paper-type">Type: {item.selectedPaper}</span>
+                )}
                 <span className="cart-item-quantity-type">
                   {item.tags.includes('boards') 
                     ? `${item.quantity} ${item.quantity === 1 ? 'board' : 'boards'}` 
@@ -113,9 +116,7 @@ const Cart = () => {
                         ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}`
                         : `${item.quantity} ${item.quantity === 1 ? 'dauber' : 'daubers'}`
                       : item.tags.includes('paper')
-                        ? item.quantityType === 'cases'
-                          ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}`
-                          : `${item.quantity} ${item.quantity === 1 ? 'sheet' : 'sheets'}`
+                        ? `${item.quantity} ${item.quantity === 1 ? 'book' : 'books'}`
                         : item.quantityType === 'cases' 
                           ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}` 
                           : `${item.quantity} ${item.quantity === 1 ? 'game' : 'games'}`}
