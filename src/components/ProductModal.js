@@ -8,6 +8,8 @@ const ProductModal = ({ product, onClose }) => {
   const [quantity, setQuantity] = useState(1); // State for the number of cases, boards, books, or daubers
   const [customQuantity, setCustomQuantity] = useState(''); // State for the custom number of games
   const [quantityType, setQuantityType] = useState('cases'); // State for the quantity type
+  const [copySuccess, setCopySuccess] = useState(''); // State for copy success message
+  const [showShareOptions, setShowShareOptions] = useState(false); // State for showing share options
 
   useEffect(() => {
     if (product) {
@@ -33,6 +35,18 @@ const ProductModal = ({ product, onClose }) => {
     const quantityToAdd = customQuantity ? parseInt(customQuantity, 10) : quantity;
     addItemToCart({ ...selectedVariant, quantity: quantityToAdd, quantityType: customQuantity ? 'games' : quantityType });
     onClose(); // Close the modal after adding to cart
+  };
+
+  const handleCopyLink = () => {
+    const productLink = `${window.location.origin}/product/${product.id}`;
+    navigator.clipboard.writeText(productLink).then(() => {
+      setCopySuccess('Link copied to clipboard!');
+      setTimeout(() => setCopySuccess(''), 3000); // Clear the message after 3 seconds
+    });
+  };
+
+  const handleShare = () => {
+    setShowShareOptions(!showShareOptions);
   };
 
   return (
@@ -137,6 +151,16 @@ const ProductModal = ({ product, onClose }) => {
           )}
         </div>
         <button className="add-to-cart-button-modal" onClick={handleAddToCart}>Add to Cart</button>
+        {!showShareOptions && <button className="share-button" onClick={handleShare}>Share</button>}
+        {showShareOptions && (
+          <div className="share-options">
+            <button className="close-share-options" onClick={handleShare}>Close</button>
+            <button onClick={handleCopyLink}>Copy Link</button>
+            <button onClick={() => window.open(`sms:+1234567890?body=Check out this product: ${window.location.origin}/product/${product.id}`, '_blank')}>Text</button>
+            <button onClick={() => window.open(`mailto:?subject=Check out this product&body=Check out this product: ${window.location.origin}/product/${product.id}`, '_blank')}>Email</button>
+          </div>
+        )}
+        {copySuccess && <p className="copy-success">{copySuccess}</p>}
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import emailjs from 'emailjs-com'; // Import EmailJS
 import CheckoutFormModal from './CheckoutFormModal';
 import Modal from 'react-modal';
 import ConfirmationPopup from './ConfirmationPopup'; // Import the ConfirmationPopup component
+import MessageBubble from './MessageBubble'; // Import the MessageBubble component
 import './Cart.css';
 
 const Cart = () => {
@@ -105,17 +106,17 @@ const Cart = () => {
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
-                {item.tags.includes('paper') && (
+                {item.tags && item.tags.includes('paper') && (
                   <span className="cart-item-paper-type">Type: {item.selectedPaper}</span>
                 )}
                 <span className="cart-item-quantity-type">
-                  {item.tags.includes('boards') 
+                  {item.tags && item.tags.includes('boards') 
                     ? `${item.quantity} ${item.quantity === 1 ? 'board' : 'boards'}` 
-                    : item.tags.includes('daubers')
+                    : item.tags && item.tags.includes('daubers')
                       ? item.quantityType === 'cases'
                         ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}`
                         : `${item.quantity} ${item.quantity === 1 ? 'dauber' : 'daubers'}`
-                      : item.tags.includes('paper')
+                      : item.tags && item.tags.includes('paper')
                         ? `${item.quantity} ${item.quantity === 1 ? 'book' : 'books'}`
                         : item.quantityType === 'cases' 
                           ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}` 
@@ -133,6 +134,7 @@ const Cart = () => {
         </div>
       )}
       {error && <p className="error-message">{error}</p>}
+      <MessageBubble />
       <div className="cart-buttons">
         <button className="checkout-button" onClick={handleCheckout}>Proceed to Checkout</button>
         <button className="clear-cart-button" onClick={handleClearCart}>Clear Cart</button>

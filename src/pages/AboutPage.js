@@ -12,8 +12,8 @@ const AboutPage = () => {
         </div>
         <div className="flex-container">
           <div className="flex-item">
-            <h3>Tip and Coin Boards</h3>
-            <p>Take your gaming and promotional activities to the next level with our Tip and Coin Boards. Manufactured with precision and creativity, these boards are versatile and highly customizable, featuring vibrant designs and engaging formats. Ideal for fundraising, giveaways, or special events, they bring an element of fun and competition to any occasion.</p>
+            <h3>Tip Jars</h3>
+            <p>Take your gaming and promotional activities to the next level with our Tip Jars. Manufactured with precision and creativity, these jars are versatile and come in many different themes, featuring vibrant designs and engaging formats. Ideal for fundraising, giveaways, or special events, they bring an element of fun and competition to any occasion.</p>
           </div>
           <div className="flex-item">
             <h3>Instant Winner Tickets</h3>
@@ -24,12 +24,12 @@ const AboutPage = () => {
             <p>At the heart of our business are integrity, commitment, and a focus on exceeding customer expectations. We offer high-quality bingo games and a variety of bingo daubers designed to enhance your gaming experience.</p>
           </div>
           <div className="flex-item">
-            <h3>Bonus Boards and Scratch Off Boards</h3>
+            <h3>Bonus Boards, Coin Boards, and Scratch Off Boards</h3>
             <p>Our product range includes a diverse selection of bingo and gaming supplies tailored to meet the needs of players and organizers alike.</p>
           </div>
           <div className="flex-item">
-            <h3>Raffle Tickets</h3>
-            <p>Enhance your fundraising events or community activities with our high-quality raffle tickets. We offer customizable designs to suit your specific needs, ensuring a professional look and seamless organization. Whether for charities, schools, or private events, our tickets are crafted to leave a lasting impression while keeping your event running smoothly.</p>
+            <h3>Raffle Tickets, Tip Boards, And Bingo Paper</h3>
+            <p>Enhance your fundraising events or community activities with our high-quality raffle tickets, bingo paper, and tip boards. We offer customizable designs to suit your specific needs, ensuring a professional look and seamless organization. Whether for charities, schools, or private events, our products are crafted to leave a lasting impression while keeping your event running smoothly.</p>
           </div>
           <div className="flex-item">
             <h3>Custom Games</h3>
