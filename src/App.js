@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; // Added useState back
+import React, { useEffect, useState } from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
@@ -17,11 +17,12 @@ import TestimonialPage from './pages/TestimonialPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import ReturnPolicy from './pages/ReturnPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
+import UserProfile from './pages/UserProfile'; // Import the UserProfile component
 import Footer from './components/Footer';
 
 const App = () => {
   const [user] = useAuthState(auth);
-  const [messages, setMessages] = useState([]); // Added useState back
+  const [messages, setMessages] = useState([]);
 
   useEffect(() => {
     // Establish WebSocket connection
@@ -36,7 +37,7 @@ const App = () => {
     // Event listener for receiving messages from the server
     socket.addEventListener('message', (event) => {
       console.log('Message from server: ', event.data);
-      setMessages((prevMessages) => [...prevMessages, event.data]); // Updating state with new message
+      setMessages((prevMessages) => [...prevMessages, event.data]);
     });
 
     // Event listener for errors
@@ -56,7 +57,7 @@ const App = () => {
   }, []);
 
   return (
-    <CartProvider> {/* Wrap the application with CartProvider */}
+    <CartProvider>
       <div className="app-container">
         <Navbar />
         <Routes>
@@ -68,14 +69,15 @@ const App = () => {
           <Route path="/members" element={user ? <MembersPage /> : <Navigate to="/login" />} />
           <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
           <Route path="/checkout" element={user ? <CheckoutPage /> : <Navigate to="/login" />} />
-          <Route path="/legacy" element={<LegacyPage />} /> {/* Add Legacy route */}
-          <Route path="/testimonial" element={<TestimonialPage />} /> {/* Add Testimonial route */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} /> {/* Add Privacy Policy route */}
-          <Route path="/return-policy" element={<ReturnPolicy />} /> {/* Add Return Policy route */}
-          <Route path="/shipping-policy" element={<ShippingPolicy />} /> {/* Add Shipping Policy route */}
+          <Route path="/legacy" element={<LegacyPage />} />
+          <Route path="/testimonial" element={<TestimonialPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/return-policy" element={<ReturnPolicy />} />
+          <Route path="/shipping-policy" element={<ShippingPolicy />} />
+          <Route path="/profile" element={user ? <UserProfile /> : <Navigate to="/login" />} /> {/* Add UserProfile route */}
           <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
         </Routes>
-        <Footer /> {/* Include the Footer at the bottom */}
+        <Footer />
       </div>
     </CartProvider>
   );

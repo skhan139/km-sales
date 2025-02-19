@@ -1,8 +1,7 @@
-// src/pages/SignupPage.js
-
 import React, { useState } from 'react';
-import { auth } from '../firebase';
+import { auth, db } from '../firebase'; // Import your Firebase configuration
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore'; // Import Firestore functions
 import { useNavigate } from 'react-router-dom';
 import './SignupPage.css'; // Import the CSS file for styling
 
@@ -24,8 +23,20 @@ const SignupPage = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      // Here you would typically also send the additional fields to your backend or save them in the user profile
-      await createUserWithEmailAndPassword(auth, email, password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      // Store user data in Firestore
+      await setDoc(doc(db, 'users', user.uid), {
+        firstName,
+        lastName,
+        companyName,
+        email: user.email,
+        phoneNumber,
+        businessAddress,
+        city,
+        zipCode,
+        organizationRole,
+      });
       setSignupSuccess(true);
       setTimeout(() => {
         navigate('/login');

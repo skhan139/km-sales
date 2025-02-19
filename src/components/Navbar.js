@@ -36,12 +36,13 @@ const Navbar = () => {
         <li><Link to="/" onClick={closeNavbar}>Home</Link></li>
         <li><Link to="/about" onClick={closeNavbar}>About</Link></li>
         <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
-        <li><Link to="/legacy" onClick={closeNavbar}>K&M Legacy</Link></li> {/* Add Legacy Link */}
-        <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li> {/* Add Testimonial Link */}
-        <li><a href="https://www.kandmsalesdatabase.online/" target="_blank" rel="noopener noreferrer" onClick={closeNavbar}>Admin</a></li> {/* Add Admin Link */}
+        <li><Link to="/legacy" onClick={closeNavbar}>K&M Legacy</Link></li>
+        <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
+        <li><a href="https://www.kandmsalesdatabase.online/" target="_blank" rel="noopener noreferrer" onClick={closeNavbar}>Admin</a></li>
         {user ? (
           <>
             <li><Link to="/members" onClick={closeNavbar}>Products</Link></li>
+            <li><Link to="/profile" onClick={closeNavbar}>My Account</Link></li> {/* Add Profile Link */}
             <li>
               <Link to="/cart" onClick={closeNavbar}>
                 <span className="cart-icon" data-count={cart ? cart.length : 0}>
