@@ -7,7 +7,7 @@ const TestimonialPage = () => {
     { id: 1, name: "Instant Fulfilment", text: "We take pride in immediate fulfuillment and move with urgency. Being in a close radius to our customers allows us to fulfill orders on the day placed or the day after. We understand that waiting an extended period of time to fulfill orders puts our customers at a disadvantage. " },
     { id: 2, name: "No Delivery Fee", text: "We cover Mineral, Allegheny, and surrounding counties for FREE. Zero extra fees and faster fulfillment.." },
     { id: 3, name: "Customize Your Product", text: "From custom ticket games to custom card games, we can design almost anything to your desired specifications. Things like custom game names, custom themes and cartoons, and custom payouts are all available to fit your needs." },
-    { id: 4, name: "Club Consultment", text: "Feel free to schedule a phone call with one of our representitves via email or cellphone to enhance your experince with us. We will reccomend specific games and help you maximize the most return possible for your events." },
+    { id: 4, name: "Find The Right Fit", text: "We offer product guidance to every single one of our customers. This can be done both online and in person. Our goal is to find the products that fit your needs the best while helping you generate revenue for your club or event. We understand that the amount of options to choose from may be overwhelming, which is why we’re here to help!" },
   ];
 
   return (

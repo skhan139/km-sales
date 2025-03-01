@@ -24,8 +24,8 @@ const ContactPage = () => {
           <p>Cell: (443)-789-6803 <br /> <br />Email: Skhan139@icloud.com</p>
         </div>
         <div className="flex-item">
-          <h3>Alec Pulliam (West Virginia Representive)</h3>
-          <p>Cell: (304)-813-5138 <br /> <br /> Email: Alecpulliam13@gmail.com</p>
+          <h3>Craig Rotruck (West Virginia Representive)</h3>
+          <p>Cell: (304)-813-1078 <br /> <br /> Email: Kandmsales17@gmail.com</p>
         </div>
         <div className="flex-item">
           <h3>Jeff Haines (Garrett/Allegany County Representive)</h3>
