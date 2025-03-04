@@ -25,6 +25,10 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  background-color: #f0ead6; /* Eggshell white background */
+  border: 1px solid black; /* Thin black outline */
+  padding: 20px; /* Add padding for better spacing */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
 }
 
 .sort-navbar {
@@ -52,6 +56,10 @@
   grid-template-columns: auto 1fr 1fr 1fr 1fr;
   align-items: center;
   gap: 10px;
+  background-color: #f0ead6; /* Eggshell white background */
+  border: 1px solid black; /* Thin black outline */
+  padding: 20px; /* Add padding for better spacing */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
 }
 
 .price-filters h3 {
@@ -90,7 +98,7 @@
 }
 
 .product-card {
-  background-color: #fff;
+  background-color: #f0ead6; /* Eggshell white background */
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

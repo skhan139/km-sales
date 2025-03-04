@@ -70,10 +70,10 @@ const products = [
   { id: 70, name: "Schrade Hunting Knife Board", image: "/assets/images/schrade3.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1" },
   { id: 71, name: "Buck Hunting Knife Board", image: "/assets/images/buckhuntingknife.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,150", profit: "$1,130.00", profitPercent: "49.6%", dealsPerCase: "1" },
   { id: 72, name: "Whiskey Bent Knife Board", image: "/assets/images/whiskeyboard.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
-  { id: 73, name: "Assorted Bingo Daubers", image: "/assets/images/reddobbers.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "12" },
+  { id: 73, name: "Assorted Bingo Daubers", image: "/assets/images/reddobbers.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A%", dealsPerCase: "12" },
   { id: 74, name: "2520/1680 Cash Eruption", image: "/assets/images/casheruption.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
   { id: 75, name: "1000 Fire Fighters", image: "/assets/images/firefighters.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
-  { id: 76, name: "Assorted Bingo Daubers", image: "/assets/images/keylimedobbers.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "12" },
+  { id: 76, name: "Assorted Bingo Daubers", image: "/assets/images/keylimedobbers.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "$N/A", payout: "$N/A", profit: "$N/A", profitPercent: "N/A", dealsPerCase: "12" },
   { id: 77, name: "240 Loan Shark", image: "/assets/images/loanshark.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
   { id: 78, name: "1020 Sparkles", image: "/assets/images/sparkles.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
   { id: 79, name: "2280 Glory Days", image: "/assets/images/glorydays.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
@@ -81,7 +81,7 @@ const products = [
   { id: 81, name: "Tip Board 60CSI", image: "/assets/images/60csitip.jpg", category: "tip boards", tags: ["tip", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
   { id: 82, name: "Tip Board 50CSI", image: "/assets/images/50csitipboard.jpg", category: "tip boards", tags: ["tip", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
   { id: 83, name: "300 Sure Tip", image: "/assets/images/300suretip.jpg", category: "tip boards", tags: ["tip", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "1" },
-  { id: 84, name: "Assorted Bingo Daubers", image: "/assets/images/violetdobbers.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,240", profit: "$1,040.00", profitPercent: "45.6%", dealsPerCase: "12" },
+  { id: 84, name: "Assorted Bingo Daubers", image: "/assets/images/violetdobbers.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "12" },
   { 
     id: 85, 
     name: "Assorted Bingo Paper (12 Sheets Per Book)", 
@@ -144,7 +144,27 @@ const products = [
         dealsPerCase: "1"
       }
     ]
-  }
+  },
+  { id: 85, name: "250 Four On One", image: "/assets/images/fouronone.jpg", category: "raffle tickets", tags: ["raffle", "tickets"], sku: "SKU002", takeIn: "$250.00", payout: "$200.00", profit: "$50.00", profitPercent: "20%", dealsPerCase: "40" },
+  { id: 86, name: "Queen Of Hearts Board", image: "/assets/images/queenofhearts.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "1" },
+  { id: 87, name: "3960 Unbeatable Odds", image: "/assets/images/unbeatableodds.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$3,960.00", payout: "$2,980", profit: "$980.00", profitPercent: "24.75%", dealsPerCase: "1" },
+  { id: 88, name: "3960 Toss Some Darts", image: "/assets/images/tosssomedarts.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$1980.00", payout: "$1,442", profit: "$538.00", profitPercent: "27.17%", dealsPerCase: "1" },
+  { id: 89, name: "3960 Platinum Sevens", image: "/assets/images/platinumsevens.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$3,960.00", payout: "$2,980", profit: "$980.00", profitPercent: "24.75%", dealsPerCase: "1" },
+  { id: 90, name: "798 Big Club 33", image: "/assets/images/bigclub33.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$798.00", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "8" },
+  { id: 91, name: "3060 Red (628 Bundles, 5 @ $.50)", image: "/assets/images/3060.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$314", payout: "$247", profit: "$67.00", profitPercent: "21%", dealsPerCase: "25" },
+  { id: 92, name: "3990 Home Of The Brave", image: "/assets/images/homeofthebrave.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$3,990.00", payout: "$2,894", profit: "$1,006.00", profitPercent: "27.47%", dealsPerCase: "1" },
+  { id: 93, name: "Raffle Tickets", image: "/assets/images/raffletickets.jpg", category: "raffle tickets", tags: ["raffle", "tickets"], sku: "SKU002", takeIn: "$N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "10" },
+  { id: 94, name: "200 Five On One", image: "/assets/images/fiveonone.jpg", category: "raffle tickets", tags: ["raffle", "tickets"], sku: "SKU002", takeIn: "$250.00", payout: "$200.00", profit: "$50.00", profitPercent: "20%", dealsPerCase: "40" },
+  { id: 95, name: "192 Police Chase", image: "/assets/images/policechase.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$192.00", payout: "$110.00", profit: "$92.00", profitPercent: "43%", dealsPerCase: "32" },
+  { id: 96, name: "3955 By Land, Air, And Sea (Chip Game)", image: "/assets/images/bylandairandsea.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$3,955.00", payout: "$2,990.00", profit: "$965.00", profitPercent: "24.29%", dealsPerCase: "1" },
+  { id: 97, name: "3955 Pharaohs Fourtune (Chip Game)", image: "/assets/images/pharaohsfourtune.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$3,955.00", payout: "$2,990.00", profit: "$965.00", profitPercent: "24.39%", dealsPerCase: "1" },
+  { id: 98, name: "1040 Extravagant", image: "/assets/images/extravagant.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$1,040.00", payout: "$728.00", profit: "$312.00", profitPercent: "30%", dealsPerCase: "5" },
+  { id: 99, name: "1040 Diamonds Galore", image: "/assets/images/diamondsgalore.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$1,040.00", payout: "$728.00", profit: "$312.00", profitPercent: "30%", dealsPerCase: "5" },
+  { id: 100, name: "1040 Cash Collection", image: "/assets/images/cashcollection.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$1,040.00", payout: "$728.00", profit: "$312.00", profitPercent: "30%", dealsPerCase: "5" },
+  { id: 101, name: "1921 Climb The Ladder (Chip Game)", image: "/assets/images/climbtheladder.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$1,921.00", payout: "$1,489.00", profit: "$432.00", profitPercent: "22.48%", dealsPerCase: "1" },
+  { id: 102, name: "320 Planet Moolah (K&M Exclusive Game)", image: "/assets/images/planetmoolah.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$320.00", payout: "$195.00", profit: "$125.00", profitPercent: "39%", dealsPerCase: "24" },
+  { id: 103, name: "240 Luau Loot ", image: "/assets/images/luauloot.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$240.00", payout: "$157.00", profit: "$83.00", profitPercent: "35%", dealsPerCase: "40" },
+  { id: 104, name: "Double Deal Club Special", image: "/assets/images/doubledealclubspecial.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$352.00", payout: "$187.00", profit: "$165.00", profitPercent: "47%", dealsPerCase: "12" },
 ];
 
 export default products;

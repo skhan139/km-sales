@@ -101,6 +101,7 @@
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: black; /* Set label text color to black */
 }
 
 .quantity-selection select,
@@ -187,5 +188,9 @@
     position: static; /* Reset position for mobile */
     margin-top: 20px; /* Add margin for spacing */
     transform: none; /* Reset transform for mobile */
+  }
+
+  .quantity-select {
+    color: black;
   }
 }
