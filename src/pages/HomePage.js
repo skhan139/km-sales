@@ -62,17 +62,17 @@ Add your products to cart and register with us to checkout. Once you checkout, o
             <Slider {...sliderSettings}>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/bigfoots.jpg`} alt="Newest arrival 1" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/doubledealclubspecial.jpg`} alt="Newest arrival 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/americanpie.jpg`} alt="Newest arrival 2" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/planetmoolah.jpg`} alt="Newest arrival 2" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/bigrig.jpg`} alt="Newest arrival 3" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/eski-whoa.jpg`} alt="Newest arrival 3" className="slider-image" />
                 </Link>
               </div>
               <div>
@@ -96,7 +96,7 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/betterthansex.jpg`} alt="Best seller 2" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/bigfoots.jpg`} alt="Best seller 2" className="slider-image" />
                 </Link>
               </div>
               <div>
