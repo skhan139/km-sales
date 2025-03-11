@@ -81,6 +81,16 @@ const ProductGallery = ({ searchTerm }) => {
     setCurrentPage(1); // Reset to the first page whenever the filter changes
   };
 
+  const handleSealFilterChange = (min, max) => {
+    const filteredArray = products.filter(product => {
+      if (!product.seal) return false; // Ensure seal exists
+      const seal = parseFloat(product.seal.replace(/[^0-9.-]+/g, ""));
+      return seal >= min && (max === null || seal <= max);
+    });
+    setFilteredProducts(filteredArray);
+    setCurrentPage(1); // Reset to the first page whenever the filter changes
+  };
+
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const displayedProducts = filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
@@ -147,6 +157,14 @@ const ProductGallery = ({ searchTerm }) => {
             <button onClick={() => handlePriceFilterChange(1001, 2000)}>1001 - 2000 Ticket Count</button>
             <button onClick={() => handlePriceFilterChange(2001, null)}>2000+ Ticket Count</button>
           </div>
+          <br/>
+          <div className="seal-filters">
+            <h3>Sort By Game Seal</h3>
+            <button onClick={() => handleSealFilterChange(50, 100)}>$50 - $100</button>
+            <button onClick={() => handleSealFilterChange(200, 300)}>$200 - $300</button>
+            <button onClick={() => handleSealFilterChange(400, 599)}>$400 - $599</button>
+            <button onClick={() => handleSealFilterChange(600, null)}>$600+</button>
+          </div>
           <div className="pagination">
             {Array.from({ length: totalPages }, (_, index) => (
               <button
@@ -166,6 +184,7 @@ const ProductGallery = ({ searchTerm }) => {
                 <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
                   <img src={product.image} alt={product.name} className="product-image" />
                   <h2 className="product-name">{product.name}</h2>
+                  <div className="more-info">More Info</div>
                   <br/> <br/>
                   <button onClick={(e) => { e.stopPropagation(); handleAddToCartClick(product); }} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
                 </div>

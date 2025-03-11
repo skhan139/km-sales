@@ -10,9 +10,10 @@ const ordersData = [
     ],
   },
   {
-    email: 'user2@example.com',
+    email: 'kristal.ibeautyschool@gmail.com',
     orders: [
-      { id: 'order1', name: 'Order 1', fileUrl: '/assets/files/sample.pdf' },
+      { id: 'order1', name: 'Order 1', fileUrl: '/assets/files/invoice_Frankfort Booster Club_2025-02-12 (9)' },
+      { id: 'order2', name: 'Order 2', fileUrl: '/assets/files/invoice_Frankfort Booster Club_2025-02-28' },
     ],
   },
   // Add more user orders here

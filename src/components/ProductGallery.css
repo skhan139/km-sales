@@ -70,6 +70,25 @@
   grid-column: span 1;
 }
 
+.seal-filters {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0ead6; /* Eggshell white background */
+  border: 1px solid black; /* Thin black outline */
+  padding: 20px; /* Add padding for better spacing */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
+}
+
+.seal-filters h3 {
+  grid-column: 1 / span 1;
+}
+
+.seal-filters button {
+  grid-column: span 1;
+}
+
 .sort-navbar button {
   padding: 10px 20px;
   border: none;
@@ -154,6 +173,23 @@
 
 .add-to-cart-button:hover {
   background-color: #DAA520;
+}
+
+.more-info {
+  position: absolute;
+  top: 50%; /* Position it in the center vertically */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center it horizontally and vertically */
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.product-card:hover .more-info {
+  opacity: 1;
 }
 
 /* Category Gallery Styles */

@@ -18,8 +18,6 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
-  const isAdmin = user && user.uid === 'WgwlpjD9O5WOtNy1VXBqpNw7coR2'; // Replace with your admin UID
-
   return (
     <nav className="navbar">
       <Link to="/" onClick={closeNavbar}>
@@ -44,11 +42,6 @@ const Navbar = () => {
           <>
             <li><Link to="/members" onClick={closeNavbar}>Products</Link></li>
             <li><Link to="/profile" onClick={closeNavbar}>My Profile</Link></li> {/* Add Profile link */}
-            {isAdmin ? (
-              <li><Link to="/admin" onClick={closeNavbar}>Admin</Link></li>
-            ) : (
-              <li><Link to="/admin-login" onClick={closeNavbar}>Admin</Link></li>
-            )}
             <li>
               <Link to="/cart" onClick={closeNavbar}>
                 <span className="cart-icon" data-count={cart ? cart.length : 0}>
@@ -64,7 +57,6 @@ const Navbar = () => {
           <>
             <li><Link to="/login" onClick={closeNavbar}>Login</Link></li>
             <li><Link to="/signup" onClick={closeNavbar}>Signup</Link></li>
-            <li><Link to="/admin-login" onClick={closeNavbar}>Admin</Link></li>
           </>
         )}
       </ul>
