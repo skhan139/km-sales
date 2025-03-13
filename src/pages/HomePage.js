@@ -21,13 +21,12 @@ const HomePage = () => {
       
       <div className="info-box">
         <h1 className='welcome'>Welcome to K&M Sales.</h1>
-        <h2 className='produly'>Proudly supplying bingo products to West Virginia and Maryland for over 40 years!</h2>
+        <h2 className='produly'>Proudly supplying bingo and gaming products to West Virginia and Maryland for over 40 years!</h2>
         <p className='intro'>
+        We sell a variety of pull tabs/tip jars, tickets, bingo games, and more! <br/>
           Want to Buy Our Products?
 Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
           Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
-        </p>
-        <p className='intro'>
           Interested in creating a custom game? 
           <a href="mailto:skhan139@icloud.com?subject=Custom%20Game%20Inquiry"> Message us here!</a>
         </p>

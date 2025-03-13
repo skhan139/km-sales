@@ -89,6 +89,25 @@
   grid-column: span 1;
 }
 
+.profit-percent-filters {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  background-color: #f0ead6; /* Eggshell white background */
+  border: 1px solid black; /* Thin black outline */
+  padding: 20px; /* Add padding for better spacing */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
+}
+
+.profit-percent-filters h3 {
+  grid-column: 1 / span 1;
+}
+
+.profit-percent-filters button {
+  grid-column: span 1;
+}
+
 .sort-navbar button {
   padding: 10px 20px;
   border: none;

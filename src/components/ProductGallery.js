@@ -71,7 +71,30 @@ const ProductGallery = ({ searchTerm }) => {
     setSelectedProduct(null);
   };
 
-  const handlePriceFilterChange = (min, max) => {
+  const handlePriceFilterChange = (event) => {
+    const value = event.target.value;
+    let min, max;
+    switch (value) {
+      case '192-500':
+        min = 192;
+        max = 500;
+        break;
+      case '501-1000':
+        min = 501;
+        max = 1000;
+        break;
+      case '1001-2000':
+        min = 1001;
+        max = 2000;
+        break;
+      case '2001+':
+        min = 2001;
+        max = null;
+        break;
+      default:
+        min = 0;
+        max = null;
+    }
     const filteredArray = products.filter(product => {
       if (!product.takeIn) return false; // Ensure takeIn exists
       const takeIn = parseFloat(product.takeIn.replace(/[^0-9.-]+/g, ""));
@@ -81,11 +104,67 @@ const ProductGallery = ({ searchTerm }) => {
     setCurrentPage(1); // Reset to the first page whenever the filter changes
   };
 
-  const handleSealFilterChange = (min, max) => {
+  const handleSealFilterChange = (event) => {
+    const value = event.target.value;
+    let min, max;
+    switch (value) {
+      case '50-100':
+        min = 50;
+        max = 100;
+        break;
+      case '200-300':
+        min = 200;
+        max = 300;
+        break;
+      case '400-599':
+        min = 400;
+        max = 599;
+        break;
+      case '600+':
+        min = 600;
+        max = null;
+        break;
+      default:
+        min = 0;
+        max = null;
+    }
     const filteredArray = products.filter(product => {
       if (!product.seal) return false; // Ensure seal exists
       const seal = parseFloat(product.seal.replace(/[^0-9.-]+/g, ""));
       return seal >= min && (max === null || seal <= max);
+    });
+    setFilteredProducts(filteredArray);
+    setCurrentPage(1); // Reset to the first page whenever the filter changes
+  };
+
+  const handleProfitPercentFilterChange = (event) => {
+    const value = event.target.value;
+    let min, max;
+    switch (value) {
+      case '15-25':
+        min = 15;
+        max = 25;
+        break;
+      case '26-35':
+        min = 26;
+        max = 35;
+        break;
+      case '36-45':
+        min = 36;
+        max = 45;
+        break;
+      case '46+':
+        min = 46;
+        max = null;
+        break;
+      default:
+        min = 0;
+        max = null;
+    }
+    const filteredArray = products.filter(product => {
+      if (!product.profitPercent) return false; // Ensure profitPercent exists
+      const profitPercent = parseFloat(product.profitPercent.replace(/[^0-9.-]+/g, ""));
+      return profitPercent >= min && (max === null || profitPercent <= max);
     });
     setFilteredProducts(filteredArray);
     setCurrentPage(1); // Reset to the first page whenever the filter changes
@@ -152,18 +231,35 @@ const ProductGallery = ({ searchTerm }) => {
           </div>
           <div className="price-filters">
             <h3>Sort By Ticket Count</h3>
-            <button onClick={() => handlePriceFilterChange(192, 500)}>192 - 500 Ticket Count</button>
-            <button onClick={() => handlePriceFilterChange(501, 1000)}>501 - 1000 Ticket Count</button>
-            <button onClick={() => handlePriceFilterChange(1001, 2000)}>1001 - 2000 Ticket Count</button>
-            <button onClick={() => handlePriceFilterChange(2001, null)}>2000+ Ticket Count</button>
+            <select onChange={handlePriceFilterChange}>
+              <option value="">Select</option>
+              <option value="192-500">192 - 500 Ticket Count</option>
+              <option value="501-1000">501 - 1000 Ticket Count</option>
+              <option value="1001-2000">1001 - 2000 Ticket Count</option>
+              <option value="2001+">2000+ Ticket Count</option>
+            </select>
           </div>
           <br/>
           <div className="seal-filters">
             <h3>Sort By Game Seal</h3>
-            <button onClick={() => handleSealFilterChange(50, 100)}>$50 - $100</button>
-            <button onClick={() => handleSealFilterChange(200, 300)}>$200 - $300</button>
-            <button onClick={() => handleSealFilterChange(400, 599)}>$400 - $599</button>
-            <button onClick={() => handleSealFilterChange(600, null)}>$600+</button>
+            <select onChange={handleSealFilterChange}>
+              <option value="">Select</option>
+              <option value="50-100">$50 - $100</option>
+              <option value="200-300">$200 - $300</option>
+              <option value="400-599">$400 - $599</option>
+              <option value="600+">$600+</option>
+            </select>
+          </div>
+          <br/>
+          <div className="profit-percent-filters">
+            <h3>Sort By Profit Percent</h3>
+            <select onChange={handleProfitPercentFilterChange}>
+              <option value="">Select</option>
+              <option value="15-25">15-25%</option>
+              <option value="26-35">26-35%</option>
+              <option value="36-45">36-45%</option>
+              <option value="46+">46% +</option>
+            </select>
           </div>
           <div className="pagination">
             {Array.from({ length: totalPages }, (_, index) => (

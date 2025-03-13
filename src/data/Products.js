@@ -180,7 +180,9 @@ const products = [
   { id: 117, name: "Buck Hexam Knife Board", image: "/assets/images/buckhexam.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$500" },
   { id: 118, name: "Bang 4 Bucks Coin Board", image: "/assets/images/bang4bucks.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$500" },
   { id: 119, name: "Ca$h A Big One Coin Board", image: "/assets/images/cashabigone.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$500" },
-  { id: 120, name: "1010 Hit Me!", image: "/assets/images/hitme.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$500" },
+  { id: 120, name: "1010 Hit Me!", image: "/assets/images/hitme.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$1,010.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$500" },
+  { id: 121, name: "994 Hickory Dickory Dork", image: "/assets/images/hickory.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$994.00", payout: "$725.00", profit: "$269.00", profitPercent: "27.06%", dealsPerCase: "8", seal: "$500" },
+  { id: 122, name: "1008 Color Of Money", image: "/assets/images/colorofmoney.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$1,008.00", payout: "$707.00", profit: "$301.00", profitPercent: "29.86%", dealsPerCase: "8", seal: "$500" },
   
   
   

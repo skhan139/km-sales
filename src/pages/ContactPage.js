@@ -13,7 +13,7 @@ const ContactPage = () => {
       <div className="flex-container">
         <div className="flex-item">
           <h3>K&M Keyser Office</h3>
-          <p>365 Sunset Place, Keyser, WV 26726 <br /> <br />(304)-788-5310<br /> <br /> KandMSales17@gmail.com</p>
+          <p>365 Sunset Place, Keyser, WV 26726 <br /> <br />(304)-788-5310<br /> <br /> Email: KandMSales17@gmail.com</p>
         </div>
         <div className="flex-item">
           <h3>Rich Everett (Allegany/Garrett County Representive) </h3>
