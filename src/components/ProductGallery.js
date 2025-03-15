@@ -229,37 +229,37 @@ const ProductGallery = ({ searchTerm }) => {
               </div>
             </nav>
           </div>
-          <div className="price-filters">
-            <h3>Sort By Ticket Count</h3>
-            <select onChange={handlePriceFilterChange}>
-              <option value="">Select</option>
-              <option value="192-500">192 - 500 Ticket Count</option>
-              <option value="501-1000">501 - 1000 Ticket Count</option>
-              <option value="1001-2000">1001 - 2000 Ticket Count</option>
-              <option value="2001+">2000+ Ticket Count</option>
-            </select>
-          </div>
-          <br/>
-          <div className="seal-filters">
-            <h3>Sort By Game Seal</h3>
-            <select onChange={handleSealFilterChange}>
-              <option value="">Select</option>
-              <option value="50-100">$50 - $100</option>
-              <option value="200-300">$200 - $300</option>
-              <option value="400-599">$400 - $599</option>
-              <option value="600+">$600+</option>
-            </select>
-          </div>
-          <br/>
-          <div className="profit-percent-filters">
-            <h3>Sort By Profit Percent</h3>
-            <select onChange={handleProfitPercentFilterChange}>
-              <option value="">Select</option>
-              <option value="15-25">15-25%</option>
-              <option value="26-35">26-35%</option>
-              <option value="36-45">36-45%</option>
-              <option value="46+">46% +</option>
-            </select>
+          <div className="filter-options">
+            <div className="filter-group">
+              <h3>Sort By Ticket Count</h3>
+              <select onChange={handlePriceFilterChange}>
+                <option value="">Select</option>
+                <option value="192-500">192 - 500 Ticket Count</option>
+                <option value="501-1000">501 - 1000 Ticket Count</option>
+                <option value="1001-2000">1001 - 2000 Ticket Count</option>
+                <option value="2001+">2000+ Ticket Count</option>
+              </select>
+            </div>
+            <div className="filter-group">
+              <h3>Sort By Game Seal</h3>
+              <select onChange={handleSealFilterChange}>
+                <option value="">Select</option>
+                <option value="50-100">$50 - $100</option>
+                <option value="200-300">$200 - $300</option>
+                <option value="400-599">$400 - $599</option>
+                <option value="600+">$600+</option>
+              </select>
+            </div>
+            <div className="filter-group">
+              <h3>Sort By Profit Percent</h3>
+              <select onChange={handleProfitPercentFilterChange}>
+                <option value="">Select</option>
+                <option value="15-25">15-25%</option>
+                <option value="26-35">26-35%</option>
+                <option value="36-45">36-45%</option>
+                <option value="46+">46% +</option>
+              </select>
+            </div>
           </div>
           <div className="pagination">
             {Array.from({ length: totalPages }, (_, index) => (

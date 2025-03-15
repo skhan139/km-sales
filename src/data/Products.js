@@ -183,6 +183,7 @@ const products = [
   { id: 120, name: "1010 Hit Me!", image: "/assets/images/hitme.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$1,010.00", payout: "$1,000", profit: "$1,280.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$500" },
   { id: 121, name: "994 Hickory Dickory Dork", image: "/assets/images/hickory.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$994.00", payout: "$725.00", profit: "$269.00", profitPercent: "27.06%", dealsPerCase: "8", seal: "$500" },
   { id: 122, name: "1008 Color Of Money", image: "/assets/images/colorofmoney.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$1,008.00", payout: "$707.00", profit: "$301.00", profitPercent: "29.86%", dealsPerCase: "8", seal: "$500" },
+  { id: 123, name: "750 Race Day", image: "/assets/images/raceday.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$750.00", payout: "$505.00", profit: "$245.00", profitPercent: "32.7%", dealsPerCase: "6", seal: "$200" },
   
   
   
