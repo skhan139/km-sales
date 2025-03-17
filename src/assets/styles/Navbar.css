@@ -89,6 +89,56 @@ li a:hover, .nav-button:hover {
   border-radius: 10px;
 }
 
+.search-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon img {
+  height: 20px;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.search-results {
+  display: flex;
+  flex-direction: column;
+  background-color: black; /* Set background color to black */
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  color: white; /* Set text color to white */
+}
+
+.search-result:hover {
+  background-color: #333; /* Darken background on hover */
+}
+
+.search-result-image {
+  height: 40px;
+  margin-right: 10px;
+}
+
 /* Styles for mobile screens */
 @media (max-width: 768px) {
   .toggle-button {

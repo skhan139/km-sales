@@ -6,7 +6,7 @@
 
 .search-and-sort {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Shift the search bar to the right */
   width: 100%;
   max-width: 800px;
   margin-bottom: 20px;
