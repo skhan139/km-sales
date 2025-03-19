@@ -9,6 +9,7 @@ const TestimonialPage = () => {
     { id: 3, name: "Customize Your Product", text: "From custom ticket games to custom card games, we can design almost anything to your desired specifications. Things like custom game names, custom themes and cartoons, and custom payouts are all available to fit your needs." },
     { id: 4, name: "Find The Right Fit", text: "We offer product guidance to every single one of our customers. This can be done both online and in person. Our goal is to find the products that fit your needs the best while helping you generate revenue for your club or event. We understand that the amount of options to choose from may be overwhelming, which is why we’re here to help!" },
     { id: 5, name: "Commitment To Community", text: "We take pride in giving back to our customers. We proudly support our customers events and believe that giving back is crucial to developing strong relationships." },
+    { id: 6, name: "On-Site Customer Support", text: "We will attend your bash, fundraiser, or charity event and cater to any extra needs you may have. This includes brining extra inventory for the day, assisting with any of products, or any other of your needs to ensure you have a positive experince with us. Our goal is to make your fundriasing as efficient as possible and we are willing to help in any way that we can." },
   ];
 
   return (
