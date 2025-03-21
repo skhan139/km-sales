@@ -208,6 +208,10 @@ const products = [
   { id: 144, name: "12000 3/1 Special Agent Guy", image: "/assets/images/agent.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$4,000.00", payout: "$3,080.00", profit: "$920.00", profitPercent: "23%", dealsPerCase: "12", seal: "$300" },
   { id: 145, name: "660 Crusher", image: "/assets/images/crusher.jpg", category: "instant winners", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$660.00", payout: "$500.00", profit: "$160.00", profitPercent: "24.24%", dealsPerCase: "12", seal: "$300" },
   { id: 146, name: "1500 Mini Club", image: "/assets/images/1500miniclub.jpg", category: "instant winners", tags: ["raffle", "tickets"], sku: "SKU002", takeIn: "$1,500.00", payout: "$1,300.00", profit: "$200.00", profitPercent: "13%", dealsPerCase: "50", seal: "$500" },
+  { id: 147, name: "Pedal To The Metal Coin Board", image: "/assets/images/metal.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,080", profit: "$1,170.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$300" },
+  { id: 148, name: "Go Banana$ Coin Board", image: "/assets/images/gobananas.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,080", profit: "$1,170.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$300" },
+  { id: 119, name: "Whiskey Bent Catch Pin Knife Board", image: "/assets/images/catchpin.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,039.00", profit: "$1,241.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$599" },
+  
   
 ];
 
