@@ -1,0 +1,124 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-container {
+  background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Ensures the background image covers the entire viewport */
+  min-height: 170vh; /* Extend the minimum height to cover more vertical space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Add padding to ensure content doesn't touch the edges */
+  color: rgb(255, 255, 255); /* Adjust text color for visibility */
+  padding-top: 60px; /* Add top padding to prevent overlapping with navbar */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  overflow-y: auto; /* Allow vertical scrolling */
+  animation: fadeIn 1s ease-in; /* Apply the fade-in animation */
+}
+
+.custom-game-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1; /* Allow the custom-game-page to grow and fill available space */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.flex-item {
+  flex: 1 1 calc(33.333% - 40px); /* 3 items per row with 20px gap */
+  background-color: #ffffff; /* Updated background color */
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flex-item h3 {
+  margin-top: 0;
+  color: black;
+}
+
+.flex-item p {
+  margin-bottom: 0;
+  color: black;
+}
+
+.custom-game {
+  color: rgb(255, 255, 255);
+}
+
+.custom-game-box {
+  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.custom-game-image {
+  max-width: 100%;
+  height: auto;
+  width: 200px; /* Set a smaller fixed width for the image */
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .flex-item {
+    flex: 1 1 100%; /* Stack items vertically on small screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-game-page {
+    padding: 10px;
+  }
+  
+  .custom-game-box {
+    padding: 10px;
+  }
+  
+  .flex-item {
+    padding: 10px;
+  }
+}
+
+/* Adjusting space between the last div and the footer */
+.page-container {
+  margin-bottom: 20px; /* Default margin for all screen sizes */
+}
+
+@media (min-width: 1200px) {
+  .page-container {
+    margin-bottom: 1px; /* Less space for larger screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .page-container {
+    margin-bottom: 100px; /* More space for smaller screens */
+  }
+}
+
+.at {
+  color: black;
+  text-shadow: 
+    -1px -1px 0 #ffffff, /* Top-left shadow */
+    1px -1px 0 #ffffff,  /* Top-right shadow */
+    -1px 1px 0 #ffffff,  /* Bottom-left shadow */
+    1px 1px 0 #ffffff;   /* Bottom-right shadow */
+}

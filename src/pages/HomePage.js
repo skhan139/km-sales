@@ -28,9 +28,9 @@ const HomePage = () => {
 Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
           Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
           Interested in creating a custom game? 
-          <a href="mailto:skhan139@icloud.com?subject=Custom%20Game%20Inquiry"> Message us here!</a>
-        </p>
-      </div>
+<a href="/custom-game"> Visit our Custom Game Page</a>
+</p>
+</div>
 
       <div className="image-row">
         <div className="image-container">

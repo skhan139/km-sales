@@ -17,7 +17,8 @@ import TestimonialPage from './pages/TestimonialPage';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import ReturnPolicy from './pages/ReturnPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
-import UserProfile from './pages/UserProfile'; // Import the UserProfile component
+import UserProfile from './pages/UserProfile';
+import CustomGamePage from './pages/CustomGamePage'; // Import the CustomGamePage component
 import Footer from './components/Footer';
 
 const App = () => {
@@ -74,8 +75,9 @@ const App = () => {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/return-policy" element={<ReturnPolicy />} />
           <Route path="/shipping-policy" element={<ShippingPolicy />} />
-          <Route path="/profile" element={user ? <UserProfile /> : <Navigate to="/login" />} /> {/* Add UserProfile route */}
+          <Route path="/profile" element={user ? <UserProfile /> : <Navigate to="/login" />} />
           <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
+          <Route path="/custom-game" element={<CustomGamePage />} /> {/* Add CustomGamePage route */}
         </Routes>
         <Footer />
       </div>
