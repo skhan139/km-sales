@@ -31,10 +31,6 @@ const ContactPage = () => {
           <h3>Jeff Haines (Garrett/Allegany County Representive)</h3>
           <p>Cell:: (301)-268-0634 <br /> <br /> Email: Jeff.Haines@comcast.net</p>
         </div>
-        <div className="flex-item">
-          <h3>Product Gallery</h3>
-          <p>To browse our product gallery and place an order, login <Link to="/login">here</Link>.</p>
-        </div>
       </div>
     </div>
     </div>

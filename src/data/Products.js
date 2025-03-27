@@ -229,6 +229,7 @@ const products = [
   { id: 165, name: "300 Pistols", image: "/assets/images/pistols.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$600.00", payout: "$390.00", profit: "$210.00", profitPercent: "35%", dealsPerCase: "15", seal: "$200" },
   { id: 166, name: "3955 America First", image: "/assets/images/americafirst.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$3,955.00", payout: "$2,900.00", profit: "$1,055.00", profitPercent: "26.67%", dealsPerCase: "8", seal: "$500" },
   { id: 167, name: "2440 Prize Stars (Bundle Of 3 Tickets Per Play)", image: "/assets/images/prizestars.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$880.00", payout: "$640.00", profit: "$240.00", profitPercent: "27.27%", dealsPerCase: "1", seal: "$100" },
+  { id: 168, name: "Mean Green Lucky 13", image: "/assets/images/meangreen.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$744.00", payout: "$584.00", profit: "$160.00", profitPercent: "21.51%", dealsPerCase: "8", seal: "$250" },
   
   
 ];

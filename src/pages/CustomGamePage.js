@@ -14,27 +14,27 @@ const CustomGamePage = () => {
         <div className="flex-container">
           <div className="flex-item">
             <h3>Game Selection</h3>
-            <p>First, choose what type of game you would like to customize. Tip jar/pull tab, bundle ticket (4/1, 3/1, etc), or bingo card game.  </p>
+            <p>First, choose what type of game you would like to customize. Tip jar/pull tab, bundle ticket (4/1, 3/1, etc), or bingo card game. In some ocassions we can also do custom boards for fundraising events.  </p>
           </div>
           <div className="flex-item">
             <h3>Choose Ticket Count</h3>
-            <p>Next, determine the ticket count for your game. The larger the seal and payouts, the larger the ticket count should be.</p>
+            <p>Next, determine the ticket count for your game. The larger the seal and payouts, the larger the ticket count should be. Knowing your crowd, traffic, and turnouts will be key in finding the right amount.</p>
           </div>
           <div className="flex-item">
             <h3>Choose Game Illustrations/Cartoons</h3>
-            <p>We can create an illustration for you or you can design your own. Anything can be made and the theme of the game can be tailored to your club.</p>
+            <p>We can create an illustration for you or you can design your own. From an illustration of your club, to a theme that matches your town, we can cover any game art specs that you would need. Tickets will be more limited in terms of design and tip jars/cards will be more open. </p>
           </div>
           <div className="flex-item">
             <h3>Choose Payouts</h3>
-            <p>Determine the top seal prize along with other winners. You can split the top seal, have a bunch of smaller payouts, etc.</p>
+            <p>Determine the top seal prize along with other winners. You can split the top seal, have a bunch of smaller payouts, etc. Games can have both instant winners as well as holders. Similar to the ticket count, knowing the tendencies of your club traffic will yield the best decision possible.</p>
           </div>
           <div className="flex-item">
             <h3> Choose Your Profit</h3>
-            <p>We reccomend a percent in the %20-40 range to keep the payouts aedequte while allowing the club to still profit from the game. This is completely up to the customer but we will provide assistance based off the other game specifications.</p>
+            <p>We reccomend a profit percent in the 20-40% range to keep the payouts aedequte while allowing the club to still profit from the game. This is completely up to the customer, but we will provide assistance based off the other game specifications.</p>
           </div>
           <div className="flex-item">
             <h3>Choose Amount Of Games You Need Per Case</h3>
-            <p>We require a minimum of 10 cases for your first custom order with us. The amount of games per case will soley depend on ticket count. The larger the ticket count per game, the less games amount of games come per case.</p>
+            <p>We require a minimum of 10 cases for your first custom order with us. The amount of games per case will soley depend on ticket count. The larger the ticket count per game, the less games amount of games that come per case. Larger orders will also be priced more competitively than smaller ones.</p>
           </div>
         </div>
         <h3>Here are some examples of custom games</h3>
