@@ -190,11 +190,11 @@ const ProductGallery = ({ searchTerm }) => {
             <h2 className="category-name">Shop Tickets</h2>
           </div>
           <div className="category-card" onClick={() => handleSortChange('bingo')}>
-            <img src="/assets/images/50csitipboard.jpg" alt="Shop Bingo Supplies" className="category-image" />
+            <img src="/assets/images/bingopaper.jpg" alt="Shop Bingo Supplies" className="category-image" />
             <h2 className="category-name">Shop Bingo Supplies</h2>
           </div>
           <div className="category-card" onClick={() => handleSortChange('all')}>
-            <img src="/assets/images/doubledeal.jpg" alt="Shop All" className="category-image" />
+            <img src="/assets/images/doublejugs.jpg" alt="Shop All" className="category-image" />
             <h2 className="category-name">Shop All</h2>
           </div>
         </div>

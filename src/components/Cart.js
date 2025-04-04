@@ -154,8 +154,8 @@ const Cart = () => {
         overlayClassName="modal-overlay"
       >
         <h2 className='order'>Order Successful</h2>
-        <br />
-        <p className='ordertwo'>A representative will be in touch shortly.</p>
+        <img src="/assets/images/kmicologo.png" alt="Logo" className="cart-logo" />
+        <p className='ordertwo'>A representative will be in touch shortly. <br/> Thank You For Choosing K&M Sales!</p>
         <button onClick={() => setIsSuccessModalOpen(false)}>Close</button>
       </Modal>
 
