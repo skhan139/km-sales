@@ -159,3 +159,15 @@ p {
   display: block; /* Ensure it's treated as a block element */
   margin: 20px auto; /* Center the image horizontally with some margin */
 }
+
+.cart-item-financials {
+  display: flex;
+  justify-content: space-between; /* Space the items evenly */
+  margin-top: 10px; /* Add some spacing above */
+}
+
+.cart-item-financials span {
+  font-size: 14px; /* Adjust font size */
+  color: #333; /* Set text color */
+  font-weight: bold; /* Make the text bold */
+}

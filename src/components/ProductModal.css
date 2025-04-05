@@ -4,57 +4,43 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000; /* Ensure it appears above other elements */
 }
 
 .modal-content {
   background: #fff;
-  padding: 40px; /* Increase padding for better spacing */
-  border-radius: 8px;
-  width: 95%; /* Increase width */
-  max-width: 1200px; /* Increase max-width for better layout */
-  min-height: 400px; /* Set minimum height to prevent overlap */
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-between; /* Space between image and details */
-  align-items: flex-start; /* Align items at the start */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  padding: 20px; /* Add padding for spacing */
+  border-radius: 0; /* Remove border radius for full-page view */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
   position: relative;
+  overflow-y: auto; /* Allow scrolling if content overflows */
 }
 
 .modal-close {
   position: absolute;
-  bottom: 10px; /* Move to the bottom */
-  right: 10px;
+  top: 20px; /* Position at the top */
+  right: 20px; /* Position at the right */
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 24px; /* Larger font size for visibility */
   cursor: pointer;
-}
-
-.add-to-cart-button-modal {
-  position: absolute;
-  bottom: 10px; /* Move to the bottom */
-  right: 80px; /* Adjust to sit next to the close button */
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 4px 8px; /* Adjust padding to make the button smaller */
-  font-size: 12px; /* Adjust font size to make the button smaller */
-  cursor: pointer;
-  border-radius: 4px;
 }
 
 .modal-image {
-  max-width: 45%; /* Set max-width for the image */
+  max-width: 100%; /* Allow image to take full width */
   height: auto;
-  border-radius: 8px;
+  margin-bottom: 20px; /* Add margin below the image */
 }
 
 .modal-details {
-  max-width: 50%; /* Set max-width for the details */
-  margin-left: 20px; /* Add margin to separate from the image */
+  flex-grow: 1; /* Allow details to take up remaining space */
   text-align: center; /* Center align text */
 }
 
@@ -69,49 +55,23 @@
   margin-bottom: 10px;
 }
 
-.modal-price,
-.modal-sku,
-.modal-takein,
-.modal-payout,
-.modal-profit,
-.modal-profit-percent,
-.modal-deals-per-case {
-  font-size: 16px; /* Increase font size for better readability */
-  font-weight: bold; /* Make text bold */
-  margin: 5px 0;
-  color: black;
-  text-align: center; /* Center align text */
-}
-
 .quantity-container {
-  display: flex;
-  flex-direction: column; /* Display options in a column */
-  align-items: flex-start; /* Align items to the start */
   margin-top: 20px;
 }
 
-.quantity-selection,
-.custom-quantity {
-  margin-bottom: 20px; /* Add margin to separate the elements */
-  text-align: left;
+.add-to-cart-button-modal {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
-.quantity-selection label,
-.custom-quantity label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: black; /* Set label text color to black */
-}
-
-.quantity-selection select,
-.custom-quantity input {
-  padding: 5px;
-  font-size: 14px;
-  width: 100%;
-  max-width: 200px;
-  margin: 0 auto;
-  display: block;
+.add-to-cart-button-modal:hover {
+  background: #0056b3;
 }
 
 .share-button {
@@ -128,69 +88,18 @@
   background-color: #0056b3;
 }
 
-.share-options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.share-options button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 5px 0;
-}
-
-.share-options button:hover {
-  background-color: #0056b3;
-}
-
-.copy-success {
-  margin-top: 10px;
-  color: green;
-  font-weight: bold;
-}
-
 /* Styles for mobile screens */
 @media (max-width: 768px) {
   .modal-content {
-    flex-direction: column; /* Stack image and details vertically */
-    align-items: center; /* Center align items */
+    padding: 10px; /* Reduce padding for smaller screens */
   }
 
-  .modal-image {
-    max-width: 100%; /* Allow image to take full width */
-    margin-bottom: 20px; /* Add margin below the image */
+  .modal-close {
+    font-size: 20px; /* Adjust font size for smaller screens */
   }
 
-  .modal-details {
-    max-width: 100%; /* Allow details to take full width */
-    margin-left: 0; /* Remove left margin */
-    text-align: center; /* Center align text */
-  }
-
-  .modal-close,
   .add-to-cart-button-modal {
-    position: static; /* Reset position for mobile */
-    margin-top: 20px; /* Add margin for spacing */
-  }
-
-  .quantity-container {
-    align-items: center; /* Center align items for mobile */
-  }
-
-  .quantity-selection,
-  .custom-quantity {
-    position: static; /* Reset position for mobile */
-    margin-top: 20px; /* Add margin for spacing */
-    transform: none; /* Reset transform for mobile */
-  }
-
-  .quantity-select {
-    color: black;
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
   }
 }

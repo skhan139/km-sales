@@ -203,30 +203,43 @@ const ProductGallery = ({ searchTerm }) => {
           <button onClick={handleBackToMainPage} className="back-button">Back to Main Page</button>
           <div className="sorting-options">
             <nav className="sort-navbar">
-              <div className="sort-row">
-                <h3 className='label'>All Products</h3>
-                <button onClick={() => handleSortChange('all')}>All</button>
-              </div>
-              <div className="sort-row">
-                <h3 className='label'>Boards</h3>
-                <button onClick={() => handleSortChange('tip boards')}>Tip Boards</button>
-                <button onClick={() => handleSortChange('coin boards')}>Coin Boards</button>
-                <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
-                <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
-              </div>
-              <div className="sort-row">
-                <h3 className='label'>Games/Tickets</h3>
-                <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button>
-                <button onClick={() => handleSortChange("instant winner 180's")}>Instant Winner 180's</button>
-                <button onClick={() => handleSortChange("instant winner 220's")}>Instant Winner 220's</button>
-                <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
-              </div>
-              <div className="sort-row">
-                <h3 className='label'>Bingo Supplies</h3>
-                <button onClick={() => handleSortChange('bingo daubers')}>Bingo Daubers</button>
-                <button onClick={() => handleSortChange('bingo games')}>Bingo Games</button>
-                <button onClick={() => handleSortChange('bingo card games')}>Bingo Card Games</button>
-              </div>
+            <div className="sort-row">
+  <h3 className="label">
+    <button onClick={() => handleSortChange('all')}>All Products</button>
+  </h3>
+</div>
+<div className="sort-row">
+  <div className="dropdown">
+    <button className="dropdown-button">Boards</button>
+    <div className="dropdown-content">
+      <button onClick={() => handleSortChange('tip boards')}>Tip Boards</button>
+      <button onClick={() => handleSortChange('coin boards')}>Coin Boards</button>
+      <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
+      <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
+    </div>
+  </div>
+</div>
+<div className="sort-row">
+  <div className="dropdown">
+    <button className="dropdown-button">Games/Tickets</button>
+    <div className="dropdown-content">
+      <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button>
+      <button onClick={() => handleSortChange("instant winner 180's")}>Instant Winner 180's</button>
+      <button onClick={() => handleSortChange("instant winner 220's")}>Instant Winner 220's</button>
+      <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
+    </div>
+  </div>
+</div>
+<div className="sort-row">
+  <div className="dropdown">
+    <button className="dropdown-button">Bingo Supplies</button>
+    <div className="dropdown-content">
+      <button onClick={() => handleSortChange('bingo daubers')}>Bingo Daubers</button>
+      <button onClick={() => handleSortChange('bingo games')}>Bingo Games</button>
+      <button onClick={() => handleSortChange('bingo card games')}>Bingo Card Games</button>
+    </div>
+  </div>
+</div>
             </nav>
           </div>
           <div className="filter-options">

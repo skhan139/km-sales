@@ -39,6 +39,8 @@ const CustomGamePage = () => {
         </div>
         <h3>Here are some examples of custom games</h3>
         <img src="/assets/images/deerparkvets.jpg" alt="Examples of custom games" className="custom-game-image" />
+        <br/>
+        <img src="/assets/images/oaklandlegion.jpg" alt="Examples of custom games" className="custom-game-image" />
       </div>
     </div>
   );
