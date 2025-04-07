@@ -20,6 +20,8 @@ const ProductModal = ({ product, onClose }) => {
         setQuantityType('books');
       } else if (product.tags.includes('daubers')) {
         setQuantityType('daubers');
+      } else if (product.tags.includes('packs')) {
+        setQuantityType('packs');
       }
     }
   }, [product]);
@@ -126,6 +128,17 @@ const ProductModal = ({ product, onClose }) => {
                 />
               </div>
             </>
+          ) : product.tags.includes('packs') ? (
+            <div className="quantity-selection">
+              <label htmlFor="quantity-select">Number of packs:</label>
+              <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+                {[...Array(10).keys()].map((num) => (
+                  <option key={num + 1} value={num + 1}>
+                    {num + 1} {num + 1 === 1 ? 'pack' : 'packs'}
+                  </option>
+                ))}
+              </select>
+            </div>
           ) : (
             <>
               <div className="quantity-selection">

@@ -21,8 +21,15 @@ const ProductGallery = ({ searchTerm }) => {
   }, [searchTerm, sortCriteria]);
 
   const handleSortChange = (criteria) => {
-    setSortCriteria(criteria);
-    setViewMode('products'); // Switch to product view mode
+    if (criteria === 'bingo paper') {
+      const filteredArray = products.filter(product =>
+        product.tags.includes('packs') || product.tags.includes('paper')
+      );
+      setFilteredProducts(filteredArray);
+    } else {
+      setSortCriteria(criteria);
+      setViewMode('products'); // Switch to product view mode
+    }
   };
 
   const filterProducts = (searchTerm, criteria) => {
@@ -216,6 +223,7 @@ const ProductGallery = ({ searchTerm }) => {
       <button onClick={() => handleSortChange('coin boards')}>Coin Boards</button>
       <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
       <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
+      <button onClick={() => handleSortChange('merchandise boards')}>Merchandise Boards</button> {/* New Button */}
     </div>
   </div>
 </div>
@@ -237,6 +245,7 @@ const ProductGallery = ({ searchTerm }) => {
       <button onClick={() => handleSortChange('bingo daubers')}>Bingo Daubers</button>
       <button onClick={() => handleSortChange('bingo games')}>Bingo Games</button>
       <button onClick={() => handleSortChange('bingo card games')}>Bingo Card Games</button>
+      <button onClick={() => handleSortChange('bingo paper')}>Bingo Paper</button> {/* New Button */}
     </div>
   </div>
 </div>

@@ -38,7 +38,21 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
     >
       <button className="close-button" onClick={onRequestClose}>×</button>
       <h2>Select Quantity</h2>
-      {product.tags && product.tags.includes('boards') ? (
+      {product.tags && product.tags.includes('packs') ? (
+        <div className="quantity-selection">
+          <label htmlFor="quantity-select">Number of packs:</label>
+          <input
+            type="number"
+            id="quantity-select"
+            value={quantity}
+            onChange={(e) => {
+              setQuantity(parseInt(e.target.value, 10));
+              setQuantityType('packs');
+            }}
+            min="1"
+          />
+        </div>
+      ) : product.tags && product.tags.includes('boards') ? (
         <div className="quantity-selection">
           <label htmlFor="quantity-select">Number of boards:</label>
           <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
