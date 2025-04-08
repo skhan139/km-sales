@@ -103,3 +103,26 @@
     padding: 8px 16px; /* Adjust padding for smaller screens */
   }
 }
+
+.share-options {
+  display: flex;
+  flex-direction: row; /* Arrange buttons in a row */
+  gap: 10px; /* Add space between buttons */
+  margin-top: 20px; /* Add spacing above the share options */
+  justify-content: center; /* Center the buttons horizontally */
+  align-items: center; /* Align buttons vertically */
+}
+
+.share-options button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.share-options button:hover {
+  background-color: #0056b3;
+}

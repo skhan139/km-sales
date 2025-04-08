@@ -335,3 +335,110 @@ h3 {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .product-gallery-container {
+    padding: 10px; /* Add padding for smaller screens */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+
+  .search-and-sort {
+    flex-direction: column; /* Stack search and sort vertically */
+    align-items: center; /* Center align items */
+    width: 100%;
+  }
+
+  .search-input {
+    width: 100%; /* Full width for smaller screens */
+    margin-bottom: 10px; /* Add spacing below the search bar */
+  }
+
+  .sorting-options {
+    width: 100%; /* Full width for sorting options */
+    padding: 10px; /* Reduce padding for smaller screens */
+  }
+
+  .sort-navbar {
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    justify-content: center; /* Center align buttons */
+    gap: 10px; /* Add spacing between buttons */
+  }
+
+  .sort-row {
+    grid-template-columns: 1fr; /* Stack items vertically */
+    gap: 10px; /* Add spacing between rows */
+  }
+
+  .product-gallery {
+    flex-direction: column; /* Stack products vertically */
+    gap: 15px; /* Reduce gap between products */
+  }
+
+  .product-card {
+    width: 100%; /* Full width for product cards */
+    max-width: none; /* Remove max-width restriction */
+    padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .category-gallery {
+    flex-direction: column; /* Stack categories vertically */
+    gap: 15px; /* Add spacing between categories */
+  }
+
+  .category-card {
+    width: 100%; /* Full width for category cards */
+  }
+
+  .pagination {
+    flex-wrap: wrap; /* Allow pagination buttons to wrap */
+    gap: 10px; /* Add spacing between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-gallery-container {
+    padding: 5px; /* Further reduce padding for very small screens */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+  }
+
+  .search-input {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .add-to-cart-button {
+    padding: 6px 12px; /* Adjust padding for smaller buttons */
+    font-size: 14px; /* Reduce font size */
+  }
+
+  .pagination-button {
+    padding: 8px; /* Adjust padding for smaller buttons */
+    font-size: 12px; /* Reduce font size */
+  }
+
+  .sort-navbar {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 8px; /* Reduce gap for smaller screens */
+  }
+
+  .filter-options {
+    flex-direction: column; /* Stack filters vertically */
+    gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .filter-group select {
+    width: 100%; /* Full width for dropdowns */
+  }
+
+  .product-name {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .product-price {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .category-name {
+    font-size: 12px; /* Adjust font size for smaller screens */
+  }
+}

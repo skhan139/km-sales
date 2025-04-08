@@ -4,7 +4,7 @@ const products = [
   { id: 3, name: "2520/1736 Barking Betty", image: "/assets/images/barkingbetty.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU003", takeIn: "$1,736.00", payout: "$1,111.00", profit: "$625.00", profitPercent: "51%", dealsPerCase: "1", seal: "$599" },
   { id: 4, name: "240 Better Than Sex", image: "/assets/images/betterthansex.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU004", takeIn: "$240.00", payout: "$157.00", profit: "$83.00", profitPercent: "35.00%", dealsPerCase: "40", seal: "$100" },
   { id: 5, name: "4000 3/1 Big Balls", image: "/assets/images/bigballs.jpeg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU005", takeIn: "$4,000.00", payout: "$3,2000.00", profit: "$800.00", profitPercent: "20%", dealsPerCase: "8", seal: "$180" },
-  { id: 6, name: "4000 Big Bubby", image: "/assets/images/bigbubby.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU006", takeIn: "$4,000.00", payout: "$3,080.00", profit: "$920.00", profitPercent: "23%", dealsPerCase: "8", seal: "$100" },
+  { id: 6, name: "4000 Big Bubby", image: "/assets/images/bigbubby.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU006", takeIn: "$4,000.00", payout: "$3,080.00", profit: "$920.00", profitPercent: "23%", dealsPerCase: "8", seal: "$300" },
   { id: 7, name: "336 Bingo Bots", image: "/assets/images/bingobots.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU007", takeIn: "$336.00", payout: "$250", profit: "$86.00", profitPercent: "26%", dealsPerCase: "32", seal: "$200" },
   { id: 8, name: "166 Blazing Bingo Balls", image: "/assets/images/blazingbingoballs.jpeg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU008", takeIn: "$156.00", payout: "$100.00", profit: "$56.00", profitPercent: "34%", dealsPerCase: "40", seal: "$110" },
   { id: 9, name: "3000 3/1 Captain Jacks", image: "/assets/images/captainjacks.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU009", takeIn: "$3,000.00", payout: "$2,390.00", profit: "$610.00", profitPercent: "20%", dealsPerCase: "7", seal: "$100" },
@@ -62,7 +62,7 @@ const products = [
   { id: 62, name: "Schrade Fishing Knife Board", image: "/assets/images/knifeboard2.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$250" },
   { id: 63, name: "Case Knife Board", image: "/assets/images/knifeboard3.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$300" },
   { id: 64, name: "Spring Fling Scratch Board", image: "/assets/images/coinboard1.jpg", category: "scratch boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$300" },
-  { id: 65, name: "All Aboard", image: "/assets/images/coinboard2.jpg", category: "scratch off boards", tags: ["scratch","off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$200" },
+  { id: 65, name: "All Aboard", image: "/assets/images/coinboard2.jpg", category: "merchandise boards", tags: ["merchandise","off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$200" },
   { id: 66, name: "Bite The Bullet Scratch Off Board", image: "/assets/images/coinboard3.jpg", category: "scratch off boards", tags: ["scratch","off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$300" },
   { id: 67, name: "The American Scratch Off Board", image: "/assets/images/coinboard4.jpg", category: "scratch off boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$300" },
   { id: 68, name: "God Bless America Scratch Off Board", image: "/assets/images/coinboard5.jpg", category: "scratch off boards", tags: ["scratch", "off","boards"], sku: "SKU002", takeIn: "$1280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$50" },
@@ -242,9 +242,11 @@ const products = [
   { id: 178, name: "Schrade Pocket Knife Board", image: "/assets/images/schradepocket.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU033", takeIn: "$2,280.00", payout: "$1,180.00", profit: "$1,100.00", profitPercent: "48.2%", dealsPerCase: "1", seal: "$500" },
   { id: 179, name: "Buck Pocket Knife Board", image: "/assets/images/buckpocket.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU033", takeIn: "$2,280.00", payout: "$1,120.00", profit: "$1,160.00", profitPercent: "50.1%", dealsPerCase: "1", seal: "$500" },
   { id: 180, name: "Bullseye Bingo 2000 Sheet Pack", image: "/assets/images/bullseye.jpg", category: "bingo paper", tags: ["bingo", "packs"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "300",  },
-  
-  
-  
+  { id: 181, name: "532 Color Of Money", image: "/assets/images/532colorofmoney.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$585.00", payout: "$402.00", profit: "$183.00", profitPercent: "34.39%", dealsPerCase: "5", seal: "$300" },
+  { id: 182, name: "532 Find The Cash", image: "/assets/images/532findthecash.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$585.00", payout: "$402.00", profit: "$183.00", profitPercent: "34.39%", dealsPerCase: "5", seal: "$300" },
+  { id: 183, name: "2100 Snow Blowin'", image: "/assets/images/snowblowin.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$2,100.00", payout: "$1,515.00", profit: "$585.00", profitPercent: "27.85%", dealsPerCase: "5", seal: "$500" },
+  { id: 184, name: "2100 Slope Assault", image: "/assets/images/slopeassault.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$2,100.00", payout: "$1,515.00", profit: "$585.00", profitPercent: "27.85%", dealsPerCase: "5", seal: "$500" },
+
 ];
 
 export default products;
