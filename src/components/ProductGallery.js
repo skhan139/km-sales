@@ -82,6 +82,10 @@ const ProductGallery = ({ searchTerm }) => {
     const value = event.target.value;
     let min, max;
     switch (value) {
+      case '10-191':
+        min = 10;
+        max = 191;
+        break;
       case '192-500':
         min = 192;
         max = 500;
@@ -256,6 +260,7 @@ const ProductGallery = ({ searchTerm }) => {
               <h3>Sort By Ticket Count</h3>
               <select onChange={handlePriceFilterChange}>
                 <option value="">Select</option>
+                <option value="10-191">10 - 191 Ticket Count</option>
                 <option value="192-500">192 - 500 Ticket Count</option>
                 <option value="501-1000">501 - 1000 Ticket Count</option>
                 <option value="1001-2000">1001 - 2000 Ticket Count</option>
