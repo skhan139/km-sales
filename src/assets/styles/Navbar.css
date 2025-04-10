@@ -160,3 +160,47 @@ li a:hover, .nav-button:hover {
     margin: 0.5rem 0;
   }
 }
+
+/* Dropdown Menu Styles */
+.navbar-links .dropdown {
+  position: relative;
+}
+
+.navbar-links .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position below the parent */
+  left: 0;
+  background-color: #333;
+  width: 100%; /* Match the width of the parent */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.navbar-links .dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #333;
+  transition: background-color 0.3s;
+}
+
+.navbar-links .dropdown-content a:hover {
+  background-color: #666;
+}
+
+.navbar-links .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Adjust for mobile screens */
+@media (max-width: 768px) {
+  .navbar-links .dropdown-content {
+    position: static;
+    box-shadow: none;
+    min-width: 100%;
+  }
+}

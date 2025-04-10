@@ -13,14 +13,16 @@
 
 .modal-content {
   background: #fff;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
+  width: 80%; /* Adjust width for better layout */
+  max-width: 1200px; /* Set a maximum width */
+  height: auto; /* Adjust height to fit content */
   padding: 20px; /* Add padding for spacing */
-  border-radius: 0; /* Remove border radius for full-page view */
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
+  border-radius: 8px; /* Add slight border radius */
+  display: flex; /* Use flexbox for horizontal layout */
+  flex-direction: row; /* Arrange content in a row */
   position: relative;
   overflow-y: auto; /* Allow scrolling if content overflows */
+  gap: 20px; /* Add space between the image and content */
 }
 
 .modal-close {
@@ -34,19 +36,26 @@
 }
 
 .modal-image {
-  max-width: 100%; /* Allow image to take full width */
-  height: auto;
-  margin-bottom: 20px; /* Add margin below the image */
+  flex: 1; /* Allow the image to take up one part of the space */
+  max-width: 400px; /* Increase the maximum width */
+  max-height: 400px; /* Increase the maximum height */
+  width: 100%; /* Ensure the image scales proportionally */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners to the image */
 }
 
 .modal-details {
-  flex-grow: 1; /* Allow details to take up remaining space */
-  text-align: center; /* Center align text */
+  flex: 2; /* Allow the details to take up two parts of the space */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  justify-content: flex-start; /* Align content to the top */
+  text-align: left; /* Align text to the left */
+  font-weight: bold; /* Make all text bold */
 }
 
 .modal-name {
   font-size: 28px; /* Increase font size for better readability */
-  font-weight: bold;
+  font-weight: bold; /* Ensure bold text */
   margin: 10px 0;
 }
 
@@ -68,6 +77,7 @@
   cursor: pointer;
   border-radius: 5px;
   margin-top: 20px;
+  font-weight: bold; /* Make button text bold */
 }
 
 .add-to-cart-button-modal:hover {
@@ -82,26 +92,11 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 20px;
+  font-weight: bold; /* Make button text bold */
 }
 
 .share-button:hover {
   background-color: #0056b3;
-}
-
-/* Styles for mobile screens */
-@media (max-width: 768px) {
-  .modal-content {
-    padding: 10px; /* Reduce padding for smaller screens */
-  }
-
-  .modal-close {
-    font-size: 20px; /* Adjust font size for smaller screens */
-  }
-
-  .add-to-cart-button-modal {
-    font-size: 14px; /* Adjust font size for smaller screens */
-    padding: 8px 16px; /* Adjust padding for smaller screens */
-  }
 }
 
 .share-options {
@@ -121,8 +116,28 @@
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
+  font-weight: bold; /* Make button text bold */
 }
 
 .share-options button:hover {
   background-color: #0056b3;
+}
+
+/* Styles for mobile screens */
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column; /* Stack content vertically on smaller screens */
+    width: 90%; /* Adjust width for smaller screens */
+  }
+
+  .modal-image {
+    max-width: 300px; /* Increase the maximum width for smaller screens */
+    max-height: 300px; /* Increase the maximum height for smaller screens */
+    margin-bottom: 20px; /* Add spacing below the image */
+  }
+
+  .add-to-cart-button-modal {
+    font-size: 14px; /* Adjust font size for smaller screens */
+    padding: 8px 16px; /* Adjust padding for smaller screens */
+  }
 }

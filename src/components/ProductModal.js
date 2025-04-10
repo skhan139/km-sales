@@ -64,9 +64,9 @@ const ProductModal = ({ product, onClose }) => {
           <p className="modal-takein">Take In: {selectedVariant?.takeIn || product.takeIn}</p>
           <p className="modal-payout">Payout: {selectedVariant?.payout || product.payout}</p>
           <p className="modal-profit">Profit: {selectedVariant?.profit || product.profit}</p>
-          <p className="modal-profit-percent">Profit %: {selectedVariant?.profitPercent || product.profitPercent}</p>
+          <p className="modal-profit-percent">Profit : {selectedVariant?.profitPercent || product.profitPercent}</p>
           <p className="modal-deals-per-case">Deals per Case: {selectedVariant?.dealsPerCase || product.dealsPerCase}</p>
-          <p className="modal-seal">Seal: "{selectedVariant?.seal || product.seal}"</p> {/* Render Seal with label */}
+          <p className="modal-seal">Seal: {selectedVariant?.seal || product.seal}</p> {/* Render Seal with label */}
         </div>
         {product.variants && (
           <div className="modal-variants">

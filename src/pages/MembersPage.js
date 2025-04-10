@@ -21,7 +21,7 @@ const MembersPage = () => {
     <div className="members-page-container">
       <h1 className='color'>Browse Our Entire Product Gallery</h1>
       <h2 className='color'>** Note, Some Orders May Take Longer To Fulfill Than Others Depending On Stock**</h2>
-      <h3 className='hthree'>** Prices, Profits, Take-In's, And Payouts May Vary Depending On If A Case Or Individual Game(s) Are Ordered**</h3>
+      <h3 className='hthree'>** Prices, profits, take-ins, and payouts may vary depending on whether a case or individual game(s) is ordered. **</h3>
       <input 
         type="text" 
         placeholder="Search by name, tag, or category..." 
