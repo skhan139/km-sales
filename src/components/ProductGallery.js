@@ -235,13 +235,14 @@ const ProductGallery = ({ searchTerm }) => {
 <div className="dropdown">
   <button className="dropdown-button">Games/Tickets</button>
   <div className="dropdown-content">
-    <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button>
-    <button onClick={() => handleSortChange("instant winner 180's")}>Instant Winner 180's</button>
-    <button onClick={() => handleSortChange("instant winner 220's")}>Instant Winner 220's</button>
-    <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
-    <button onClick={() => handleSortChange('elimination games')}>Elimination Games</button>
-    <button onClick={() => handleSortChange('chip games')}>Chip Games</button> {/* New button */}
-  </div>
+  <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button>
+  <button onClick={() => handleSortChange("instant winner 180's")}>Instant Winner 180's</button>
+  <button onClick={() => handleSortChange("instant winner 220's")}>Instant Winner 220's</button>
+  <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
+  <button onClick={() => handleSortChange('elimination games')}>Elimination Games</button>
+  <button onClick={() => handleSortChange('chip games')}>Chip Games</button>
+  <button onClick={() => handleSortChange('variety packs')}>Variety Pack</button> {/* New button */}
+</div>
 </div>
 </div>
 <div className="sort-row">
