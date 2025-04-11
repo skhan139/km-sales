@@ -25,3 +25,13 @@
     line-height: 1.6;
     color: #333;
   }
+
+  .return-policy-link {
+    color: black; /* Set the text color to black */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Optional: Make it bold */
+  }
+  
+  .return-policy-link:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }

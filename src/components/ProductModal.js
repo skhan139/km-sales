@@ -67,6 +67,19 @@ const ProductModal = ({ product, onClose }) => {
           <p className="modal-profit-percent">Profit : {selectedVariant?.profitPercent || product.profitPercent}</p>
           <p className="modal-deals-per-case">Deals per Case: {selectedVariant?.dealsPerCase || product.dealsPerCase}</p>
           <p className="modal-seal">Seal: {selectedVariant?.seal || product.seal}</p> {/* Render Seal with label */}
+          <div className="modal-buttons">
+            <button className="add-to-cart-button-modal" onClick={handleAddToCart}>Add to Cart</button>
+            {!showShareOptions && <button className="share-button" onClick={handleShare}>Share</button>}
+            {showShareOptions && (
+              <div className="share-options">
+                <button className="close-share-options" onClick={handleShare}>Close</button>
+                <button onClick={handleCopyLink}>Copy Link</button>
+                <button onClick={() => window.open(`sms:+1234567890?body=Check out this product: ${window.location.origin}/product/${product.id}`, '_blank')}>Text</button>
+                <button onClick={() => window.open(`mailto:?subject=Check out this product&body=Check out this product: ${window.location.origin}/product/${product.id}`, '_blank')}>Email</button>
+              </div>
+            )}
+            {copySuccess && <p className="copy-success">{copySuccess}</p>}
+          </div>
         </div>
         {product.variants && (
           <div className="modal-variants">
@@ -164,17 +177,6 @@ const ProductModal = ({ product, onClose }) => {
             </>
           )}
         </div>
-        <button className="add-to-cart-button-modal" onClick={handleAddToCart}>Add to Cart</button>
-        {!showShareOptions && <button className="share-button" onClick={handleShare}>Share</button>}
-        {showShareOptions && (
-          <div className="share-options">
-            <button className="close-share-options" onClick={handleShare}>Close</button>
-            <button onClick={handleCopyLink}>Copy Link</button>
-            <button onClick={() => window.open(`sms:+1234567890?body=Check out this product: ${window.location.origin}/product/${product.id}`, '_blank')}>Text</button>
-            <button onClick={() => window.open(`mailto:?subject=Check out this product&body=Check out this product: ${window.location.origin}/product/${product.id}`, '_blank')}>Email</button>
-          </div>
-        )}
-        {copySuccess && <p className="copy-success">{copySuccess}</p>}
       </div>
     </div>
   );

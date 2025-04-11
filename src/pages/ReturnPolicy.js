@@ -15,7 +15,7 @@ We have a 30-day return policy, which means you have 30 days after receiving you
 To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt or proof of purchase.
 <br />
 <br />
-To start a return, you can contact us at kandmsales17@gmail.com. Please note that returns will need to be sent to the following address: [INSERT RETURN ADDRESS]
+To start a return, you can contact us at kandmsales17@gmail.com. Please note that returns will need to be sent to the following address: 365 Sunset Place, Keyser, WV 26726
 <br />
 <br />
 If your return is accepted, we’ll send you a return shipping label, as well as instructions on how and where to send your package. Items sent back to us without first requesting a return will not be accepted.
