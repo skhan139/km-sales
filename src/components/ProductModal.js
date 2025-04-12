@@ -55,7 +55,13 @@ const ProductModal = ({ product, onClose }) => {
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="modal-close" onClick={onClose}>X</button>
-        <img src={selectedVariant?.image || product.image} alt={selectedVariant?.name || product.name} className="modal-image" />
+        <div className="modal-image-container">
+          <img
+            src={selectedVariant?.image || product.image}
+            alt={selectedVariant?.name || product.name}
+            className="modal-image"
+          />
+        </div>
         <div className="modal-details">
           <h2 className="modal-name">{selectedVariant?.name || product.name}</h2>
           <p className="modal-description">{selectedVariant?.description || product.description}</p>
@@ -66,7 +72,7 @@ const ProductModal = ({ product, onClose }) => {
           <p className="modal-profit">Profit: {selectedVariant?.profit || product.profit}</p>
           <p className="modal-profit-percent">Profit : {selectedVariant?.profitPercent || product.profitPercent}</p>
           <p className="modal-deals-per-case">Deals per Case: {selectedVariant?.dealsPerCase || product.dealsPerCase}</p>
-          <p className="modal-seal">Seal: {selectedVariant?.seal || product.seal}</p> {/* Render Seal with label */}
+          <p className="modal-seal">Seal: {selectedVariant?.seal || product.seal}</p>
           <div className="modal-buttons">
             <button className="add-to-cart-button-modal" onClick={handleAddToCart}>Add to Cart</button>
             {!showShareOptions && <button className="share-button" onClick={handleShare}>Share</button>}

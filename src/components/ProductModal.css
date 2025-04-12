@@ -23,6 +23,7 @@
   position: relative;
   overflow-y: auto; /* Allow scrolling if content overflows */
   gap: 20px; /* Add space between the image and content */
+  align-items: flex-start; /* Align items to the top */
 }
 
 .modal-close {
@@ -42,6 +43,7 @@
   width: 100%; /* Ensure the image scales proportionally */
   height: auto; /* Maintain aspect ratio */
   border-radius: 8px; /* Optional: Add rounded corners to the image */
+  object-fit: cover; /* Ensure the image fits nicely */
 }
 
 .modal-details {
@@ -52,6 +54,9 @@
   text-align: left; /* Align text to the left */
   font-weight: bold; /* Make all text bold */
   height: 100%; /* Ensure it stretches to match the modal height */
+  border: 2px solid black; /* Add a black outline */
+  padding: 10px; /* Add padding inside the border */
+  border-radius: 8px; /* Optional: Add rounded corners */
 }
 
 .modal-name {

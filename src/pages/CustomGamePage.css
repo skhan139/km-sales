@@ -122,3 +122,19 @@
     -1px 1px 0 #ffffff,  /* Bottom-left shadow */
     1px 1px 0 #ffffff;   /* Bottom-right shadow */
 }
+
+.custom-game-images-container {
+  display: flex; /* Use flexbox to align images in a row */
+  justify-content: center; /* Center the images horizontally */
+  gap: 20px; /* Add spacing between images */
+  flex-wrap: wrap; /* Allow wrapping if there are too many images for one row */
+  margin-top: 20px; /* Add spacing above the image row */
+}
+
+.custom-game-image {
+  max-width: 100%;
+  height: auto;
+  width: 200px; /* Set a fixed width for the images */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
