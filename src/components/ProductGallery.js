@@ -14,11 +14,16 @@ const ProductGallery = ({ searchTerm }) => {
   const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
   const [viewMode, setViewMode] = useState('categories'); // State for the view mode
   const [isQuantityModalOpen, setIsQuantityModalOpen] = useState(false); // State for the quantity selection modal
+  const [showPopup, setShowPopup] = useState(true); // State for showing/hiding the pop-up
   const { addItemToCart } = useCart(); // Use the Cart context
 
   useEffect(() => {
     filterProducts(searchTerm, sortCriteria);
   }, [searchTerm, sortCriteria]);
+
+  const handleClosePopup = () => {
+    setShowPopup(false); // Hide the pop-up when the close button is clicked
+  };
 
   const handleSortChange = (criteria) => {
     if (criteria === 'bingo paper') {
@@ -219,6 +224,13 @@ const ProductGallery = ({ searchTerm }) => {
     <button onClick={() => handleSortChange('all')}>All Products</button>
   </h3>
 </div>
+{showPopup && (
+        <div className="discount-popup">
+          <button className="popup-close-button" onClick={handleClosePopup}>X</button>
+          <h3>Ordering For A Bash Or Large Fundraising Event?</h3>
+          <p>Get 10% off your order. Use code: <strong>KMBASH</strong></p>
+        </div>
+      )}
 <div className="sort-row">
   <div className="dropdown">
     <button className="dropdown-button">Boards</button>

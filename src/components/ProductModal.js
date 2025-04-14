@@ -5,7 +5,7 @@ import './ProductModal.css'; // Import the CSS file for styling
 const ProductModal = ({ product, onClose }) => {
   const { addItemToCart } = useCart(); // Use the Cart context
   const [selectedVariant, setSelectedVariant] = useState(product?.variants ? product.variants[0] : product);
-  const [quantity, setQuantity] = useState(1); // State for the number of cases, boards, books, or daubers
+  const [quantity, setQuantity] = useState(0); // Default quantity for cases is 0
   const [customQuantity, setCustomQuantity] = useState(''); // State for the custom number of games
   const [quantityType, setQuantityType] = useState('cases'); // State for the quantity type
   const [copySuccess, setCopySuccess] = useState(''); // State for copy success message
@@ -49,6 +49,16 @@ const ProductModal = ({ product, onClose }) => {
 
   const handleShare = () => {
     setShowShareOptions(!showShareOptions);
+  };
+
+  const handleCustomQuantityChange = (e) => {
+    setCustomQuantity(e.target.value);
+    setQuantity(0); // Reset cases to 0 when custom quantity is changed
+  };
+
+  const handleQuantityChange = (e) => {
+    setQuantity(parseInt(e.target.value, 10));
+    setCustomQuantity(''); // Reset custom quantity when cases are changed
   };
 
   return (
@@ -103,7 +113,7 @@ const ProductModal = ({ product, onClose }) => {
           {product.tags.includes('boards') ? (
             <div className="quantity-selection">
               <label htmlFor="quantity-select">Number of boards:</label>
-              <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+              <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
                 {[...Array(10).keys()].map((num) => (
                   <option key={num + 1} value={num + 1}>
                     {num + 1} {num + 1 === 1 ? 'board' : 'boards'}
@@ -119,7 +129,7 @@ const ProductModal = ({ product, onClose }) => {
                   type="number"
                   id="custom-quantity-input"
                   value={customQuantity}
-                  onChange={(e) => setCustomQuantity(e.target.value)}
+                  onChange={handleCustomQuantityChange}
                   min="1"
                 />
               </div>
@@ -128,7 +138,7 @@ const ProductModal = ({ product, onClose }) => {
             <>
               <div className="quantity-selection">
                 <label htmlFor="quantity-select">Number of cases:</label>
-                <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+                <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
                   {[...Array(11).keys()].map((num) => (
                     <option key={num} value={num}>
                       {num}
@@ -142,7 +152,7 @@ const ProductModal = ({ product, onClose }) => {
                   type="number"
                   id="custom-quantity-input"
                   value={customQuantity}
-                  onChange={(e) => setCustomQuantity(e.target.value)}
+                  onChange={handleCustomQuantityChange}
                   min="1"
                 />
               </div>
@@ -150,7 +160,7 @@ const ProductModal = ({ product, onClose }) => {
           ) : product.tags.includes('packs') ? (
             <div className="quantity-selection">
               <label htmlFor="quantity-select">Number of packs:</label>
-              <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+              <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
                 {[...Array(10).keys()].map((num) => (
                   <option key={num + 1} value={num + 1}>
                     {num + 1} {num + 1 === 1 ? 'pack' : 'packs'}
@@ -162,7 +172,7 @@ const ProductModal = ({ product, onClose }) => {
             <>
               <div className="quantity-selection">
                 <label htmlFor="quantity-select">Number of cases:</label>
-                <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+                <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
                   {[...Array(11).keys()].map((num) => (
                     <option key={num} value={num}>
                       {num}
@@ -176,7 +186,7 @@ const ProductModal = ({ product, onClose }) => {
                   type="number"
                   id="custom-quantity-input"
                   value={customQuantity}
-                  onChange={(e) => setCustomQuantity(e.target.value)}
+                  onChange={handleCustomQuantityChange}
                   min="1"
                 />
               </div>

@@ -442,3 +442,43 @@ h3 {
     font-size: 12px; /* Adjust font size for smaller screens */
   }
 }
+
+.discount-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: whitesmoke;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other elements */
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.popup-close-button {
+  position: absolute;
+  bottom: 10px; /* Position the button 10px from the bottom */
+  right: 10px; /* Position the button 10px from the right */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.popup-close-button:hover {
+  color: #ffcccc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

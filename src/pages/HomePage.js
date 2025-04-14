@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
@@ -6,6 +6,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import './HomePage.css'; // Import the CSS file for styling
 
 const HomePage = () => {
+  const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -16,9 +18,19 @@ const HomePage = () => {
     autoplaySpeed: 6000,
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false); // Hide the popup when the close button is clicked
+  };
+
   return (
     <div className="homepage-container">
-      
+      {showPopup && (
+        <div className="popup">
+          <p>New clubs are eligible for 10% off of their first three orders!</p>
+          <button className="popup-close-button" onClick={handleClosePopup}>×</button>
+        </div>
+      )}
+
       <div className="info-box">
         <h1 className='welcome'>Welcome to K&M Sales.</h1>
         <h2 className='produly'>Proudly supplying bingo and gaming products to West Virginia and Maryland for over 40 years!</h2>
@@ -56,7 +68,7 @@ Add your products to cart and register with us to checkout. Once you checkout, o
       <div className="sliders-row">
         {/* Newest Arrivals Slider */}
         <div className="slider-section">
-          <h2 className='sliderHead'>Newest Arrivals</h2>
+          <h2 className='sliderHead'>Card Games</h2>
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
@@ -71,12 +83,27 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/eski-whoa.jpg`} alt="Newest arrival 3" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/sparkles.jpg`} alt="Newest arrival 3" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
                   <img src={`${process.env.PUBLIC_URL}/assets/images/cherrytree.jpg`} alt="Newest arrival 4" className="slider-image" />
+                </Link>
+              </div>
+              <div>
+                <Link to="/login">
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/casheruption.jpg`} alt="Newest arrival 4" className="slider-image" />
+                </Link>
+              </div>
+              <div>
+                <Link to="/login">
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/1960fire.jpg`} alt="Newest arrival 4" className="slider-image" />
+                </Link>
+              </div>
+              <div>
+                <Link to="/login">
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/gofish.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
             </Slider>
@@ -95,7 +122,7 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/bigfoots.jpg`} alt="Best seller 2" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/redwhiteandblue.jpg`} alt="Best seller 2" className="slider-image" />
                 </Link>
               </div>
               <div>
@@ -105,17 +132,12 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/captainjacks.jpg`} alt="Best seller 1" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/barkingbetty.jpg`} alt="Best seller 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
                   <img src={`${process.env.PUBLIC_URL}/assets/images/moolah.jpg`} alt="Best seller 2" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-                <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/gusher.jpg`} alt="Best seller 3" className="slider-image" />
                 </Link>
               </div>
               {/* Add more images as needed */}
@@ -125,37 +147,37 @@ Add your products to cart and register with us to checkout. Once you checkout, o
 
         {/* Hot This Month Slider */}
         <div className="slider-section">
-          <h2 className='sliderHead'>Hot This Month</h2>
+          <h2 className='sliderHead'>Tickets</h2>
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/doubledeal.jpg" alt="Hot this month 1" className="slider-image" />
+                  <img src="/assets/images/captainjacks.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/gusher.jpg" alt="Hot this month 2" className="slider-image" />
+                  <img src="/assets/images/bigfoots.jpg" alt="Hot this month 2" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/victorylane.jpg" alt="Hot this month 3" className="slider-image" />
+                  <img src="/assets/images/ScareBears.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/happyhookers.jpg" alt="Hot this month 1" className="slider-image" />
+                  <img src="/assets/images/luckylobsters.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/thedoghouse.jpg" alt="Hot this month 2" className="slider-image" />
+                  <img src="/assets/images/biggreen.jpg" alt="Hot this month 2" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/miniclub.jpg" alt="Hot this month 3" className="slider-image" />
+                  <img src="/assets/images/cashville.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>
               {/* Add more images as needed */}

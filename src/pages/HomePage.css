@@ -266,3 +266,43 @@
 a {
   color: white;
 }
+
+.popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  background-color: whitesmoke;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.popup p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.popup-close-button {
+  position: absolute;
+  bottom: 10px; /* Position the button 10px from the bottom */
+  right: 10px; /* Position the button 10px from the right */
+  background-color: black; /* Black background for the button */
+  border: none;
+  color: white;
+  width: 20px; /* Set the width of the square button */
+  height: 20px; /* Set the height of the square button */
+  font-size: 14px; /* Adjust font size for the "×" */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center the "×" horizontally */
+  align-items: center; /* Center the "×" vertically */
+  cursor: pointer;
+  border-radius: 4px; /* Optional: Add slight rounding to the corners */
+  padding: 0; /* Remove any default padding */
+}
+
+.popup-close-button:hover {
+  background-color: #333; /* Slightly lighter black on hover */
+}

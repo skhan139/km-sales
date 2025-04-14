@@ -19,6 +19,21 @@ const Cart = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false); // State for the confirmation popup
   const [error, setError] = useState('');
 
+  // Add these states for discount functionality
+  const [discountCode, setDiscountCode] = useState(''); // State for the discount code
+  const [discountApplied, setDiscountApplied] = useState(false); // State to track if discount is applied
+  const [discountAmount, setDiscountAmount] = useState(0); // Discount amount
+
+  const handleApplyDiscount = () => {
+    if (discountCode.trim().toLowerCase() === 'kmbash10') { // Normalize input to lowercase
+      setDiscountAmount(10); // Apply a 10% discount
+      setDiscountApplied(true);
+      setError('');
+    } else {
+      setError('Invalid discount code');
+    }
+  };
+
   const handleCheckout = () => {
     if (cart.length === 0) {
       setError('You have no items in your cart');
@@ -42,6 +57,8 @@ const Cart = () => {
         user: user.email,
         cart,
         formData,
+        discountCode: discountCode || 'None', // Include discount code in the order
+        discountAmount,
         createdAt: new Date(),
       };
 
@@ -101,45 +118,24 @@ const Cart = () => {
         <p>You have no items in your cart</p>
       ) : (
         <div className="cart-items">
-        {cart.map((item) => (
-          <div key={item.id} className="cart-item">
-            <img src={item.image} alt={item.name} className="cart-item-image" />
-            <div className="cart-item-details">
-              <span className="cart-item-name">{item.name}</span>
-              {item.tags && item.tags.includes('paper') && (
-                <span className="cart-item-paper-type">Type: {item.selectedPaper}</span>
-              )}
-              <span className="cart-item-quantity-type">
-  {item.tags && item.tags.includes('packs')
-    ? `${item.quantity} ${item.quantity === 1 ? 'pack' : 'packs'}`
-    : item.tags && item.tags.includes('boards')
-      ? `${item.quantity} ${item.quantity === 1 ? 'board' : 'boards'}`
-      : item.tags && item.tags.includes('daubers')
-        ? item.quantityType === 'cases'
-          ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}`
-          : `${item.quantity} ${item.quantity === 1 ? 'dauber' : 'daubers'}`
-        : item.tags && item.tags.includes('paper')
-          ? `${item.quantity} ${item.quantity === 1 ? 'book' : 'books'}`
-          : item.quantityType === 'cases'
-            ? `${item.quantity} ${item.quantity === 1 ? 'case' : 'cases'}`
-            : `${item.quantity} ${item.quantity === 1 ? 'game' : 'games'}`}
-</span>
-              <div className="cart-item-quantity">
-                <button onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.quantityType)}>-</button>
-                <span>{item.quantity}</span>
-                <button onClick={() => handleQuantityChange(item.id, item.quantity + 1, item.quantityType)}>+</button>
+          {cart.map((item) => (
+            <div key={item.id} className="cart-item">
+              <img src={item.image} alt={item.name} className="cart-item-image" />
+              <div className="cart-item-details">
+                <span className="cart-item-name">{item.name}</span>
+                <span className="cart-item-quantity-type">
+                  {item.quantity} {item.quantity === 1 ? 'item' : 'items'}
+                </span>
+                <div className="cart-item-quantity">
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.quantityType)}>-</button>
+                  <span>{item.quantity}</span>
+                  <button onClick={() => handleQuantityChange(item.id, item.quantity + 1, item.quantityType)}>+</button>
+                </div>
               </div>
-              {/* Render takeIn, payout, and profit in a row */}
-              <div className="cart-item-financials">
-                <span className="cart-item-takein">Take In: {item.takeIn}</span>
-                <span className="cart-item-payout">Payout: {item.payout}</span>
-                <span className="cart-item-profit">Profit: {item.profit}</span>
-              </div>
+              <button className="remove-item-button" onClick={() => removeItemFromCart(item.id)}>Remove</button>
             </div>
-            <button className="remove-item-button" onClick={() => removeItemFromCart(item.id)}>Remove</button>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       )}
       {error && <p className="error-message">{error}</p>}
       <MessageBubble />
@@ -152,6 +148,10 @@ const Cart = () => {
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         onSubmit={handleFormSubmit}
+        discountCode={discountCode} // Pass the discountCode state
+        setDiscountCode={setDiscountCode} // Pass the setDiscountCode function
+        handleApplyDiscount={handleApplyDiscount} // Pass the handleApplyDiscount function
+        discountApplied={discountApplied} // Pass the discountApplied state
       />
 
       <Modal
@@ -161,9 +161,9 @@ const Cart = () => {
         className="modal-content"
         overlayClassName="modal-overlay"
       >
-        <h2 className='order'>Order Successful</h2>
+        <h2 className="order">Order Successful</h2>
         <img src="/assets/images/kmicologo.png" alt="Logo" className="cart-logo" />
-        <p className='ordertwo'>A representative will be in touch shortly. <br/> Thank You For Choosing K&M Sales!</p>
+        <p className="ordertwo">A representative will be in touch shortly. <br /> Thank you for choosing K&M Sales!</p>
         <button onClick={() => setIsSuccessModalOpen(false)}>Close</button>
       </Modal>
 

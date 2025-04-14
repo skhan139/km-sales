@@ -1,12 +1,18 @@
-// src/components/CheckoutFormModal.js
-
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 import './CheckoutFormModal.css'; // Import the CSS file
 
 Modal.setAppElement('#root');
 
-const CheckoutFormModal = ({ isOpen, onRequestClose, onSubmit }) => {
+const CheckoutFormModal = ({
+  isOpen,
+  onRequestClose,
+  onSubmit,
+  discountCode,
+  setDiscountCode,
+  handleApplyDiscount,
+  discountApplied
+}) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -18,7 +24,8 @@ const CheckoutFormModal = ({ isOpen, onRequestClose, onSubmit }) => {
     city: '',
     state: '',
     zipCode: '',
-    specialInstructions: ''
+    specialInstructions: '',
+    subscribeToEmailList: 'No', // Default value for email subscription
   });
 
   const handleChange = (e) => {
@@ -88,6 +95,50 @@ const CheckoutFormModal = ({ isOpen, onRequestClose, onSubmit }) => {
           Order Special Instructions
           <textarea name="specialInstructions" value={formData.specialInstructions} onChange={handleChange}></textarea>
         </label>
+        <div className="discount-section">
+          <label>
+            Discount Code
+            <input
+              type="text"
+              placeholder="Enter discount code"
+              value={discountCode}
+              onChange={(e) => setDiscountCode(e.target.value)}
+              disabled={discountApplied}
+            />
+          </label>
+          <button
+            type="button"
+            onClick={handleApplyDiscount}
+            disabled={discountApplied}
+            className="apply-discount-button"
+          >
+            {discountApplied ? 'Discount Applied' : 'Apply Discount'}
+          </button>
+          {discountApplied && <p className="success-message">Discount applied: 10% off</p>}
+        </div>
+        <div className="email-subscription">
+          <p>Subscribe to our email list? (Receive exclusive discounts and updated on our new games)</p>
+          <label>
+            <input
+              type="radio"
+              name="subscribeToEmailList"
+              value="Yes"
+              checked={formData.subscribeToEmailList === 'Yes'}
+              onChange={handleChange}
+            />
+            Yes
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="subscribeToEmailList"
+              value="No"
+              checked={formData.subscribeToEmailList === 'No'}
+              onChange={handleChange}
+            />
+            No
+          </label>
+        </div>
         <button type="submit">Submit</button>
         <button type="button" onClick={onRequestClose} className="close-button">Close Checkout</button>
       </form>

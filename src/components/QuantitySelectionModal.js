@@ -12,13 +12,24 @@ const paperVariants = [
 ];
 
 const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) => {
-  const [quantity, setQuantity] = useState(1);
-  const [quantityType, setQuantityType] = useState('books');
+  const [caseQuantity, setCaseQuantity] = useState(0); // Separate state for cases
+  const [customQuantity, setCustomQuantity] = useState(0); // Separate state for games, books, etc.
+  const [quantityType, setQuantityType] = useState('cases');
   const [selectedPaper, setSelectedPaper] = useState(paperVariants[0]);
 
   const handleSubmit = () => {
-    onSubmit(quantity, quantityType, selectedPaper);
+    onSubmit({ caseQuantity, customQuantity, quantityType, selectedPaper });
     onRequestClose();
+  };
+
+  const handleCustomQuantityChange = (e, type) => {
+    setCustomQuantity(parseInt(e.target.value, 10) || 0); // Update custom quantity
+    setQuantityType(type);
+  };
+
+  const handleCaseQuantityChange = (e) => {
+    setCaseQuantity(parseInt(e.target.value, 10) || 0); // Update case quantity
+    setQuantityType('cases');
   };
 
   const getLabel = (type) => {
@@ -44,18 +55,19 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
           <input
             type="number"
             id="quantity-select"
-            value={quantity}
-            onChange={(e) => {
-              setQuantity(parseInt(e.target.value, 10));
-              setQuantityType('packs');
-            }}
+            value={customQuantity}
+            onChange={(e) => handleCustomQuantityChange(e, 'packs')}
             min="1"
           />
         </div>
       ) : product.tags && product.tags.includes('boards') ? (
         <div className="quantity-selection">
           <label htmlFor="quantity-select">Number of boards:</label>
-          <select id="quantity-select" value={quantity} onChange={(e) => setQuantity(parseInt(e.target.value, 10))}>
+          <select
+            id="quantity-select"
+            value={customQuantity}
+            onChange={(e) => handleCustomQuantityChange(e, 'boards')}
+          >
             {[...Array(10).keys()].map((num) => (
               <option key={num + 1} value={num + 1}>
                 {num + 1} {num + 1 === 1 ? 'board' : 'boards'}
@@ -67,7 +79,11 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
         <>
           <div className="quantity-selection">
             <label htmlFor="paper-select">Select type of paper:</label>
-            <select id="paper-select" value={selectedPaper} onChange={(e) => setSelectedPaper(e.target.value)}>
+            <select
+              id="paper-select"
+              value={selectedPaper}
+              onChange={(e) => setSelectedPaper(e.target.value)}
+            >
               {paperVariants.map((variant) => (
                 <option key={variant} value={variant}>
                   {variant}
@@ -77,10 +93,11 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
           </div>
           <div className="quantity-selection">
             <label htmlFor="quantity-select">Number of {getLabel('books')}:</label>
-            <select id="quantity-select" value={quantity} onChange={(e) => {
-              setQuantity(parseInt(e.target.value, 10));
-              setQuantityType('books');
-            }}>
+            <select
+              id="quantity-select"
+              value={customQuantity}
+              onChange={(e) => handleCustomQuantityChange(e, 'books')}
+            >
               {[...Array(11).keys()].map((num) => (
                 <option key={num} value={num}>
                   {num}
@@ -93,10 +110,11 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
         <>
           <div className="quantity-selection">
             <label htmlFor="quantity-select">Number of cases:</label>
-            <select id="quantity-select" value={quantity} onChange={(e) => {
-              setQuantity(parseInt(e.target.value, 10));
-              setQuantityType('cases');
-            }}>
+            <select
+              id="quantity-select"
+              value={caseQuantity}
+              onChange={handleCaseQuantityChange}
+            >
               {[...Array(11).keys()].map((num) => (
                 <option key={num} value={num}>
                   {num}
@@ -109,11 +127,8 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
             <input
               type="number"
               id="custom-quantity-input"
-              value={quantity}
-              onChange={(e) => {
-                setQuantity(parseInt(e.target.value, 10));
-                setQuantityType('daubers');
-              }}
+              value={customQuantity}
+              onChange={(e) => handleCustomQuantityChange(e, 'daubers')}
               min="1"
             />
           </div>
@@ -122,10 +137,11 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
         <>
           <div className="quantity-selection">
             <label htmlFor="quantity-select">Number of cases:</label>
-            <select id="quantity-select" value={quantity} onChange={(e) => {
-              setQuantity(parseInt(e.target.value, 10));
-              setQuantityType('cases');
-            }}>
+            <select
+              id="quantity-select"
+              value={caseQuantity}
+              onChange={handleCaseQuantityChange}
+            >
               {[...Array(11).keys()].map((num) => (
                 <option key={num} value={num}>
                   {num}
@@ -138,11 +154,8 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
             <input
               type="number"
               id="custom-quantity-input"
-              value={quantity}
-              onChange={(e) => {
-                setQuantity(parseInt(e.target.value, 10));
-                setQuantityType('games');
-              }}
+              value={customQuantity}
+              onChange={(e) => handleCustomQuantityChange(e, 'games')}
               min="1"
             />
           </div>
