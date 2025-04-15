@@ -114,3 +114,12 @@
     -1px 1px 0 #ffffff,  /* Bottom-left shadow */
     1px 1px 0 #ffffff;   /* Bottom-right shadow */
 }
+
+.video {
+  width: 100%;
+  max-width: 400px; /* Limit the width of each video */
+  height: 225px; /* Maintain a 16:9 aspect ratio */
+  border: none; /* Remove the border */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}

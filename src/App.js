@@ -19,6 +19,7 @@ import ReturnPolicy from './pages/ReturnPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import UserProfile from './pages/UserProfile';
 import CustomGamePage from './pages/CustomGamePage'; // Import the CustomGamePage component
+import EventInspiration from './pages/EventInspiration'; // Import the EventInspiration component
 import Footer from './components/Footer';
 
 const App = () => {
@@ -78,6 +79,7 @@ const App = () => {
           <Route path="/profile" element={user ? <UserProfile /> : <Navigate to="/login" />} />
           <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
           <Route path="/custom-game" element={<CustomGamePage />} /> {/* Add CustomGamePage route */}
+          <Route path="/event-inspiration" element={<EventInspiration />} /> {/* Add EventInspiration route */}
         </Routes>
         <Footer />
       </div>

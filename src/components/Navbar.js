@@ -89,6 +89,7 @@ const Navbar = () => {
                 <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
                 <li><Link to="/legacy" onClick={closeNavbar}>K&M Legacy</Link></li>
                 <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
+                <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li> {/* New Button */}
               </ul>
             </li>
             {user ? (

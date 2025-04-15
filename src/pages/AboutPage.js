@@ -38,6 +38,32 @@ const AboutPage = () => {
             <p>Looking for something unique? We specialize in designing and manufacturing custom games that add a personal touch to any event or fundraiser. Please contact us through email or give us a call if interested.</p>
           </div>
         </div>
+        <div className="video-section">
+  <h2>Learn More About Our Games!</h2>
+  <div className="video-container">
+    <iframe
+      className="video"
+      src="https://www.youtube.com/embed/5ri1PJ4d8uM"
+      title="Video 1"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+    <iframe
+      className="video"
+      src="https://www.youtube.com/embed/JKBsmEfey5I"
+      title="Video 2"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+    <iframe
+      className="video"
+      src="https://www.youtube.com/embed/VIDEO_ID_3"
+      title="Video 3"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  </div>
+</div>
       </div>
     </div>
   );

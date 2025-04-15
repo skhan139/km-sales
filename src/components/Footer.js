@@ -29,10 +29,10 @@ const Footer = () => {
             <a href="https://www.facebook.com/p/KM-Sales-61572474146089/?mibextid=wwXIfr&rdid=GS4xboY7Uta0SA42&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1MdR6EfBFd%2F%3Fmibextid%3DwwXIfr#" target="_blank" rel="noopener noreferrer">Facebook</a>
           </p>
           <p>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://www.youtube.com/channel/UC5kiejHk9_Jh_YkzCeeVDWA" target="_blank" rel="noopener noreferrer">Youtube</a>
           </p>
           <p>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://www.instagram.com/kandmsalesbingosupply/?igsh=MWg4aTJ0a3UzaWdsMQ%3D%3D&utm_source=qr#" target="_blank" rel="noopener noreferrer">Instagram</a>
           </p>
         </div>
       </div>

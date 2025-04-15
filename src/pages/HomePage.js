@@ -26,7 +26,7 @@ const HomePage = () => {
     <div className="homepage-container">
       {showPopup && (
         <div className="popup">
-          <p>New clubs are eligible for 10% off of their first three orders!</p>
+          <p>New clubs are eligible for 10% off for their first three orders!</p>
           <button className="popup-close-button" onClick={handleClosePopup}>×</button>
         </div>
       )}
@@ -166,7 +166,7 @@ Add your products to cart and register with us to checkout. Once you checkout, o
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+                <Link to="/login"> 
                   <img src="/assets/images/luckylobsters.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
