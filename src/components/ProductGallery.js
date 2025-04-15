@@ -68,8 +68,7 @@ const ProductGallery = ({ searchTerm }) => {
   };
 
   const handleAddToCartClick = (product) => {
-    setSelectedProduct(product);
-    setIsQuantityModalOpen(true);
+    setSelectedProduct(product); // Set the selected product to open the modal
   };
 
   const handleQuantityModalClose = () => {

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useCart } from '../context/CartContext';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase'; // Remove db import
+import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
-import emailjs from 'emailjs-com'; // Import EmailJS
+import emailjs from 'emailjs-com';
 import CheckoutFormModal from './CheckoutFormModal';
 import Modal from 'react-modal';
-import ConfirmationPopup from './ConfirmationPopup'; // Import the ConfirmationPopup component
-import MessageBubble from './MessageBubble'; // Import the MessageBubble component
+import ConfirmationPopup from './ConfirmationPopup';
+import MessageBubble from './MessageBubble';
 import './Cart.css';
 
 const Cart = () => {
@@ -16,17 +16,16 @@ const Cart = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false); // State for the confirmation popup
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [error, setError] = useState('');
 
-  // Add these states for discount functionality
-  const [discountCode, setDiscountCode] = useState(''); // State for the discount code
-  const [discountApplied, setDiscountApplied] = useState(false); // State to track if discount is applied
-  const [discountAmount, setDiscountAmount] = useState(0); // Discount amount
+  const [discountCode, setDiscountCode] = useState('');
+  const [discountApplied, setDiscountApplied] = useState(false);
+  const [discountAmount, setDiscountAmount] = useState(0);
 
   const handleApplyDiscount = () => {
-    if (discountCode.trim().toLowerCase() === 'kmbash10') { // Normalize input to lowercase
-      setDiscountAmount(10); // Apply a 10% discount
+    if (discountCode.trim().toLowerCase() === 'kmbash10') {
+      setDiscountAmount(10);
       setDiscountApplied(true);
       setError('');
     } else {
@@ -42,27 +41,22 @@ const Cart = () => {
 
     if (user) {
       setIsModalOpen(true);
-      setError(''); // Clear any previous error
+      setError('');
     } else {
       navigate('/login');
     }
   };
 
   const handleFormSubmit = async (formData) => {
-    console.log('Form Data:', formData);
-
-    // Example of sending order information via EmailJS
     try {
       const orderData = {
         user: user.email,
         cart,
         formData,
-        discountCode: discountCode || 'None', // Include discount code in the order
+        discountCode: discountCode || 'None',
         discountAmount,
         createdAt: new Date(),
       };
-
-      console.log('Order Data:', orderData);
 
       const templateParams = {
         to_email: 'skhan139@icloud.com',
@@ -71,13 +65,11 @@ const Cart = () => {
       };
 
       await emailjs.send(
-        'service_0fzyzws', // Replace with your EmailJS service ID
-        'template_446ao1n', // Replace with your EmailJS template ID
+        'service_0fzyzws',
+        'template_446ao1n',
         templateParams,
-        'JEDoAfpGovlaq9jU4' // Replace with your EmailJS user ID
+        'JEDoAfpGovlaq9jU4'
       );
-
-      console.log('Order successfully sent via email');
 
       setIsModalOpen(false);
       clearCart();
@@ -89,8 +81,10 @@ const Cart = () => {
   };
 
   const handleQuantityChange = (id, quantity, quantityType) => {
-    if (quantity > 0) {
-      updateQuantity(id, quantity, quantityType);
+    if (quantity >= 1) {
+      updateQuantity(id, quantity, quantityType); // Update quantity if it's 1 or more
+    } else {
+      removeItemFromCart(id); // Remove the item if quantity is less than 1
     }
   };
 
@@ -119,12 +113,12 @@ const Cart = () => {
       ) : (
         <div className="cart-items">
           {cart.map((item) => (
-            <div key={item.id} className="cart-item">
+            <div key={`${item.id}-${item.quantityType}`} className="cart-item">
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
                 <span className="cart-item-quantity-type">
-                  {item.quantity} {item.quantity === 1 ? 'item' : 'items'}
+                  {item.quantity} {item.quantity === 1 ? item.quantityType.slice(0, -1) : item.quantityType}
                 </span>
                 <div className="cart-item-quantity">
                   <button onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.quantityType)}>-</button>
@@ -148,10 +142,10 @@ const Cart = () => {
         isOpen={isModalOpen}
         onRequestClose={() => setIsModalOpen(false)}
         onSubmit={handleFormSubmit}
-        discountCode={discountCode} // Pass the discountCode state
-        setDiscountCode={setDiscountCode} // Pass the setDiscountCode function
-        handleApplyDiscount={handleApplyDiscount} // Pass the handleApplyDiscount function
-        discountApplied={discountApplied} // Pass the discountApplied state
+        discountCode={discountCode}
+        setDiscountCode={setDiscountCode}
+        handleApplyDiscount={handleApplyDiscount}
+        discountApplied={discountApplied}
       />
 
       <Modal

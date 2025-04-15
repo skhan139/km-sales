@@ -12,23 +12,27 @@ const paperVariants = [
 ];
 
 const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) => {
-  const [caseQuantity, setCaseQuantity] = useState(0); // Separate state for cases
-  const [customQuantity, setCustomQuantity] = useState(0); // Separate state for games, books, etc.
+  const [caseQuantity, setCaseQuantity] = useState(1); // Default to 1 for cases
+  const [customQuantity, setCustomQuantity] = useState(1); // Default to 1 for custom quantities
   const [quantityType, setQuantityType] = useState('cases');
   const [selectedPaper, setSelectedPaper] = useState(paperVariants[0]);
 
   const handleSubmit = () => {
-    onSubmit({ caseQuantity, customQuantity, quantityType, selectedPaper });
+    const validCaseQuantity = Math.max(caseQuantity, 1); // Ensure caseQuantity is at least 1
+    const validCustomQuantity = Math.max(customQuantity, 1); // Ensure customQuantity is at least 1
+    onSubmit({ caseQuantity: validCaseQuantity, customQuantity: validCustomQuantity, quantityType, selectedPaper });
     onRequestClose();
   };
 
   const handleCustomQuantityChange = (e, type) => {
-    setCustomQuantity(parseInt(e.target.value, 10) || 0); // Update custom quantity
+    const value = Math.max(parseInt(e.target.value, 10) || 1, 1); // Ensure value is at least 1
+    setCustomQuantity(value);
     setQuantityType(type);
   };
 
   const handleCaseQuantityChange = (e) => {
-    setCaseQuantity(parseInt(e.target.value, 10) || 0); // Update case quantity
+    const value = Math.max(parseInt(e.target.value, 10) || 1, 1); // Ensure value is at least 1
+    setCaseQuantity(value);
     setQuantityType('cases');
   };
 
@@ -116,8 +120,8 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
               onChange={handleCaseQuantityChange}
             >
               {[...Array(11).keys()].map((num) => (
-                <option key={num} value={num}>
-                  {num}
+                <option key={num + 1} value={num + 1}>
+                  {num + 1}
                 </option>
               ))}
             </select>
@@ -143,8 +147,8 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
               onChange={handleCaseQuantityChange}
             >
               {[...Array(11).keys()].map((num) => (
-                <option key={num} value={num}>
-                  {num}
+                <option key={num + 1} value={num + 1}>
+                  {num + 1}
                 </option>
               ))}
             </select>
