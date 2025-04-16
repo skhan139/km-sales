@@ -234,12 +234,13 @@ const ProductGallery = ({ searchTerm }) => {
   <div className="dropdown">
     <button className="dropdown-button">Boards</button>
     <div className="dropdown-content">
-      <button onClick={() => handleSortChange('tip boards')}>Tip Boards</button>
-      <button onClick={() => handleSortChange('coin boards')}>Coin Boards</button>
-      <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
-      <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
-      <button onClick={() => handleSortChange('merchandise boards')}>Merchandise Boards</button> {/* New Button */}
-    </div>
+  <button onClick={() => handleSortChange('tip boards')}>Tip Boards</button>
+  <button onClick={() => handleSortChange('coin boards')}>Coin Boards</button>
+  <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
+  <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
+  <button onClick={() => handleSortChange('merchandise boards')}>Merchandise Boards</button>
+  <button onClick={() => handleSortChange('gun boards')}>Gun Boards</button> {/* New Button */}
+</div>
   </div>
 </div>
 <div className="sort-row">
@@ -314,20 +315,32 @@ const ProductGallery = ({ searchTerm }) => {
             ))}
           </div>
           <div className="product-gallery">
-            {displayedProducts.length === 0 ? (
-              <p>Sorry, there are no products in this category.</p>
-            ) : (
-              displayedProducts.map((product) => (
-                <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
-                  <img src={product.image} alt={product.name} className="product-image" />
-                  <h2 className="product-name">{product.name}</h2>
-                  <div className="more-info">More Info</div>
-                  <br/> <br/>
-                  <button onClick={(e) => { e.stopPropagation(); handleAddToCartClick(product); }} className="add-to-cart-button">Add to Cart</button> {/* Add to Cart button */}
-                </div>
-              ))
-            )}
-          </div>
+  {displayedProducts.length === 0 ? (
+    <p>Sorry, there are no products in this category.</p>
+  ) : (
+    displayedProducts.map((product) => (
+      <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
+        <img
+          src={product.images ? product.images[0] : product.image} // Use the first image if multiple images exist
+          alt={product.name}
+          className="product-image"
+        />
+        <h2 className="product-name">{product.name}</h2>
+        <div className="more-info">More Info</div>
+        <br /> <br />
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddToCartClick(product);
+          }}
+          className="add-to-cart-button"
+        >
+          Add to Cart
+        </button>
+      </div>
+    ))
+  )}
+</div>
           <div className="pagination">
             {Array.from({ length: totalPages }, (_, index) => (
               <button

@@ -29,7 +29,7 @@
 .info-box {
   margin-top: 40px; /* Add margin to slide the info-box down */
   padding: 20px;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  background-image: url('/public/assets/images/modernbg.jpg'); /* Path to your background image */
   border-radius: 10px; /* Rounded corners */
   width: 80%; /* Adjust width as needed */
   max-width: 600px; /* Set a maximum width for larger screens */
@@ -111,7 +111,7 @@
   flex: 1; /* Each slider takes up an equal portion of the available space */
   max-width: 28%; /* Limit the maximum width of each slider */
   text-align: center;
-  background: url('/public/assets/images/matteblackbg.jpg'); /* Background image for sliders */
+  background: url('/public/assets/images/modernbg.jpg'); /* Background image for sliders */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background image */
   border-radius: 10px; /* Rounded corners */

@@ -10,6 +10,7 @@ const ProductModal = ({ product, onClose }) => {
   const [quantityType, setQuantityType] = useState('cases'); // State for the quantity type
   const [copySuccess, setCopySuccess] = useState(''); // State for copy success message
   const [showShareOptions, setShowShareOptions] = useState(false); // State for showing share options
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // State for the current image index
 
   useEffect(() => {
     if (product) {
@@ -61,17 +62,37 @@ const ProductModal = ({ product, onClose }) => {
     setCustomQuantity(''); // Reset custom quantity when cases are changed
   };
 
+  const handleImageNavigation = (direction) => {
+    if (direction === 'left') {
+      setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? product.images.length - 1 : prevIndex - 1));
+    } else if (direction === 'right') {
+      setCurrentImageIndex((prevIndex) => (prevIndex === product.images.length - 1 ? 0 : prevIndex + 1));
+    }
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
         <button className="modal-close" onClick={onClose}>X</button>
         <div className="modal-image-container">
-          <img
-            src={selectedVariant?.image || product.image}
-            alt={selectedVariant?.name || product.name}
-            className="modal-image"
-          />
-        </div>
+  {product.images && product.images.length > 1 ? (
+    <>
+      <button className="image-nav left" onClick={() => handleImageNavigation('left')}>&lt;</button>
+      <img
+        src={product.images[currentImageIndex]}
+        alt={`${product.name} - ${currentImageIndex + 1}`}
+        className="modal-image"
+      />
+      <button className="image-nav right" onClick={() => handleImageNavigation('right')}>&gt;</button>
+    </>
+  ) : (
+    <img
+      src={product.images ? product.images[0] : product.image}
+      alt={product.name}
+      className="modal-image"
+    />
+  )}
+</div>
         <div className="modal-details">
           <h2 className="modal-name">{selectedVariant?.name || product.name}</h2>
           <p className="modal-description">{selectedVariant?.description || product.description}</p>

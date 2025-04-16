@@ -281,6 +281,86 @@ const products = [
   { id: 217, name: "1764 .25 B-I-N-G-O ", image: "/assets/images/1764bingo.jpg", category: "bingo card gams", tags: ["bingo", "card", "games"], sku: "SKU002", takeIn: "$441.00", payout: "$288.00", profit: "$153.00", profitPercent: "34.69%", dealsPerCase: "4" },
   { id: 218, name: "1764 .25 Nevada Club", image: "/assets/images/1764nevadaclub.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU002", takeIn: "$441.00", payout: "$288.00", profit: "$153.00", profitPercent: "34.69%", dealsPerCase: "4" },
   { id: 219, name: "3000 + 60 Numeral", image: "/assets/images/300060num.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A%", dealsPerCase: "30" },
+  {
+    id: 220,
+    name: "2280 Win A Gun Board",
+    images: [ // Use an array to store multiple images
+      "/assets/images/2280winagun.jpg",
+      "/assets/images/2280winagun2.jpg"
+    ],
+    category: "gun boards",
+    tags: ["gun", "boards"],
+    sku: "SKU002",
+    takeIn: "$2,280.00",
+    payout: "$790.00",
+    profit: "$495.00",
+    profitPercent: "N/A%",
+    dealsPerCase: "1"
+  },
+  {
+    id: 221,
+    name: "660 Win A Gun Board @ 5.00",
+    images: [ // Use an array to store multiple images
+      "/assets/images/3300winagun.jpg",
+      "/assets/images/3300winagun2.jpg"
+    ],
+    category: "gun boards",
+    tags: ["gun", "boards"],
+    sku: "SKU002",
+    takeIn: "$3,300.00",
+    payout: "$1,050.00",
+    profit: "$700.00",
+    profitPercent: "N/A%",
+    dealsPerCase: "1"
+  },
+  {
+    id: 222,
+    name: "4,000 Win A Gun Board",
+    images: [ // Use an array to store multiple images
+      "/assets/images/4000winagun.jpg",
+      "/assets/images/4000winagun4.jpg"
+    ],
+    category: "gun boards",
+    tags: ["gun", "boards"],
+    sku: "SKU002",
+    takeIn: "$4,000.00",
+    payout: "$1,450.00",
+    profit: "$870.00",
+    profitPercent: "N/A%",
+    dealsPerCase: "1"
+  },
+  {
+    id: 223,
+    name: "4,000 Win A Gun Board",
+    images: [ // Use an array to store multiple images
+      "/assets/images/4000winagun3.jpg",
+      "/assets/images/4000winagun2.jpg"
+    ],
+    category: "gun boards",
+    tags: ["gun", "boards"],
+    sku: "SKU002",
+    takeIn: "$4,000.00",
+    payout: "$1,280.00",
+    profit: "$840.00",
+    profitPercent: "N/A%",
+    dealsPerCase: "1"
+  },
+  {
+    id: 224,
+    name: "4,620 Win A Gun Board",
+    images: [ // Use an array to store multiple images
+      "/assets/images/4620winagun.jpg",
+      "/assets/images/4620winagun2.jpg"
+    ],
+    category: "gun boards",
+    tags: ["gun", "boards"],
+    sku: "SKU002",
+    takeIn: "$4,620.00",
+    payout: "$2,209.00",
+    profit: "$961.00",
+    profitPercent: "N/A%",
+    dealsPerCase: "1"
+  },
 ];
 
 export default products;

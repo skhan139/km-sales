@@ -38,12 +38,17 @@
 
 .modal-image {
   flex: 1; /* Allow the image to take up one part of the space */
-  max-width: 400px; /* Increase the maximum width */
-  max-height: 400px; /* Increase the maximum height */
+  max-width: 380px; /* Slightly smaller width */
+  max-height: 380px; /* Slightly smaller height */
   width: 100%; /* Ensure the image scales proportionally */
   height: auto; /* Maintain aspect ratio */
   border-radius: 8px; /* Optional: Add rounded corners to the image */
-  object-fit: cover; /* Ensure the image fits nicely */
+  object-fit: contain; /* Ensure the entire image is visible */
+  transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+.modal-image:hover {
+  transform: scale(1.05); /* Slight zoom-in on hover */
 }
 
 .modal-details {
@@ -132,6 +137,33 @@
 
 .share-options button:hover {
   background-color: #0056b3;
+}
+
+/* Navigation Arrows for Image Slider */
+.image-nav {
+  position: absolute;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for centering */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  border: none;
+  font-size: 24px; /* Larger font size for visibility */
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%; /* Circular buttons */
+  z-index: 10; /* Ensure arrows are above the image */
+}
+
+.image-nav.left {
+  left: 10px; /* Position on the left side */
+}
+
+.image-nav.right {
+  right: 10px; /* Position on the right side */
+}
+
+.image-nav:hover {
+  background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
 }
 
 /* Styles for mobile screens */
