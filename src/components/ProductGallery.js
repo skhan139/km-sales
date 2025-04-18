@@ -304,16 +304,34 @@ const ProductGallery = ({ searchTerm }) => {
             </div>
           </div>
           <div className="pagination">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => handlePageChange(index + 1)}
-                className={`pagination-button ${currentPage === index + 1 ? 'active' : ''}`}
-              >
-                {index + 1}
-              </button>
-            ))}
-          </div>
+  <button
+    onClick={() => handlePageChange(currentPage - 1)}
+    className="pagination-button"
+    disabled={currentPage === 1} // Disable the "Previous" button on the first page
+  >
+    &lt; Previous
+  </button>
+  {Array.from({ length: Math.min(5, totalPages) }, (_, index) => {
+    const pageNumber = currentPage <= 3 ? index + 1 : currentPage - 2 + index;
+    if (pageNumber > totalPages) return null; // Don't render buttons beyond the total pages
+    return (
+      <button
+        key={pageNumber}
+        onClick={() => handlePageChange(pageNumber)}
+        className={`pagination-button ${currentPage === pageNumber ? 'active' : ''}`}
+      >
+        {pageNumber}
+      </button>
+    );
+  })}
+  <button
+    onClick={() => handlePageChange(currentPage + 1)}
+    className="pagination-button"
+    disabled={currentPage === totalPages} // Disable the "Next" button on the last page
+  >
+    Next &gt;
+  </button>
+</div>
           <div className="product-gallery">
   {displayedProducts.length === 0 ? (
     <p>Sorry, there are no products in this category.</p>

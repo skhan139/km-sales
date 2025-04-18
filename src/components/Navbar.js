@@ -65,14 +65,18 @@ const Navbar = () => {
             value={searchTerm}
             onChange={handleSearchChange}
           />
-          <div className="search-results">
-            {searchResults.map(product => (
-              <div key={product.id} className="search-result" onClick={() => handleProductClick(product)}>
-                <img src={product.image} alt={product.name} className="search-result-image" />
-                <span>{product.name}</span>
-              </div>
-            ))}
-          </div>
+         <div className="search-results">
+  {searchResults.map(product => (
+    <div key={product.id} className="search-result" onClick={() => handleProductClick(product)}>
+      <img 
+        src={product.images ? product.images[0] : product.image} // Use the first image if multiple images exist
+        alt={product.name} 
+        className="search-result-image" 
+      />
+      <span>{product.name}</span>
+    </div>
+  ))}
+</div>
         </div>
       ) : (
         <>

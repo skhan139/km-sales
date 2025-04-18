@@ -12,7 +12,7 @@
 }
 
 .modal-content {
-  background: #fff;
+  background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
   width: 80%; /* Adjust width for better layout */
   max-width: 1200px; /* Set a maximum width */
   height: auto; /* Adjust height to fit content */
@@ -28,12 +28,13 @@
 
 .modal-close {
   position: absolute;
-  top: 20px; /* Position at the top */
+  bottom: 20px; /* Position at the bottom */
   right: 20px; /* Position at the right */
   background: none;
   border: none;
   font-size: 24px; /* Larger font size for visibility */
   cursor: pointer;
+  color: white; /* Make the close button white */
 }
 
 .modal-image {
@@ -142,8 +143,8 @@
 /* Navigation Arrows for Image Slider */
 .image-nav {
   position: absolute;
-  top: 50%; /* Center vertically */
-  transform: translateY(-50%); /* Adjust for centering */
+  bottom: 20px; /* Position at the bottom */
+  left: 20px; /* Position at the left */
   background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   color: white;
   border: none;
@@ -155,11 +156,11 @@
 }
 
 .image-nav.left {
-  left: 10px; /* Position on the left side */
+  margin-right: 10px; /* Add spacing between the left and right arrows */
 }
 
 .image-nav.right {
-  right: 10px; /* Position on the right side */
+  margin-left: 10px; /* Add spacing between the left and right arrows */
 }
 
 .image-nav:hover {
@@ -191,4 +192,27 @@
     font-size: 14px; /* Adjust font size for smaller screens */
     padding: 8px 16px; /* Adjust padding for smaller screens */
   }
+}
+
+.image-nav-container {
+  position: absolute;
+  bottom: 20px; /* Position at the bottom */
+  left: 20px; /* Position at the left */
+  display: flex; /* Arrange arrows side by side */
+  gap: 10px; /* Add space between the arrows */
+  z-index: 10; /* Ensure arrows are above the image */
+}
+
+.image-nav {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  border: none;
+  font-size: 24px; /* Larger font size for visibility */
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%; /* Circular buttons */
+}
+
+.image-nav:hover {
+  background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
 }

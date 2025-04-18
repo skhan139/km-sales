@@ -4,13 +4,13 @@ import './LegacyPage.css'; // Import the updated CSS for styling
 const LegacyPage = () => {
   return (
     <div className="page-container">
-      <h1>Legacy</h1>
+      <h1>The Legacy Of Buzz Mills</h1>
       <p className="legacy-story">
-      Over forty years ago, our founder Roy “Buzz” Mills had a vision to build a brand that thrived on the principles of hard work, commitment to customer service, and honesty.
+        Over forty years ago, our founder Roy “Buzz” Mills had a vision to build a brand that thrived on the principles of hard work, commitment to customer service, and honesty.
         <br /><br />
         Buzz started K&M as just a small business out of his garage and had expanded the services of K&M Sales to hundreds of customers throughout the years.
         <br /><br />
-        Buzz's journey began with a simple idea and an unwavering determination. In the early days, he worked tirelessly, often late into the night, to fulfill orders and personally ensure each customer was satisfied. His dedication quickly earned K&M Sales a reputation for reliability and top-notch service.
+        Buzz's journey began with a simple idea and an unwavering determination. In the early days, he worked tirelessly, often late into the night, to fulfill orders and personally ensure each customer was satisfied. His dedication quickly earned K&M Sales a reputation for reliability and top-notch service in the Allegany County Area and State Of West Virginia.
         <br /><br />
         As the business grew, so did the team. Buzz was committed to hiring individuals who shared his values and passion for excellence. This team became the backbone of K&M Sales, working together to overcome challenges and seize opportunities. Their collective efforts transformed the small garage operation into a thriving enterprise.
         <br /><br />
@@ -21,6 +21,12 @@ const LegacyPage = () => {
         As we look to the future, we remain inspired by Buzz's vision. We are committed to upholding the standards he set and continuing the tradition of excellence that has defined K&M Sales for over forty years. Our journey is a testament to the power of hard work, honesty, and the unwavering commitment to our customers.
         <br /><br />
       </p>
+      <div className="image-holder">
+        <img src="/assets/images/buzz.jpg" alt="Legacy" className="legacy-image" />
+      </div>
+      <div className="image-holder">
+        <img src="/assets/images/buzzsignature.jpg" alt="Legacy" className="legacy-image" />
+      </div>
     </div>
   );
 };

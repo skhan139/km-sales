@@ -7,11 +7,11 @@ const EventInspiration = () => {
   return (
     <div className="event-inspiration-container">
       <h1 className="event-inspiration-title">Event Inspiration</h1>
-      <p className="event-inspiration-description">
+      <h2 className="event-inspiration-description">
         Looking for ideas to make your next event unforgettable? K&M Sales has you covered! 
         Explore our wide range of products and creative ideas to host successful bingo nights, 
         fundraising events, and more.
-      </p>
+      </h2>
       <div className="event-inspiration-content">
         <div className="event-card">
           <h2>Bingo Night</h2>
@@ -40,6 +40,18 @@ const EventInspiration = () => {
   talking about it for weeks. Perfect for fundraisers, parties, or just a fun night out!
 </p>
         </div>
+        <div className="event-card">
+  <h2>Gun/Cash Bashes</h2>
+  <p>
+    Bring excitement and anticipation to your event with a Gun/Cash Bash! 
+    Featuring thrilling prize draws, engaging games, and the chance to win 
+    incredible cash prizes or high-value items, this event is perfect for fundraisers, 
+    community gatherings, or private parties. With a lively atmosphere and plenty of 
+    opportunities for participation, Gun/Cash Bashes are sure to keep your guests entertained 
+    and talking about the event long after it’s over. Make your next event unforgettable with 
+    this unique and action-packed experience!
+  </p>
+</div>
       </div>
     </div>
   );

@@ -77,13 +77,17 @@ const ProductModal = ({ product, onClose }) => {
         <div className="modal-image-container">
   {product.images && product.images.length > 1 ? (
     <>
-      <button className="image-nav left" onClick={() => handleImageNavigation('left')}>&lt;</button>
       <img
         src={product.images[currentImageIndex]}
         alt={`${product.name} - ${currentImageIndex + 1}`}
         className="modal-image"
       />
-      <button className="image-nav right" onClick={() => handleImageNavigation('right')}>&gt;</button>
+      <button
+        className="image-nav single"
+        onClick={() => handleImageNavigation('right')}
+      >
+        &gt;
+      </button>
     </>
   ) : (
     <img

@@ -82,3 +82,19 @@ h1 {
     -1px 1px 0 #ffffff,  /* Bottom-left shadow */
     1px 1px 0 #ffffff;   /* Bottom-right shadow */
 }
+
+.image-holder {
+  display: flex;
+  justify-content: center; /* Center the images horizontally */
+  align-items: center; /* Align the images vertically */
+  gap: 20px; /* Add space between the images */
+  margin-top: 20px; /* Add spacing above the images */
+  margin-bottom: 20px; /* Add spacing below the images */
+}
+
+.legacy-image {
+  max-width: 45%; /* Set the image to take up at most 45% of the container's width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow for emphasis */
+}
