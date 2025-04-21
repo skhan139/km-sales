@@ -197,65 +197,26 @@
   }
 }
 
-/* Styles for mobile screens */
-@media (max-width: 768px) {
+/* Styles for iPhone 16 (393px width) */
+@media (max-width: 393px) {
   .homepage-container {
-    min-height: 300vh; /* Increase minimum height for smaller screens */
-    margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
-    padding-bottom: 260px; /* Increase bottom padding to ensure space below sliders */
+    padding-top: 100px; /* Add more top padding to prevent overlap with navbar */
+    padding-bottom: 150px; /* Adjust bottom padding */
   }
 
   .info-box {
-    width: 90%; /* Slightly increase width for smaller screens */
-    padding: 15px; /* Reduce padding for smaller screens */
-    margin-top: 20px; /* Add top margin to avoid touching the navbar */
-  }
-
-  .image-row {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .image-container {
-    width: 90%; /* Adjust width for smaller screens */
-    height: auto; /* Adjust height for smaller screens */
-  }
-
-  .row-image {
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-
-  .sliders-row {
-    flex-direction: column;
-    align-items: center; /* Center the sliders in the column layout */
-  }
-
-  .slider-section {
-    max-width: 100%; /* Allow the sliders to take full width */
-    margin-bottom: 20px; /* Add some margin between stacked sliders */
-  }
-}
-
-@media (max-width: 375px) {
-  .homepage-container {
-    padding-top: 70px; /* Add more top padding to prevent overlap with navbar */
-    padding-bottom: 100px; /* Adjust bottom padding */
-  }
-
-  .info-box {
-    width: 90%; /* Shrink the width for smaller screens */
-    padding: 10px; /* Reduce padding */
-    margin-top: 20px; /* Ensure enough space below the navbar */
+    margin-top: 80px; /* Add more space below the navbar */
+    width: 90%; /* Shrink the width slightly for smaller screens */
+    padding: 10px; /* Adjust padding */
     font-size: 0.9em; /* Reduce font size for better fit */
   }
 
   .info-box h1 {
-    font-size: 1.5em; /* Reduce heading size */
+    font-size: 1.4em; /* Reduce heading size */
   }
 
   .info-box h2 {
-    font-size: 1.2em; /* Reduce subheading size */
+    font-size: 1.1em; /* Reduce subheading size */
   }
 
   .info-box p {
@@ -263,32 +224,16 @@
   }
 
   .image-row {
-    flex-direction: column; /* Stack images vertically */
     gap: 10px; /* Reduce gap between images */
     padding: 10px; /* Reduce padding */
   }
 
   .image-container {
-    width: 100%; /* Full width for images */
-    height: 180px; /* Reduce height for smaller screens */
-  }
-
-  .row-image {
-    max-height: 100%; /* Ensure images fit within the container */
+    height: 150px; /* Reduce height for smaller screens */
   }
 
   .sliders-row {
-    flex-direction: column; /* Stack sliders vertically */
-    padding: 10px; /* Reduce padding */
-  }
-
-  .slider-section {
-    max-width: 100%; /* Allow sliders to take full width */
-    margin-bottom: 10px; /* Reduce margin between sliders */
-  }
-
-  .slider-image {
-    max-height: 120px; /* Reduce slider image height */
+    display: none; /* Hide sliders on small screens */
   }
 }
 
