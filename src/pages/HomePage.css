@@ -322,3 +322,11 @@ a {
 .popup-close-button:hover {
   background-color: #333; /* Slightly lighter black on hover */
 }
+
+/* Styles for small screens (phones) */
+@media (max-width: 480px) {
+  .homepage-container {
+    min-height: 200vh; /* Further increase minimum height for small screens */
+    padding-bottom: 600px; /* Add even more bottom padding for small screens */
+  }
+}

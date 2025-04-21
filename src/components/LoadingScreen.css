@@ -1,0 +1,46 @@
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; /* Set background color to black */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above all other elements */
+    color: white; /* Default text color for all elements inside */
+    font-size: 18px;
+}
+  
+.loading-image {
+    width: 100px; /* Adjust the size of the image */
+    height: auto;
+    margin-bottom: 20px; /* Add spacing below the image */
+}
+  
+.loading-screen p {
+    color: white; /* Ensure the text color is white */
+    font-size: 16px; /* Adjust font size if needed */
+    margin: 0; /* Remove default margin */
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Light white border */
+    border-top: 5px solid white; /* Solid white for the spinner's top */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 20px; /* Add spacing above the spinner */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

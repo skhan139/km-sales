@@ -88,14 +88,15 @@ const Navbar = () => {
           <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
             <li><Link to="/" onClick={closeNavbar}>Home</Link></li>
             <li className="dropdown">
-              <Link to="/about" onClick={closeNavbar}>About</Link>
-              <ul className="dropdown-content">
-                <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
-                <li><Link to="/legacy" onClick={closeNavbar}>K&M Legacy</Link></li>
-                <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
-                <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li> {/* New Button */}
-              </ul>
-            </li>
+  <li className="dropdown-button">Info</li> {/* Changed from <Link> to <span> */}
+  <ul className="dropdown-content">
+    <li><Link to="/about" onClick={closeNavbar}>About</Link></li>
+    <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
+    <li><Link to="/legacy" onClick={closeNavbar}>K&M Legacy</Link></li>
+    <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
+    <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li>
+  </ul>
+</li>
             {user ? (
               <>
                 <li><Link to="/members" onClick={closeNavbar}>Products</Link></li>

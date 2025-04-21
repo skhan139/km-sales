@@ -14,6 +14,7 @@
   padding: 10px 20px;
   background-image: url(/public/assets/images/modernbg.jpg);
   animation: fadeIn 1s ease-in; /* Apply the fade-in animation */
+  flex-wrap: wrap; /* Allow wrapping of navbar items on smaller screens */
 }
 
 .logo {
@@ -142,22 +143,37 @@ li a:hover, .nav-button:hover {
 /* Styles for mobile screens */
 @media (max-width: 768px) {
   .toggle-button {
-    display: flex;
+    display: flex; /* Show the toggle button on smaller screens */
   }
 
   .navbar-links {
-    display: none;
-    width: 100%;
-    flex-direction: column;
+    display: none; /* Hide navbar links by default */
+    width: 100%; /* Full width for mobile */
+    flex-direction: column; /* Stack links vertically */
     align-items: center;
+    background-color: #333; /* Background color for the dropdown */
+    padding: 10px 0; /* Add padding for spacing */
+    position: absolute; /* Position dropdown over content */
+    top: 100%; /* Place below the navbar */
+    left: 0;
+    z-index: 1000; /* Ensure it appears above other elements */
   }
 
   .navbar-links.active {
-    display: flex;
+    display: flex; /* Show navbar links when active */
   }
 
   .navbar-links li {
-    margin: 0.5rem 0;
+    margin: 0.5rem 0; /* Add spacing between links */
+  }
+
+  .navbar-links a {
+    width: 100%; /* Full width for links */
+    text-align: center; /* Center align text */
+  }
+
+  .search-bar {
+    width: 100%; /* Ensure search bar takes full width */
   }
 }
 
@@ -196,11 +212,52 @@ li a:hover, .nav-button:hover {
   display: block;
 }
 
+/* Info Button Styles */
+.dropdown-button {
+  background-color: #333; /* Match the background color of other buttons */
+  color: #fff; /* Ensure the text color is consistent */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  text-shadow: 
+    -1px -1px 0 #000, /* Top-left shadow */
+    1px -1px 0 #000,  /* Top-right shadow */
+    -1px 1px 0 #000,  /* Bottom-left shadow */
+    1px 1px 0 #000;   /* Bottom-right shadow */
+  transition: background-color 0.3s;
+}
+
+.dropdown-button:hover {
+  background-color: #666; /* Change background color on hover */
+}
+
 /* Adjust for mobile screens */
 @media (max-width: 768px) {
   .navbar-links .dropdown-content {
-    position: static;
-    box-shadow: none;
-    min-width: 100%;
+    position: static; /* Remove absolute positioning */
+    box-shadow: none; /* Remove shadow */
+    min-width: 100%; /* Full width for dropdown */
   }
+}
+
+.navbar-links .dropdown-button {
+  background-color: #333 !important; /* Force the background color to #333 */
+  color: #fff; /* Ensure the text color is consistent */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  text-shadow: 
+    -1px -1px 0 #000, /* Top-left shadow */
+    1px -1px 0 #000,  /* Top-right shadow */
+    -1px 1px 0 #000,  /* Bottom-left shadow */
+    1px 1px 0 #000;   /* Bottom-right shadow */
+  transition: background-color 0.3s;
+}
+
+.navbar-links .dropdown-button:hover {
+  background-color: #666 !important; /* Change background color on hover */
 }

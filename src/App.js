@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './firebase';
 import { CartProvider } from './context/CartContext';
@@ -21,10 +21,22 @@ import UserProfile from './pages/UserProfile';
 import CustomGamePage from './pages/CustomGamePage'; // Import the CustomGamePage component
 import EventInspiration from './pages/EventInspiration'; // Import the EventInspiration component
 import Footer from './components/Footer';
+import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
 
 const App = () => {
   const [user] = useAuthState(auth);
   const [messages, setMessages] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // State for loading screen
+  const location = useLocation(); // Track route changes
+
+  useEffect(() => {
+    // Simulate a delay for loading (e.g., fetching data)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000); // Adjust the delay as needed
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, [location]); // Trigger loading screen on route changes
 
   useEffect(() => {
     // Establish WebSocket connection
@@ -61,6 +73,7 @@ const App = () => {
   return (
     <CartProvider>
       <div className="app-container">
+        {isLoading && <LoadingScreen />} {/* Show loading screen while loading */}
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
