@@ -34,7 +34,7 @@
   width: 80%; /* Adjust width as needed */
   max-width: 600px; /* Set a maximum width for larger screens */
   text-align: center; /* Center text */
-  color: white; /* Ensure text is readable */
+  color: white !important; /* Force all text inside to be white */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
 }
 
@@ -42,6 +42,7 @@
 .info-box h2,
 .info-box p,
 .info-box a {
+  color: white !important; /* Force white color for all text elements */
   text-shadow: 
     -1px -1px 0 #000, /* Top-left shadow */
     1px -1px 0 #000,  /* Top-right shadow */
@@ -185,7 +186,7 @@
     1px 1px 0 #000;   /* Bottom-right shadow */
 }
 
-.produly {
+.produly .welcome .intro {
   color: white;
 }
 
@@ -198,7 +199,7 @@
   }
 
   .info-box {
-    width: 90%; /* Increase the width slightly for smaller screens */
+    width: 90%; /* Slightly increase width for smaller screens */
     padding: 15px; /* Reduce padding for smaller screens */
     margin-top: 20px; /* Add top margin to avoid touching the navbar */
   }
@@ -229,58 +230,46 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 375px) {
   .homepage-container {
-    min-height: 440vh; /* Further increase minimum height for the smallest screens */
-    margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
-    padding-bottom: 380px; /* Increase bottom padding to ensure space below sliders */
+    padding-top: 50px; /* Reduce top padding */
+    padding-bottom: 100px; /* Reduce bottom padding */
   }
 
   .info-box {
-    margin-top: 80px; /* Increase the top margin to move it further down */
-    padding: 20px;
-    background-image: url('/public/assets/images/modernbg.jpg'); /* Path to your background image */
-    border-radius: 10px; /* Rounded corners */
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Set a maximum width for larger screens */
-    text-align: center; /* Center text */
-    color: white; /* Ensure text is readable */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+    width: 90%; /* Shrink the width */
+    padding: 10px; /* Reduce padding */
+    font-size: 0.9em; /* Reduce font size */
   }
 
-  .info-box h2 {
-    font-size: 1.5em;
-  }
-
-  .info-box p {
-    font-size: 0.9em;
+  .image-row {
+    flex-direction: column; /* Stack images vertically */
+    gap: 10px; /* Reduce gap between images */
+    padding: 10px; /* Reduce padding */
   }
 
   .image-container {
-    width: 100%; /* Adjust width for smaller screens */
-    height: auto; /* Adjust height for smaller screens */
+    width: 100%; /* Full width for images */
+    height: 200px; /* Reduce height */
   }
 
   .row-image {
-    max-width: 100%;
-    margin-bottom: 20px;
+    max-height: 100%; /* Ensure images fit within the container */
+  }
+
+  .sliders-row {
+    flex-direction: column; /* Stack sliders vertically */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .slider-section {
+    max-width: 100%; /* Allow sliders to take full width */
+    margin-bottom: 10px; /* Reduce margin between sliders */
   }
 
   .slider-image {
-    max-height: 150px; /* Reduce the maximum height for smaller screens */
+    max-height: 120px; /* Reduce slider image height */
   }
-}
-
-.welcome {
-  color: white;
-}
-
-.intro {
-  color: white;
-}
-
-a {
-  color: white;
 }
 
 .popup {
@@ -321,12 +310,4 @@ a {
 
 .popup-close-button:hover {
   background-color: #333; /* Slightly lighter black on hover */
-}
-
-/* Styles for small screens (phones) */
-@media (max-width: 480px) {
-  .homepage-container {
-    min-height: 200vh; /* Further increase minimum height for small screens */
-    padding-bottom: 600px; /* Add even more bottom padding for small screens */
-  }
 }
