@@ -190,6 +190,13 @@
   color: white;
 }
 
+/* Styles for medium screens (MacBook Air-sized) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .info-box {
+    margin-top: 50px; /* Add more space below the navbar */
+  }
+}
+
 /* Styles for mobile screens */
 @media (max-width: 768px) {
   .homepage-container {
@@ -232,14 +239,27 @@
 
 @media (max-width: 375px) {
   .homepage-container {
-    padding-top: 50px; /* Reduce top padding */
-    padding-bottom: 100px; /* Reduce bottom padding */
+    padding-top: 70px; /* Add more top padding to prevent overlap with navbar */
+    padding-bottom: 100px; /* Adjust bottom padding */
   }
 
   .info-box {
-    width: 90%; /* Shrink the width */
+    width: 90%; /* Shrink the width for smaller screens */
     padding: 10px; /* Reduce padding */
-    font-size: 0.9em; /* Reduce font size */
+    margin-top: 20px; /* Ensure enough space below the navbar */
+    font-size: 0.9em; /* Reduce font size for better fit */
+  }
+
+  .info-box h1 {
+    font-size: 1.5em; /* Reduce heading size */
+  }
+
+  .info-box h2 {
+    font-size: 1.2em; /* Reduce subheading size */
+  }
+
+  .info-box p {
+    font-size: 0.8em; /* Reduce paragraph font size */
   }
 
   .image-row {
@@ -250,7 +270,7 @@
 
   .image-container {
     width: 100%; /* Full width for images */
-    height: 200px; /* Reduce height */
+    height: 180px; /* Reduce height for smaller screens */
   }
 
   .row-image {
