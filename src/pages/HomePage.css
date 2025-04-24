@@ -253,26 +253,31 @@
 .popup p {
   margin: 0;
   font-size: 16px;
+  background-color: #333;
+  color: white;
 }
 
 .popup-close-button {
   position: absolute;
-  bottom: 10px; /* Position the button 10px from the bottom */
+  top: 10px; /* Position the button 10px from the top */
   right: 10px; /* Position the button 10px from the right */
-  background-color: black; /* Black background for the button */
+  background-color: white; /* Black background for the button */
   border: none;
-  color: white;
+  color: white; /* White color for the "×" */
   width: 20px; /* Set the width of the square button */
   height: 20px; /* Set the height of the square button */
   font-size: 14px; /* Adjust font size for the "×" */
   display: flex; /* Use flexbox for centering */
   justify-content: center; /* Center the "×" horizontally */
   align-items: center; /* Center the "×" vertically */
-  cursor: pointer;
+  cursor: pointer; /* Pointer cursor for interactivity */
   border-radius: 4px; /* Optional: Add slight rounding to the corners */
   padding: 0; /* Remove any default padding */
+  z-index: 1001; /* Ensure it appears above other elements */
+  visibility: visible !important; /* Force the button to always be visible */
+  opacity: 1 !important; /* Ensure full opacity */
 }
 
-.popup-close-button:hover {
-  background-color: #333; /* Slightly lighter black on hover */
+.popup {
+  background-color: #333;
 }

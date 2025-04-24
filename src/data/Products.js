@@ -361,6 +361,7 @@ const products = [
     profitPercent: "N/A%",
     dealsPerCase: "1"
   },
+  { id: 225, name: "America First Coin Board", images: ["/assets/images/gulfofamerica.jpg", "/assets/images/gulfinfo.jpg"], category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$3000.00", payout: "$1,400", profit: "$1,600.00", profitPercent: "21.37%", dealsPerCase: "1", seal: "$300" },
 ];
 
 export default products;

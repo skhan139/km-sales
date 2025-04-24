@@ -28,7 +28,7 @@ const HomePage = () => {
         <div className="popup">
           <p>New clubs are eligible for 10% off for their first three orders!</p>
           <button className="popup-close-button" onClick={handleClosePopup}>×</button>
-        </div>
+       </div>
       )}
 
       <div className="info-box">
