@@ -43,14 +43,14 @@ const AboutPage = () => {
   <div className="video-container">
     <iframe
       className="video"
-      src="https://www.youtube.com/embed/5ri1PJ4d8uM"
+      src="https://www.youtube.com/watch?v=HQ0Qt3kDewc"
       title="Video 1"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
     ></iframe>
     <iframe
       className="video"
-      src="https://www.youtube.com/embed/JKBsmEfey5I"
+      src="https://youtu.be/yikvtkdhx_4?si=ke1f8e6XgEzTr0-O"
       title="Video 2"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen

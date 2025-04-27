@@ -114,7 +114,16 @@ const Cart = () => {
         <div className="cart-items">
           {cart.map((item) => (
             <div key={`${item.id}-${item.quantityType}`} className="cart-item">
-              <img src={item.image} alt={item.name} className="cart-item-image" />
+              {/* Use the first image from the images array */}
+              <img
+                src={
+                  Array.isArray(item.images) && item.images.length > 0
+                    ? item.images[0] // Use the first image in the array
+                    : item.image // Fallback to item.image if images array is empty or undefined
+                }
+                alt={item.name}
+                className="cart-item-image"
+              />
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
                 <span className="cart-item-quantity-type">
