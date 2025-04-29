@@ -92,7 +92,7 @@ const Navbar = () => {
   <ul className="dropdown-content">
     <li><Link to="/about" onClick={closeNavbar}>About</Link></li>
     <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
-    <li><Link to="/legacy" onClick={closeNavbar}>K&M Legacy</Link></li>
+    <li><Link to="/legacy" onClick={closeNavbar}>Our Mission</Link></li>
     <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
     <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li>
   </ul>

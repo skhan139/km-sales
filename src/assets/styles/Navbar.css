@@ -146,21 +146,23 @@ li a:hover, .nav-button:hover {
     display: flex; /* Show the toggle button on smaller screens */
   }
 
-  .navbar-links {
-    display: none; /* Hide navbar links by default */
-    width: 100%; /* Full width for mobile */
-    flex-direction: column; /* Stack links vertically */
-    align-items: center;
-    background-color: #333; /* Background color for the dropdown */
-    padding: 10px 0; /* Add padding for spacing */
-    position: absolute; /* Position dropdown over content */
-    top: 100%; /* Place below the navbar */
-    left: 0;
-    z-index: 1000; /* Ensure it appears above other elements */
-  }
-
-  .navbar-links.active {
-    display: flex; /* Show navbar links when active */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none; /* Hide navbar links by default */
+      width: 100%; /* Full width for mobile */
+      flex-direction: column; /* Stack links vertically */
+      align-items: center;
+      background-color: #333; /* Background color for the dropdown */
+      padding: 10px 0; /* Add padding for spacing */
+      position: absolute; /* Position dropdown over content */
+      top: 0; /* Ensure it renders at the top of the page */
+      left: 0;
+      z-index: 1000; /* Ensure it appears above other elements */
+    }
+  
+    .navbar-links.active {
+      display: flex; /* Show navbar links when active */
+    }
   }
 
   .navbar-links li {
