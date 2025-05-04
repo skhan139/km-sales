@@ -86,7 +86,7 @@ const products = [
   { 
     id: 85, 
     name: "Assorted Bingo Paper (12 Sheets Per Book)", 
-    image: "/assets/images/bingopaper.jpg", 
+    images: ["/assets/images/bingopaper.jpg", "/assets/images/glowpaper.jpg"], 
     category: "bingo paper", 
     tags: ["bingo", "paper"], 
     variants: [
@@ -137,6 +137,15 @@ const products = [
       },
       {
         name: "1 on Bingo Paper",
+        sku: "SKU003-6",
+        takeIn: "$800.00",
+        payout: "$400",
+        profit: "$400.00",
+        profitPercent: "50%",
+        dealsPerCase: "1"
+      },
+      {
+        name: "6 On Glow In The Dark Bingo Paper",
         sku: "SKU003-6",
         takeIn: "$800.00",
         payout: "$400",
@@ -276,8 +285,8 @@ const products = [
   { id: 212, name: "5 Card Hold 'Em", image: "/assets/images/5cardholdem.jpg", category: "tip boards", tags: ["tip", "boards"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "$N/A", profitPercent: "N/A", dealsPerCase: "12" },
   { id: 213, name: "United We Stand Coin Board", image: "/assets/images/united.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,080.00", profit: "$1,200.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$300" },
   { id: 214, name: "Benny's Bar Coin Board", image: "/assets/images/bennys.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,080.00", profit: "$1,200.00", profitPercent: "56.1%", dealsPerCase: "1", seal: "$400" },
-  { id: 215, name: "Specialty Bingo Daubers", image: "/assets/images/specialty1.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A%", dealsPerCase: "12" },
-  { id: 216, name: "Specialty Bingo Daubers", image: "/assets/images/specialty2.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A%", dealsPerCase: "12" },
+  { id: 215, name: "Glow In The Dark Bingo Daubers", images: ["/assets/images/glowdaubers1.jpg","/assets/images/glowdaubers2.jpg"], category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A%", dealsPerCase: "12" },
+  { id: 216, name: "Glow In the Dark Bingo Daubers", image: "/assets/images/glowdaubers3.jpg", category: "bingo daubers", tags: ["bingo", "daubers"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A%", dealsPerCase: "12" },
   { id: 217, name: "1764 .25 B-I-N-G-O ", image: "/assets/images/1764bingo.jpg", category: "bingo card gams", tags: ["bingo", "card", "games"], sku: "SKU002", takeIn: "$441.00", payout: "$288.00", profit: "$153.00", profitPercent: "34.69%", dealsPerCase: "4" },
   { id: 218, name: "1764 .25 Nevada Club", image: "/assets/images/1764nevadaclub.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU002", takeIn: "$441.00", payout: "$288.00", profit: "$153.00", profitPercent: "34.69%", dealsPerCase: "4" },
   { id: 219, name: "3000 + 60 Numeral", image: "/assets/images/300060num.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A%", dealsPerCase: "30" },
@@ -361,7 +370,14 @@ const products = [
     profitPercent: "N/A%",
     dealsPerCase: "1"
   },
-  { id: 225, name: "America First Coin Board", images: ["/assets/images/gulfofamerica.jpg", "/assets/images/gulfinfo.jpg"], category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$3000.00", payout: "$1,400", profit: "$1,600.00", profitPercent: "21.37%", dealsPerCase: "1", seal: "$300" },
+  { id: 225, name: "America First Coin Board", image: "/assets/images/gulfofamerica.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$3000.00", payout: "$1,400", profit: "$1,600.00", profitPercent: "21.37%", dealsPerCase: "1", seal: "$300" },
+  { id: 226, name: "4000 3/1 Pyramid Queen", image: "/assets/images/pyramidqueen.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU016", takeIn: "$3,990.00", payout: "$3,085.00", profit: "$905.00", profitPercent: "23%", dealsPerCase: "1", seal: "$180" },
+  { id: 227, name: "750 Veterans Heroes", image: "/assets/images/veteranheroes.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$750.00", payout: "$545.00", profit: "$205.00", profitPercent: "27.33%", dealsPerCase: "5", seal: "$325" },
+  { id: 228, name: "490 Lucky Lumberjack", image: "/assets/images/luckylumberjack.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$490.00", payout: "$319.00", profit: "$171.00", profitPercent: "34.90%", dealsPerCase: "10", seal: "$280" },
+  { id: 229, name: "3955 Golden Eagle", image: "/assets/images/goldeneagle.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU016", takeIn: "$3,955.00", payout: "$2,586.00", profit: "$1,369.00", profitPercent: "35%", dealsPerCase: "1", seal: "$500" },
+  { id: 230, name: "3976 These Colors Don't Run", image: "/assets/images/colorsdontrun.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU016", takeIn: "$3,976.00", payout: "$2,740.00", profit: "$1,236.00", profitPercent: "31%", dealsPerCase: "1", seal: "$1,000" },
+  { id: 231, name: "585 Big Fatty", image: "/assets/images/bigfatty.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$585.00", payout: "$405.00", profit: "$180.00", profitPercent: "30.77%", dealsPerCase: "5", seal: "$200" },
+
 ];
 
 export default products;
