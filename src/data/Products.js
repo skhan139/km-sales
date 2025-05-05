@@ -377,6 +377,10 @@ const products = [
   { id: 229, name: "3955 Golden Eagle", image: "/assets/images/goldeneagle.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU016", takeIn: "$3,955.00", payout: "$2,586.00", profit: "$1,369.00", profitPercent: "35%", dealsPerCase: "1", seal: "$500" },
   { id: 230, name: "3976 These Colors Don't Run", image: "/assets/images/colorsdontrun.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU016", takeIn: "$3,976.00", payout: "$2,740.00", profit: "$1,236.00", profitPercent: "31%", dealsPerCase: "1", seal: "$1,000" },
   { id: 231, name: "585 Big Fatty", image: "/assets/images/bigfatty.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$585.00", payout: "$405.00", profit: "$180.00", profitPercent: "30.77%", dealsPerCase: "5", seal: "$200" },
+  { id: 232, name: "250 Big Business (Strip Ticket)", image: "/assets/images/bigbusiness.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$250.00", payout: "$166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100" },
+  { id: 233, name: "250 Dogs Of War (Strip Ticket)", image: "/assets/images/dogsofwar.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$250.00", payout: "$166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100" },
+  { id: 234, name: "250 Good Lookin' Ladies (Strip Ticket)", image: "/assets/images/goodladies.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$250.00", payout: "166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100" },
+  { id: 235, name: "250 Huge Gamble (Strip Ticket)", image: "/assets/images/hugegamble.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$250.00", payout: "$166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100" },
 
 ];
 
