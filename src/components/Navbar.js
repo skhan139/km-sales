@@ -65,18 +65,18 @@ const Navbar = () => {
             value={searchTerm}
             onChange={handleSearchChange}
           />
-         <div className="search-results">
-  {searchResults.map(product => (
-    <div key={product.id} className="search-result" onClick={() => handleProductClick(product)}>
-      <img 
-        src={product.images ? product.images[0] : product.image} // Use the first image if multiple images exist
-        alt={product.name} 
-        className="search-result-image" 
-      />
-      <span>{product.name}</span>
-    </div>
-  ))}
-</div>
+          <div className="search-results">
+            {searchResults.map(product => (
+              <div key={product.id} className="search-result" onClick={() => handleProductClick(product)}>
+                <img 
+                  src={product.images ? product.images[0] : product.image} // Use the first image if multiple images exist
+                  alt={product.name} 
+                  className="search-result-image" 
+                />
+                <span>{product.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <>
@@ -88,15 +88,16 @@ const Navbar = () => {
           <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
             <li><Link to="/" onClick={closeNavbar}>Home</Link></li>
             <li className="dropdown">
-  <li className="dropdown-button">Info</li> {/* Changed from <Link> to <span> */}
-  <ul className="dropdown-content">
-    <li><Link to="/about" onClick={closeNavbar}>About</Link></li>
-    <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
-    <li><Link to="/legacy" onClick={closeNavbar}>Our Mission</Link></li>
-    <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
-    <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li>
-  </ul>
-</li>
+              <li className="dropdown-button">Info</li>
+              <ul className="dropdown-content">
+                <li><Link to="/about" onClick={closeNavbar}>About</Link></li>
+                <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
+                <li><Link to="/legacy" onClick={closeNavbar}>Our Mission</Link></li>
+                <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
+                <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li>
+                <li><Link to="/game-terminology" onClick={closeNavbar}>Game Terminology</Link></li> {/* New Link */}
+              </ul>
+            </li>
             {user ? (
               <>
                 <li><Link to="/members" onClick={closeNavbar}>Products</Link></li>

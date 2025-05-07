@@ -20,6 +20,7 @@ import ShippingPolicy from './pages/ShippingPolicy';
 import UserProfile from './pages/UserProfile';
 import CustomGamePage from './pages/CustomGamePage'; // Import the CustomGamePage component
 import EventInspiration from './pages/EventInspiration'; // Import the EventInspiration component
+import GameTerminology from './pages/GameTerminology'; // Import the GameTerminology component
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
 
@@ -93,6 +94,7 @@ const App = () => {
           <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
           <Route path="/custom-game" element={<CustomGamePage />} /> {/* Add CustomGamePage route */}
           <Route path="/event-inspiration" element={<EventInspiration />} /> {/* Add EventInspiration route */}
+          <Route path="/game-terminology" element={<GameTerminology />} /> {/* Add GameTerminology route */}
         </Routes>
         <Footer />
       </div>
