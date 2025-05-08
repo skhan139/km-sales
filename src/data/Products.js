@@ -381,7 +381,10 @@ const products = [
   { id: 233, name: "250 Dogs Of War (Strip Ticket)", image: "/assets/images/dogsofwar.jpg", category: "strip tickets", tags: ["strip", "tickets"], sku: "SKU016", takeIn: "$250.00", payout: "$166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100" },
   { id: 234, name: "250 Good Lookin' Ladies (Strip Ticket)", image: "/assets/images/goodladies.jpg", category: "strip tickets", tags: ["strip", "tickets"], sku: "SKU016", takeIn: "$250.00", payout: "166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100" },
   { id: 235, name: "250 Huge Gamble (Strip Ticket)", image: "/assets/images/hugegamble.jpg", category: "strip tickets", tags: ["strip", "tickets"], sku: "SKU016", takeIn: "$250.00", payout: "$166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100" },
-
+  { id: 228, name: "525 In The Dog House", image: "/assets/images/inthedoghouse.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$525.00", payout: "$352.00", profit: "$173.00", profitPercent: "32.95%", dealsPerCase: "10", seal: "$280" },
+  { id: 228, name: "490 Cat Chat", image: "/assets/images/catchat.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$490.00", payout: "$319.00", profit: "$171.00", profitPercent: "34.90%", dealsPerCase: "10", seal: "$280" },
+  { id: 228, name: "490 Sweet Dreams", image: "/assets/images/sweetdreams.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$490.00", payout: "$319.00", profit: "$171.00", profitPercent: "34.90%", dealsPerCase: "10", seal: "$280" },
+  { id: 228, name: "490 Open Season", image: "/assets/images/openseason.jpg", category: "tip jars", tags: ["tip", "jars"], sku: "SKU016", takeIn: "$490.00", payout: "$319.00", profit: "$171.00", profitPercent: "34.90%", dealsPerCase: "10", seal: "$280" },
 ];
 
 export default products;
