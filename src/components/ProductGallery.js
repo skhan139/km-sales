@@ -119,6 +119,26 @@ const ProductGallery = ({ searchTerm }) => {
     setCurrentPage(1); // Reset to the first page whenever the filter changes
   };
 
+  const handleDenominationFilterChange = (event) => {
+    const value = event.target.value;
+    const filteredArray = products.filter(product => product.denomination === value);
+    setFilteredProducts(filteredArray);
+    setCurrentPage(1); // Reset to the first page whenever the filter changes
+  };
+
+  const handleWindowsFilterChange = (event) => {
+    const value = event.target.value;
+    const filteredArray = products.filter(product => product.window === value);
+    setFilteredProducts(filteredArray);
+    setCurrentPage(1); // Reset to the first page whenever the filter changes
+  };
+  const handleBundleFilterChange = (event) => {
+    const value = event.target.value;
+    const filteredArray = products.filter(product => product.bundle === value);
+    setFilteredProducts(filteredArray);
+    setCurrentPage(1); // Reset to the first page whenever the filter changes
+  };
+
   const handleSealFilterChange = (event) => {
     const value = event.target.value;
     let min, max;
@@ -198,7 +218,7 @@ const ProductGallery = ({ searchTerm }) => {
           </div>
           <div className="category-card" onClick={() => handleSortChange('jars')}>
             <img src="/assets/images/bigrig.jpg" alt="Shop Tip Jars" className="category-image" />
-            <h2 className="category-name">Shop Tip Jars</h2>
+            <h2 className="category-name">Shop Tip Jars/Pull Tabs</h2>
           </div>
           <div className="category-card" onClick={() => handleSortChange('instant')}>
             <img src="/assets/images/captainjacks.jpg" alt="Shop Tickets" className="category-image" />
@@ -247,7 +267,7 @@ const ProductGallery = ({ searchTerm }) => {
 <div className="dropdown">
   <button className="dropdown-button">Games/Tickets</button>
   <div className="dropdown-content">
-  <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button>
+  <button onClick={() => handleSortChange('tip jars')}>Tip Jars/Pull Tabs</button>
   <button onClick={() => handleSortChange("instant winners")}>Instant Winners</button>
   <button onClick={() => handleSortChange("strip tickets")}>Strip Tickets</button>
   <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
@@ -271,38 +291,66 @@ const ProductGallery = ({ searchTerm }) => {
             </nav>
           </div>
           <div className="filter-options">
-            <div className="filter-group">
-              <h3>Sort By Ticket Count</h3>
-              <select onChange={handlePriceFilterChange}>
-                <option value="">Select</option>
-                <option value="10-191">10 - 191 Ticket Count</option>
-                <option value="192-500">192 - 500 Ticket Count</option>
-                <option value="501-1000">501 - 1000 Ticket Count</option>
-                <option value="1001-2000">1001 - 2000 Ticket Count</option>
-                <option value="2001+">2000+ Ticket Count</option>
-              </select>
-            </div>
-            <div className="filter-group">
-              <h3>Sort By Game Seal</h3>
-              <select onChange={handleSealFilterChange}>
-                <option value="">Select</option>
-                <option value="50-100">$50 - $100</option>
-                <option value="200-300">$200 - $300</option>
-                <option value="400-599">$400 - $599</option>
-                <option value="600+">$600+</option>
-              </select>
-            </div>
-            <div className="filter-group">
-              <h3>Sort By Profit Percent</h3>
-              <select onChange={handleProfitPercentFilterChange}>
-                <option value="">Select</option>
-                <option value="15-25">15-25%</option>
-                <option value="26-35">26-35%</option>
-                <option value="36-45">36-45%</option>
-                <option value="46+">46% +</option>
-              </select>
-            </div>
-          </div>
+  <div className="filter-group">
+    <h3>Sort By Ticket Count</h3>
+    <select onChange={handlePriceFilterChange}>
+      <option value="">Select</option>
+      <option value="10-191">10 - 191 Ticket Count</option>
+      <option value="192-500">192 - 500 Ticket Count</option>
+      <option value="501-1000">501 - 1000 Ticket Count</option>
+      <option value="1001-2000">1001 - 2000 Ticket Count</option>
+      <option value="2001+">2000+ Ticket Count</option>
+    </select>
+  </div>
+  <div className="filter-group">
+    <h3>Sort By Game Seal</h3>
+    <select onChange={handleSealFilterChange}>
+      <option value="">Select</option>
+      <option value="50-100">$50 - $100</option>
+      <option value="200-300">$200 - $300</option>
+      <option value="400-599">$400 - $599</option>
+      <option value="600+">$600+</option>
+    </select>
+  </div>
+  <div className="filter-group">
+    <h3>Sort By Profit Percent</h3>
+    <select onChange={handleProfitPercentFilterChange}>
+      <option value="">Select</option>
+      <option value="15-25">15-25%</option>
+      <option value="26-35">26-35%</option>
+      <option value="36-45">36-45%</option>
+      <option value="46+">46% +</option>
+    </select>
+  </div>
+  <div className="filter-group">
+  <h3>Sort By Denomination</h3>
+  <select onChange={handleDenominationFilterChange}>
+    <option value="">Select</option>
+    <option value="$0.25">$.25</option>
+    <option value="$0.50">$.50</option>
+    <option value="$1">$1</option>
+    <option value="$2">$2</option>
+  </select>
+</div>
+<div className="filter-group">
+  <h3>Sort By Windows</h3>
+  <select onChange={handleWindowsFilterChange}>
+    <option value="">Select</option>
+    <option value="1">1 Window</option>
+    <option value="3">3 Windows</option>
+    <option value="5">5 Windows</option>
+  </select>
+</div>
+  <div className="filter-group">
+  <h3>Sort By Bundle</h3>
+  <select onChange={handleBundleFilterChange}>
+    <option value="">Select</option>
+    <option value="3">Bundle of 3</option>
+    <option value="4">Bundle of 4</option>
+    <option value="5">Bundle of 5</option>
+  </select>
+</div>
+</div>
           <div className="pagination">
   <button
     onClick={() => handlePageChange(currentPage - 1)}
