@@ -1,3 +1,6 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -5,6 +8,10 @@
   to {
     opacity: 1;
   }
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Apply modern font globally */
 }
 
 .homepage-container {
@@ -43,6 +50,7 @@
 .info-box p,
 .info-box a {
   color: white !important; /* Force white color for all text elements */
+  font-family: 'Poppins', sans-serif; /* Apply modern font */
   text-shadow: 
     -1px -1px 0 #000, /* Top-left shadow */
     1px -1px 0 #000,  /* Top-right shadow */
@@ -167,27 +175,14 @@
   color: white; /* Set the arrow icon color to white */
 }
 
-.slick-prev:hover,
-.slick-next:hover {
-  color: white !important; /* Keep the arrow color white on hover */
-}
-
-.slick-prev:before:hover,
-.slick-next:before:hover {
-  color: white; /* Keep the arrow icon color white on hover */
-}
-
 .sliderHead {
   color: white;
+  font-family: 'Poppins', sans-serif; /* Apply modern font */
   text-shadow: 
     -1px -1px 0 #000, /* Top-left shadow */
     1px -1px 0 #000,  /* Top-right shadow */
     -1px 1px 0 #000,  /* Bottom-left shadow */
     1px 1px 0 #000;   /* Bottom-right shadow */
-}
-
-.produly .welcome .intro {
-  color: white;
 }
 
 /* Styles for medium screens (MacBook Air-sized) */

@@ -218,7 +218,7 @@ const ProductGallery = ({ searchTerm }) => {
           </div>
           <div className="category-card" onClick={() => handleSortChange('jars')}>
             <img src="/assets/images/bigrig.jpg" alt="Shop Tip Jars" className="category-image" />
-            <h2 className="category-name">Shop Tip Jars/Pull Tabs</h2>
+            <h2 className="category-name">Shop Pull Tabs</h2>
           </div>
           <div className="category-card" onClick={() => handleSortChange('instant')}>
             <img src="/assets/images/captainjacks.jpg" alt="Shop Tickets" className="category-image" />
@@ -267,7 +267,7 @@ const ProductGallery = ({ searchTerm }) => {
 <div className="dropdown">
   <button className="dropdown-button">Games/Tickets</button>
   <div className="dropdown-content">
-  <button onClick={() => handleSortChange('tip jars')}>Tip Jars/Pull Tabs</button>
+  <button onClick={() => handleSortChange('tip jars')}>Pull Tabs</button>
   <button onClick={() => handleSortChange("instant winners")}>Instant Winners</button>
   <button onClick={() => handleSortChange("strip tickets")}>Strip Tickets</button>
   <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
