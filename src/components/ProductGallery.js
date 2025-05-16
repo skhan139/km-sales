@@ -209,6 +209,12 @@ const ProductGallery = ({ searchTerm }) => {
     setSortCriteria('all'); // Reset the sort criteria
     setFilteredProducts([...products]); // Reset the filtered products to all products
     setCurrentPage(1); // Reset to the first page
+  
+    // Reset all dropdown filters to "Select"
+    const filterDropdowns = document.querySelectorAll('.filter-group select');
+    filterDropdowns.forEach((dropdown) => {
+      dropdown.value = ''; // Reset the dropdown to its default "Select" state
+    });
   };
 
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
@@ -292,10 +298,10 @@ const ProductGallery = ({ searchTerm }) => {
       <button onClick={() => handleSortChange('bingo card games')}>Bingo Card Games</button>
       <button onClick={() => handleSortChange('bingo paper')}>Bingo Paper</button> {/* New Button */}
     </div>
-    <button onClick={handleClearFilters} className="clear-filters-button">
+  </div>
+  <button onClick={handleClearFilters} className="clear-filters-button">
     Clear Filters
   </button>
-  </div>
 </div>
             </nav>
           </div>
