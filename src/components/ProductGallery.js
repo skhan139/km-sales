@@ -205,6 +205,12 @@ const ProductGallery = ({ searchTerm }) => {
     setCurrentPage(1); // Reset to the first page whenever the filter changes
   };
 
+  const handleClearFilters = () => {
+    setSortCriteria('all'); // Reset the sort criteria
+    setFilteredProducts([...products]); // Reset the filtered products to all products
+    setCurrentPage(1); // Reset to the first page
+  };
+
   const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
   const displayedProducts = filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
@@ -286,6 +292,9 @@ const ProductGallery = ({ searchTerm }) => {
       <button onClick={() => handleSortChange('bingo card games')}>Bingo Card Games</button>
       <button onClick={() => handleSortChange('bingo paper')}>Bingo Paper</button> {/* New Button */}
     </div>
+    <button onClick={handleClearFilters} className="clear-filters-button">
+    Clear Filters
+  </button>
   </div>
 </div>
             </nav>
