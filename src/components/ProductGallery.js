@@ -279,13 +279,14 @@ const ProductGallery = ({ searchTerm }) => {
 <div className="dropdown">
   <button className="dropdown-button">Games/Tickets</button>
   <div className="dropdown-content">
-  <button onClick={() => handleSortChange('tip jars')}>Pull Tabs</button>
+  <button onClick={() => handleSortChange('pull tabs')}>Pull Tabs</button>
   <button onClick={() => handleSortChange("instant winners")}>Instant Winners</button>
   <button onClick={() => handleSortChange("strip tickets")}>Strip Tickets</button>
   <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
   <button onClick={() => handleSortChange('elimination games')}>Elimination Games</button>
   <button onClick={() => handleSortChange('chip games')}>Chip Games</button>
   <button onClick={() => handleSortChange('variety packs')}>Variety Pack</button> {/* New button */}
+  <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button> {/* New button */}
 </div>
 </div>
 </div>
