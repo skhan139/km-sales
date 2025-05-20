@@ -7,6 +7,7 @@ import './LoginPage.css'; // Import the CSS file for styling
 const LoginPage = () => {
   const [identifier, setIdentifier] = useState(''); // State to handle email or phone number
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const [errorMessage, setErrorMessage] = useState(''); // State to store error message
   const [isPhoneNumber, setIsPhoneNumber] = useState(false); // State to track if the identifier is a phone number
   const navigate = useNavigate();
@@ -67,16 +68,33 @@ const LoginPage = () => {
                 onChange={handleIdentifierChange}
               />
               {!isPhoneNumber && (
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+                <>
+                  <input
+                    type={showPassword ? 'text' : 'password'} // Toggle between 'text' and 'password'
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <div className="show-password-container">
+                    <input
+                      type="checkbox"
+                      id="show-password"
+                      checked={showPassword}
+                      onChange={() => setShowPassword(!showPassword)} // Toggle the state
+                    />
+                    <label htmlFor="show-password">Show Password</label>
+                  </div>
+                </>
               )}
               <button type="submit">Login</button>
               <p className='need'>Need To Create An Account? Sign Up <a href={`${process.env.PUBLIC_URL}/signup`} style={{ color: 'white' }}>Here!</a>.</p>
             </form>
+            <button
+              className="forgot-password-button"
+              onClick={() => navigate('/forgot-password')}
+            >
+              Forgot Password?
+            </button>
             <div id="recaptcha-container"></div> {/* Recaptcha container for phone number auth */}
           </div>
         </div>

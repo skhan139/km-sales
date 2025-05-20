@@ -123,3 +123,20 @@
     -1px 1px 0 #fff,  /* Bottom-left shadow */
     1px 1px 0 #fff;   /* Bottom-right shadow */
 }
+
+.show-password-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.show-password-container input[type="checkbox"] {
+  margin-right: 10px;
+  accent-color: white; /* Set the checkbox color to white */
+}
+
+.show-password-container label {
+  font-size: 14px;
+  color: white; /* Set the label text color to white */
+}
