@@ -228,7 +228,7 @@ const ProductGallery = ({ searchTerm }) => {
             <img src="/assets/images/hogsandkisses.jpg" alt="Shop Boards" className="category-image" />
             <h2 className="category-name">Shop Boards</h2>
           </div>
-          <div className="category-card" onClick={() => handleSortChange('jars')}>
+          <div className="category-card" onClick={() => handleSortChange('tabs')}>
             <img src="/assets/images/bigrig.jpg" alt="Shop Tip Jars" className="category-image" />
             <h2 className="category-name">Shop Pull Tabs</h2>
           </div>
@@ -240,8 +240,16 @@ const ProductGallery = ({ searchTerm }) => {
             <img src="/assets/images/bingopaper.jpg" alt="Shop Bingo Supplies" className="category-image" />
             <h2 className="category-name">Shop Bingo Supplies</h2>
           </div>
+          <div className="category-card" onClick={() => handleSortChange('tip boards')}>
+            <img src="/assets/images/24suretip.jpg" alt="Shop Tip Boards" className="category-image" />
+            <h2 className="category-name">Shop Tip Boards</h2>
+          </div>
+          <div className="category-card" onClick={() => handleSortChange('tip jars')}>
+            <img src="/assets/images/doublejugs.jpg" alt="Shop Tip Jars" className="category-image" />
+            <h2 className="category-name">Shop Tip Jars</h2>
+          </div>
           <div className="category-card" onClick={() => handleSortChange('all')}>
-            <img src="/assets/images/doublejugs.jpg" alt="Shop All" className="category-image" />
+            <img src="/assets/images/redwhiteandblue.jpg" alt="Shop All" className="category-image" />
             <h2 className="category-name">Shop All</h2>
           </div>
         </div>
@@ -272,6 +280,7 @@ const ProductGallery = ({ searchTerm }) => {
   <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
   <button onClick={() => handleSortChange('merchandise boards')}>Merchandise Boards</button>
   <button onClick={() => handleSortChange('gun boards')}>Gun Boards</button> {/* New Button */}
+  <button onClick={() => handleSortChange('knife boards')}>Knife Boards</button> {/* New Button */}
 </div>
   </div>
 </div>

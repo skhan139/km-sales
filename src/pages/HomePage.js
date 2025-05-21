@@ -68,17 +68,17 @@ Add your products to cart and register with us to checkout. Once you checkout, o
       <div className="sliders-row">
         {/* Newest Arrivals Slider */}
         <div className="slider-section">
-          <h2 className='sliderHead'>Card Games</h2>
+          <h2 className='sliderHead'>Pull Tabs</h2>
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/doubledealclubspecial.jpg`} alt="Newest arrival 1" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/bigrig.jpg`} alt="Newest arrival 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/planetmoolah.jpg`} alt="Newest arrival 2" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/colorofmoney.jpg`} alt="Newest arrival 2" className="slider-image" />
                 </Link>
               </div>
               <div>
@@ -88,17 +88,17 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/cherrytree.jpg`} alt="Newest arrival 4" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/brewskis.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/casheruption.jpg`} alt="Newest arrival 4" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/applepicking.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/1960fire.jpg`} alt="Newest arrival 4" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/snowblowin.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
               <div>
@@ -137,7 +137,7 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
                 <Link to="/login">
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/moolah.jpg`} alt="Best seller 2" className="slider-image" />
+                  <img src={`${process.env.PUBLIC_URL}/assets/images/696doubledeal.jpg`} alt="Best seller 2" className="slider-image" />
                 </Link>
               </div>
               {/* Add more images as needed */}
@@ -162,17 +162,17 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/ScareBears.jpg" alt="Hot this month 3" className="slider-image" />
+                  <img src="/assets/images/fruitloops.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login"> 
-                  <img src="/assets/images/luckylobsters.jpg" alt="Hot this month 1" className="slider-image" />
+                  <img src="/assets/images/gangstersgold.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
               <div>
                 <Link to="/login">
-                  <img src="/assets/images/biggreen.jpg" alt="Hot this month 2" className="slider-image" />
+                  <img src="/assets/images/thetourists.jpg" alt="Hot this month 2" className="slider-image" />
                 </Link>
               </div>
               <div>
