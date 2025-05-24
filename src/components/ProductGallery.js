@@ -205,6 +205,46 @@ const ProductGallery = ({ searchTerm }) => {
     setCurrentPage(1); // Reset to the first page whenever the filter changes
   };
 
+  const handleBottomPayoutFilterChange = (event) => {
+    const value = event.target.value;
+    let min, max;
+    switch (value) {
+      case '$0.50':
+        min = 0.5;
+        max = 0.5;
+        break;
+      case '$1':
+        min = 1;
+        max = 1;
+        break;
+      case '$2':
+        min = 2;
+        max = 2;
+        break;
+      case '$5':
+        min = 5;
+        max = 5;
+        break;
+      case '$10':
+        min = 10;
+        max = 10;
+        break;
+      case '>$10':
+        min = 10.01;
+        max = null;
+        break;
+      default:
+        min = 0;
+        max = null;
+    }
+    const filteredArray = products.filter(product => {
+      if (!product.bottomPayout) return false; // Ensure bottomPayout exists
+      const bottomPayout = parseFloat(product.bottomPayout.replace(/[^0-9.-]+/g, ""));
+      return bottomPayout >= min && (max === null || bottomPayout <= max);
+    });
+    setFilteredProducts(filteredArray);
+    setCurrentPage(1); // Reset to the first page whenever the filter changes
+  };
   const handleClearFilters = () => {
     setSortCriteria('all'); // Reset the sort criteria
     setFilteredProducts([...products]); // Reset the filtered products to all products
@@ -375,6 +415,18 @@ const ProductGallery = ({ searchTerm }) => {
     <option value="5">Bundle of 5</option>
   </select>
 </div>
+<div className="filter-group">
+    <h3>Sort By Bottom Payout</h3>
+    <select onChange={handleBottomPayoutFilterChange}>
+      <option value="">Select</option>
+      <option value="$0.50">$0.50</option>
+      <option value="$1">$1</option>
+      <option value="$2">$2</option>
+      <option value="$5">$5</option>
+      <option value="$10">$10</option>
+      <option value=">$10">Greater Than $10</option>
+    </select>
+  </div>
 </div>
           <div className="pagination">
   <button
