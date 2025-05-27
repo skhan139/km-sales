@@ -413,8 +413,7 @@ const products = [
   { id: 244, name: "3955 Mules & Elephants (Chip Game)", image: "/assets/images/mules&elephants.jpg", category: "chip games", tags: ["chip", "games"], sku: "SKU002", takeIn: "$3,955.00", payout: "$2,900.00", profit: "$1,055.00", profitPercent: "26.67%", dealsPerCase: "8", seal: "$500", denomination: "$1", bottomPayout: "$5" },
   { id: 245, name: "696 KM Sales 3000 Club (Double Deal)", image: "/assets/images/696doubledeal.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU019", takeIn: "$348.00", payout: "$258.00", profit: "$95.00", profitPercent: "27.3%", dealsPerCase: "12", seal: "$100", denomination: "$0.50" },
   { id: 246, name: "250 Four on One", image: "/assets/images/4on1.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU019", takeIn: "$1,250.00", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "40", seal: "N/A", denomination: "$5" },
-  //{ id: 19, name: "5 0n 1", image: "/assets/images/5on1.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU019", takeIn: "$1,000.00", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "40", seal: "N/A", denomination: "$5" },
-
+  { id: 247, name: "287 Bite My Ass", image: "/assets/images/bitemyass.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU030", takeIn: "$287.00", payout: "$195.00", profit: "$92.00", profitPercent: "32.04%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$5"},
 ];
 
 export default products;

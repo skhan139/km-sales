@@ -22,6 +22,7 @@ import UserProfile from './pages/UserProfile';
 import CustomGamePage from './pages/CustomGamePage'; // Import the CustomGamePage component
 import EventInspiration from './pages/EventInspiration'; // Import the EventInspiration component
 import GameTerminology from './pages/GameTerminology'; // Import the GameTerminology component
+import LicensePage from './pages/License'; // Import the LicensePage component
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
 
@@ -84,6 +85,7 @@ const App = () => {
           <Route path="/forgot-password" element={<ForgotPasswordPage />} /> {/* Add ForgotPasswordPage route */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/license" element={<LicensePage />} /> {/* Add LicensePage route */}
           <Route path="/members" element={user ? <MembersPage /> : <Navigate to="/login" />} />
           <Route path="/cart" element={user ? <Cart /> : <Navigate to="/login" />} />
           <Route path="/checkout" element={user ? <CheckoutPage /> : <Navigate to="/login" />} />

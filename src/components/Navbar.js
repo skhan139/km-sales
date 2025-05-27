@@ -95,7 +95,8 @@ const Navbar = () => {
                 <li><Link to="/legacy" onClick={closeNavbar}>Our Mission</Link></li>
                 <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
                 <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li>
-                <li><Link to="/game-terminology" onClick={closeNavbar}>Game Terminology</Link></li> {/* New Link */}
+                <li><Link to="/game-terminology" onClick={closeNavbar}>Game Terminology</Link></li>
+                <li><Link to="/license" onClick={closeNavbar}>License</Link></li> {/* New Link */}
               </ul>
             </li>
             {user ? (
