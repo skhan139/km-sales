@@ -4,6 +4,9 @@ import { useCart } from '../context/CartContext';
 import ProductModal from './ProductModal'; // Import the ProductModal component
 import QuantitySelectionModal from './QuantitySelectionModal'; // Import the QuantitySelectionModal component
 import './ProductGallery.css'; // Import the CSS file for styling
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, db } from '../firebase'; // Import Firebase configuration
+import { doc, getDoc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 
 const itemsPerPage = 16; // Number of items to display per page
 
@@ -16,6 +19,8 @@ const ProductGallery = ({ searchTerm }) => {
   const [isQuantityModalOpen, setIsQuantityModalOpen] = useState(false); // State for the quantity selection modal
   const [showPopup, setShowPopup] = useState(true); // State for showing/hiding the pop-up
   const { addItemToCart } = useCart(); // Use the Cart context
+
+  const [user] = useAuthState(auth); // Get the authenticated user
 
   useEffect(() => {
     filterProducts(searchTerm, sortCriteria);
@@ -244,6 +249,37 @@ const ProductGallery = ({ searchTerm }) => {
     });
     setFilteredProducts(filteredArray);
     setCurrentPage(1); // Reset to the first page whenever the filter changes
+  };
+
+  const handleFavoriteClick = async (product) => {
+    if (!user) {
+      alert('Please log in to favorite products.');
+      return;
+    }
+  
+    try {
+      const userDoc = doc(db, 'users', user.email); // Reference to the user's document
+      const docSnap = await getDoc(userDoc); // Check if the document exists
+  
+      if (!docSnap.exists()) {
+        // Create the document if it doesn't exist
+        await setDoc(userDoc, { favorites: [] });
+      }
+  
+      // Add the product to the favorites array
+      await updateDoc(userDoc, {
+        favorites: arrayUnion({
+          id: product.id,
+          name: product.name,
+          image: product.images ? product.images[0] : product.image, // Use the first image if available
+        }),
+      });
+  
+      alert(`${product.name} has been added to your favorites!`);
+    } catch (error) {
+      console.error('Error adding to favorites:', error);
+      alert('An error occurred while adding to favorites. Please try again.');
+    }
   };
   const handleClearFilters = () => {
     setSortCriteria('all'); // Reset the sort criteria
@@ -515,15 +551,19 @@ const ProductGallery = ({ searchTerm }) => {
 </div>
         </>
       )}
-      <ProductModal product={selectedProduct} onClose={handleCloseModal} />
-      {selectedProduct && (
-        <QuantitySelectionModal
-          isOpen={isQuantityModalOpen}
-          onRequestClose={handleQuantityModalClose}
-          onSubmit={handleQuantityModalSubmit}
-          product={selectedProduct}
-        />
-      )}
+      <ProductModal
+  product={selectedProduct}
+  onClose={handleCloseModal}
+  onFavorite={handleFavoriteClick} // Pass the handleFavoriteClick function as a prop
+/>
+{selectedProduct && (
+  <QuantitySelectionModal
+    isOpen={isQuantityModalOpen}
+    onRequestClose={handleQuantityModalClose}
+    onSubmit={handleQuantityModalSubmit}
+    product={selectedProduct}
+  />
+)}
     </div>
   );
 };

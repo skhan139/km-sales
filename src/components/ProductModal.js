@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext'; // Import the Cart context
 import './ProductModal.css'; // Import the CSS file for styling
 
-const ProductModal = ({ product, onClose }) => {
+const ProductModal = ({ product, onClose, onFavorite }) => {
   const { addItemToCart } = useCart(); // Use the Cart context
   const [selectedVariant, setSelectedVariant] = useState(product?.variants ? product.variants[0] : product);
   const [quantity, setQuantity] = useState(0); // Default quantity for cases is 0
@@ -14,24 +14,39 @@ const ProductModal = ({ product, onClose }) => {
 
   useEffect(() => {
     if (product) {
-      setSelectedVariant(product.variants ? product.variants[0] : product);
-      if (product.tags.includes('boards')) {
-        setQuantityType('boards');
-      } else if (product.tags.includes('paper')) {
-        setQuantityType('books');
-      } else if (product.tags.includes('daubers')) {
-        setQuantityType('daubers');
-      } else if (product.tags.includes('packs')) {
-        setQuantityType('packs');
+      // Safely set the selected variant
+      setSelectedVariant(
+        Array.isArray(product.variants) && product.variants.length > 0
+          ? product.variants[0]
+          : product
+      );
+  
+      // Safely check for tags and set the quantity type
+      if (Array.isArray(product.tags)) {
+        if (product.tags.includes('boards')) {
+          setQuantityType('boards');
+        } else if (product.tags.includes('paper')) {
+          setQuantityType('books');
+        } else if (product.tags.includes('daubers')) {
+          setQuantityType('daubers');
+        } else if (product.tags.includes('packs')) {
+          setQuantityType('packs');
+        } else {
+          setQuantityType('cases'); // Default fallback
+        }
+      } else {
+        setQuantityType('cases'); // Default fallback if tags is not an array
       }
     }
   }, [product]);
-
+  
   if (!product) return null;
-
+  
   const handleVariantChange = (event) => {
-    const variant = product.variants.find(v => v.sku === event.target.value);
-    setSelectedVariant(variant);
+    const variant = product?.variants?.find(v => v.sku === event.target.value);
+    if (variant) {
+      setSelectedVariant(variant);
+    }
   };
 
   const handleAddToCart = () => {
@@ -98,6 +113,7 @@ const ProductModal = ({ product, onClose }) => {
   )}
 </div>
         <div className="modal-details">
+        <button onClick={() => onFavorite(product)} className="favorite-button">Add to Favorites</button>
           <h2 className="modal-name">{selectedVariant?.name || product.name}</h2>
           <p className="modal-description">{selectedVariant?.description || product.description}</p>
           <p className="modal-price">Price: {selectedVariant?.price || product.price}</p>

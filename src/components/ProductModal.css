@@ -216,3 +216,17 @@
 .image-nav:hover {
   background: rgba(0, 0, 0, 0.8); /* Darker background on hover */
 }
+
+.favorite-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.favorite-button:hover {
+  background-color: #0056b3;
+}
