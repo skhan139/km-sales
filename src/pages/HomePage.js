@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './HomePage.css'; // Import the CSS file for styling
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../firebase'; // Import Firebase configuration
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(true); // State to control popup visibility
@@ -21,6 +23,8 @@ const HomePage = () => {
   const handleClosePopup = () => {
     setShowPopup(false); // Hide the popup when the close button is clicked
   };
+
+  const [user] = useAuthState(auth); // Get the authenticated user
 
   return (
     <div className="homepage-container">
@@ -72,37 +76,37 @@ Add your products to cart and register with us to checkout. Once you checkout, o
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/bigrig.jpg`} alt="Newest arrival 1" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/colorofmoney.jpg`} alt="Newest arrival 2" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/sparkles.jpg`} alt="Newest arrival 3" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/brewskis.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/applepicking.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/snowblowin.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/gofish.jpg`} alt="Newest arrival 4" className="slider-image" />
                 </Link>
               </div>
@@ -116,27 +120,27 @@ Add your products to cart and register with us to checkout. Once you checkout, o
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/doublejugs.jpg`} alt="Best seller 1" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/redwhiteandblue.jpg`} alt="Best seller 2" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/33kmsuperjar.jpg`} alt="Best seller 3" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/barkingbetty.jpg`} alt="Best seller 1" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src={`${process.env.PUBLIC_URL}/assets/images/696doubledeal.jpg`} alt="Best seller 2" className="slider-image" />
                 </Link>
               </div>
@@ -151,32 +155,32 @@ Add your products to cart and register with us to checkout. Once you checkout, o
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src="/assets/images/captainjacks.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src="/assets/images/bigfoots.jpg" alt="Hot this month 2" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src="/assets/images/fruitloops.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login"> 
+              <Link to={user ? "/members" : "/login"}>
                   <img src="/assets/images/gangstersgold.jpg" alt="Hot this month 1" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src="/assets/images/thetourists.jpg" alt="Hot this month 2" className="slider-image" />
                 </Link>
               </div>
               <div>
-                <Link to="/login">
+              <Link to={user ? "/members" : "/login"}>
                   <img src="/assets/images/cashville.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>

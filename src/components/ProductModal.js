@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from '../context/CartContext'; // Import the Cart context
 import './ProductModal.css'; // Import the CSS file for styling
+import '@fortawesome/fontawesome-free/css/all.css';
 
 const ProductModal = ({ product, onClose, onFavorite }) => {
   const { addItemToCart } = useCart(); // Use the Cart context
@@ -113,7 +114,8 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
   )}
 </div>
         <div className="modal-details">
-        <button onClick={() => onFavorite(product)} className="favorite-button">Add to Favorites</button>
+        <button onClick={() => onFavorite(product)} className="favorite-button">
+  <i className="fa fa-star" aria-hidden="true"></i> Add to Favorites</button>
           <h2 className="modal-name">{selectedVariant?.name || product.name}</h2>
           <p className="modal-description">{selectedVariant?.description || product.description}</p>
           <p className="modal-price">Price: {selectedVariant?.price || product.price}</p>
