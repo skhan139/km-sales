@@ -416,6 +416,7 @@ const products = [
   { id: 247, name: "287 Bite My Ass", image: "/assets/images/bitemyass.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU030", takeIn: "$287.00", payout: "$195.00", profit: "$92.00", profitPercent: "32.04%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$5"},
   { id: 248, name: "287 Dandy Lions", image: "/assets/images/287dandy.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU030", takeIn: "$287.00", payout: "$195.00", profit: "$92.00", profitPercent: "32.04%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$5"},
   { id: 249, name: "287 Rags To Riches", image: "/assets/images/287rags.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU030", takeIn: "$287.00", payout: "$195.00", profit: "$92.00", profitPercent: "32.04%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$5"},
+  { id: 250, name: "Guys & Gals Board (2000 Ticket Count)", images: ["/assets/images/guysgals.jpg", "/assets/images/purse.jpg", "/assets/images/drill.jpg"], category: "merchandise boards", tags: ["merchandise", "boards"], sku: "SKU002", takeIn: "$2,000.00", payout: "$745", profit: "$556.00", profitPercent: "27.8%", dealsPerCase: "1", seal: "$150", denomination: "$1", bottomPayout: "$5" },
 ];
 
 export default products;

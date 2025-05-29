@@ -104,12 +104,12 @@ const Navbar = () => {
                 <li><Link to="/members" onClick={closeNavbar}>Products</Link></li>
                 <li><Link to="/profile" onClick={closeNavbar}>My Profile</Link></li>
                 <li>
-                  <Link to="/cart" onClick={closeNavbar}>
-                    <span className="cart-icon" data-count={cart ? cart.length : 0}>
-                      Cart
-                    </span>
-                  </Link>
-                </li>
+  <Link to="/cart" onClick={closeNavbar}>
+    <span className="cart-icon" data-count={cart ? cart.length : 0}>
+      <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+    </span>
+  </Link>
+</li>
                 <li>
                   <button className="nav-button" onClick={() => { auth.signOut(); closeNavbar(); }}>Sign Out</button>
                 </li>

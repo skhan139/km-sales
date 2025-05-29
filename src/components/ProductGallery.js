@@ -508,14 +508,14 @@ const ProductGallery = ({ searchTerm }) => {
         <div className="more-info">More Info</div>
         <br /> <br />
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            handleAddToCartClick(product);
-          }}
-          className="add-to-cart-button"
-        >
-          Add to Cart
-        </button>
+  onClick={(e) => {
+    e.stopPropagation();
+    handleAddToCartClick(product);
+  }}
+  className="add-to-cart-button"
+>
+  <i className="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
+</button>
       </div>
     ))
   )}

@@ -107,7 +107,9 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-      <h2>Your Cart</h2>
+     <h2>
+  <i className="fa fa-shopping-cart" aria-hidden="true"></i> Your Cart
+</h2>
       {cart.length === 0 ? (
         <p>You have no items in your cart</p>
       ) : (
