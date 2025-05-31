@@ -25,6 +25,7 @@ import GameTerminology from './pages/GameTerminology'; // Import the GameTermino
 import LicensePage from './pages/License'; // Import the LicensePage component
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
+import Blog from './pages/Blog'; // Import the Blog page
 
 const App = () => {
   const [user] = useAuthState(auth);
@@ -99,6 +100,7 @@ const App = () => {
           <Route path="/custom-game" element={<CustomGamePage />} /> {/* Add CustomGamePage route */}
           <Route path="/event-inspiration" element={<EventInspiration />} /> {/* Add EventInspiration route */}
           <Route path="/game-terminology" element={<GameTerminology />} /> {/* Add GameTerminology route */}
+          <Route path="/blog" element={<Blog />} /> {/* Add Blog route */}
         </Routes>
         <Footer />
       </div>

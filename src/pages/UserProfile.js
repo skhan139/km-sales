@@ -4,10 +4,13 @@ import { auth, db } from '../firebase'; // Import Firebase configuration
 import { doc, getDoc, updateDoc, arrayRemove } from 'firebase/firestore'; // Firestore functions
 import './UserProfile.css'; // Import the CSS file for styling
 import Orders from './Orders'; // Import the Orders component
+import ProductModal from '../components/ProductModal'; // Import the ProductModal component
+import products from '../data/Products'; // Import the Products data
 
 const UserProfile = () => {
   const [user] = useAuthState(auth);
   const [favorites, setFavorites] = useState([]); // State to store favorite products
+  const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
 
   useEffect(() => {
     if (user) {
@@ -45,6 +48,18 @@ const UserProfile = () => {
     }
   };
 
+  const handleProductClick = (favorite) => {
+    // Find the product in the Products.js data by ID
+    const product = products.find((item) => item.id === favorite.id);
+    if (product) {
+      setSelectedProduct(product); // Open the ProductModal with the selected product
+    }
+  };
+
+  const handleCloseModal = () => {
+    setSelectedProduct(null); // Close the ProductModal
+  };
+
   if (!user) {
     return <p>Please log in to view your profile.</p>;
   }
@@ -57,15 +72,20 @@ const UserProfile = () => {
       </div>
       <Orders userEmail={user.email} />
       <div className="favorites-section">
-        <h3>My Favorite Games</h3>
+        <h3>
+          <i className="fa fa-star" aria-hidden="true"></i> My Favorite Games
+        </h3>
         {favorites.length > 0 ? (
           <ul className="favorites-list">
             {favorites.map((favorite, index) => (
-              <li key={index}>
+              <li key={index} onClick={() => handleProductClick(favorite)}>
                 <p><strong>{favorite.name}</strong></p>
                 <img src={favorite.image} alt={favorite.name} className="favorite-image" />
                 <button
-                  onClick={() => handleRemoveFavorite(favorite)}
+                  onClick={(e) => {
+                    e.stopPropagation(); // Prevent triggering the product click
+                    handleRemoveFavorite(favorite);
+                  }}
                   className="remove-favorite-button"
                 >
                   Remove
@@ -77,6 +97,13 @@ const UserProfile = () => {
           <p>You have no favorite games yet.</p>
         )}
       </div>
+      {selectedProduct && (
+        <ProductModal
+          product={selectedProduct}
+          onClose={handleCloseModal}
+          onFavorite={() => {}} // Optional: Pass a favorite handler if needed
+        />
+      )}
     </div>
   );
 };

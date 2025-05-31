@@ -44,7 +44,7 @@ const HomePage = () => {
 Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
           Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
           Interested in creating a custom game? 
-<a href="/custom-game"> Visit our Custom Game Page</a>
+<a href="/custom-game"> Visit our Custom Game Page</a> <br/> Are you a new customer and unsure of where to start? Read our <a href="/blog"> Blog</a> that goes over what certain games will suit your needs best and find out how to generate as much revenue for your club/event as possible!
 </p>
 </div>
 

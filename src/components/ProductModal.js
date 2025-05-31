@@ -21,7 +21,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           ? product.variants[0]
           : product
       );
-  
+
       // Safely check for tags and set the quantity type
       if (Array.isArray(product.tags)) {
         if (product.tags.includes('boards')) {
@@ -40,9 +40,9 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
       }
     }
   }, [product]);
-  
+
   if (!product) return null;
-  
+
   const handleVariantChange = (event) => {
     const variant = product?.variants?.find(v => v.sku === event.target.value);
     if (variant) {
@@ -91,31 +91,32 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
       <div className="modal-content">
         <button className="modal-close" onClick={onClose}>X</button>
         <div className="modal-image-container">
-  {product.images && product.images.length > 1 ? (
-    <>
-      <img
-        src={product.images[currentImageIndex]}
-        alt={`${product.name} - ${currentImageIndex + 1}`}
-        className="modal-image"
-      />
-      <button
-        className="image-nav single"
-        onClick={() => handleImageNavigation('right')}
-      >
-        &gt;
-      </button>
-    </>
-  ) : (
-    <img
-      src={product.images ? product.images[0] : product.image}
-      alt={product.name}
-      className="modal-image"
-    />
-  )}
-</div>
+          {product.images && product.images.length > 1 ? (
+            <>
+              <img
+                src={product.images[currentImageIndex]}
+                alt={`${product.name} - ${currentImageIndex + 1}`}
+                className="modal-image"
+              />
+              <button
+  className="image-nav single"
+  onClick={() => handleImageNavigation('right')}
+>
+  <i className="fa fa-arrow-right" aria-hidden="true"></i>
+</button>
+            </>
+          ) : (
+            <img
+              src={product.images ? product.images[0] : product.image}
+              alt={product.name}
+              className="modal-image"
+            />
+          )}
+        </div>
         <div className="modal-details">
-        <button onClick={() => onFavorite(product)} className="favorite-button">
-  <i className="fa fa-star" aria-hidden="true"></i> Add to Favorites</button>
+          <button onClick={() => onFavorite(product)} className="favorite-button">
+            <i className="fa fa-star" aria-hidden="true"></i> Add to Favorites
+          </button>
           <h2 className="modal-name">{selectedVariant?.name || product.name}</h2>
           <p className="modal-description">{selectedVariant?.description || product.description}</p>
           <p className="modal-price">Price: {selectedVariant?.price || product.price}</p>
@@ -127,8 +128,14 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           <p className="modal-deals-per-case">Deals per Case: {selectedVariant?.dealsPerCase || product.dealsPerCase}</p>
           <p className="modal-seal">Seal: {selectedVariant?.seal || product.seal}</p>
           <div className="modal-buttons">
-            <button className="add-to-cart-button-modal" onClick={handleAddToCart}>Add to Cart</button>
-            {!showShareOptions && <button className="share-button" onClick={handleShare}>Share</button>}
+          <button className="add-to-cart-button-modal" onClick={handleAddToCart}>
+  <i className="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
+</button>
+{!showShareOptions && (
+  <button className="share-button" onClick={handleShare}>
+    <i className="fa fa-share-alt" aria-hidden="true"></i> Share
+  </button>
+)}
             {showShareOptions && (
               <div className="share-options">
                 <button className="close-share-options" onClick={handleShare}>Close</button>
@@ -153,7 +160,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           </div>
         )}
         <div className="quantity-container">
-          {product.tags.includes('boards') ? (
+          {Array.isArray(product.tags) && product.tags.includes('boards') ? (
             <div className="quantity-selection">
               <label htmlFor="quantity-select">Number of boards:</label>
               <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
@@ -164,7 +171,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
                 ))}
               </select>
             </div>
-          ) : product.tags.includes('paper') ? (
+          ) : Array.isArray(product.tags) && product.tags.includes('paper') ? (
             <>
               <div className="custom-quantity">
                 <label htmlFor="custom-quantity-input">Enter number of books:</label>
@@ -177,7 +184,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
                 />
               </div>
             </>
-          ) : product.tags.includes('daubers') ? (
+          ) : Array.isArray(product.tags) && product.tags.includes('daubers') ? (
             <>
               <div className="quantity-selection">
                 <label htmlFor="quantity-select">Number of cases:</label>
@@ -200,7 +207,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
                 />
               </div>
             </>
-          ) : product.tags.includes('packs') ? (
+          ) : Array.isArray(product.tags) && product.tags.includes('packs') ? (
             <div className="quantity-selection">
               <label htmlFor="quantity-select">Number of packs:</label>
               <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>

@@ -82,6 +82,35 @@
   cursor: pointer;
 }
 
+/* Responsive Design Enhancements */
+@media (max-width: 768px) {
+  .filter-options {
+    flex-direction: column; /* Stack filters vertically */
+    gap: 10px; /* Reduce gap for smaller screens */
+    align-items: center; /* Center align filters */
+  }
+
+  .filter-group select {
+    width: 100%; /* Full width for dropdowns */
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-options {
+    padding: 10px; /* Reduce padding for very small screens */
+    gap: 8px; /* Further reduce gap for smaller screens */
+  }
+
+  .filter-group h3 {
+    font-size: 14px; /* Reduce font size for smaller screens */
+  }
+
+  .filter-group select {
+    font-size: 14px; /* Reduce font size for dropdowns */
+    padding: 8px; /* Adjust padding for smaller dropdowns */
+  }
+}
+
 .sort-navbar button {
   padding: 10px 20px;
   border: none;
@@ -239,7 +268,7 @@
   position: absolute;
   top: 150px; /* Adjust this value to lower the button */
   left: 20px;
-  background-color: #000;
+  background-color: black; 
   color: white;
   border: none;
   padding: 10px 20px;

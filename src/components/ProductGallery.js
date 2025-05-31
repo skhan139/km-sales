@@ -460,18 +460,18 @@ const ProductGallery = ({ searchTerm }) => {
       <option value="$2">$2</option>
       <option value="$5">$5</option>
       <option value="$10">$10</option>
-      <option value=">$10">Greater Than $10</option>
+      <option value=">$10">Over $10</option>
     </select>
   </div>
 </div>
           <div className="pagination">
-  <button
-    onClick={() => handlePageChange(currentPage - 1)}
-    className="pagination-button"
-    disabled={currentPage === 1} // Disable the "Previous" button on the first page
-  >
-    &lt; Previous
-  </button>
+          <button
+  onClick={() => handlePageChange(currentPage - 1)}
+  className="pagination-button"
+  disabled={currentPage === 1} // Disable the "Previous" button on the first page
+>
+  <i className="fa fa-arrow-left" aria-hidden="true"></i> Previous
+</button>
   {Array.from({ length: Math.min(5, totalPages) }, (_, index) => {
     const pageNumber = currentPage <= 3 ? index + 1 : currentPage - 2 + index;
     if (pageNumber > totalPages) return null; // Don't render buttons beyond the total pages
@@ -485,13 +485,13 @@ const ProductGallery = ({ searchTerm }) => {
       </button>
     );
   })}
-  <button
-    onClick={() => handlePageChange(currentPage + 1)}
-    className="pagination-button"
-    disabled={currentPage === totalPages} // Disable the "Next" button on the last page
-  >
-    Next &gt;
-  </button>
+<button
+  onClick={() => handlePageChange(currentPage + 1)}
+  className="pagination-button"
+  disabled={currentPage === totalPages} // Disable the "Next" button on the last page
+>
+  Next <i className="fa fa-arrow-right" aria-hidden="true"></i>
+</button>
 </div>
           <div className="product-gallery">
   {displayedProducts.length === 0 ? (
@@ -521,13 +521,13 @@ const ProductGallery = ({ searchTerm }) => {
   )}
 </div>
 <div className="pagination">
-  <button
-    onClick={() => handlePageChange(currentPage - 1)}
-    className="pagination-button"
-    disabled={currentPage === 1} // Disable the "Previous" button on the first page
-  >
-    &lt; Previous
-  </button>
+<button
+  onClick={() => handlePageChange(currentPage - 1)}
+  className="pagination-button"
+  disabled={currentPage === 1} // Disable the "Previous" button on the first page
+>
+  <i className="fa fa-arrow-left" aria-hidden="true"></i> Previous
+</button>
   {Array.from({ length: Math.min(5, totalPages) }, (_, index) => {
     const pageNumber = currentPage <= 3 ? index + 1 : currentPage - 2 + index;
     if (pageNumber > totalPages) return null; // Don't render buttons beyond the total pages
@@ -542,12 +542,12 @@ const ProductGallery = ({ searchTerm }) => {
     );
   })}
   <button
-    onClick={() => handlePageChange(currentPage + 1)}
-    className="pagination-button"
-    disabled={currentPage === totalPages} // Disable the "Next" button on the last page
-  >
-    Next &gt;
-  </button>
+  onClick={() => handlePageChange(currentPage + 1)}
+  className="pagination-button"
+  disabled={currentPage === totalPages} // Disable the "Next" button on the last page
+>
+  Next <i className="fa fa-arrow-right" aria-hidden="true"></i>
+</button>
 </div>
         </>
       )}
