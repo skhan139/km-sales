@@ -10,15 +10,33 @@ const blogs = [
   },
   {
     id: 2,
-    title: 'The History of Pull Tabs',
+    title: 'Ordering Games For Bashes',
     description: 'Discover the origins and evolution of pull tabs in gaming.',
     content: 'This is the full content of the blog about the history of pull tabs.',
   },
   {
     id: 3,
-    title: 'Top 10 Bingo Supplies for Your Club',
+    title: 'Optimizng Your Orders For Your Crowds',
     description: 'A list of essential bingo supplies for your club.',
     content: 'This is the full content of the blog about top bingo supplies.',
+  },
+  {
+    id: 4,
+    title: 'Splt Payouts Vs Straight Seals. Which Are Better?',
+    description: 'Learn tips and tricks for hosting a fun and engaging bingo night.',
+    content: 'This is the full content of the blog about running a successful bingo night.',
+  },
+  {
+    id: 5,
+    title: 'Instant Winner Games Vs Seal Card Games',
+    description: 'Learn tips and tricks for hosting a fun and engaging bingo night.',
+    content: 'This is the full content of the blog about running a successful bingo night.',
+  },
+  {
+    id: 6,
+    title: 'Planning Your Event With AI. How To Use AI To Raise More Money! ',
+    description: 'Learn tips and tricks for hosting a fun and engaging bingo night.',
+    content: 'This is the full content of the blog about running a successful bingo night.',
   },
 ];
 

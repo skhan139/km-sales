@@ -66,7 +66,8 @@ const UserProfile = () => {
 
   return (
     <div className="user-profile">
-      <h2>My Profile <br /> <br />View Online Orders</h2>
+      <h2>My Profile <br /> <br />View Online Orders  </h2>
+      <h3>** Note, not all orders will be posted, please contact us if you would like to have your invoices posted to your profile **</h3>
       <div className="user-details">
         <p><strong>Email:</strong> {user.email}</p>
       </div>

@@ -281,6 +281,11 @@ const ProductGallery = ({ searchTerm }) => {
       alert('An error occurred while adding to favorites. Please try again.');
     }
   };
+  const handleThemeChange = (theme) => {
+    // Filter products by theme
+    const filtered = products.filter((product) => product.theme === theme);
+    setFilteredProducts(filtered); // Update the state with filtered products
+  };
   const handleClearFilters = () => {
     setSortCriteria('all'); // Reset the sort criteria
     setFilteredProducts([...products]); // Reset the filtered products to all products
@@ -385,6 +390,27 @@ const ProductGallery = ({ searchTerm }) => {
       <button onClick={() => handleSortChange('bingo paper')}>Bingo Paper</button> {/* New Button */}
     </div>
   </div>
+  <div className="sort-row">
+        <div className="dropdown">
+          <button className="dropdown-button">Sort By Theme</button>
+          <div className="dropdown-content">
+            <button onClick={() => handleThemeChange('sports')}>Sports</button>
+            <button onClick={() => handleThemeChange('christmas')}>Christmas</button>
+            <button onClick={() => handleThemeChange('halloween')}>Halloween</button>
+            <button onClick={() => handleThemeChange('Easter')}>Easter</button>
+            <button onClick={() => handleThemeChange('spring')}>Spring</button>
+            <button onClick={() => handleThemeChange('fall')}>Fall</button>
+            <button onClick={() => handleThemeChange('winter')}>Winter</button>
+            <button onClick={() => handleThemeChange('summer')}>Summer</button>
+            <button onClick={() => handleThemeChange('valentines')}>Valentines</button>
+            <button onClick={() => handleThemeChange('st pattys')}>St. Patricks Day</button>
+            <button onClick={() => handleThemeChange('usa')}>USA</button>
+            <button onClick={() => handleThemeChange('police')}>Law Enforcement</button>
+            <button onClick={() => handleThemeChange('firefighters')}>Fire And Rescue</button>
+            <button onClick={() => handleThemeChange('military')}>Military</button>
+          </div>
+        </div>
+</div>
   <button onClick={handleClearFilters} className="clear-filters-button">
     Clear Filters
   </button>

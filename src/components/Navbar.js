@@ -86,23 +86,63 @@ const Navbar = () => {
             <span className="bar"></span>
           </button>
           <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
-            <li><Link to="/" onClick={closeNavbar}>Home</Link></li>
+          <li>
+  <Link to="/" onClick={closeNavbar}>
+    <i className="fa fa-home" aria-hidden="true"></i> Home
+  </Link>
+</li>
             <li className="dropdown">
               <li className="dropdown-button">Info</li>
               <ul className="dropdown-content">
-                <li><Link to="/about" onClick={closeNavbar}>About</Link></li>
-                <li><Link to="/contact" onClick={closeNavbar}>Contact</Link></li>
-                <li><Link to="/legacy" onClick={closeNavbar}>Our Mission</Link></li>
-                <li><Link to="/testimonial" onClick={closeNavbar}>Why K&M?</Link></li>
-                <li><Link to="/event-inspiration" onClick={closeNavbar}>Event Inspiration</Link></li>
-                <li><Link to="/game-terminology" onClick={closeNavbar}>Game Terminology</Link></li>
-                <li><Link to="/license" onClick={closeNavbar}>License</Link></li> {/* New Link */}
+              <li>
+  <Link to="/about" onClick={closeNavbar}>
+    <i className="fa fa-info-circle" aria-hidden="true"></i> About
+  </Link>
+</li>
+<li>
+  <Link to="/contact" onClick={closeNavbar}>
+    <i className="fa fa-envelope" aria-hidden="true"></i> Contact
+  </Link>
+</li>
+<li>
+  <Link to="/legacy" onClick={closeNavbar}>
+    <i className="fa fa-bullseye" aria-hidden="true"></i> Our Mission
+  </Link>
+</li>
+<li>
+  <Link to="/testimonial" onClick={closeNavbar}>
+    <i className="fa fa-star" aria-hidden="true"></i> Why K&M?
+  </Link>
+</li>
+<li>
+  <Link to="/event-inspiration" onClick={closeNavbar}>
+    <i className="fa fa-lightbulb" aria-hidden="true"></i> Event Inspiration
+  </Link>
+</li>
+<li>
+  <Link to="/game-terminology" onClick={closeNavbar}>
+    <i className="fa fa-book" aria-hidden="true"></i> Game Terminology
+  </Link>
+</li>
+<li>
+  <Link to="/license" onClick={closeNavbar}>
+    <i className="fa fa-id-card" aria-hidden="true"></i> License
+  </Link>
+</li>
               </ul>
             </li>
             {user ? (
               <>
-                <li><Link to="/members" onClick={closeNavbar}>Products</Link></li>
-                <li><Link to="/profile" onClick={closeNavbar}>My Profile</Link></li>
+               <li>
+  <Link to="/members" onClick={closeNavbar}>
+    <i className="fa fa-th" aria-hidden="true"></i> Products
+  </Link>
+</li>
+                <li>
+  <Link to="/profile" onClick={closeNavbar}>
+    <i className="fa fa-user" aria-hidden="true"></i> My Profile
+  </Link>
+</li>
                 <li>
   <Link to="/cart" onClick={closeNavbar}>
     <span className="cart-icon" data-count={cart ? cart.length : 0}>
