@@ -403,7 +403,7 @@ const ProductGallery = ({ searchTerm }) => {
             <button onClick={() => handleThemeChange('winter')}>Winter</button>
             <button onClick={() => handleThemeChange('summer')}>Summer</button>
             <button onClick={() => handleThemeChange('valentines')}>Valentines</button>
-            <button onClick={() => handleThemeChange('st pattys')}>St. Patricks Day</button>
+            <button onClick={() => handleThemeChange('st patricks')}>St. Patricks Day</button>
             <button onClick={() => handleThemeChange('usa')}>USA</button>
             <button onClick={() => handleThemeChange('police')}>Law Enforcement</button>
             <button onClick={() => handleThemeChange('firefighters')}>Fire And Rescue</button>
