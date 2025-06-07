@@ -42,7 +42,18 @@ body {
   max-width: 600px; /* Set a maximum width for larger screens */
   text-align: center; /* Center text */
   color: white !important; /* Force all text inside to be white */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2), /* Main shadow */
+    0 8px 30px rgba(0, 0, 0, 0.1); /* Additional shadow for depth */
+  transform: perspective(1000px) rotateX(1deg) rotateY(1deg); /* Add slight 3D rotation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.info-box:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02); /* Slight zoom and reset rotation on hover */
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.3), /* Enhanced shadow on hover */
+    0 10px 40px rgba(0, 0, 0, 0.2); /* Additional shadow for depth */
 }
 
 .info-box h1,
@@ -57,18 +68,6 @@ body {
     -1px 1px 0 #000,  /* Bottom-left shadow */
     1px 1px 0 #000;   /* Bottom-right shadow */
 }
-
-.info-box h2 {
-  margin-bottom: 10px;
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
-.info-box p {
-  font-size: 1em;
-  line-height: 1.5;
-}
-
 .image-row {
   display: flex;
   justify-content: center;

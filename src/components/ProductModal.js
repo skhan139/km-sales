@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 const ProductModal = ({ product, onClose, onFavorite }) => {
   const { addItemToCart } = useCart(); // Use the Cart context
   const [selectedVariant, setSelectedVariant] = useState(product?.variants ? product.variants[0] : product);
-  const [quantity, setQuantity] = useState(0); // Default quantity for cases is 0
+  const [quantity, setQuantity] = useState(0); // Default quantity is 0
   const [customQuantity, setCustomQuantity] = useState(''); // State for the custom number of games
   const [quantityType, setQuantityType] = useState('cases'); // State for the quantity type
   const [copySuccess, setCopySuccess] = useState(''); // State for copy success message
@@ -52,8 +52,18 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
 
   const handleAddToCart = () => {
     const quantityToAdd = customQuantity ? parseInt(customQuantity, 10) : quantity;
-    addItemToCart({ ...selectedVariant, quantity: quantityToAdd, quantityType: customQuantity ? 'games' : quantityType });
-    onClose(); // Close the modal after adding to cart
+  
+    // Ensure quantityToAdd is valid
+    if (quantityToAdd > 0) {
+      addItemToCart({
+        ...selectedVariant,
+        quantity: quantityToAdd,
+        quantityType: customQuantity ? 'games' : quantityType,
+      });
+      onClose(); // Close the modal after adding to cart
+    } else {
+      alert('Please select a valid quantity.');
+    }
   };
 
   const handleCopyLink = () => {
@@ -74,7 +84,8 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
   };
 
   const handleQuantityChange = (e) => {
-    setQuantity(parseInt(e.target.value, 10));
+    const selectedQuantity = parseInt(e.target.value, 10);
+    setQuantity(selectedQuantity || 0); // Ensure quantity is set to 0 if parsing fails
     setCustomQuantity(''); // Reset custom quantity when cases are changed
   };
 
@@ -160,17 +171,17 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           </div>
         )}
         <div className="quantity-container">
-          {Array.isArray(product.tags) && product.tags.includes('boards') ? (
-            <div className="quantity-selection">
-              <label htmlFor="quantity-select">Number of boards:</label>
-              <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
-                {[...Array(10).keys()].map((num) => (
-                  <option key={num + 1} value={num + 1}>
-                    {num + 1} {num + 1 === 1 ? 'board' : 'boards'}
-                  </option>
-                ))}
-              </select>
-            </div>
+        {Array.isArray(product.tags) && product.tags.includes('boards') ? (
+  <div className="quantity-selection">
+    <label htmlFor="quantity-select">Number of boards:</label>
+    <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
+      {[...Array(11).keys()].map((num) => (
+        <option key={num} value={num}>
+          {num} {num === 1 ? 'board' : 'boards'}
+        </option>
+      ))}
+    </select>
+  </div>
           ) : Array.isArray(product.tags) && product.tags.includes('paper') ? (
             <>
               <div className="custom-quantity">

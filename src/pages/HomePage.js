@@ -166,7 +166,7 @@ Add your products to cart and register with us to checkout. Once you checkout, o
               </div>
               <div>
               <Link to={user ? "/members" : "/login"}>
-                  <img src="/assets/images/fruitloops.jpg" alt="Hot this month 3" className="slider-image" />
+                  <img src="/assets/images/buzzbucks.jpg" alt="Hot this month 3" className="slider-image" />
                 </Link>
               </div>
               <div>
