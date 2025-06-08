@@ -22,6 +22,15 @@ const MembersPage = () => {
       <h1 className='color'>Browse Our Entire Product Gallery</h1>
       <h2 className='color'>** Note, Some Orders May Take Longer To Fulfill Than Others Depending On Stock**</h2>
       <h3 className='hthree'>** Prices, profits, take-ins, and payouts may vary depending on whether a case or individual game(s) is ordered. **</h3>
+      <h3 className="hthree">
+  <a 
+    href="https://docs.google.com/document/d/1q-EhU-s9IAyRn8amNAHuDYz4tMU66lA5zmUw4X1gsC4/edit?tab=t.0" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    View/Download our entire inventory sheet here
+  </a>
+</h3>
       <input 
         type="text" 
         placeholder="Search by name, tag, or category..." 

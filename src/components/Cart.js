@@ -114,33 +114,39 @@ const Cart = () => {
         <p>You have no items in your cart</p>
       ) : (
         <div className="cart-items">
-          {cart.map((item) => (
-            <div key={`${item.id}-${item.quantityType}`} className="cart-item">
-              {/* Use the first image from the images array */}
-              <img
-                src={
-                  Array.isArray(item.images) && item.images.length > 0
-                    ? item.images[0] // Use the first image in the array
-                    : item.image // Fallback to item.image if images array is empty or undefined
-                }
-                alt={item.name}
-                className="cart-item-image"
-              />
+  {cart.map((item) => (
+    <div key={`${item.id}-${item.quantityType}`} className="cart-item">
+      {/* Use the first image from the images array */}
+      <img
+        src={
+          Array.isArray(item.images) && item.images.length > 0
+            ? item.images[0] // Use the first image in the array
+            : item.image // Fallback to item.image if images array is empty or undefined
+        }
+        alt={item.name}
+        className="cart-item-image"
+      />
               <div className="cart-item-details">
-                <span className="cart-item-name">{item.name}</span>
-                <span className="cart-item-quantity-type">
-                  {item.quantity} {item.quantity === 1 ? item.quantityType.slice(0, -1) : item.quantityType}
-                </span>
-                <div className="cart-item-quantity">
-                  <button onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.quantityType)}>-</button>
-                  <span>{item.quantity}</span>
-                  <button onClick={() => handleQuantityChange(item.id, item.quantity + 1, item.quantityType)}>+</button>
-                </div>
-              </div>
-              <button className="remove-item-button" onClick={() => removeItemFromCart(item.id)}>Remove</button>
-            </div>
-          ))}
+        <span className="cart-item-name">{item.name}</span>
+        <span className="cart-item-quantity-type">
+          {item.quantity} {item.quantity === 1 ? item.quantityType.slice(0, -1) : item.quantityType}
+        </span>
+        <div className="cart-item-quantity">
+          <button onClick={() => handleQuantityChange(item.id, item.quantity - 1, item.quantityType)}>-</button>
+          <span>{item.quantity}</span>
+          <button onClick={() => handleQuantityChange(item.id, item.quantity + 1, item.quantityType)}>+</button>
         </div>
+        {/* Render additional product details */}
+        <div className="cart-item-details-extra">
+          <p><strong>Take In:</strong> {item.takeIn || 'N/A'}</p>
+          <p><strong>Pay Out:</strong> {item.payout || 'N/A'}</p>
+          <p><strong>Profit:</strong> {item.profit || 'N/A'}</p>
+        </div>
+      </div>
+      <button className="remove-item-button" onClick={() => removeItemFromCart(item.id)}>Remove</button>
+    </div>
+  ))}
+</div>
       )}
       {error && <p className="error-message">{error}</p>}
       <MessageBubble />

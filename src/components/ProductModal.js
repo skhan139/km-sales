@@ -12,7 +12,9 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
   const [copySuccess, setCopySuccess] = useState(''); // State for copy success message
   const [showShareOptions, setShowShareOptions] = useState(false); // State for showing share options
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // State for the current image index
-
+  const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 }); // State for zoom position
+  const [isZooming, setIsZooming] = useState(false); // State to track if zoom is active
+ 
   useEffect(() => {
     if (product) {
       // Safely set the selected variant
@@ -97,6 +99,21 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
     }
   };
 
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setZoomPosition({ x, y });
+  };
+  
+  const handleMouseEnter = () => {
+    setIsZooming(true);
+  };
+  
+  const handleMouseLeave = () => {
+    setIsZooming(false);
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -104,11 +121,21 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
         <div className="modal-image-container">
           {product.images && product.images.length > 1 ? (
             <>
-              <img
-                src={product.images[currentImageIndex]}
-                alt={`${product.name} - ${currentImageIndex + 1}`}
-                className="modal-image"
-              />
+              <div
+  className="zoom-container"
+  onMouseMove={handleMouseMove}
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+>
+  <img
+    src={product.images[currentImageIndex]}
+    alt={`${product.name} - ${currentImageIndex + 1}`}
+    className={`modal-image ${isZooming ? 'zooming' : ''}`}
+    style={{
+      transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
+    }}
+  />
+</div>
               <button
   className="image-nav single"
   onClick={() => handleImageNavigation('right')}
@@ -117,11 +144,21 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
 </button>
             </>
           ) : (
-            <img
-              src={product.images ? product.images[0] : product.image}
-              alt={product.name}
-              className="modal-image"
-            />
+            <div
+  className="zoom-container"
+  onMouseMove={handleMouseMove}
+  onMouseEnter={handleMouseEnter}
+  onMouseLeave={handleMouseLeave}
+>
+  <img
+    src={product.images ? product.images[0] : product.image}
+    alt={product.name}
+    className={`modal-image ${isZooming ? 'zooming' : ''}`}
+    style={{
+      transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
+    }}
+  />
+</div>
           )}
         </div>
         <div className="modal-details">

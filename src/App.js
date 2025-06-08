@@ -23,6 +23,7 @@ import CustomGamePage from './pages/CustomGamePage'; // Import the CustomGamePag
 import EventInspiration from './pages/EventInspiration'; // Import the EventInspiration component
 import GameTerminology from './pages/GameTerminology'; // Import the GameTerminology component
 import LicensePage from './pages/License'; // Import the LicensePage component
+import RewardsPage from './pages/Rewards'; // Import the RewardsPage component
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
 import Blog from './pages/Blog'; // Import the Blog page
@@ -101,6 +102,7 @@ const App = () => {
           <Route path="/event-inspiration" element={<EventInspiration />} /> {/* Add EventInspiration route */}
           <Route path="/game-terminology" element={<GameTerminology />} /> {/* Add GameTerminology route */}
           <Route path="/blog" element={<Blog />} /> {/* Add Blog route */}
+          <Route path="/rewards" element={<RewardsPage />} /> {/* Add RewardsPage route */}
         </Routes>
         <Footer />
       </div>

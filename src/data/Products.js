@@ -1,5 +1,5 @@
 const products = [
-  { id: 1, name: "(810 Count) 33 KM Super Jar", images: ["/assets/images/33kmsuperjar.jpg", "/assets/images/kmsuperjarinfo.jpg"], category: "tip jars", tags: ["tip", "jars"], sku: "SKU001", takeIn: "$810", payout: "$600", profit: "$210.00", profitPercent: "18.75%", dealsPerCase: "10", seal: "$300", denomination: "$1", bundle: "4", bottomPayout: "$10" },
+  { id: 1, name: "(810 Count) 33 KM Super Jar", images: ["/assets/images/33kmsuperjar.jpg", "/assets/images/kmsuperjarinfo.jpg"], category: "tip jars", tags: ["tip", "jars"], sku: "SKU001", takeIn: "$810.00", payout: "$600.00", profit: "$210.00", profitPercent: "18.75%", dealsPerCase: "10", seal: "$300", denomination: "$1", bundle: "4", bottomPayout: "$10" },
   { id: 2, name: "Schrade Knife Board", image: "/assets/images/knifeboard.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,000", profit: "$581.00", profitPercent: "45.3%", dealsPerCase: "1", seal: "$500", denomination: "$1" },
   { id: 3, name: "2520/1736 Barking Betty", image: "/assets/images/barkingbetty.jpg", category: "elimination games", tags: ["elimination", "games"], sku: "SKU003", takeIn: "$1,736.00", payout: "$1,111.00", profit: "$625.00", profitPercent: "51%", dealsPerCase: "1", seal: "$599", denomination: "$1", window: "1", bottomPayout: "$2" },
   { id: 4, name: "240 Better Than Sex", image: "/assets/images/betterthansex.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU004", takeIn: "$240.00", payout: "$157.00", profit: "$83.00", profitPercent: "35.00%", dealsPerCase: "40", seal: "$100", denomination: "$1", window: "1", bottomPayout: "$1" },
@@ -155,7 +155,7 @@ const products = [
       }
     ]
   },
-  { id: 87, name: "250 Four On One", image: "/assets/images/fouronone.jpg", category: "raffle tickets", tags: ["raffle", "tickets"], sku: "SKU002", takeIn: "$250.00", payout: "$200.00", profit: "$50.00", profitPercent: "20%", dealsPerCase: "40", denomination: "$1"},
+  { id: 87, name: "250 Four On One (Red Numbers)", image: "/assets/images/fouronone.jpg", category: "raffle tickets", tags: ["raffle", "tickets"], sku: "SKU002", takeIn: "$250.00", payout: "$200.00", profit: "$50.00", profitPercent: "20%", dealsPerCase: "40", denomination: "$1"},
   { id: 88, name: "Queen Of Hearts Board", image: "/assets/images/queenofhearts.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU002", takeIn: "$N/A", payout: "N/A", profit: "N/A", profitPercent: "N/A", dealsPerCase: "1", denomination: "$1" },
   { id: 89, name: "3960 Unbeatable Odds", image: "/assets/images/unbeatableodds.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$3,960.00", payout: "$2,980", profit: "$980.00", profitPercent: "24.75%", dealsPerCase: "1", seal: "$250", denomination: "$1", bottomPayout: "$1" },
   { id: 90, name: "3960 Toss Some Darts", image: "/assets/images/tosssomedarts.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$1980.00", payout: "$1,442", profit: "$538.00", profitPercent: "27.17%", dealsPerCase: "1", seal: "$250", denomination: "$1", bottomPayout: "$1" },
@@ -417,7 +417,7 @@ const products = [
   { id: 254, name: "287 Dandy Lions", image: "/assets/images/287dandy.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU030", takeIn: "$287.00", payout: "$195.00", profit: "$92.00", profitPercent: "32.04%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$5"},
   { id: 255, name: "287 Rags To Riches", image: "/assets/images/287rags.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU030", takeIn: "$287.00", payout: "$195.00", profit: "$92.00", profitPercent: "32.04%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$5"},
   { id: 256, name: "Guys & Gals Board (2000 Ticket Count)", images: ["/assets/images/guysgals.jpg", "/assets/images/purse.jpg", "/assets/images/drill.jpg"], category: "merchandise boards", tags: ["merchandise", "boards"], sku: "SKU002", takeIn: "$2,000.00", payout: "$745", profit: "$556.00", profitPercent: "27.8%", dealsPerCase: "1", seal: "$150", denomination: "$1", bottomPayout: "$5" },
-  { id: 257, name: "4000 3/1 Buzz Bucks @ $2", images: ["/assets/images/buzzbucks.jpg", "/assets/images/buzzinfo.jpg"], category: "instant winners", tags: ["instant", "winner"], sku: "SKU005", takeIn: "$8,000.00", payout: "$6,400.00", profit: "$1,600.00", profitPercent: "20%", dealsPerCase: "8", seal: "$360", denomination: "$2", bundle: "3", bottomPayout: "$5", },
+  { id: 257, name: "4000 3/1 Buzz Bucks @ $2", images: ["/assets/images/buzzbucks.jpg", "/assets/images/buzzinfo.jpg"], category: "instant winners", tags: ["instant", "winner"], sku: "SKU005", takeIn: "$8,000.00", payout: "$6,400.00", profit: "$1,600.00", profitPercent: "20%", dealsPerCase: "6", seal: "$360", denomination: "$2", bundle: "3", bottomPayout: "$5", },
 ];
 
 export default products;

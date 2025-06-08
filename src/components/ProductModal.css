@@ -230,3 +230,21 @@
 .favorite-button:hover {
   background-color: #0056b3;
 }
+
+.zoom-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.modal-image.zooming {
+  transform: scale(2); /* Zoom level */
+  cursor: zoom-in;
+}

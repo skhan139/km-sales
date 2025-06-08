@@ -92,7 +92,7 @@ const CheckoutFormModal = ({
           <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} required />
         </label>
         <label>
-          Order Special Instructions
+          Notes/Delivery Instructions
           <textarea name="specialInstructions" value={formData.specialInstructions} onChange={handleChange}></textarea>
         </label>
         <div className="discount-section">
@@ -117,7 +117,7 @@ const CheckoutFormModal = ({
           {discountApplied && <p className="success-message">Discount applied: 10% off</p>}
         </div>
         <div className="email-subscription">
-          <p>Subscribe to our email list? (Receive exclusive discounts and updated on our new games)</p>
+          <p>Subscribe to our email list? (Receive exclusive discounts and updates on our new games)</p>
           <label>
             <input
               type="radio"

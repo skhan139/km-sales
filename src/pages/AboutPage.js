@@ -9,7 +9,7 @@ const AboutPage = () => {
       <div className="about-page">
         <div className="about-box">
           <h3 className='at'>At K&M Sales, we have proudly served as the leading distributor of bingo and gaming supplies in Western Maryland and West Virginia for over 40 years. Our founder Roy "Buzz" Mills has set a standard that takes pride in dedication to quality and customer satisfaction, which has made us a trusted partner in the industry! <br/> <br/>
-          We collaborate with licensed charitable, fraternal, veteran, and other organizations. Our mission is to offer quality gaming products at competitive prices to support fundraising efforts. As a full-service company, our experienced sales staff will help recommend the best products and services for your organization's growth.
+          We collaborate with licensed charitable, fraternal, veteran, select resturaunts/bars and other organizations. Our mission is to offer quality gaming products at competitive prices to support fundraising efforts. As a full-service company, our experienced sales staff will help recommend the best products and services for your organization's growth.
           </h3>
         </div>
         <div className="flex-container">

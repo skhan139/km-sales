@@ -91,46 +91,51 @@ const Navbar = () => {
     <i className="fa fa-home" aria-hidden="true"></i> Home
   </Link>
 </li>
-            <li className="dropdown">
-              <li className="dropdown-button">Info</li>
-              <ul className="dropdown-content">
-              <li>
-  <Link to="/about" onClick={closeNavbar}>
-    <i className="fa fa-info-circle" aria-hidden="true"></i> About
-  </Link>
+<li className="dropdown">
+  <li className="dropdown-button">Info</li>
+  <ul className="dropdown-content">
+    <li>
+      <Link to="/about" onClick={closeNavbar}>
+        <i className="fa fa-info-circle" aria-hidden="true"></i> About
+      </Link>
+    </li>
+    <li>
+      <Link to="/contact" onClick={closeNavbar}>
+        <i className="fa fa-envelope" aria-hidden="true"></i> Contact
+      </Link>
+    </li>
+    <li>
+      <Link to="/legacy" onClick={closeNavbar}>
+        <i className="fa fa-bullseye" aria-hidden="true"></i> Our Mission
+      </Link>
+    </li>
+    <li>
+      <Link to="/testimonial" onClick={closeNavbar}>
+        <i className="fa fa-star" aria-hidden="true"></i> Why K&M?
+      </Link>
+    </li>
+    <li>
+      <Link to="/event-inspiration" onClick={closeNavbar}>
+        <i className="fa fa-lightbulb" aria-hidden="true"></i> Event Inspiration
+      </Link>
+    </li>
+    <li>
+      <Link to="/game-terminology" onClick={closeNavbar}>
+        <i className="fa fa-book" aria-hidden="true"></i> Game Terminology
+      </Link>
+    </li>
+    <li>
+      <Link to="/license" onClick={closeNavbar}>
+        <i className="fa fa-id-card" aria-hidden="true"></i> License
+      </Link>
+    </li>
+    <li>
+      <Link to="/rewards" onClick={closeNavbar}>
+        <i className="fa fa-gift" aria-hidden="true"></i> Rewards
+      </Link>
+    </li>
+  </ul>
 </li>
-<li>
-  <Link to="/contact" onClick={closeNavbar}>
-    <i className="fa fa-envelope" aria-hidden="true"></i> Contact
-  </Link>
-</li>
-<li>
-  <Link to="/legacy" onClick={closeNavbar}>
-    <i className="fa fa-bullseye" aria-hidden="true"></i> Our Mission
-  </Link>
-</li>
-<li>
-  <Link to="/testimonial" onClick={closeNavbar}>
-    <i className="fa fa-star" aria-hidden="true"></i> Why K&M?
-  </Link>
-</li>
-<li>
-  <Link to="/event-inspiration" onClick={closeNavbar}>
-    <i className="fa fa-lightbulb" aria-hidden="true"></i> Event Inspiration
-  </Link>
-</li>
-<li>
-  <Link to="/game-terminology" onClick={closeNavbar}>
-    <i className="fa fa-book" aria-hidden="true"></i> Game Terminology
-  </Link>
-</li>
-<li>
-  <Link to="/license" onClick={closeNavbar}>
-    <i className="fa fa-id-card" aria-hidden="true"></i> License
-  </Link>
-</li>
-              </ul>
-            </li>
             {user ? (
               <>
                <li>
