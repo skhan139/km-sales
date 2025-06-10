@@ -26,13 +26,14 @@ const CheckoutFormModal = ({
     zipCode: '',
     specialInstructions: '',
     subscribeToEmailList: 'No', // Default value for email subscription
+    usePoints: false, // Default value for using points
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: type === 'checkbox' ? checked : value // Handle checkbox and other inputs
     }));
   };
 
@@ -137,6 +138,18 @@ const CheckoutFormModal = ({
               onChange={handleChange}
             />
             No
+          </label>
+        </div>
+        <div className="use-points-section">
+          <p>Use Points?</p>
+          <label>
+            <input
+              type="checkbox"
+              name="usePoints"
+              checked={formData.usePoints}
+              onChange={handleChange}
+            />
+            Check For Yes. ** Note, Discount Code And Points Cannot Be Used Simultaneously **
           </label>
         </div>
         <button type="submit">Submit</button>

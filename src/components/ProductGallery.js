@@ -27,7 +27,7 @@ const ProductGallery = ({ searchTerm }) => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 3, // Show only one image at a time
     slidesToScroll: 1,
     responsive: [
       {
@@ -359,24 +359,6 @@ const ProductGallery = ({ searchTerm }) => {
             <img src="/assets/images/redwhiteandblue.jpg" alt="Shop All" className="category-image" />
             <h2 className="category-name">Shop All</h2>
           </div>
-          {viewMode === 'categories' && showSlider && (
-  <div className="slider-section">
-    <h2 className="sliderHead">Featured Products</h2>
-    <div className="slider-container">
-      <Slider {...sliderSettings}>
-        <div>
-          <img src="/assets/images/captainjacks.jpg" alt="Featured 1" className="slider-image" />
-        </div>
-        <div>
-          <img src="/assets/images/bigfoots.jpg" alt="Featured 2" className="slider-image" />
-        </div>
-        <div>
-          <img src="/assets/images/buzzbucks.jpg" alt="Featured 3" className="slider-image" />
-        </div>
-      </Slider>
-    </div>
-  </div>
-)}
         </div>
       ) : (
         <>

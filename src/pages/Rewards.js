@@ -22,7 +22,7 @@ const RewardsPage = () => {
             Earn points for every purchase and redeem them for exclusive discounts, free products, and more. 
             Our goal is to give back to our customers and make every purchase even more rewarding. <br /> <br />
             Whether you're a long-time partner or a new customer, our Rewards Program is designed to enhance your experience 
-            and help you save while enjoying our high-quality gaming products.
+            and help you save while enjoying our high-quality gaming products. <br/> <br/> ** Note, Customers Must Have An Account Registered Online With Us To Be Eligible For Our Points System **
           </h3>
         </div>
         <div className="flex-container">
@@ -36,7 +36,7 @@ const RewardsPage = () => {
           <div className="flex-item">
             <h3>Exclusive Rewards</h3>
             <p>
-              Enjoy access to exclusive rewards such as limited-edition products, early access to new arrivals, and special promotions 
+              Enjoy access to exclusive rewards such as free products, early access to new arrivals, and special promotions 
               available only to our Rewards members.
             </p>
           </div>
