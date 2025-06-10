@@ -7,6 +7,7 @@ import './ProductGallery.css'; // Import the CSS file for styling
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../firebase'; // Import Firebase configuration
 import { doc, getDoc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import Slider from 'react-slick'; // Import the Slider component
 
 const itemsPerPage = 16; // Number of items to display per page
 
@@ -19,8 +20,32 @@ const ProductGallery = ({ searchTerm }) => {
   const [isQuantityModalOpen, setIsQuantityModalOpen] = useState(false); // State for the quantity selection modal
   const [showPopup, setShowPopup] = useState(true); // State for showing/hiding the pop-up
   const { addItemToCart } = useCart(); // Use the Cart context
+  const [showSlider, setShowSlider] = useState(true); // State to control slider visibility
 
   const [user] = useAuthState(auth); // Get the authenticated user
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
   useEffect(() => {
     filterProducts(searchTerm, sortCriteria);
@@ -31,6 +56,7 @@ const ProductGallery = ({ searchTerm }) => {
   };
 
   const handleSortChange = (criteria) => {
+    setShowSlider(false); // Hide the slider when a category is selected
     if (criteria === 'bingo paper') {
       const filteredArray = products.filter(product =>
         product.tags.includes('packs') || product.tags.includes('paper')
@@ -333,6 +359,24 @@ const ProductGallery = ({ searchTerm }) => {
             <img src="/assets/images/redwhiteandblue.jpg" alt="Shop All" className="category-image" />
             <h2 className="category-name">Shop All</h2>
           </div>
+          {viewMode === 'categories' && showSlider && (
+  <div className="slider-section">
+    <h2 className="sliderHead">Featured Products</h2>
+    <div className="slider-container">
+      <Slider {...sliderSettings}>
+        <div>
+          <img src="/assets/images/captainjacks.jpg" alt="Featured 1" className="slider-image" />
+        </div>
+        <div>
+          <img src="/assets/images/bigfoots.jpg" alt="Featured 2" className="slider-image" />
+        </div>
+        <div>
+          <img src="/assets/images/buzzbucks.jpg" alt="Featured 3" className="slider-image" />
+        </div>
+      </Slider>
+    </div>
+  </div>
+)}
         </div>
       ) : (
         <>

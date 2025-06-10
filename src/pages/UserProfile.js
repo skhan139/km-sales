@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../firebase'; // Import Firebase configuration
-import { doc, getDoc, updateDoc, arrayRemove } from 'firebase/firestore'; // Firestore functions
+import { doc, getDoc, updateDoc } from 'firebase/firestore'; // Firestore functions
 import './UserProfile.css'; // Import the CSS file for styling
 import Orders from './Orders'; // Import the Orders component
 import ProductModal from '../components/ProductModal'; // Import the ProductModal component
@@ -11,19 +11,21 @@ const UserProfile = () => {
   const [user] = useAuthState(auth);
   const [favorites, setFavorites] = useState([]); // State to store favorite products
   const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
+  const [points, setPoints] = useState(0); // State to store user points
 
   useEffect(() => {
     if (user) {
-      const fetchFavorites = async () => {
+      const fetchUserData = async () => {
         const userDoc = doc(db, 'users', user.email); // Reference to the user's document
         const docSnap = await getDoc(userDoc);
 
         if (docSnap.exists()) {
           setFavorites(docSnap.data().favorites || []); // Fetch favorites or set to an empty array
+          setPoints(docSnap.data().points || 0); // Fetch points or set to 0 if not defined
         }
       };
 
-      fetchFavorites();
+      fetchUserData();
     }
   }, [user]);
 
@@ -33,7 +35,7 @@ const UserProfile = () => {
     try {
       const userDoc = doc(db, 'users', user.email); // Reference to the user's document
       await updateDoc(userDoc, {
-        favorites: arrayRemove(favorite), // Remove the selected favorite
+        favorites: favorites.filter((item) => item.id !== favorite.id), // Remove the selected favorite
       });
 
       // Update the local state to reflect the change
@@ -66,12 +68,18 @@ const UserProfile = () => {
 
   return (
     <div className="user-profile">
-      <h2>My Profile <br /> <br />View Online Orders  </h2>
+      <h2>My Profile</h2>
       <h3>** Note, not all orders will be posted, please contact us if you would like to have your invoices posted to your profile **</h3>
       <div className="user-details">
         <p><strong>Email:</strong> {user.email}</p>
       </div>
       <Orders userEmail={user.email} />
+      <div className="points-section">
+        <h3>
+          <i className="fa fa-trophy" aria-hidden="true"></i> My Points
+        </h3>
+        <p>You have <strong>{points}</strong> points.</p>
+      </div>
       <div className="favorites-section">
         <h3>
           <i className="fa fa-star" aria-hidden="true"></i> My Favorite Games

@@ -7,6 +7,15 @@ const RewardsPage = () => {
   return (
     <div className="page-container">
       <div className="about-page">
+        {/* Add the link at the top */}
+        <div className="points-link">
+          <a 
+            href="https://docs.google.com/document/d/1dc2rQ2FOHAb2csD-JAiol94XxVQRu-AnkYlx8c-Ac08/edit?tab=t.0" 
+            style={{ color: '#0056b3', textDecoration: 'underline', fontWeight: 'bold' }}
+          >
+            View Our Points System
+          </a>
+        </div>
         <div className="about-box">
           <h3 className="at">
             At K&M Sales, we value our loyal customers and are excited to introduce our Rewards Program! 
