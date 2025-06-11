@@ -109,3 +109,58 @@
 .favorites-list li:hover {
   transform: scale(1.05);
 }
+
+/* Update User Information Section */
+.update-user-info {
+  margin-top: 20px;
+}
+
+.update-button {
+  background-color: #000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.update-button:hover {
+  background-color: #003d80;
+}
+
+.update-form {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.update-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.update-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-update-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-update-button:hover {
+  background-color: #218838;
+}

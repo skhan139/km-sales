@@ -35,6 +35,23 @@ const CheckoutFormModal = ({
       ...prevData,
       [name]: type === 'checkbox' ? checked : value // Handle checkbox and other inputs
     }));
+
+    // Disable discount code if "Use Points" is checked
+    if (name === 'usePoints' && checked) {
+      setDiscountCode(''); // Clear discount code
+    }
+  };
+
+  const handleDiscountCodeChange = (e) => {
+    setDiscountCode(e.target.value);
+
+    // Disable "Use Points" if discount code is entered
+    if (e.target.value.trim() !== '') {
+      setFormData((prevData) => ({
+        ...prevData,
+        usePoints: false, // Uncheck "Use Points"
+      }));
+    }
   };
 
   const handleSubmit = (e) => {
@@ -103,14 +120,14 @@ const CheckoutFormModal = ({
               type="text"
               placeholder="Enter discount code"
               value={discountCode}
-              onChange={(e) => setDiscountCode(e.target.value)}
-              disabled={discountApplied}
+              onChange={handleDiscountCodeChange}
+              disabled={formData.usePoints || discountApplied} // Disable if "Use Points" is checked or discount is applied
             />
           </label>
           <button
             type="button"
             onClick={handleApplyDiscount}
-            disabled={discountApplied}
+            disabled={formData.usePoints || discountApplied} // Disable if "Use Points" is checked or discount is applied
             className="apply-discount-button"
           >
             {discountApplied ? 'Discount Applied' : 'Apply Discount'}
@@ -148,6 +165,7 @@ const CheckoutFormModal = ({
               name="usePoints"
               checked={formData.usePoints}
               onChange={handleChange}
+              disabled={discountCode.trim() !== '' || discountApplied} // Disable if discount code is entered or discount is applied
             />
             Check For Yes. ** Note, Discount Code And Points Cannot Be Used Simultaneously **
           </label>
