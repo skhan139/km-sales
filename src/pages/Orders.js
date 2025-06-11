@@ -28,7 +28,9 @@ const Orders = ({ userEmail }) => {
 
   return (
     <div className="orders-section">
-      <h3>My Online Orders</h3>
+      <h3>
+  <i className="fa fa-shopping-bag" aria-hidden="true"></i> My Orders
+</h3>
       <ul className="orders-list">
         {userOrders.orders.map((order) => (
           <li key={order.id}>

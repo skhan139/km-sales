@@ -20,11 +20,15 @@ const UserProfile = () => {
   }); // State to store user details
   const [isUpdateFormOpen, setIsUpdateFormOpen] = useState(false); // State to toggle the update form
   const [updatedUserDetails, setUpdatedUserDetails] = useState({
-    firstName: userDetails.firstName || '',
-    lastName: userDetails.lastName || '',
-    companyName: userDetails.companyName || '',
-    phoneNumber: userDetails.phoneNumber || '', // Add phoneNumber to updatedUserDetails
+    firstName: '',
+    lastName: '',
+    companyName: '',
+    phoneNumber: '',
   }); // State to store updated user details
+  const [showMessageBubble, setShowMessageBubble] = useState(false); // State for showing the update message bubble
+  const [removeMessageBubble, setRemoveMessageBubble] = useState(false); // State for showing the removal message bubble
+  const [currentPage, setCurrentPage] = useState(1); // State for the current page
+  const gamesPerPage = 9; // Maximum number of games per page
 
   useEffect(() => {
     if (user) {
@@ -41,12 +45,34 @@ const UserProfile = () => {
             companyName: docSnap.data().companyName || 'N/A',
             phoneNumber: docSnap.data().phoneNumber || 'N/A', // Fetch phoneNumber or set to 'N/A'
           });
+          setUpdatedUserDetails({
+            firstName: docSnap.data().firstName || '',
+            lastName: docSnap.data().lastName || '',
+            companyName: docSnap.data().companyName || '',
+            phoneNumber: docSnap.data().phoneNumber || '',
+          });
         }
       };
 
       fetchUserData();
     }
   }, [user]);
+
+  const indexOfLastGame = currentPage * gamesPerPage;
+  const indexOfFirstGame = indexOfLastGame - gamesPerPage;
+  const currentFavorites = favorites.slice(indexOfFirstGame, indexOfLastGame);
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(favorites.length / gamesPerPage)) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
 
   const handleUpdateInputChange = (e) => {
     const { name, value } = e.target;
@@ -62,17 +88,24 @@ const UserProfile = () => {
 
     try {
       const userDoc = doc(db, 'users', user.email); // Reference to the user's document
-      await updateDoc(userDoc, {
-        firstName: updatedUserDetails.firstName,
-        lastName: updatedUserDetails.lastName,
-        companyName: updatedUserDetails.companyName,
-        phoneNumber: updatedUserDetails.phoneNumber, // Update phoneNumber
-      });
+
+      // Prepare updated data, retaining previous values for blank fields
+      const updatedData = {
+        firstName: updatedUserDetails.firstName || userDetails.firstName,
+        lastName: updatedUserDetails.lastName || userDetails.lastName,
+        companyName: updatedUserDetails.companyName || userDetails.companyName,
+        phoneNumber: updatedUserDetails.phoneNumber || userDetails.phoneNumber,
+      };
+
+      await updateDoc(userDoc, updatedData); // Update Firestore document
 
       // Update local state
-      setUserDetails(updatedUserDetails);
+      setUserDetails(updatedData);
       setIsUpdateFormOpen(false); // Close the form
-      alert('User information updated successfully!');
+
+      // Show the update message bubble
+      setShowMessageBubble(true);
+      setTimeout(() => setShowMessageBubble(false), 3000); // Hide the message bubble after 3 seconds
     } catch (error) {
       console.error('Error updating user information:', error);
       alert('An error occurred while updating your information. Please try again.');
@@ -93,7 +126,9 @@ const UserProfile = () => {
         prevFavorites.filter((item) => item.id !== favorite.id)
       );
 
-      alert(`${favorite.name} has been removed from your favorites.`);
+      // Show the removal message bubble
+      setRemoveMessageBubble(true);
+      setTimeout(() => setRemoveMessageBubble(false), 3000); // Hide the message bubble after 3 seconds
     } catch (error) {
       console.error('Error removing favorite:', error);
       alert('An error occurred while removing the favorite. Please try again.');
@@ -101,15 +136,14 @@ const UserProfile = () => {
   };
 
   const handleProductClick = (favorite) => {
-    // Find the product in the Products.js data by ID
     const product = products.find((item) => item.id === favorite.id);
     if (product) {
-      setSelectedProduct(product); // Open the ProductModal with the selected product
+      setSelectedProduct(product);
     }
   };
 
   const handleCloseModal = () => {
-    setSelectedProduct(null); // Close the ProductModal
+    setSelectedProduct(null);
   };
 
   if (!user) {
@@ -117,103 +151,133 @@ const UserProfile = () => {
   }
 
   return (
-    <div className="user-profile">
-      <h2>My Profile</h2>
-      <h3>** Note, not all orders will be posted, please contact us if you would like to have your invoices posted to your profile **</h3>
-      <div className="user-details">
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>First Name:</strong> {userDetails.firstName}</p>
-        <p><strong>Last Name:</strong> {userDetails.lastName}</p>
-        <p><strong>Company Name:</strong> {userDetails.companyName}</p>
-        <p><strong>Phone Number:</strong> {userDetails.phoneNumber}</p> {/* Render phoneNumber */}
-      </div>
-      <div className="update-user-info">
-        <button onClick={() => setIsUpdateFormOpen(!isUpdateFormOpen)} className="update-button">
-          {isUpdateFormOpen ? 'Cancel Update' : 'Update User Information'}
-        </button>
-        {isUpdateFormOpen && (
-          <form onSubmit={handleUpdateUserInfo} className="update-form">
-            <label>
-              First Name:
-              <input
-                type="text"
-                name="firstName"
-                value={updatedUserDetails.firstName}
-                onChange={handleUpdateInputChange}
-              />
-            </label>
-            <label>
-              Last Name:
-              <input
-                type="text"
-                name="lastName"
-                value={updatedUserDetails.lastName}
-                onChange={handleUpdateInputChange}
-              />
-            </label>
-            <label>
-              Company Name:
-              <input
-                type="text"
-                name="companyName"
-                value={updatedUserDetails.companyName}
-                onChange={handleUpdateInputChange}
-              />
-            </label>
-            <label>
-              Phone Number:
-              <input
-                type="text"
-                name="phoneNumber"
-                value={updatedUserDetails.phoneNumber}
-                onChange={handleUpdateInputChange}
-              />
-            </label>
-            <button type="submit" className="submit-update-button">Submit</button>
-          </form>
-        )}
-      </div>
-      <Orders userEmail={user.email} />
-      <div className="points-section">
-        <h3>
-          <i className="fa fa-trophy" aria-hidden="true"></i> My Points
-        </h3>
-        <p>You have <strong>{points}</strong> points.</p>
-      </div>
-      <div className="favorites-section">
-        <h3>
-          <i className="fa fa-star" aria-hidden="true"></i> My Favorite Games
-        </h3>
-        {favorites.length > 0 ? (
-          <ul className="favorites-list">
-            {favorites.map((favorite, index) => (
-              <li key={index} onClick={() => handleProductClick(favorite)}>
-                <p><strong>{favorite.name}</strong></p>
-                <img src={favorite.image} alt={favorite.name} className="favorite-image" />
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation(); // Prevent triggering the product click
-                    handleRemoveFavorite(favorite);
-                  }}
-                  className="remove-favorite-button"
-                >
-                  Remove
-                </button>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>You have no favorite games yet.</p>
-        )}
-      </div>
-      {selectedProduct && (
-        <ProductModal
-          product={selectedProduct}
-          onClose={handleCloseModal}
-          onFavorite={() => {}} // Optional: Pass a favorite handler if needed
-        />
+    <>
+      {showMessageBubble && (
+        <div className="message-bubble">
+          Profile updated successfully!
+        </div>
       )}
-    </div>
+      {removeMessageBubble && (
+        <div className="message-bubble">
+          Game removed successfully!
+        </div>
+      )}
+      <div className="user-profile">
+        <h2>My Profile</h2>
+        <h3>** Note, not all orders will be posted, please contact us if you would like to have your invoices posted to your profile **</h3>
+        <div className="user-details">
+          <p><strong>Email:</strong> {user.email}</p>
+          <p><strong>First Name:</strong> {userDetails.firstName}</p>
+          <p><strong>Last Name:</strong> {userDetails.lastName}</p>
+          <p><strong>Company Name:</strong> {userDetails.companyName}</p>
+          <p><strong>Phone Number:</strong> {userDetails.phoneNumber}</p>
+        </div>
+        <div className="update-user-info">
+          <button onClick={() => setIsUpdateFormOpen(!isUpdateFormOpen)} className="update-button">
+            {isUpdateFormOpen ? 'Cancel Update' : 'Update User Information'}
+          </button>
+          {isUpdateFormOpen && (
+            <form onSubmit={handleUpdateUserInfo} className="update-form">
+              <label>
+                First Name:
+                <input
+                  type="text"
+                  name="firstName"
+                  value={updatedUserDetails.firstName}
+                  onChange={handleUpdateInputChange}
+                />
+              </label>
+              <label>
+                Last Name:
+                <input
+                  type="text"
+                  name="lastName"
+                  value={updatedUserDetails.lastName}
+                  onChange={handleUpdateInputChange}
+                />
+              </label>
+              <label>
+                Company Name:
+                <input
+                  type="text"
+                  name="companyName"
+                  value={updatedUserDetails.companyName}
+                  onChange={handleUpdateInputChange}
+                />
+              </label>
+              <label>
+                Phone Number:
+                <input
+                  type="text"
+                  name="phoneNumber"
+                  value={updatedUserDetails.phoneNumber}
+                  onChange={handleUpdateInputChange}
+                />
+              </label>
+              <button type="submit" className="submit-update-button">Submit</button>
+            </form>
+          )}
+        </div>
+        <Orders userEmail={user.email} />
+        <div className="points-section">
+          <h3>
+            <i className="fa fa-trophy" aria-hidden="true"></i> My Points
+          </h3>
+          <p>You have <strong>{points}</strong> points.</p>
+        </div>
+        <div className="favorites-section">
+          <h3>
+            <i className="fa fa-star" aria-hidden="true"></i> My Favorite Games
+          </h3>
+          {favorites.length > 0 ? (
+            <>
+              <ul className="favorites-list">
+                {currentFavorites.map((favorite, index) => (
+                  <li key={index} onClick={() => handleProductClick(favorite)}>
+                    <p><strong>{favorite.name}</strong></p>
+                    <img src={favorite.image} alt={favorite.name} className="favorite-image" />
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent triggering the product click
+                        handleRemoveFavorite(favorite);
+                      }}
+                      className="remove-favorite-button"
+                    >
+                      Remove
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <div className="pagination-controls">
+                <button
+                  onClick={handlePreviousPage}
+                  disabled={currentPage === 1}
+                  className="pagination-button"
+                >
+                  <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
+                <span>Page {currentPage} of {Math.ceil(favorites.length / gamesPerPage)}</span>
+                <button
+                  onClick={handleNextPage}
+                  disabled={currentPage === Math.ceil(favorites.length / gamesPerPage)}
+                  className="pagination-button"
+                >
+                  <i className="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </>
+          ) : (
+            <p>You have no favorite games yet.</p>
+          )}
+        </div>
+        {selectedProduct && (
+          <ProductModal
+            product={selectedProduct}
+            onClose={handleCloseModal}
+          />
+        )}
+      </div>
+    </>
   );
 };
 

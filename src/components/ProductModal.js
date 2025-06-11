@@ -14,7 +14,8 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // State for the current image index
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 }); // State for zoom position
   const [isZooming, setIsZooming] = useState(false); // State to track if zoom is active
- 
+  const [favoriteSuccess, setFavoriteSuccess] = useState(''); // State for favorite success message
+
   useEffect(() => {
     if (product) {
       // Safely set the selected variant
@@ -114,6 +115,12 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
     setIsZooming(false);
   };
 
+  const handleAddToFavorites = (product) => {
+    onFavorite(product); // Call the onFavorite function
+    setFavoriteSuccess('Product added to favorites!'); // Show success message
+    setTimeout(() => setFavoriteSuccess(''), 3000); // Clear the message after 3 seconds
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -122,47 +129,48 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           {product.images && product.images.length > 1 ? (
             <>
               <div
-  className="zoom-container"
-  onMouseMove={handleMouseMove}
-  onMouseEnter={handleMouseEnter}
-  onMouseLeave={handleMouseLeave}
->
-  <img
-    src={product.images[currentImageIndex]}
-    alt={`${product.name} - ${currentImageIndex + 1}`}
-    className={`modal-image ${isZooming ? 'zooming' : ''}`}
-    style={{
-      transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
-    }}
-  />
-</div>
+                className="zoom-container"
+                onMouseMove={handleMouseMove}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
+                <img
+                  src={product.images[currentImageIndex]}
+                  alt={`${product.name} - ${currentImageIndex + 1}`}
+                  className={`modal-image ${isZooming ? 'zooming' : ''}`}
+                  style={{
+                    transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                  }}
+                />
+              </div>
               <button
-  className="image-nav single"
-  onClick={() => handleImageNavigation('right')}
->
-  <i className="fa fa-arrow-right" aria-hidden="true"></i>
-</button>
+                className="image-nav single"
+                onClick={() => handleImageNavigation('right')}
+              >
+                <i className="fa fa-arrow-right" aria-hidden="true"></i>
+              </button>
             </>
           ) : (
             <div
-  className="zoom-container"
-  onMouseMove={handleMouseMove}
-  onMouseEnter={handleMouseEnter}
-  onMouseLeave={handleMouseLeave}
->
-  <img
-    src={product.images ? product.images[0] : product.image}
-    alt={product.name}
-    className={`modal-image ${isZooming ? 'zooming' : ''}`}
-    style={{
-      transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
-    }}
-  />
-</div>
+              className="zoom-container"
+              onMouseMove={handleMouseMove}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <img
+                src={product.images ? product.images[0] : product.image}
+                alt={product.name}
+                className={`modal-image ${isZooming ? 'zooming' : ''}`}
+                style={{
+                  transformOrigin: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                }}
+              />
+            </div>
           )}
         </div>
+        {favoriteSuccess && <p className="favorite-success">{favoriteSuccess}</p>}
         <div className="modal-details">
-          <button onClick={() => onFavorite(product)} className="favorite-button">
+          <button onClick={() => handleAddToFavorites(product)} className="favorite-button">
             <i className="fa fa-star" aria-hidden="true"></i> Add to Favorites
           </button>
           <h2 className="modal-name">{selectedVariant?.name || product.name}</h2>
@@ -176,14 +184,14 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           <p className="modal-deals-per-case">Deals per Case: {selectedVariant?.dealsPerCase || product.dealsPerCase}</p>
           <p className="modal-seal">Seal: {selectedVariant?.seal || product.seal}</p>
           <div className="modal-buttons">
-          <button className="add-to-cart-button-modal" onClick={handleAddToCart}>
-  <i className="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
-</button>
-{!showShareOptions && (
-  <button className="share-button" onClick={handleShare}>
-    <i className="fa fa-share-alt" aria-hidden="true"></i> Share
-  </button>
-)}
+            <button className="add-to-cart-button-modal" onClick={handleAddToCart}>
+              <i className="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
+            </button>
+            {!showShareOptions && (
+              <button className="share-button" onClick={handleShare}>
+                <i className="fa fa-share-alt" aria-hidden="true"></i> Share
+              </button>
+            )}
             {showShareOptions && (
               <div className="share-options">
                 <button className="close-share-options" onClick={handleShare}>Close</button>
@@ -208,17 +216,17 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           </div>
         )}
         <div className="quantity-container">
-        {Array.isArray(product.tags) && product.tags.includes('boards') ? (
-  <div className="quantity-selection">
-    <label htmlFor="quantity-select">Number of boards:</label>
-    <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
-      {[...Array(11).keys()].map((num) => (
-        <option key={num} value={num}>
-          {num} {num === 1 ? 'board' : 'boards'}
-        </option>
-      ))}
-    </select>
-  </div>
+          {Array.isArray(product.tags) && product.tags.includes('boards') ? (
+            <div className="quantity-selection">
+              <label htmlFor="quantity-select">Number of boards:</label>
+              <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
+                {[...Array(11).keys()].map((num) => (
+                  <option key={num} value={num}>
+                    {num} {num === 1 ? 'board' : 'boards'}
+                  </option>
+                ))}
+              </select>
+            </div>
           ) : Array.isArray(product.tags) && product.tags.includes('paper') ? (
             <>
               <div className="custom-quantity">
