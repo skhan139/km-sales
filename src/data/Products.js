@@ -439,6 +439,7 @@ const products = [
   { id: 276, name: "4000 3/1 Rodeo Riders", images: ["/assets/images/rodeoriders.jpg", "/assets/images/instantwinnerinfo.jpg"], category: "instant winners", tags: ["instant", "winner"], sku: "SKU033", takeIn: "$4,000.00", payout: "$3,200.00", profit: "$800.00", profitPercent: "20%", dealsPerCase: "8", seal: "$180", denomination: "$1", bundle: "3", bottomPayout: "$20" },
   { id: 277, name: "4000 3/1 Bad Apple", images: ["/assets/images/badapple.jpg", "/assets/images/instantwinnerinfo.jpg"], category: "instant winners", tags: ["instant", "winner"], sku: "SKU033", takeIn: "$4,000.00", payout: "$3,200.00", profit: "$800.00", profitPercent: "20%", dealsPerCase: "8", seal: "$180", denomination: "$1", bundle: "3", bottomPayout: "$20" },
   { id: 278, name: "4000 3/1 Crack The Nut", images: ["/assets/images/crackthenut.jpg", "/assets/images/instantwinnerinfo.jpg"], category: "instant winners", tags: ["instant", "winner"], sku: "SKU033", takeIn: "$4,000.00", payout: "$3,200.00", profit: "$800.00", profitPercent: "20%", dealsPerCase: "8", seal: "$180", denomination: "$1", bundle: "3", bottomPayout: "$20" },
+  { id: 279, name: "Made In America Gun/Knife Board (3990 Ticket Count)", images: ["/assets/images/mia.jpg", "/assets/images/rifle.jpg"], category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$3,990.00", payout: "$1,485", profit: "$1,876.00", profitPercent: "47.8%", dealsPerCase: "1", seal: "$500", denomination: "$1", bottomPayout: "$5" },
 ];
 
 export default products;
