@@ -275,3 +275,26 @@ body {
 .popup {
   background-color: #333;
 }
+
+.popup-2 {
+  position: absolute; /* Position the popup relative to the page */
+  top: 300px; /* Move the popup further down */
+  left: 20px; /* Keep the popup to the left */
+  width: 250px; /* Adjust the width */
+  height: 150px; /* Set a fixed height */
+  color: white;
+  padding: 10px; /* Reduce padding to fit content */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above other elements */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.popup-2 p {
+  margin: 0;
+  font-size: 14px; /* Adjust font size */
+  line-height: 1.4; /* Ensure proper spacing between lines */
+  max-height: 120px; /* Limit the height of the text */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
