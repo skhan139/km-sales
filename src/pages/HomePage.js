@@ -9,7 +9,6 @@ import { auth } from '../firebase'; // Import Firebase configuration
 
 const HomePage = () => {
   const [showPopup1, setShowPopup1] = useState(true); // State for the first popup
-  const [showPopup2, setShowPopup2] = useState(true); // State for the second popup
 
   const sliderSettings = {
     dots: true,
@@ -22,7 +21,6 @@ const HomePage = () => {
   };
 
   const handleClosePopup1 = () => setShowPopup1(false); // Close the first popup
-  const handleClosePopup2 = () => setShowPopup2(false); // Close the second popup
 
   const [user] = useAuthState(auth); // Get the authenticated user
 
@@ -32,13 +30,6 @@ const HomePage = () => {
         <div className="popup popup-1">
           <p>New clubs are eligible for 10% off for their first three orders!</p>
           <button className="popup-close-button" onClick={handleClosePopup1}>×</button>
-        </div>
-      )}
-
-      {showPopup2 && (
-        <div className="popup popup-2">
-          <p>Our team is on standby with any questions you have! We also offer instant fulfillment for clubs within a 3 hour radius of any of our locations!</p>
-          <button className="popup-close-button" onClick={handleClosePopup2}>×</button>
         </div>
       )}
 

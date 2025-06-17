@@ -133,8 +133,15 @@ const Cart = () => {
           </span>
         )}
       </h2>
+      <p className='bubble'>
+        Have a question about your order before placing it? 
+        <br />
+        <a href="tel:443-789-6803">Send us a text here</a> or 
+        <a href="mailto:skhan139@icloud.com"> email us here</a>.
+      </p>
       {cart.length === 0 ? (
         <p>You have no items in your cart</p>
+  
       ) : (
         <div className="cart-items">
           {cart.map((item) => (
@@ -204,7 +211,6 @@ const Cart = () => {
         </div>
       )}
       {error && <p className="error-message">{error}</p>}
-      <MessageBubble />
       <div className="cart-buttons">
         <button className="checkout-button" onClick={handleCheckout}>
           Proceed to Checkout

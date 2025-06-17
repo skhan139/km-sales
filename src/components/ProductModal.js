@@ -175,7 +175,6 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           </button>
           <h2 className="modal-name">{selectedVariant?.name || product.name}</h2>
           <p className="modal-description">{selectedVariant?.description || product.description}</p>
-          <p className="modal-price">Price: {selectedVariant?.price || product.price}</p>
           <p className="modal-sku">SKU: {selectedVariant?.sku || product.sku}</p>
           <p className="modal-takein">Take In: {selectedVariant?.takeIn || product.takeIn}</p>
           <p className="modal-payout">Payout: {selectedVariant?.payout || product.payout}</p>

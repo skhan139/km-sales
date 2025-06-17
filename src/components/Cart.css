@@ -171,3 +171,10 @@ p {
   color: #333; /* Set text color */
   font-weight: bold; /* Make the text bold */
 }
+
+.bubble {
+  background-color: white;
+  color: black;
+  font: bold;
+  font-style: oblique;
+}
