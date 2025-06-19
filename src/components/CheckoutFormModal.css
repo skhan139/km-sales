@@ -1,5 +1,3 @@
-/* src/components/CheckoutFormModal.css */
-
 .modal-content {
   background-color: #fff;
   padding: 20px;
@@ -81,7 +79,7 @@
   z-index: 999;
 }
 
-h2{
+h2 {
   color: black;
 }
 
@@ -103,4 +101,31 @@ h2{
 
 .email-subscription input[type="radio"] {
   margin-right: 5px; /* Add spacing between the radio button and the label text */
+}
+
+/* Align the bottom buttons properly */
+.modal-content .checkout-buttons {
+  display: flex;
+  justify-content: space-between; /* Space out the buttons */
+  align-items: center;
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  gap: 10px; /* Add spacing between buttons */
+  margin-top: 20px;
+}
+
+.modal-content .checkout-buttons button {
+  flex: 1; /* Make buttons take equal space */
+  min-width: 120px; /* Ensure buttons have a minimum width */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 480px) {
+  .modal-content .checkout-buttons {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    align-items: stretch; /* Stretch buttons to full width */
+  }
+
+  .modal-content .checkout-buttons button {
+    width: 100%; /* Make buttons full width */
+  }
 }

@@ -441,6 +441,8 @@ const products = [
   { id: 278, name: "4000 3/1 Crack The Nut", images: ["/assets/images/crackthenut.jpg", "/assets/images/instantwinnerinfo.jpg"], category: "instant winners", tags: ["instant", "winner"], sku: "SKU033", takeIn: "$4,000.00", payout: "$3,200.00", profit: "$800.00", profitPercent: "20%", dealsPerCase: "8", seal: "$180", denomination: "$1", bundle: "3", bottomPayout: "$20" },
   { id: 279, name: "Made In America Gun/Knife Board (3990 Ticket Count)", images: ["/assets/images/mia.jpg", "/assets/images/rifle.jpg"], category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$3,990.00", payout: "$1,485.00", profit: "$1,876.00", profitPercent: "47.8%", dealsPerCase: "1", seal: "$500", denomination: "$1", bottomPayout: "$5" },
   { id: 280, name: "Beer Buggy Board (3960 Ticket Count)", images: ["/assets/images/beerbuggy.jpg", "/assets/images/buggyinfo.jpg"], category: "merchandise boards", tags: ["merchandise", "boards"], sku: "SKU002", takeIn: "$3,960.00", payout: "$2,190.00", profit: "$891.00", profitPercent: "22.5%", dealsPerCase: "1", seal: "$500", denomination: "$1", bottomPayout: "$1" },
+  { id: 281, name: "210 @ $5 Scratchers", image: "/assets/images/scratchers.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$1,025.00", payout: "$725.00", profit: "$300.00", profitPercent: "28.57%", dealsPerCase: "8", seal: "$750", denomination: "$5", bottomPayout: "$1", },
+  { id: 282, name: "1240 Pick A Pig", image: "/assets/images/pickapig.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$1,240.00", payout: "$870.00", profit: "$370.00", profitPercent: "29.8%", dealsPerCase: "11", seal: "$250", denomination: "$1", bottomPayout: "$5", },
 ];
 
 export default products;
