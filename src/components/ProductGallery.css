@@ -268,7 +268,7 @@
   position: absolute;
   top: 150px; /* Adjust this value to lower the button */
   left: 20px;
-  background-color: black; 
+  background-color: black !important;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -296,23 +296,26 @@
 }
 
 .pagination-button {
-  background-color: #000;
-  border: 1px solid #ddd;
+  background-color: #000 !important; /* Force black background */
+  color: white !important; /* Force white text */
+  border: 1px solid #000 !important; /* Force black border */
   padding: 10px;
   margin: 0 10px; /* Increase margin to space out buttons more */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .pagination-button:hover {
-  background-color: #ddd;
+  background-color: #333 !important; /* Force darker black on hover */
+  color: #fff !important; /* Force white text on hover */
 }
 
 .pagination-button.active {
-  background-color: #DAA520;
-  color: white;
-  border-color: #000;
+  background-color: #DAA520 !important; /* Force gold background for active button */
+  color: white !important; /* Force white text */
+  border-color: #000 !important; /* Force black border */
 }
+
 
 h3 {
   color: black;
