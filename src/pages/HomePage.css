@@ -15,22 +15,22 @@ body {
 }
 
 .homepage-container {
-  background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: repeat-y; /* Repeat the background image vertically */
-  min-height: 200vh; /* Increase base minimum height to ensure enough space */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Align items at the start */
-  color: white; /* Adjust text color for visibility */
-  padding: 20px; /* Add some padding for responsiveness */
-  padding-top: 100px; /* Add more top padding to push content below the navbar */
-  padding-bottom: 150px; /* Increase bottom padding to ensure space below sliders */
-  margin-top: 0px; /* Remove top margin to avoid overlapping with navbar */
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-  animation: fadeIn 1s ease-in; /* Apply the fade-in animation */
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), black) !important; /* Gradient fades to black */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important; /* Ensure no repetition */
+  min-height: 200vh !important; /* Increase base minimum height to ensure enough space */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important; /* Align items at the start */
+  color: white !important; /* Adjust text color for visibility */
+  padding: 20px !important; /* Add some padding for responsiveness */
+  padding-top: 100px !important; /* Add more top padding to push content below the navbar */
+  padding-bottom: 150px !important; /* Increase bottom padding to ensure space below sliders */
+  margin-top: 0px !important; /* Remove top margin to avoid overlapping with navbar */
+  box-sizing: border-box !important; /* Ensure padding and border are included in the element's total width and height */
+  animation: fadeIn 1s ease-in !important; /* Apply the fade-in animation */
 }
 
 .info-box {

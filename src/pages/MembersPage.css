@@ -1,13 +1,13 @@
 .members-page-container {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), black) !important; /* Gradient fades to black */
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important; /* Prevent repetition */
   padding: 80px 20px 100px; /* Add extra padding to the bottom to prevent overlap with the footer */
   text-align: center;
-  background-color: #f0ead6; /* Off-white background */
-  border: 1px solid black; /* Thin black outline */
-  background-size: cover; /* Ensure the background image covers the entire container */
-  background-position: center; /* Center the background image */
-  background-repeat: no-repeat; /* Prevent the background image from repeating */
   min-height: 100vh; /* Ensure the container takes at least the full viewport height */
-  color: rgb(0, 0, 0); /* Ensure the text is readable against the background */
+  color: white !important; /* Adjust text color for visibility */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
 .product-gallery {
