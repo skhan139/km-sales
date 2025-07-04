@@ -86,75 +86,80 @@ const Navbar = () => {
             <span className="bar"></span>
           </button>
           <ul className={`navbar-links ${isOpen ? 'active' : ''}`}>
-          <li>
-  <Link to="/" onClick={closeNavbar}>
-    <i className="fa fa-home" aria-hidden="true"></i> Home
-  </Link>
-</li>
-<li className="dropdown">
-  <li className="dropdown-button">Info</li>
-  <ul className="dropdown-content">
-    <li>
-      <Link to="/about" onClick={closeNavbar}>
-        <i className="fa fa-info-circle" aria-hidden="true"></i> About
-      </Link>
-    </li>
-    <li>
-      <Link to="/contact" onClick={closeNavbar}>
-        <i className="fa fa-envelope" aria-hidden="true"></i> Contact
-      </Link>
-    </li>
-    <li>
-      <Link to="/legacy" onClick={closeNavbar}>
-        <i className="fa fa-bullseye" aria-hidden="true"></i> Our Mission
-      </Link>
-    </li>
-    <li>
-      <Link to="/testimonial" onClick={closeNavbar}>
-        <i className="fa fa-star" aria-hidden="true"></i> Why K&M?
-      </Link>
-    </li>
-    <li>
-      <Link to="/event-inspiration" onClick={closeNavbar}>
-        <i className="fa fa-lightbulb" aria-hidden="true"></i> Event Inspiration
-      </Link>
-    </li>
-    <li>
-      <Link to="/game-terminology" onClick={closeNavbar}>
-        <i className="fa fa-book" aria-hidden="true"></i> Game Terminology
-      </Link>
-    </li>
-    <li>
-      <Link to="/license" onClick={closeNavbar}>
-        <i className="fa fa-id-card" aria-hidden="true"></i> License
-      </Link>
-    </li>
-    <li>
-      <Link to="/rewards" onClick={closeNavbar}>
-        <i className="fa fa-gift" aria-hidden="true"></i> Rewards
-      </Link>
-    </li>
-  </ul>
-</li>
+            <li>
+              <Link to="/" onClick={closeNavbar}>
+                <i className="fa fa-home" aria-hidden="true"></i> Home
+              </Link>
+            </li>
+            <li className="dropdown">
+              <li className="dropdown-button">Info</li>
+              <ul className="dropdown-content">
+                <li>
+                  <Link to="/about" onClick={closeNavbar}>
+                    <i className="fa fa-info-circle" aria-hidden="true"></i> About
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" onClick={closeNavbar}>
+                    <i className="fa fa-envelope" aria-hidden="true"></i> Contact
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/legacy" onClick={closeNavbar}>
+                    <i className="fa fa-bullseye" aria-hidden="true"></i> Our Mission
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/testimonial" onClick={closeNavbar}>
+                    <i className="fa fa-star" aria-hidden="true"></i> Why K&M?
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/event-inspiration" onClick={closeNavbar}>
+                    <i className="fa fa-lightbulb" aria-hidden="true"></i> Event Inspiration
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/game-terminology" onClick={closeNavbar}>
+                    <i className="fa fa-book" aria-hidden="true"></i> Game Terminology
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/license" onClick={closeNavbar}>
+                    <i className="fa fa-id-card" aria-hidden="true"></i> License
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/rewards" onClick={closeNavbar}>
+                    <i className="fa fa-gift" aria-hidden="true"></i> Rewards
+                  </Link>
+                </li>
+                <li>
+                  <a href="https://www.kandmbuzzboard.com/" target="_blank" rel="noopener noreferrer">
+                    <i className="fa fa-bolt" aria-hidden="true"></i> Buzz Board
+                  </a>
+                </li>
+              </ul>
+            </li>
             {user ? (
               <>
-               <li>
-  <Link to="/members" onClick={closeNavbar}>
-    <i className="fa fa-th" aria-hidden="true"></i> Products
-  </Link>
-</li>
                 <li>
-  <Link to="/profile" onClick={closeNavbar}>
-    <i className="fa fa-user" aria-hidden="true"></i> My Profile
-  </Link>
-</li>
+                  <Link to="/members" onClick={closeNavbar}>
+                    <i className="fa fa-th" aria-hidden="true"></i> Products
+                  </Link>
+                </li>
                 <li>
-  <Link to="/cart" onClick={closeNavbar}>
-    <span className="cart-icon" data-count={cart ? cart.length : 0}>
-      <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
-    </span>
-  </Link>
-</li>
+                  <Link to="/profile" onClick={closeNavbar}>
+                    <i className="fa fa-user" aria-hidden="true"></i> My Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/cart" onClick={closeNavbar}>
+                    <span className="cart-icon" data-count={cart ? cart.length : 0}>
+                      <i className="fa fa-shopping-cart" aria-hidden="true"></i> Cart
+                    </span>
+                  </Link>
+                </li>
                 <li>
                   <button className="nav-button" onClick={() => { auth.signOut(); closeNavbar(); }}>Sign Out</button>
                 </li>
