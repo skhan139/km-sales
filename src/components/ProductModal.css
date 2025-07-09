@@ -281,3 +281,7 @@
     transform: translateY(-10px);
   }
 }
+
+label {
+  color: black;
+}
