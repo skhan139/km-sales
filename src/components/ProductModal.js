@@ -121,6 +121,65 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
     setTimeout(() => setFavoriteSuccess(''), 3000); // Clear the message after 3 seconds
   };
 
+  const handlePrint = () => {
+    const imageSrc = product.images && product.images[0]
+      ? `${window.location.origin}${product.images[0]}`
+      : `${window.location.origin}${product.image}`;
+  
+    const printWindow = window.open('', '_blank');
+    printWindow.document.write(`
+      <html>
+        <head>
+          <title>Print Product Details</title>
+          <style>
+            body {
+              font-family: 'Poppins', sans-serif;
+              padding: 20px;
+              line-height: 1.4;
+              margin: 0;
+            }
+            h2 {
+              font-size: 20px;
+              margin-bottom: 10px;
+            }
+            p {
+              margin: 5px 0;
+              font-size: 14px;
+            }
+            img {
+              max-width: 300px; /* Limit the image width */
+              height: auto; /* Maintain aspect ratio */
+              margin-bottom: 10px;
+            }
+            .print-container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              max-width: 800px;
+              margin: 0 auto;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="print-container">
+            <h2>${selectedVariant?.name || product.name}</h2>
+            <img src="${imageSrc}" alt="${product.name}" />
+            <p><strong>SKU:</strong> ${selectedVariant?.sku || product.sku}</p>
+            <p><strong>Take In:</strong> ${selectedVariant?.takeIn || product.takeIn}</p>
+            <p><strong>Payout:</strong> ${selectedVariant?.payout || product.payout}</p>
+            <p><strong>Profit:</strong> ${selectedVariant?.profit || product.profit}</p>
+            <p><strong>Profit Percent:</strong> ${selectedVariant?.profitPercent || product.profitPercent}</p>
+            <p><strong>Deals per Case:</strong> ${selectedVariant?.dealsPerCase || product.dealsPerCase}</p>
+            <p><strong>Seal:</strong> ${selectedVariant?.seal || product.seal}</p>
+          </div>
+        </body>
+      </html>
+    `);
+    printWindow.document.close();
+    printWindow.print();
+  };
+
   return (
     <div className="modal-overlay">
       <div className="modal-content">
@@ -182,6 +241,9 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           <p className="modal-profit-percent">Profit : {selectedVariant?.profitPercent || product.profitPercent}</p>
           <p className="modal-deals-per-case">Deals per Case: {selectedVariant?.dealsPerCase || product.dealsPerCase}</p>
           <p className="modal-seal">Seal: {selectedVariant?.seal || product.seal}</p>
+          <button className="print-button" onClick={handlePrint}>
+          <i className="fa fa-print" aria-hidden="true"></i> Print Product Details
+        </button>
           <div className="modal-buttons">
             <button className="add-to-cart-button-modal" onClick={handleAddToCart}>
               <i className="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
