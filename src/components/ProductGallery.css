@@ -25,7 +25,7 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  background-color: #f0ead6; /* Eggshell white background */
+  background-color: white; /* Eggshell white background */
   border: 1px solid black; /* Thin black outline */
   padding: 20px; /* Add padding for better spacing */
   border-radius: 8px; /* Optional: Add border radius for rounded corners */
@@ -57,7 +57,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  background-color: #f0ead6; /* Eggshell white background */
+  background-color: white; /* Eggshell white background */
   border: 1px solid black; /* Thin black outline */
   padding: 20px; /* Add padding for better spacing */
   border-radius: 8px; /* Optional: Add border radius for rounded corners */
