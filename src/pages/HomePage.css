@@ -36,7 +36,7 @@ body {
 .info-box {
   margin-top: 40px; /* Add margin to slide the info-box down */
   padding: 20px;
-  background-image: url('/public/assets/images/modernbg.jpg'); /* Path to your background image */
+  background-color: black; /* Path to your background image */
   border-radius: 10px; /* Rounded corners */
   width: 80%; /* Adjust width as needed */
   max-width: 600px; /* Set a maximum width for larger screens */
@@ -129,7 +129,7 @@ body {
   flex: 1; /* Each slider takes up an equal portion of the available space */
   max-width: 28%; /* Limit the maximum width of each slider */
   text-align: center;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.8)); /* Gradient fades to black */
+  background-color: #000; /* Gradient fades to black */
   background-size: cover; /* Cover the entire container */
   background-position: center; /* Center the background */
   border-radius: 10px; /* Rounded corners */
@@ -137,11 +137,13 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
   margin: 0 5px; /* Reduce margin between sliders */
   color: white; /* Ensure text is visible */
+  background-color: black;
 }
 
 .slider-container {
   position: relative; /* Ensure positioning context for arrows */
   padding: 15px 0;
+  background-color: black !important;
 }
 
 .slider-image {

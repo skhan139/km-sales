@@ -487,6 +487,12 @@ const products = [
   { id: 307, name: "3960 Bet On 7's", image: "/assets/images/beton7s.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$3,960.00", payout: "$2,980", profit: "$980.00", profitPercent: "24.75%", dealsPerCase: "1", seal: "$250", denomination: "$1", window: "5", bottomPayout: "$1" },
   { id: 308, name: "3960 Penny Droper", image: "/assets/images/pennydroper.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$3,960.00", payout: "$2,980", profit: "$980.00", profitPercent: "24.75%", dealsPerCase: "1", seal: "$250", denomination: "$1", window: "5", bottomPayout: "$1" },
   { id: 309, name: "3960 Dad Life", image: "/assets/images/dadlife.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$3,960.00", payout: "$2,980", profit: "$980.00", profitPercent: "24.75%", dealsPerCase: "1", seal: "$250", denomination: "$1", window: "5", bottomPayout: "$1" },
+  { id: 110, name: "240 The Red Zone", image: "/assets/images/240redzone.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$240.00", payout: "$156.00", profit: "$84.00", profitPercent: "35%", dealsPerCase: "40", seal: "$100", bottomPayout: "$1" },
+  { id: 110, name: "480 The Red Zone", image: "/assets/images/480redzone.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$480.00", payout: "$325.00", profit: "$155.00", profitPercent: "32.29%", dealsPerCase: "12", seal: "$300", bottomPayout: "$1" },
+  { id: 110, name: "1008 The Red Zone", image: "/assets/images/1008redzone.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$1,008.00", payout: "$680.00", profit: "$328.00", profitPercent: "32.53%", dealsPerCase: "8", seal: "$500", bottomPayout: "$5" },
+  { id: 110, name: "3626 Sterling Silver @ $3", image: "/assets/images/sterlingsilver.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$10,878.00", payout: "$8,1414.00", profit: "$2,464.00", profitPercent: "22.65%", dealsPerCase: "1", denomination: "$3", seal: "$888", bottomPayout: "$3" },
+  { id: 229, name: "490 Gutter Ball", image: "/assets/images/gutterball.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU016", takeIn: "$490.00", payout: "$319.00", profit: "$171.00", profitPercent: "34.90%", dealsPerCase: "10", seal: "$280", denomination: "$1", bottomPayout: "$1" },
+  
 ];
 
 export default products;
