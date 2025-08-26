@@ -1,0 +1,144 @@
+.custom-game-creator {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .form-container {
+    width: 45%;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form-container label {
+    display: block;
+    margin-bottom: 15px;
+  }
+  
+  .form-container input,
+  .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .preview-container {
+    width: 45%;
+    text-align: center;
+  }
+  
+  .game-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .game-card h3 {
+    margin: 10px 0;
+  }
+  
+  .game-card p {
+    margin: 5px 0;
+  }
+  
+  .club-logo {
+    max-width: 100px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  .payout-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .payout-field input {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .payout-count-field {
+    max-width: 80px;
+  }
+  
+  .add-payout-button,
+  .remove-payout-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .add-payout-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .remove-payout-button {
+    background-color: #ff4d4d;
+  }
+  
+  .remove-payout-button:hover {
+    background-color: #cc0000;
+  }
+  
+  .remove-payout-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  ul li {
+    margin-bottom: 5px; /* Add spacing between list items */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .payouts-column {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 5px; /* Add spacing between items */
+  }
+  
+  .payout-item {
+    display: flex;
+    justify-content: space-between; /* Space description and count */
+    width: 100%; /* Ensure items take up full width */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .download-pdf-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .download-pdf-button:hover {
+    background-color: #218838;
+  }

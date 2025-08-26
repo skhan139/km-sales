@@ -20,6 +20,7 @@ import ReturnPolicy from './pages/ReturnPolicy';
 import ShippingPolicy from './pages/ShippingPolicy';
 import UserProfile from './pages/UserProfile';
 import CustomGamePage from './pages/CustomGamePage'; // Import the CustomGamePage component
+import CustomGameCreator from './pages/CustomGameCreator'; // Import the CustomGameCreator component
 import EventInspiration from './pages/EventInspiration'; // Import the EventInspiration component
 import GameTerminology from './pages/GameTerminology'; // Import the GameTerminology component
 import LicensePage from './pages/License'; // Import the LicensePage component
@@ -99,6 +100,7 @@ const App = () => {
           <Route path="/profile" element={user ? <UserProfile /> : <Navigate to="/login" />} />
           <Route path="/checkout-success" element={user ? <h2>Checkout Successful!</h2> : <Navigate to="/login" />} />
           <Route path="/custom-game" element={<CustomGamePage />} /> {/* Add CustomGamePage route */}
+          <Route path="/custom-game-creator" element={<CustomGameCreator />} /> {/* Add CustomGameCreator route */}
           <Route path="/event-inspiration" element={<EventInspiration />} /> {/* Add EventInspiration route */}
           <Route path="/game-terminology" element={<GameTerminology />} /> {/* Add GameTerminology route */}
           <Route path="/blog" element={<Blog />} /> {/* Add Blog route */}

@@ -1,6 +1,7 @@
 // src/pages/CustomGamePage.js
 
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './CustomGamePage.css'; // Import the CSS file for styling
 
 const CustomGamePage = () => {
@@ -38,11 +39,16 @@ const CustomGamePage = () => {
           </div>
         </div>
         <h3>Here are some examples of custom games</h3>
-<div className="custom-game-images-container">
-  <img src="/assets/images/deerparkvets.jpg" alt="Examples of custom games" className="custom-game-image" />
-  <img src="/assets/images/oaklandlegion.jpg" alt="Examples of custom games" className="custom-game-image" />
-  <img src="/assets/images/customticket.jpg" alt="Examples of custom games" className="custom-game-image" />
-</div>
+        <div className="custom-game-images-container">
+          <img src="/assets/images/deerparkvets.jpg" alt="Examples of custom games" className="custom-game-image" />
+          <img src="/assets/images/oaklandlegion.jpg" alt="Examples of custom games" className="custom-game-image" />
+          <img src="/assets/images/customticket.jpg" alt="Examples of custom games" className="custom-game-image" />
+        </div>
+        <div className="button-container">
+          <Link to="/custom-game-creator" className="custom-game-button">
+            Start Creating Your Game
+          </Link>
+        </div>
       </div>
     </div>
   );
