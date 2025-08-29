@@ -198,6 +198,10 @@ const CustomGameCreator = () => {
         <button className="download-pdf-button" onClick={downloadPDF}>
           Download Poster as PDF
         </button>
+        <p className="email-instructions">
+    To create your custom game, download the poster with your game specs and email it 
+    <a href="mailto:skhan139@icloud.com"> here</a>. We will get back to you to start the process.
+  </p>
       </div>
     </div>
   );

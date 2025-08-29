@@ -33,17 +33,26 @@ const HomePage = () => {
         </div>
       )}
 
-      <div className="info-box">
-        <h1 className='welcome'>Welcome to K&M Sales.</h1>
-        <h2 className='produly'>Proudly supplying bingo and gaming products to West Virginia and Maryland for over 40 years!</h2>
-        <p className='intro'>
-        We sell a variety of pull tabs/tip jars, tickets, bingo games, and more! <br/>
-          Want to buy our products?
-Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
-          Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
-          Interested in creating a custom game? 
-<a href="/custom-game"> Visit our Custom Game Page</a> <br/> Are you a new customer and unsure of where to start? Read our <a href="/blog"> Blog</a> that goes over what certain games will suit your needs best and find out how to generate as much revenue for your club/event as possible!
-</p>
+<div className="info-box-container">
+  <div className="info-box">
+    <h1 className='welcome'>Welcome to K&M Sales.</h1>
+    <h2 className='produly'>Proudly supplying bingo and gaming products to West Virginia and Maryland for over 40 years!</h2>
+    <p className='intro'>
+      We sell a variety of pull tabs/tip jars, tickets, bingo games, and more! <br/>
+      Want to buy our products?
+      Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
+      Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
+      Interested in creating a custom game? 
+      <a href="/custom-game"> Visit our Custom Game Page</a> <br/> Are you a new customer and unsure of where to start? Read our <a href="/blog"> Blog</a> that goes over what certain games will suit your needs best and find out how to generate as much revenue for your club/event as possible!
+    </p>
+  </div>
+  <div className="info-box">
+    <img 
+      src={`${process.env.PUBLIC_URL}/assets/images/kminfograph.jpg`} 
+      alt="Example" 
+      className="info-box-image" 
+    />
+  </div>
 </div>
 
       <div className="image-row">

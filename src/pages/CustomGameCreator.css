@@ -142,3 +142,19 @@
   .download-pdf-button:hover {
     background-color: #218838;
   }
+
+  .email-instructions {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: #555;
+  }
+  
+  .email-instructions a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .email-instructions a:hover {
+    text-decoration: underline;
+  }

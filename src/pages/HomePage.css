@@ -19,7 +19,7 @@ body {
   background-size: cover !important;
   background-position: center !important;
   background-repeat: no-repeat !important; /* Ensure no repetition */
-  min-height: 200vh !important; /* Increase base minimum height to ensure enough space */
+  min-height: 250vh !important; /* Increase the minimum height to allow more scrolling */
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -27,7 +27,6 @@ body {
   color: white !important; /* Adjust text color for visibility */
   padding: 20px !important; /* Add some padding for responsiveness */
   padding-top: 100px !important; /* Add more top padding to push content below the navbar */
-  padding-bottom: 150px !important; /* Increase bottom padding to ensure space below sliders */
   margin-top: 0px !important; /* Remove top margin to avoid overlapping with navbar */
   box-sizing: border-box !important; /* Ensure padding and border are included in the element's total width and height */
   animation: fadeIn 1s ease-in !important; /* Apply the fade-in animation */
@@ -300,4 +299,37 @@ body {
   max-height: 120px; /* Limit the height of the text */
   overflow: hidden; /* Hide overflowing text */
   text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+.info-box-container {
+  display: flex;
+  justify-content: space-between; /* Add space between the two boxes */
+  align-items: stretch; /* Ensure both boxes stretch to the same height */
+  gap: 20px; /* Add spacing between the boxes */
+  margin-top: 20px; /* Add some margin above the container */
+}
+
+.info-box {
+  background-color: black; /* Optional: Match the existing background color */
+  color: white;
+  padding: 15px; /* Reduce padding to shrink the box size */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  flex: 1; /* Make both boxes take equal width */
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* Ensure content stacks vertically */
+  justify-content: center; /* Center content vertically */
+  height: auto; /* Allow height to adjust dynamically */
+}
+
+.info-box:first-child { /* Target the first info box (text box) */
+  max-width: 50%; /* Make the text box slightly wider */
+}
+
+.info-box h1,
+.info-box h2,
+.info-box p {
+  font-size: 110%; /* Increase font size for better readability */
+  line-height: 1.6; /* Add more spacing between lines */
 }

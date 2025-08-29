@@ -9,7 +9,7 @@ import { auth, db } from '../firebase'; // Import Firebase configuration
 import { doc, getDoc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore';
 import Slider from 'react-slick'; // Import the Slider component
 
-const itemsPerPage = 16; // Number of items to display per page
+const itemsPerPage = 30; // Number of items to display per page
 
 const ProductGallery = ({ searchTerm }) => {
   const [sortCriteria, setSortCriteria] = useState('all');
