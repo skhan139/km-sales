@@ -302,34 +302,71 @@ body {
 }
 
 .info-box-container {
-  display: flex;
-  justify-content: space-between; /* Add space between the two boxes */
-  align-items: stretch; /* Ensure both boxes stretch to the same height */
-  gap: 20px; /* Add spacing between the boxes */
-  margin-top: 20px; /* Add some margin above the container */
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove any default margin */
 }
 
 .info-box {
-  background-color: black; /* Optional: Match the existing background color */
-  color: white;
-  padding: 15px; /* Reduce padding to shrink the box size */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  flex: 1; /* Make both boxes take equal width */
-  text-align: center;
-  display: flex;
-  flex-direction: column; /* Ensure content stacks vertically */
-  justify-content: center; /* Center content vertically */
-  height: auto; /* Allow height to adjust dynamically */
-}
-
-.info-box:first-child { /* Target the first info box (text box) */
-  max-width: 50%; /* Make the text box slightly wider */
+  background-color: black; /* Box background color */
+  color: white; /* Text color */
+  padding: 20px; /* Add padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+  width: 80%; /* Adjust width */
+  max-width: 1000px; /* Set a maximum width */
+  text-align: center; /* Center text inside the box */
 }
 
 .info-box h1,
 .info-box h2,
 .info-box p {
-  font-size: 110%; /* Increase font size for better readability */
-  line-height: 1.6; /* Add more spacing between lines */
+  margin: 10px 0; /* Add spacing between elements */
+  line-height: 1.6; /* Improve readability */
+}
+
+.info-box h1 {
+  font-size: 2em; /* Heading size */
+}
+
+.info-box h2 {
+  font-size: 1.5em; /* Subheading size */
+}
+
+.info-box p {
+  font-size: 1em; /* Paragraph size */
+}
+
+/* Responsive adjustments for iPhone screen sizes */
+@media (max-width: 768px) {
+  .info-box-container {
+    flex-direction: column; /* Stack the boxes vertically */
+    gap: 10px; /* Reduce spacing between the boxes */
+  }
+
+  .info-box {
+    width: 100%; /* Allow boxes to take full width */
+    max-width: 100%; /* Remove max-width restriction */
+    padding: 10px; /* Reduce padding for smaller screens */
+    font-size: 0.9em; /* Adjust font size */
+  }
+
+  .info-box h1 {
+    font-size: 1.2em; /* Adjust heading size */
+  }
+
+  .info-box h2 {
+    font-size: 1em; /* Adjust subheading size */
+  }
+
+  .info-box p {
+    font-size: 0.8em; /* Adjust paragraph font size */
+  }
+
+  .info-box img {
+    max-height: 200px; /* Limit the height of the image */
+    object-fit: cover; /* Ensure the image fits nicely */
+  }
 }

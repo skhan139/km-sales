@@ -46,13 +46,6 @@ const HomePage = () => {
       <a href="/custom-game"> Visit our Custom Game Page</a> <br/> Are you a new customer and unsure of where to start? Read our <a href="/blog"> Blog</a> that goes over what certain games will suit your needs best and find out how to generate as much revenue for your club/event as possible!
     </p>
   </div>
-  <div className="info-box">
-    <img 
-      src={`${process.env.PUBLIC_URL}/assets/images/kminfograph.jpg`} 
-      alt="Example" 
-      className="info-box-image" 
-    />
-  </div>
 </div>
 
       <div className="image-row">
