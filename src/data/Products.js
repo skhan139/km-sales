@@ -493,6 +493,9 @@ const products = [
   { id: 313, name: "3626 Sterling Silver @ $3", image: "/assets/images/sterlingsilver.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$10,878.00", payout: "$8,1414.00", profit: "$2,464.00", profitPercent: "22.65%", dealsPerCase: "1", denomination: "$3", seal: "$888", bottomPayout: "$3" },
   { id: 314, name: "490 Gutter Ball", image: "/assets/images/gutterball.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU016", takeIn: "$490.00", payout: "$319.00", profit: "$171.00", profitPercent: "34.90%", dealsPerCase: "10", seal: "$280", denomination: "$1", bottomPayout: "$1" },
   { id: 315, name: "112 Cherries", image: "/assets/images/cherries.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU016", takeIn: "$112.00", payout: "$73.00", profit: "$39.00", profitPercent: "34.82%", dealsPerCase: "50", seal: "$50", denomination: "$1", bottomPayout: "$1" },
+  { id: 316, name: "4000 3/1 Candy Crunch", image: "/assets/images/candycruch.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU006", takeIn: "$4,000.00", payout: "$3,080.00", profit: "$920.00", profitPercent: "23%", dealsPerCase: "8", seal: "$300", denomination: "$1", bundle: "3", bottomPayout: "$5" },
+  { id: 317, name: "4000 3/1 Monsta Match", image: "/assets/images/monstamatch.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU006", takeIn: "$4,000.00", payout: "$3,080.00", profit: "$920.00", profitPercent: "23%", dealsPerCase: "8", seal: "$300", denomination: "$1", bundle: "3", bottomPayout: "$5" },
+  { id: 318, name: "4000 3/1 Thirst N Howl", image: "/assets/images/thirstnhowl.jpg", category: "instant winners", tags: ["instant", "winner"], sku: "SKU006", takeIn: "$4,000.00", payout: "$3,080.00", profit: "$920.00", profitPercent: "23%", dealsPerCase: "8", seal: "$300", denomination: "$1", bundle: "3", bottomPayout: "$5" },
   
 ];
 

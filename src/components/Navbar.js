@@ -58,26 +58,36 @@ const Navbar = () => {
         </button>
       )}
       {isSearchOpen ? (
-        <div className="search-bar">
-          <input
-            type="text"
-            placeholder="Search for a game..."
-            value={searchTerm}
-            onChange={handleSearchChange}
+  <div className="search-bar">
+    <button
+      className="close-search-button"
+      onClick={() => setIsSearchOpen(false)}
+    >
+      Close
+    </button>
+    <input
+      type="text"
+      placeholder="Search for a game..."
+      value={searchTerm}
+      onChange={handleSearchChange}
+    />
+    <div className="search-results">
+      {searchResults.map(product => (
+        <div
+          key={product.id}
+          className="search-result"
+          onClick={() => handleProductClick(product)}
+        >
+          <img
+            src={product.images ? product.images[0] : product.image} // Use the first image if multiple images exist
+            alt={product.name}
+            className="search-result-image"
           />
-          <div className="search-results">
-            {searchResults.map(product => (
-              <div key={product.id} className="search-result" onClick={() => handleProductClick(product)}>
-                <img 
-                  src={product.images ? product.images[0] : product.image} // Use the first image if multiple images exist
-                  alt={product.name} 
-                  className="search-result-image" 
-                />
-                <span>{product.name}</span>
-              </div>
-            ))}
-          </div>
+          <span>{product.name}</span>
         </div>
+      ))}
+    </div>
+  </div>
       ) : (
         <>
           <button className="toggle-button" onClick={toggleNavbar}>

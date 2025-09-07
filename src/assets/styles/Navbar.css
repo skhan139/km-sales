@@ -102,16 +102,32 @@ li a:hover, .nav-button:hover {
 
 .search-bar {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  align-items: center; /* Align items vertically */
+  gap: 10px; /* Add spacing between the button and input */
+  width: 100%; /* Ensure the search bar takes full width */
 }
 
 .search-bar input {
+  flex: 1; /* Allow the input to take up the remaining space */
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-bottom: 10px;
+}
+
+.close-search-button {
+  background-color: #333; /* Match the navbar's background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.close-search-button:hover {
+  background-color: #666; /* Change background color on hover */
 }
 
 .search-results {

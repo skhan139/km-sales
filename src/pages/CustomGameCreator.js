@@ -8,10 +8,13 @@ const CustomGameCreator = () => {
     gameName: '', // New field for game name
     topSealPrize: '',
     smallerPayouts: [{ description: '', count: '' }], // Initialize with one empty entry
-    profitPercent: '',
+    ticketCount: '', // New field for ticket count
+    payout: '', // New field for payout
     gamesPerCase: '',
     customImage: null,
   });
+
+  const [selectedTemplate, setSelectedTemplate] = useState('template1'); // Default template
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -47,6 +50,10 @@ const CustomGameCreator = () => {
     }
   };
 
+  const handleTemplateChange = (template) => {
+    setSelectedTemplate(template); // Update the selected template
+  };
+
   const downloadPDF = () => {
     const doc = new jsPDF();
 
@@ -69,8 +76,9 @@ const CustomGameCreator = () => {
       );
     });
 
-    doc.text(`Profit Percentage: ${formData.profitPercent || 'Enter %'}%`, 10, 70 + formData.smallerPayouts.length * 10);
-    doc.text(`Games Per Case: ${formData.gamesPerCase || 'Enter number'}`, 10, 80 + formData.smallerPayouts.length * 10);
+    doc.text(`Ticket Count: ${formData.ticketCount || 'Enter count'}`, 10, 70 + formData.smallerPayouts.length * 10);
+    doc.text(`Payout: ${formData.payout || 'Enter payout'}`, 10, 80 + formData.smallerPayouts.length * 10);
+    doc.text(`Games Per Case: ${formData.gamesPerCase || 'Enter number'}`, 10, 90 + formData.smallerPayouts.length * 10);
 
     // Add the club logo if available
     if (formData.customImage) {
@@ -148,13 +156,23 @@ const CustomGameCreator = () => {
             </button>
           </label>
           <label>
-            Profit Percentage:
+            Ticket Count/Take In:
             <input
               type="number"
-              name="profitPercent"
-              value={formData.profitPercent}
+              name="ticketCount"
+              value={formData.ticketCount}
               onChange={handleInputChange}
-              placeholder="Enter profit percentage"
+              placeholder="Enter ticket count"
+            />
+          </label>
+          <label>
+            Payout:
+            <input
+              type="text"
+              name="payout"
+              value={formData.payout}
+              onChange={handleInputChange}
+              placeholder="Enter payout amount"
             />
           </label>
           <label>
@@ -172,36 +190,60 @@ const CustomGameCreator = () => {
             <input type="file" onChange={handleImageUpload} />
           </label>
         </form>
+        <div className="template-buttons">
+          <button
+            type="button"
+            className={`template-button ${selectedTemplate === 'template1' ? 'active' : ''}`}
+            onClick={() => handleTemplateChange('template1')}
+          >
+            Classic Theme
+          </button>
+          <button
+            type="button"
+            className={`template-button ${selectedTemplate === 'template2' ? 'active' : ''}`}
+            onClick={() => handleTemplateChange('template2')}
+          >
+            Modern Theme
+          </button>
+          <button
+            type="button"
+            className={`template-button ${selectedTemplate === 'template3' ? 'active' : ''}`}
+            onClick={() => handleTemplateChange('template3')}
+          >
+            Fun Theme
+          </button>
+        </div>
       </div>
 
       <div className="preview-container">
         <h2>Game Poster Preview</h2>
-        <div className="game-card">
-          {formData.customImage && (
-            <img src={formData.customImage} alt="Club Logo" className="club-logo" />
-          )}
-          <h3>{formData.clubName || 'Your Club Name'}</h3>
-          <h4>{formData.gameName || 'Your Game Name'}</h4>
-          <p><strong>Top Seal Prize:</strong> {formData.topSealPrize || 'Enter a prize'}</p>
-          <p><strong>Smaller Payouts:</strong></p>
-          <div className="payouts-column">
-            {formData.smallerPayouts.map((payout, index) => (
-              <div key={index} className="payout-item">
-                <span>{payout.description || 'Enter payout'}</span>
-                <span>{payout.count || 'Enter count'} winners</span>
-              </div>
-            ))}
-          </div>
-          <p><strong>Profit Percentage:</strong> {formData.profitPercent || 'Enter %'}%</p>
-          <p><strong>Games Per Case:</strong> {formData.gamesPerCase || 'Enter number'}</p>
-        </div>
+        <div className={`game-card ${selectedTemplate}`}>
+  {formData.customImage && (
+    <img src={formData.customImage} alt="Club Logo" className="club-logo" />
+  )}
+  <h3>{formData.clubName || 'Your Club Name'}</h3>
+  <h4>{formData.gameName || 'Your Game Name'}</h4>
+  <p><strong>Top Seal Prize:</strong> {formData.topSealPrize || 'Enter a prize'}</p>
+  <p><strong>Smaller Payouts:</strong></p>
+  <div className="payouts-column">
+    {formData.smallerPayouts.map((payout, index) => (
+      <div key={index} className="payout-item">
+        <span>{payout.description || 'Enter payout'}</span>
+        <span>{payout.count || 'Enter count'} winners</span>
+      </div>
+    ))}
+  </div>
+  <p><strong>Ticket Count:</strong> {formData.ticketCount || 'Enter count'}</p>
+  <p><strong>Payout:</strong> {formData.payout || 'Enter payout'}</p>
+  <p><strong>Games Per Case:</strong> {formData.gamesPerCase || 'Enter number'}</p>
+</div>
         <button className="download-pdf-button" onClick={downloadPDF}>
           Download Poster as PDF
         </button>
         <p className="email-instructions">
-    To create your custom game, download the poster with your game specs and email it 
-    <a href="mailto:skhan139@icloud.com"> here</a>. We will get back to you to start the process.
-  </p>
+          To create your custom game, download the poster with your game specs and email it 
+          <a href="mailto:skhan139@icloud.com"> here</a>. We will get back to you to start the process.
+        </p>
       </div>
     </div>
   );
