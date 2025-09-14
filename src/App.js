@@ -28,6 +28,7 @@ import RewardsPage from './pages/Rewards'; // Import the RewardsPage component
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen'; // Import the LoadingScreen component
 import Blog from './pages/Blog'; // Import the Blog page
+import ChatbotPage from './pages/ChatbotPage'; // Import the ChatbotPage component
 
 const App = () => {
   const [user] = useAuthState(auth);
@@ -105,6 +106,7 @@ const App = () => {
           <Route path="/game-terminology" element={<GameTerminology />} /> {/* Add GameTerminology route */}
           <Route path="/blog" element={<Blog />} /> {/* Add Blog route */}
           <Route path="/rewards" element={<RewardsPage />} /> {/* Add RewardsPage route */}
+          <Route path="/chatbot" element={<ChatbotPage />} /> {/* Add ChatbotPage route */}
         </Routes>
         <Footer />
       </div>
