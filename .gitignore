@@ -9,14 +9,32 @@
 /coverage
 
 # production
+/build
+/dist
+
+# Google Cloud SDK
+/google-cloud-sdk
 
 # misc
 .DS_Store
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# IDE-specific files
+.vscode/
+*.code-workspace
+
+# macOS system files
+.AppleDouble
+.LSOverride
+.env
+google-cloud-sdk-436.0.0-darwin-arm.tar.gz
+config/dialogflow-key.json
