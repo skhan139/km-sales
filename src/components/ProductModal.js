@@ -291,7 +291,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           ) : Array.isArray(product.tags) && product.tags.includes('paper') ? (
             <>
               <div className="custom-quantity">
-                <label htmlFor="custom-quantity-input">Enter number of books:</label>
+                <label htmlFor="custom-quantity-input">Enter number of packs:</label>
                 <input
                   type="number"
                   id="custom-quantity-input"

@@ -91,67 +91,67 @@ const products = [
     tags: ["bingo", "paper"], 
     variants: [
       {
-        name: "12 on Bingo Paper",
+        name: "12 on Bingo Paper (50 Books Per Pack)",
         sku: "SKU003-12",
         takeIn: "N/A",
         payout: "N/A",
         profit: "N/A",
         profitPercent: "N/A",
-        dealsPerCase: "1"
+        dealsPerCase: "50"
       },
       {
-        name: "9 on Bingo Paper",
+        name: "9 on Bingo Paper (50 Books Per Pack)",
         sku: "SKU003-6",
         takeIn: "N/A",
         payout: "N/A",
         profit: "$N/A",
         profitPercent: "N/A",
-        dealsPerCase: "1"
+        dealsPerCase: "50"
       },
       {
-        name: "6 on Bingo Paper",
+        name: "6 on Bingo Paper (50 Books Per Pack)",
         sku: "SKU003-6",
         takeIn: "$N/A",
         payout: "N/A",
         profit: "$N/A",
         profitPercent: "N/A",
-        dealsPerCase: "1"
+        dealsPerCase: "50"
       },
       {
-        name: "3 on Bingo Paper",
+        name: "3 on Bingo Paper (50 Books Per Pack)",
         sku: "N/A",
         takeIn: "$N/A",
         payout: "$N/A",
         profit: "$N/A",
         profitPercent: "N/A",
-        dealsPerCase: "1"
+        dealsPerCase: "50"
       },
       {
-        name: "2 on Bingo Paper",
+        name: "2 on Bingo Paper (50 Books Per Pack)",
         sku: "N/A",
         takeIn: "N/A",
         payout: "N/A",
         profit: "N/A",
         profitPercent: "N/A",
-        dealsPerCase: "1"
+        dealsPerCase: "50"
       },
       {
-        name: "1 on Bingo Paper",
+        name: "1 on Bingo Paper (50 Books Per Pack)",
         sku: "SKU003-6",
         takeIn: "$800.00",
         payout: "$400",
         profit: "$400.00",
         profitPercent: "50%",
-        dealsPerCase: "1",
+        dealsPerCase: "50",
       },
       {
-        name: "6 On Glow In The Dark Bingo Paper",
+        name: "6 On Glow In The Dark Bingo Paper (50 Books Per Pack)",
         sku: "SKU003-6",
         takeIn: "$800.00",
         payout: "$400",
         profit: "$400.00",
         profitPercent: "50%",
-        dealsPerCase: "1",
+        dealsPerCase: "50",
       }
     ]
   },
