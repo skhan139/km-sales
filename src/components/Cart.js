@@ -158,11 +158,15 @@ const Cart = () => {
               <div className="cart-item-details">
                 <span className="cart-item-name">{item.name}</span>
                 <span className="cart-item-quantity-type">
-                  {item.quantity}{' '}
-                  {item.quantity === 1
-                    ? item.quantityType.slice(0, -1)
-                    : item.quantityType}
-                </span>
+  {item.quantity}{' '}
+  {item.tags && item.tags.includes('paper')
+    ? item.quantity === 1
+      ? 'pack'
+      : 'packs'
+    : item.quantity === 1
+    ? item.quantityType.slice(0, -1)
+    : item.quantityType}
+</span>
                 <div className="cart-item-quantity">
                   <button
                     onClick={() =>

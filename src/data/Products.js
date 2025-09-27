@@ -104,25 +104,25 @@ const products = [
         sku: "SKU003-6",
         takeIn: "N/A",
         payout: "N/A",
-        profit: "$N/A",
+        profit: "N/A",
         profitPercent: "N/A",
         dealsPerCase: "50"
       },
       {
         name: "6 on Bingo Paper (50 Books Per Pack)",
         sku: "SKU003-6",
-        takeIn: "$N/A",
+        takeIn: "N/A",
         payout: "N/A",
-        profit: "$N/A",
+        profit: "N/A",
         profitPercent: "N/A",
         dealsPerCase: "50"
       },
       {
         name: "3 on Bingo Paper (50 Books Per Pack)",
         sku: "N/A",
-        takeIn: "$N/A",
-        payout: "$N/A",
-        profit: "$N/A",
+        takeIn: "N/A",
+        payout: "N/A",
+        profit: "N/A",
         profitPercent: "N/A",
         dealsPerCase: "50"
       },
@@ -138,10 +138,10 @@ const products = [
       {
         name: "1 on Bingo Paper (50 Books Per Pack)",
         sku: "SKU003-6",
-        takeIn: "$800.00",
-        payout: "$400",
-        profit: "$400.00",
-        profitPercent: "50%",
+        takeIn: "N/A",
+        payout: "$N/A",
+        profit: "N/A",
+        profitPercent: "N/A",
         dealsPerCase: "50",
       },
       {
@@ -501,6 +501,8 @@ const products = [
   { id: 321, name: "250 Knight Hood (Strip Ticket)", image: "/assets/images/knighthood.jpg", category: "strip tickets", tags: ["strip", "tickets"], sku: "SKU016", takeIn: "$250.00", payout: "$166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$1" },
   { id: 322, name: "Pittsburgh Gridiron Gamble (4000 Ticket Count)", image: "/assets/images/steelers.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$4,000.00", payout: "$1,925", profit: "$946.00", profitPercent: "23.65%", dealsPerCase: "1", seal: "$500", denomination: "$1" },
   { id: 323, name: "Baltimore Gridiron Gamble (4000 Ticket Count)", image: "/assets/images/ravens.jpg", category: "coin boards", tags: ["coin", "boards"], sku: "SKU002", takeIn: "$4,000.00", payout: "$1,925", profit: "$946.00", profitPercent: "23.65%", dealsPerCase: "1", seal: "$500", denomination: "$1" },
+  { id: 324, name: "1456 Nice Rack", image: "/assets/images/nicerack.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$1,456.00", payout: "$1,010.00", profit: "$446.00", profitPercent: "30.63%", dealsPerCase: "8", seal: "$300", denomination: "$1", bottomPayout: "$1", },
+  { id: 325, name: "288 Hold'n Horses", image: "/assets/images/holdnhorses.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU030", takeIn: "$288.00", payout: "$200.00", profit: "$88.00", profitPercent: "30.55%", dealsPerCase: "28", seal: "$200", denomination: "$1", bottomPayout: "$200"},
   
 ];
 

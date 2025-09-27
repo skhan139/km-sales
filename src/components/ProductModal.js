@@ -32,7 +32,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
         } else if (product.tags.includes('paper')) {
           setQuantityType('books');
         } else if (product.tags.includes('daubers')) {
-          setQuantityType('daubers');
+          setQuantityType('cases of daubers');
         } else if (product.tags.includes('packs')) {
           setQuantityType('packs');
         } else {
@@ -312,16 +312,6 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
                     </option>
                   ))}
                 </select>
-              </div>
-              <div className="custom-quantity">
-                <label htmlFor="custom-quantity-input">Or enter number of daubers:</label>
-                <input
-                  type="number"
-                  id="custom-quantity-input"
-                  value={customQuantity}
-                  onChange={handleCustomQuantityChange}
-                  min="1"
-                />
               </div>
             </>
           ) : Array.isArray(product.tags) && product.tags.includes('packs') ? (

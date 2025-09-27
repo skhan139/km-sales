@@ -20,7 +20,10 @@ const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) =
   const handleSubmit = () => {
     const validCaseQuantity = Math.max(caseQuantity, 1); // Ensure caseQuantity is at least 1
     const validCustomQuantity = Math.max(customQuantity, 1); // Ensure customQuantity is at least 1
-    onSubmit({ caseQuantity: validCaseQuantity, customQuantity: validCustomQuantity, quantityType, selectedPaper });
+  
+    const type = product.tags && product.tags.includes('paper') ? 'packs' : quantityType;
+  
+    onSubmit({ caseQuantity: validCaseQuantity, customQuantity: validCustomQuantity, quantityType: type, selectedPaper });
     onRequestClose();
   };
 
