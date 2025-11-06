@@ -32,7 +32,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
         } else if (product.tags.includes('paper')) {
           setQuantityType('books');
         } else if (product.tags.includes('daubers')) {
-          setQuantityType('cases of daubers');
+          setQuantityType('daubers');
         } else if (product.tags.includes('packs')) {
           setQuantityType('packs');
         } else {
@@ -277,17 +277,33 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           </div>
         )}
         <div className="quantity-container">
-          {Array.isArray(product.tags) && product.tags.includes('boards') ? (
-            <div className="quantity-selection">
-              <label htmlFor="quantity-select">Number of boards:</label>
-              <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
-                {[...Array(11).keys()].map((num) => (
-                  <option key={num} value={num}>
-                    {num} {num === 1 ? 'board' : 'boards'}
-                  </option>
-                ))}
-              </select>
-            </div>
+  {Array.isArray(product.tags) && product.tags.includes('boards') ? (
+    <div className="quantity-selection">
+      <label htmlFor="quantity-input">Number of boards ** 12 Included Per Pack **:</label>
+      <div className="quantity-input-container">
+      <button
+          type="button"
+          className="quantity-increase"
+          onClick={() => setQuantity((prev) => prev + 1)}
+        >
+          +
+        </button>
+        <input
+          type="number"
+          id="quantity-input"
+          value={quantity}
+          onChange={(e) => setQuantity(Math.max(parseInt(e.target.value, 10) || 0, 0))} // Ensure valid input
+          min="0"
+        />
+       <button
+          type="button"
+          className="quantity-decrease"
+          onClick={() => setQuantity((prev) => Math.max(prev - 1, 0))} // Ensure quantity doesn't go below 0
+        >
+          -
+        </button>
+      </div>
+    </div>
           ) : Array.isArray(product.tags) && product.tags.includes('paper') ? (
             <>
               <div className="custom-quantity">
@@ -303,16 +319,32 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
             </>
           ) : Array.isArray(product.tags) && product.tags.includes('daubers') ? (
             <>
-              <div className="quantity-selection">
-                <label htmlFor="quantity-select">Number of cases:</label>
-                <select id="quantity-select" value={quantity} onChange={handleQuantityChange}>
-                  {[...Array(11).keys()].map((num) => (
-                    <option key={num} value={num}>
-                      {num}
-                    </option>
-                  ))}
-                </select>
-              </div>
+               <div className="quantity-selection">
+    <label htmlFor="quantity-input">Number of Daubers ** 6 Included Per Pack **:</label>
+    <div className="quantity-input-container">
+    <button
+        type="button"
+        className="quantity-increase"
+        onClick={() => setQuantity((prev) => prev + 1)}
+      >
+        +
+      </button>
+      <input
+        type="number"
+        id="quantity-input"
+        value={quantity}
+        onChange={(e) => setQuantity(Math.max(parseInt(e.target.value, 10) || 0, 0))} // Ensure valid input
+        min="0"
+      />
+      <button
+        type="button"
+        className="quantity-decrease"
+        onClick={() => setQuantity((prev) => Math.max(prev - 1, 0))} // Ensure quantity doesn't go below 0
+      >
+        -
+      </button>
+    </div>
+  </div>
             </>
           ) : Array.isArray(product.tags) && product.tags.includes('packs') ? (
             <div className="quantity-selection">
