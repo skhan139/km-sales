@@ -320,7 +320,7 @@ const ProductModal = ({ product, onClose, onFavorite }) => {
           ) : Array.isArray(product.tags) && product.tags.includes('daubers') ? (
             <>
                <div className="quantity-selection">
-    <label htmlFor="quantity-input">Number of Daubers ** 6 Included Per Pack **:</label>
+    <label htmlFor="quantity-input">Number of Daubers ** 12 Included Per Pack **:</label>
     <div className="quantity-input-container">
     <button
         type="button"
