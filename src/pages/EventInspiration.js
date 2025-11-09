@@ -52,6 +52,17 @@ const EventInspiration = () => {
     this unique and action-packed experience!
   </p>
 </div>
+<div className="event-card">
+  <h2>Glow in the Dark Bingo Night</h2>
+  <p>
+    Light up the night with a Glow in the Dark Bingo Night! Transform your venue into a vibrant, 
+    glowing wonderland with neon decorations, black lights, and glowing bingo cards. This unique 
+    twist on the classic game is perfect for fundraisers, community events, or just a fun night 
+    out with friends and family. With exciting prizes, a lively atmosphere, and plenty of glowing 
+    fun, Glow in the Dark Bingo Night is sure to be a hit with guests of all ages. Make your next 
+    event shine with this unforgettable experience!
+  </p>
+</div>
       </div>
     </div>
   );
