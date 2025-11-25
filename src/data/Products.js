@@ -516,6 +516,8 @@ const products = [
   { id: 345, name: "840 5/1 Big Mooney", images: ["/assets/images/fiveoveronebigmooney.jpg", "/assets/images/bigmooneyinfo.jpg"], category: "tip jars", tags: ["tip", "jars"], sku: "SKU033", takeIn: "$840.00", payout: "$640.00", profit: "$200.00", profitPercent: "20%", dealsPerCase: "18", seal: "$200", denomination: "$1", bundle: "5", bottomPayout: "$1" },
   { id: 346, name: "3955 Berry Blast (Chip Game)", image: "/assets/images/berryblast.jpg", category: "chip games", tags: ["chip", "games"], sku: "SKU002", takeIn: "$3,955.00", payout: "$2,990.00", profit: "$965.00", profitPercent: "24.39%", dealsPerCase: "8", seal: "$500", denomination: "$1", bottomPayout: "$2" },
   { id: 347, name: "250 Patriotism (Strip Ticket)", image: "/assets/images/patriotism.jpg", category: "strip tickets", tags: ["strip", "tickets"], sku: "SKU016", takeIn: "$250.00", payout: "$166.00", profit: "$84.00", profitPercent: "33.6%", dealsPerCase: "28", seal: "$100", denomination: "$1", bottomPayout: "$1" },
+  { id: 348, name: "Happy Holidays Knife Board (2280 Ticket Count)", image: "/assets/images/hqppyholidays.jpg", category: "knife boards", tags: ["knife", "boards"], sku: "SKU002", takeIn: "$2,280.00", payout: "$1,100", profit: "$1,180.00", profitPercent: "51.75%", dealsPerCase: "1", seal: "$500", denomination: "$1" },
+  { id: 349, name: "Ugly Sweaters (3000 Ticket Count)", image: "/assets/images/uglysweaters.jpg", category: "merchandise boards", tags: ["merchandise", "boards"], sku: "SKU002", takeIn: "$3,000.00", payout: "$1,925", profit: "$1,075.00", profitPercent: "35.83%", dealsPerCase: "1", seal: "$500", denomination: "$1" },
   
 ];
 
