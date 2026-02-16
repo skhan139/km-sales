@@ -72,7 +72,7 @@ const HomePage = () => {
       <div className="sliders-row">
         {/* Newest Arrivals Slider */}
         <div className="slider-section">
-          <h2 className='sliderHead'>Pull Tabs</h2>
+          <h2 className='sliderHead'>Pull Tabs 🎰</h2>
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
@@ -116,7 +116,7 @@ const HomePage = () => {
 
         {/* Best Sellers Slider */}
         <div className="slider-section">
-          <h2 className='sliderHead'>Our Best Sellers</h2>
+          <h2 className='sliderHead'>Our Best Sellers ⚡</h2>
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>
@@ -151,7 +151,7 @@ const HomePage = () => {
 
         {/* Hot This Month Slider */}
         <div className="slider-section">
-          <h2 className='sliderHead'>Tickets</h2>
+          <h2 className='sliderHead'>Tickets 🎟️</h2>
           <div className="slider-container">
             <Slider {...sliderSettings}>
               <div>

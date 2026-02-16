@@ -179,11 +179,12 @@ body {
 .sliderHead {
   color: white;
   font-family: 'Poppins', sans-serif; /* Apply modern font */
+  -webkit-text-stroke: 1px #d4af37; /* Gold outline */
   text-shadow: 
-    -1px -1px 0 #000, /* Top-left shadow */
-    1px -1px 0 #000,  /* Top-right shadow */
-    -1px 1px 0 #000,  /* Bottom-left shadow */
-    1px 1px 0 #000;   /* Bottom-right shadow */
+    -1px -1px 0 #d4af37, /* Top-left gold */
+    1px -1px 0 #d4af37,  /* Top-right gold */
+    -1px 1px 0 #d4af37,  /* Bottom-left gold */
+    1px 1px 0 #d4af37;   /* Bottom-right gold */
 }
 
 /* Styles for medium screens (MacBook Air-sized) */
