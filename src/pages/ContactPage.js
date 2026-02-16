@@ -1,7 +1,6 @@
 // src/pages/ContactPage.js
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './ContactPage.css'; // Import the CSS file for styling
 
 const ContactPage = () => {

@@ -8,7 +8,6 @@ import emailjs from 'emailjs-com';
 import CheckoutFormModal from './CheckoutFormModal';
 import Modal from 'react-modal';
 import ConfirmationPopup from './ConfirmationPopup';
-import MessageBubble from './MessageBubble';
 import './Cart.css';
 
 const Cart = () => {

@@ -32,7 +32,6 @@ import ChatbotPage from './pages/ChatbotPage'; // Import the ChatbotPage compone
 
 const App = () => {
   const [user] = useAuthState(auth);
-  const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // State for loading screen
   const location = useLocation(); // Track route changes
 
@@ -58,7 +57,6 @@ const App = () => {
     // Event listener for receiving messages from the server
     socket.addEventListener('message', (event) => {
       console.log('Message from server: ', event.data);
-      setMessages((prevMessages) => [...prevMessages, event.data]);
     });
 
     // Event listener for errors

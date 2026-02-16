@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../components/Footer'; // Ensure this path is correct
 import '../assets/styles/PolicyPage.css'; // Ensure this path is correct
 
 const ShippingPolicy = () => {
