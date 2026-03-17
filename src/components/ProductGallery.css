@@ -1,7 +1,28 @@
 .product-gallery-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  width: 100%;
+}
+
+.products-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.filters-sidebar {
+  width: 280px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.products-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .search-and-sort {
@@ -23,19 +44,18 @@
 .sorting-options {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
+  align-items: stretch;
   background-color: white; /* Eggshell white background */
   border: 1px solid black; /* Thin black outline */
-  padding: 20px; /* Add padding for better spacing */
+  padding: 16px; /* Add padding for better spacing */
   border-radius: 8px; /* Optional: Add border radius for rounded corners */
 }
 
 .sort-navbar {
-  display: flex; /* Use flexbox for layout */
-  justify-content: space-around; /* Space buttons evenly */
-  align-items: center; /* Align buttons vertically */
-  gap: 10px; /* Add spacing between buttons */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
 }
 
 .sort-row {
@@ -55,19 +75,19 @@
 
 .filter-options {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
   background-color: white; /* Eggshell white background */
   border: 1px solid black; /* Thin black outline */
-  padding: 20px; /* Add padding for better spacing */
+  padding: 16px; /* Add padding for better spacing */
   border-radius: 8px; /* Optional: Add border radius for rounded corners */
-  margin-bottom: 20px; /* Add margin to separate from other sections */
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
 }
 
 .filter-group h3 {
@@ -80,6 +100,7 @@
   border-radius: 4px;
   background-color: white;
   cursor: pointer;
+  width: 100%;
 }
 
 /* Responsive Design Enhancements */
@@ -133,7 +154,7 @@
 .product-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   padding: 8px 2px 2px; /* Add padding to top to prevent overlap with navbar */
 }
@@ -265,9 +286,9 @@
 
 /* Back to Main Page Button */
 .back-button {
-  position: absolute;
-  top: 150px; /* Adjust this value to lower the button */
-  left: 20px;
+  position: static;
+  align-self: flex-start;
+  margin: 0 0 16px 0;
   background-color: black !important;
   color: white;
   border: none;
@@ -324,7 +345,7 @@ h3 {
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .dropdown-button {
@@ -335,6 +356,8 @@ h3 {
   font-size: 16px;
   cursor: pointer;
   border-radius: 4px;
+  width: 100%;
+  text-align: center;
 }
 
 .dropdown-button:hover {
@@ -518,9 +541,33 @@ h3 {
 
 .sort-row {
   display: flex; /* Use flexbox for layout */
-  align-items: center; /* Align items vertically */
+  flex-direction: column;
+  align-items: stretch;
   justify-content: flex-start; /* Align items to the left */
   gap: 10px; /* Add spacing between buttons */
+  width: 100%;
+}
+
+.sort-row h3 {
+  margin: 0;
+  width: 100%;
+}
+
+.sort-row button,
+.clear-filters-button {
+  width: 100%;
+}
+
+.sort-navbar .sort-row > h3 > button,
+.sort-navbar .sort-row > .dropdown > .dropdown-button,
+.sort-navbar .clear-filters-button {
+  min-height: 48px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .clear-filters-button {
@@ -531,7 +578,7 @@ h3 {
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
   font-size: 16px; /* Adjust font size */
-  margin-left: 10px; /* Add margin to separate it from the previous button */
+  margin-left: 0;
 }
 
 .clear-filters-button:hover {
@@ -540,6 +587,19 @@ h3 {
 
 
 @media (max-width: 768px) {
+  .products-layout {
+    flex-direction: column;
+  }
+
+  .filters-sidebar {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .products-content {
+    width: 100%;
+  }
+
   .slider-section {
     display: none; /* Hide the slider on mobile screens */
   }

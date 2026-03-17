@@ -102,7 +102,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="dropdown">
-              <li className="dropdown-button">Info</li>
+              <button type="button" className="dropdown-button">Info</button>
               <ul className="dropdown-content">
                 <li>
                   <Link to="/about" onClick={closeNavbar}>

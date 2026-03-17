@@ -337,8 +337,10 @@ const ProductGallery = ({ searchTerm }) => {
       ) : (
         <>
           <button onClick={handleBackToMainPage} className="back-button">Back to Main Page</button>
-          <div className="sorting-options">
-            <nav className="sort-navbar">
+          <div className="products-layout">
+            <aside className="filters-sidebar">
+              <div className="sorting-options">
+                <nav className="sort-navbar">
             <div className="sort-row">
   <h3 className="label">
     <button onClick={() => handleSortChange('all')}>All Products</button>
@@ -390,34 +392,36 @@ const ProductGallery = ({ searchTerm }) => {
       <button onClick={() => handleSortChange('bingo paper')}>Bingo Paper</button> {/* New Button */}
     </div>
   </div>
-  <div className="sort-row">
-        <div className="dropdown">
-          <button className="dropdown-button">Sort By Theme</button>
-          <div className="dropdown-content">
-            <button onClick={() => handleThemeChange('sports')}>Sports</button>
-            <button onClick={() => handleThemeChange('christmas')}>Christmas</button>
-            <button onClick={() => handleThemeChange('halloween')}>Halloween</button>
-            <button onClick={() => handleThemeChange('Easter')}>Easter</button>
-            <button onClick={() => handleThemeChange('spring')}>Spring</button>
-            <button onClick={() => handleThemeChange('fall')}>Fall</button>
-            <button onClick={() => handleThemeChange('winter')}>Winter</button>
-            <button onClick={() => handleThemeChange('summer')}>Summer</button>
-            <button onClick={() => handleThemeChange('valentines')}>Valentines</button>
-            <button onClick={() => handleThemeChange('st patricks')}>St. Patricks Day</button>
-            <button onClick={() => handleThemeChange('usa')}>USA</button>
-            <button onClick={() => handleThemeChange('police')}>Law Enforcement</button>
-            <button onClick={() => handleThemeChange('firefighters')}>Fire And Rescue</button>
-            <button onClick={() => handleThemeChange('military')}>Military</button>
-          </div>
-        </div>
 </div>
+<div className="sort-row">
+  <div className="dropdown">
+    <button className="dropdown-button">Sort By Theme</button>
+    <div className="dropdown-content">
+      <button onClick={() => handleThemeChange('sports')}>Sports</button>
+      <button onClick={() => handleThemeChange('christmas')}>Christmas</button>
+      <button onClick={() => handleThemeChange('halloween')}>Halloween</button>
+      <button onClick={() => handleThemeChange('Easter')}>Easter</button>
+      <button onClick={() => handleThemeChange('spring')}>Spring</button>
+      <button onClick={() => handleThemeChange('fall')}>Fall</button>
+      <button onClick={() => handleThemeChange('winter')}>Winter</button>
+      <button onClick={() => handleThemeChange('summer')}>Summer</button>
+      <button onClick={() => handleThemeChange('valentines')}>Valentines</button>
+      <button onClick={() => handleThemeChange('st patricks')}>St. Patricks Day</button>
+      <button onClick={() => handleThemeChange('usa')}>USA</button>
+      <button onClick={() => handleThemeChange('police')}>Law Enforcement</button>
+      <button onClick={() => handleThemeChange('firefighters')}>Fire And Rescue</button>
+      <button onClick={() => handleThemeChange('military')}>Military</button>
+    </div>
+  </div>
+</div>
+<div className="sort-row">
   <button onClick={handleClearFilters} className="clear-filters-button">
     Clear Filters
   </button>
 </div>
-            </nav>
-          </div>
-          <div className="filter-options">
+                </nav>
+              </div>
+              <div className="filter-options">
   <div className="filter-group">
     <h3>Sort By Ticket Count</h3>
     <select onChange={handlePriceFilterChange}>
@@ -490,7 +494,9 @@ const ProductGallery = ({ searchTerm }) => {
     </select>
   </div>
 </div>
-          <div className="pagination">
+            </aside>
+            <div className="products-content">
+              <div className="pagination">
           <button
   onClick={() => handlePageChange(currentPage - 1)}
   className="pagination-button"
@@ -519,7 +525,7 @@ const ProductGallery = ({ searchTerm }) => {
   Next <i className="fa fa-arrow-right" aria-hidden="true"></i>
 </button>
 </div>
-          <div className="product-gallery">
+              <div className="product-gallery">
   {displayedProducts.length === 0 ? (
     <p>Sorry, there are no products in this category.</p>
   ) : (
@@ -575,6 +581,8 @@ const ProductGallery = ({ searchTerm }) => {
   Next <i className="fa fa-arrow-right" aria-hidden="true"></i>
 </button>
 </div>
+            </div>
+          </div>
         </>
       )}
       <ProductModal
