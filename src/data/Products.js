@@ -541,6 +541,10 @@ const products = [
   { id: 370, name: "3990 Pork Choppers", image: "/assets/images/porkchoppers.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU024", takeIn: "$3,990.00", payout: "$2,908 .00", profit: "$1,082.00", profitPercent: "27.12%", dealsPerCase: "1", seal: "$500", denomination: "$1",  },
   { id: 371, name: "3990 Ruby Royale", image: "/assets/images/rubyroyale.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU024", takeIn: "$3,990.00", payout: "$2,908 .00", profit: "$1,082.00", profitPercent: "27.12%", dealsPerCase: "1", seal: "$500", denomination: "$1",  },
   { id: 372, name: "3990 Inside Track", image: "/assets/images/insidetrack.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU024", takeIn: "$3,990.00", payout: "$2,908 .00", profit: "$1,082.00", profitPercent: "27.12%", dealsPerCase: "1", seal: "$500", denomination: "$1",},
+  { id: 373, name: "1960 Sweet Dreams", image: "/assets/images/1ksweetdreams.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$1,960.00", payout: "$1,274.00", profit: "$686.00", profitPercent: "35%", dealsPerCase: "4", seal: "$1000", denomination: "$1", bottomPayout: "$1" },
+  { id: 374, name: "1960 Pirates Booty", image: "/assets/images/1kpiratesbooty.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$1,960.00", payout: "$1,274.00", profit: "$686.00", profitPercent: "35%", dealsPerCase: "4", seal: "$1000", denomination: "$1", bottomPayout: "$1" },
+  { id: 375, name: "1960 Freedom Rings.", image: "/assets/images/1kfreedomrings.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$1,960.00", payout: "$1,274.00", profit: "$686.00", profitPercent: "35%", dealsPerCase: "4", seal: "$1000", denomination: "$1", bottomPayout: "$1" },
+  { id: 376, name: "1960 Mega Money", image: "/assets/images/megamoney.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$1,960.00", payout: "$1,274.00", profit: "$686.00", profitPercent: "35%", dealsPerCase: "4", seal: "$1000", denomination: "$1", bottomPayout: "$1" },
 ];
 
 export default products;
