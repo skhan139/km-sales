@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --lic-gold: #d4af37;
+  --lic-gold-light: #f0d060;
+  --lic-gold-dim: rgba(212, 175, 55, 0.16);
+  --lic-border: rgba(212, 175, 55, 0.25);
+  --lic-card: rgba(255, 255, 255, 0.04);
+  --lic-text-muted: rgba(255, 255, 255, 0.75);
+  --lic-radius: 14px;
+}
+
+@keyframes licFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.license-page-shell {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #141414 0%, #000 65%);
+  color: #fff;
+  padding: 118px 20px 70px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  animation: licFadeUp 0.5s ease;
+}
+
+.license-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.license-hero-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: var(--lic-gold-light);
+  text-align: center;
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.25);
+  letter-spacing: -0.01em;
+}
+
+.license-subtitle {
+  margin: 0 0 36px;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.license-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.license-card {
+  background: var(--lic-card);
+  border: 1px solid var(--lic-border);
+  border-radius: var(--lic-radius);
+  padding: 18px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.license-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--lic-gold);
+  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.18);
+}
+
+.license-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.04rem;
+  font-weight: 700;
+  color: var(--lic-gold-light);
+}
+
+.license-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--lic-border);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.license-card p {
+  margin: 8px 0;
+  color: var(--lic-text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.license-note {
+  margin-bottom: 14px !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.license-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.license-links a,
+.license-info {
+  display: inline-block;
+  padding: 8px 12px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--lic-border);
+  border-radius: 8px;
+  color: var(--lic-gold-light);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  word-break: break-word;
+}
+
+.license-links a:hover {
+  background: rgba(212, 175, 55, 0.22);
+  border-color: var(--lic-gold);
+  color: #fff;
+}
+
+.license-info {
+  background: transparent;
+  border: none;
+  color: var(--lic-text-muted);
+  padding: 8px 0;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .license-page-shell {
+    padding: 98px 14px 50px;
+  }
+
+  .license-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .license-card {
+    padding: 16px;
+  }
+
+  .license-links {
+    gap: 8px;
+  }
+}

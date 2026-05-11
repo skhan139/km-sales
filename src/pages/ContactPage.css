@@ -1,40 +1,76 @@
 /* src/pages/ContactPage.css */
 
+.contact-page-shell {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #141414 0%, #000 65%);
+  color: #fff;
+  padding: 120px 20px 70px;
+  box-sizing: border-box;
+}
+
 .contact-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 20px 60px;
   text-align: center;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+.contact-hero-title {
+  margin: 0 0 20px;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: #d4af37;
+  text-align: center;
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.25);
 }
 
-.flex-item {
-  flex: 1 1 calc(33.333% - 40px); /* 3 items per row with 20px gap */
-  background-color: #f4f4f4;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.flex-item h3 {
-  margin-top: 0;
-}
-
-.flex-item p {
-  margin-bottom: 0;
-}
-
-.page-container {
-  padding: 1px 20px;
+.contact-title {
+  margin: 0 0 26px;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  color: #fff;
 }
 
 .contact {
-  color: black;
+  color: #000 !important;
+}
+
+.flex-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.flex-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+  text-align: left;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.flex-item:hover {
+  transform: translateY(-4px);
+  border-color: #d4af37;
+}
+
+.flex-item h3 {
+  margin: 0 0 12px;
+  color: #d4af37;
+  font-size: 1.08rem;
+}
+
+.flex-item p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.6;
+}
+
+.flex-item a {
+  color: #f0d060;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.flex-item a:hover {
+  border-bottom-color: #f0d060;
 }

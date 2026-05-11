@@ -5,10 +5,10 @@ import './ContactPage.css'; // Import the CSS file for styling
 
 const ContactPage = () => {
   return (
-    <div className="page-container">
-      <h1 className='contact'>For All Your Custom Order Needs, Questions, Or Concerns</h1>
+    <div className="contact-page-shell">
+      <h1 className='contact-hero-title'>For All Your Custom Order Needs, Questions, Or Concerns</h1>
     <div className="contact-page">
-      <h1 className='contact'>Contact Us</h1>
+      <h1 className='contact-title'>Contact Us</h1>
       <div className="flex-container">
         <div className="flex-item">
           <h3>K&M Keyser Office</h3>

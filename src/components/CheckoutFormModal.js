@@ -64,11 +64,11 @@ const CheckoutFormModal = ({
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       contentLabel="Checkout Form Modal"
-      className="modal-content"
-      overlayClassName="modal-overlay"
+      className="checkout-modal-content"
+      overlayClassName="checkout-modal-overlay"
     >
-      <h2>Checkout</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="checkout-modal-title">Checkout</h2>
+      <form onSubmit={handleSubmit} className="checkout-form">
         <label>
           First Name *
           <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
@@ -170,8 +170,10 @@ const CheckoutFormModal = ({
             Check For Yes. ** Note, Discount Code And Points Cannot Be Used Simultaneously **
           </label>
         </div>
-        <button type="submit">Submit</button>
-        <button type="button" onClick={onRequestClose} className="close-button">Close Checkout</button>
+        <div className="checkout-actions">
+          <button type="submit" className="checkout-submit-button">Submit</button>
+          <button type="button" onClick={onRequestClose} className="close-button">Close Checkout</button>
+        </div>
       </form>
     </Modal>
   );

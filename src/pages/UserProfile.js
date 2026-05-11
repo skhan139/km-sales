@@ -153,121 +153,140 @@ const UserProfile = () => {
   return (
     <>
       {showMessageBubble && (
-        <div className="message-bubble">
+        <div className="profile-message-bubble">
           Profile updated successfully!
         </div>
       )}
       {removeMessageBubble && (
-        <div className="message-bubble">
+        <div className="profile-message-bubble">
           Game removed successfully!
         </div>
       )}
-      <div className="user-profile">
-        <h2>My Profile</h2>
-        <h3>** Note, not all orders will be posted, please contact us if you would like to have your invoices posted to your profile **</h3>
-        <div className="user-details">
-          <p><strong>Email:</strong> {user.email}</p>
-          <p><strong>First Name:</strong> {userDetails.firstName}</p>
-          <p><strong>Last Name:</strong> {userDetails.lastName}</p>
-          <p><strong>Company Name:</strong> {userDetails.companyName}</p>
-          <p><strong>Phone Number:</strong> {userDetails.phoneNumber}</p>
+      <div className="profile-shell">
+        <div className="profile-container">
+          <h2 className="profile-title">My Profile</h2>
+          <p className="profile-disclaimer">Note: Not all orders will be posted. Please contact us if you'd like your invoices posted to your profile.</p>
+        <div className="profile-details-card">
+          <h3 className="profile-section-heading">Account Information</h3>
+          <div className="profile-details-grid">
+            <div className="profile-detail-item">
+              <span className="profile-label">Email</span>
+              <span className="profile-value">{user.email}</span>
+            </div>
+            <div className="profile-detail-item">
+              <span className="profile-label">First Name</span>
+              <span className="profile-value">{userDetails.firstName}</span>
+            </div>
+            <div className="profile-detail-item">
+              <span className="profile-label">Last Name</span>
+              <span className="profile-value">{userDetails.lastName}</span>
+            </div>
+            <div className="profile-detail-item">
+              <span className="profile-label">Company Name</span>
+              <span className="profile-value">{userDetails.companyName}</span>
+            </div>
+            <div className="profile-detail-item">
+              <span className="profile-label">Phone Number</span>
+              <span className="profile-value">{userDetails.phoneNumber}</span>
+            </div>
+          </div>
         </div>
-        <div className="update-user-info">
-          <button onClick={() => setIsUpdateFormOpen(!isUpdateFormOpen)} className="update-button">
-            {isUpdateFormOpen ? 'Cancel Update' : 'Update User Information'}
+        <div className="profile-update-section">
+          <button onClick={() => setIsUpdateFormOpen(!isUpdateFormOpen)} className="profile-action-button">
+            {isUpdateFormOpen ? 'Cancel' : 'Update Information'}
           </button>
           {isUpdateFormOpen && (
-            <form onSubmit={handleUpdateUserInfo} className="update-form">
-              <label>
-                First Name:
+            <form onSubmit={handleUpdateUserInfo} className="profile-update-form">
+              <div className="profile-form-group">
+                <label>First Name</label>
                 <input
                   type="text"
                   name="firstName"
                   value={updatedUserDetails.firstName}
                   onChange={handleUpdateInputChange}
                 />
-              </label>
-              <label>
-                Last Name:
+              </div>
+              <div className="profile-form-group">
+                <label>Last Name</label>
                 <input
                   type="text"
                   name="lastName"
                   value={updatedUserDetails.lastName}
                   onChange={handleUpdateInputChange}
                 />
-              </label>
-              <label>
-                Company Name:
+              </div>
+              <div className="profile-form-group">
+                <label>Company Name</label>
                 <input
                   type="text"
                   name="companyName"
                   value={updatedUserDetails.companyName}
                   onChange={handleUpdateInputChange}
                 />
-              </label>
-              <label>
-                Phone Number:
+              </div>
+              <div className="profile-form-group">
+                <label>Phone Number</label>
                 <input
                   type="text"
                   name="phoneNumber"
                   value={updatedUserDetails.phoneNumber}
                   onChange={handleUpdateInputChange}
                 />
-              </label>
-              <button type="submit" className="submit-update-button">Submit</button>
+              </div>
+              <button type="submit" className="profile-submit-button">Save Changes</button>
             </form>
           )}
         </div>
         <Orders userEmail={user.email} />
-        <div className="points-section">
-          <h3>
+        <div className="profile-points-card">
+          <h3 className="profile-section-heading">
             <i className="fa fa-trophy" aria-hidden="true"></i> My Points
           </h3>
-          <p>You have <strong>{points}</strong> points.</p>
+          <p className="profile-points-text">You have <strong>{points}</strong> points</p>
         </div>
-        <div className="favorites-section">
-          <h3>
+        <div className="profile-favorites-section">
+          <h3 className="profile-section-heading">
             <i className="fa fa-star" aria-hidden="true"></i> My Favorite Games
           </h3>
           {favorites.length > 0 ? (
             <>
-              <ul className="favorites-list">
+              <ul className="profile-favorites-list">
                 {currentFavorites.map((favorite, index) => (
-                  <li key={index} onClick={() => handleProductClick(favorite)}>
-                    <p><strong>{favorite.name}</strong></p>
-                    <img src={favorite.image} alt={favorite.name} className="favorite-image" />
+                  <li key={index} className="profile-favorite-item" onClick={() => handleProductClick(favorite)}>
+                    <img src={favorite.image} alt={favorite.name} className="profile-favorite-image" />
+                    <p className="profile-favorite-name">{favorite.name}</p>
                     <button
                       onClick={(e) => {
-                        e.stopPropagation(); // Prevent triggering the product click
+                        e.stopPropagation();
                         handleRemoveFavorite(favorite);
                       }}
-                      className="remove-favorite-button"
+                      className="profile-remove-favorite-button"
                     >
                       Remove
                     </button>
                   </li>
                 ))}
               </ul>
-              <div className="pagination-controls">
+              <div className="profile-pagination-controls">
                 <button
                   onClick={handlePreviousPage}
                   disabled={currentPage === 1}
-                  className="pagination-button"
+                  className="profile-pagination-button"
                 >
                   <i className="fa fa-arrow-left" aria-hidden="true"></i>
                 </button>
-                <span>Page {currentPage} of {Math.ceil(favorites.length / gamesPerPage)}</span>
+                <span className="profile-pagination-info">Page {currentPage} of {Math.ceil(favorites.length / gamesPerPage)}</span>
                 <button
                   onClick={handleNextPage}
                   disabled={currentPage === Math.ceil(favorites.length / gamesPerPage)}
-                  className="pagination-button"
+                  className="profile-pagination-button"
                 >
                   <i className="fa fa-arrow-right" aria-hidden="true"></i>
                 </button>
               </div>
             </>
           ) : (
-            <p>You have no favorite games yet.</p>
+            <p className="profile-empty-state">You have no favorite games yet.</p>
           )}
         </div>
         {selectedProduct && (
@@ -276,6 +295,7 @@ const UserProfile = () => {
             onClose={handleCloseModal}
           />
         )}
+        </div>
       </div>
     </>
   );

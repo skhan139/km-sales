@@ -5,10 +5,10 @@ import './AboutPage.css'; // Import the CSS file for styling
 
 const AboutPage = () => {
   return (
-    <div className="page-container">
+    <div className="about-page-shell">
       <div className="about-page">
         <div className="about-box">
-          <h3 className='at'>At K&M Sales, we have proudly served as the leading distributor of bingo and gaming supplies in Western Maryland and West Virginia for over 40 years. Our founder Roy "Buzz" Mills has set a standard that takes pride in dedication to quality and customer satisfaction, which has made us a trusted partner in the industry! <br/> <br/>
+          <h3 className='about-intro-text'>At K&M Sales, we have proudly served as the leading distributor of bingo and gaming supplies in Western Maryland and West Virginia for over 40 years. Our founder Roy "Buzz" Mills has set a standard that takes pride in dedication to quality and customer satisfaction, which has made us a trusted partner in the industry! <br/> <br/>
           We collaborate with licensed charitable, fraternal, veteran, select resturaunts/bars and other organizations. Our mission is to offer quality gaming products at competitive prices to support fundraising efforts. As a full-service company, our experienced sales staff will help recommend the best products and services for your organization's growth.
           </h3>
         </div>
@@ -39,31 +39,31 @@ const AboutPage = () => {
           </div>
         </div>
         <div className="video-section">
-  <h2>Learn More About Our Games!</h2>
-  <div className="video-container">
-    <iframe
-      className="video"
-      src="https://www.youtube.com/watch?v=HQ0Qt3kDewc"
-      title="Video 1"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-    <iframe
-      className="video"
-      src="https://youtu.be/yikvtkdhx_4?si=ke1f8e6XgEzTr0-O"
-      title="Video 2"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-    <iframe
-      className="video"
-      src="https://www.youtube.com/embed/VIDEO_ID_3"
-      title="Video 3"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
-  </div>
-</div>
+          <h2>Learn More About Our Games!</h2>
+          <div className="video-container">
+            <iframe
+              className="video"
+              src="https://www.youtube.com/watch?v=HQ0Qt3kDewc"
+              title="Video 1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <iframe
+              className="video"
+              src="https://youtu.be/yikvtkdhx_4?si=ke1f8e6XgEzTr0-O"
+              title="Video 2"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+            <iframe
+              className="video"
+              src="https://www.youtube.com/embed/VIDEO_ID_3"
+              title="Video 3"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
       </div>
     </div>
   );

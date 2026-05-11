@@ -1,13 +1,13 @@
 .members-page-container {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), black) !important; /* Gradient fades to black */
+  background: radial-gradient(ellipse at top, #141414 0%, #000 65%);
   background-size: cover !important;
   background-position: center !important;
-  background-repeat: no-repeat !important; /* Prevent repetition */
-  padding: 80px 20px 100px; /* Add extra padding to the bottom to prevent overlap with the footer */
+  background-repeat: no-repeat !important;
+  padding: 110px 20px 100px;
   text-align: center;
-  min-height: 100vh; /* Ensure the container takes at least the full viewport height */
-  color: white !important; /* Adjust text color for visibility */
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+  min-height: 100vh;
+  color: white !important;
+  box-sizing: border-box;
 }
 
 .product-gallery {
@@ -43,35 +43,63 @@
   font-weight: bold;
 }
 
-.color {
-  color: rgb(0, 0, 0);
-}
-
-.search-bar {
+.members-search-input {
   margin-bottom: 20px;
-  padding: 10px;
-  width: 300px;
+  padding: 12px 14px;
+  width: min(520px, 92%);
   font-size: 16px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
 }
 
-h1, h2 {
-  text-shadow: 
-    -1px -1px 0 #fff, /* Top-left shadow */
-    1px -1px 0 #fff,  /* Top-right shadow */
-    -1px 1px 0 #fff,  /* Bottom-left shadow */
-    1px 1px 0 #fff;   /* Bottom-right shadow */
+.members-search-input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.22);
 }
 
-.hthree {
-  text-shadow: 
-    -1px -1px 0 #fff, /* Top-left shadow */
-    1px -1px 0 #fff,  /* Top-right shadow */
-    -1px 1px 0 #fff,  /* Bottom-left shadow */
-    1px 1px 0 #fff;   /* Bottom-right shadow */
-  color: black;
+.members-title {
+  color: #d4af37;
+  margin: 0 0 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-shadow: 0 0 26px rgba(212, 175, 55, 0.28);
+}
+
+.members-subtitle {
+  color: rgba(255, 255, 255, 0.88);
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.members-warning {
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0 0 12px;
+  font-size: 0.98rem;
+}
+
+.members-link-row {
+  margin: 0 0 18px;
+}
+
+.members-sheet-link {
+  color: #f0d060;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 10px;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.22s ease;
+}
+
+.members-sheet-link:hover {
+  border-color: #d4af37;
+  background: rgba(212, 175, 55, 0.16);
 }
 
 /* Responsive Design */

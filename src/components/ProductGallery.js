@@ -17,7 +17,7 @@ const ProductGallery = ({ searchTerm }) => {
   const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
   const [viewMode, setViewMode] = useState('categories'); // State for the view mode
   const [isQuantityModalOpen, setIsQuantityModalOpen] = useState(false); // State for the quantity selection modal
-  const [showPopup, setShowPopup] = useState(true); // State for showing/hiding the pop-up
+  const [showPopup, setShowPopup] = useState(false); // Hidden by default
   const { addItemToCart } = useCart(); // Use the Cart context
 
   const [user] = useAuthState(auth); // Get the authenticated user

@@ -14,8 +14,9 @@ const TestimonialPage = () => {
   ];
 
   return (
-    <div className="testimonial-page page-container">
-      <h1>Why Choose K&M?</h1>
+    <div className="testimonial-page-shell">
+      <div className="testimonial-page">
+      <h1 className="testimonial-title">Why Choose K&M?</h1>
       <div className="testimonials-container">
         {testimonials.map((testimonial) => (
           <div key={testimonial.id} className="testimonial-card">
@@ -23,6 +24,7 @@ const TestimonialPage = () => {
             <p>{testimonial.text}</p>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

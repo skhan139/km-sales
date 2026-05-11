@@ -124,7 +124,7 @@ const Cart = () => {
 
   return (
     <div className="cart-container">
-      <h2>
+      <h2 className="cart-title">
         <i className="fa fa-shopping-cart" aria-hidden="true"></i> Your Cart <br/>
         {user && (
           <span className="user-points">
@@ -139,7 +139,7 @@ const Cart = () => {
         <a href="mailto:skhan139@icloud.com"> email us here</a>.
       </p>
       {cart.length === 0 ? (
-        <p>You have no items in your cart</p>
+        <p className="cart-empty">You have no items in your cart</p>
   
       ) : (
         <div className="cart-items">
@@ -168,6 +168,7 @@ const Cart = () => {
 </span>
                 <div className="cart-item-quantity">
                   <button
+                    className="quantity-button"
                     onClick={() =>
                       handleQuantityChange(
                         item.id,
@@ -180,6 +181,7 @@ const Cart = () => {
                   </button>
                   <span>{item.quantity}</span>
                   <button
+                    className="quantity-button"
                     onClick={() =>
                       handleQuantityChange(
                         item.id,
@@ -235,8 +237,8 @@ const Cart = () => {
         isOpen={isSuccessModalOpen}
         onRequestClose={() => setIsSuccessModalOpen(false)}
         contentLabel="Success Modal"
-        className="modal-content"
-        overlayClassName="modal-overlay"
+        className="cart-success-modal"
+        overlayClassName="cart-success-overlay"
       >
         <h2 className="order">Order Successful</h2>
         <img
@@ -248,7 +250,7 @@ const Cart = () => {
           A representative will be in touch shortly. <br /> Thank you for
           choosing K&M Sales!
         </p>
-        <button onClick={() => setIsSuccessModalOpen(false)}>Close</button>
+        <button className="cart-success-close" onClick={() => setIsSuccessModalOpen(false)}>Close</button>
       </Modal>
       {isPopupOpen && (
         <ConfirmationPopup

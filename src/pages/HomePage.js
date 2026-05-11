@@ -3,192 +3,168 @@ import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './HomePage.css'; // Import the CSS file for styling
+import './HomePage.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../firebase'; // Import Firebase configuration
+import { auth } from '../firebase';
 
 const HomePage = () => {
-  const [showPopup1, setShowPopup1] = useState(true); // State for the first popup
+  const [showPopup1, setShowPopup1] = useState(true);
+  const [user] = useAuthState(auth);
 
   const sliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 5000,
+    fade: true,
+    cssEase: 'linear',
   };
 
-  const handleClosePopup1 = () => setShowPopup1(false); // Close the first popup
-
-  const [user] = useAuthState(auth); // Get the authenticated user
+  const stats = [
+    { value: '40+', label: 'Years in Business' },
+    { value: '2', label: 'States Served' },
+    { value: '500+', label: 'Products Available' },
+    { value: '10%', label: 'New Club Discount' },
+  ];
 
   return (
-    <div className="homepage-container">
+    <div className="home-page-container">
+      {/* Announcement Banner */}
       {showPopup1 && (
-        <div className="popup popup-1">
-          <p>New clubs are eligible for 10% off for their first three orders!</p>
-          <button className="popup-close-button" onClick={handleClosePopup1}>×</button>
+        <div className="announcement-banner">
+          <span className="banner-badge">🎉 New Club Offer</span>
+          <p>New clubs are eligible for <strong>10% off</strong> their first three orders!</p>
+          <button className="banner-close" onClick={() => setShowPopup1(false)}>×</button>
         </div>
       )}
 
-<div className="info-box-container">
-  <div className="info-box">
-    <h1 className='welcome'>Welcome to K&M Sales.</h1>
-    <h2 className='produly'>Proudly supplying bingo and gaming products to West Virginia and Maryland for over 40 years!</h2>
-    <p className='intro'>
-      We sell a variety of pull tabs/tip jars, tickets, bingo games, and more! <br/>
-      Want to buy our products?
-      Add your products to cart and register with us to checkout. Once you checkout, our team will soon get back to you with a price quote.<br /> <br />
-      Please Signup/Login to view our products and place an order <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>here</a>.
-      Interested in creating a custom game? 
-      <a href="/custom-game"> Visit our Custom Game Page</a> <br/> 
-    </p>
-  </div>
-</div>
-
-      <div className="image-row">
-        <div className="image-container">
-          <a href="mailto:everettr627@gmail.com?subject=Contact%20Maryland%20Offices">
-            <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Baltimore" className="row-image" />
-            <h3 className="image-overlay">Contact Maryland (Allegany County) Offices</h3>
-          </a>
-        </div>
-        <div className="image-container">
-          <a href="mailto:skhan139@icloud.com.com?subject=Contact%20West%20Virginia%20Offices">
-            <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Keyser" className="row-image" />
-            <h3 className="image-overlay">Contact West Virginia Offices</h3>
-          </a>
-        </div>
-        <div className="image-container">
-          <a href="mailto:jeff.haines@comcast.net?subject=Contact%20Garrett/Allegany%20Offices">
-            <img src={`${process.env.PUBLIC_URL}/assets/images/garrett.jpg`} alt="Keyser" className="row-image" />
-            <h3 className="image-overlay">Contact Maryland (Garrett/Allegany County) Offices</h3>
-          </a>
-        </div>
-      </div>
-
-      <div className="sliders-row">
-        {/* Newest Arrivals Slider */}
-        <div className="slider-section">
-          <h2 className='sliderHead'>Pull Tabs 🎰</h2>
-          <div className="slider-container">
-            <Slider {...sliderSettings}>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/bigrig.jpg`} alt="Newest arrival 1" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/colorofmoney.jpg`} alt="Newest arrival 2" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/sparkles.jpg`} alt="Newest arrival 3" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/brewskis.jpg`} alt="Newest arrival 4" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/applepicking.jpg`} alt="Newest arrival 4" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/snowblowin.jpg`} alt="Newest arrival 4" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/gofish.jpg`} alt="Newest arrival 4" className="slider-image" />
-                </Link>
-              </div>
-            </Slider>
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-content">
+          <span className="hero-eyebrow">West Virginia & Maryland's #1 Gaming Supplier</span>
+          <h1 className="hero-title">
+            Welcome to <span className="hero-highlight">K&amp;M Sales</span>
+          </h1>
+          <p className="hero-subtitle">
+            Proudly supplying bingo and gaming products for over 40 years across West Virginia and Maryland.
+            Pull tabs, tip jars, bingo games, tickets &amp; more — everything your club or organization needs.
+            Browse our catalog, build your cart, and our team will follow up with a personalized price quote.
+            New to K&amp;M? First-time clubs enjoy 10% off their first three orders.
+          </p>
+          <div className="hero-actions">
+            <Link to={user ? '/members' : '/login'} className="btn-primary">
+              {user ? 'Shop Products' : 'Login to Shop'}
+            </Link>
+            <Link to="/custom-game" className="btn-secondary">
+              Custom Game Creator
+            </Link>
           </div>
         </div>
+        <div className="hero-glow" />
+      </section>
 
-        {/* Best Sellers Slider */}
-        <div className="slider-section">
-          <h2 className='sliderHead'>Our Best Sellers ⚡</h2>
-          <div className="slider-container">
-            <Slider {...sliderSettings}>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/doublejugs.jpg`} alt="Best seller 1" className="slider-image" />
-                </Link>
+      {/* Stats Bar */}
+      <section className="stats-bar">
+        {stats.map((stat, i) => (
+          <div className="stat-item" key={i}>
+            <span className="stat-value">{stat.value}</span>
+            <span className="stat-label">{stat.label}</span>
+          </div>
+        ))}
+      </section>
+
+      {/* Regional Contacts */}
+      <section className="section-block">
+        <h2 className="section-title">Our Regions</h2>
+        <p className="section-subtitle">Click a region to reach your local representative</p>
+        <div className="image-row">
+          <div className="image-card">
+            <a href="mailto:everettr627@gmail.com?subject=Contact%20Maryland%20Offices">
+              <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Baltimore" />
+              <div className="card-overlay">
+                <span className="card-icon">✉️</span>
+                <h3>Maryland</h3>
+                <p>Allegany County Office</p>
               </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/redwhiteandblue.jpg`} alt="Best seller 2" className="slider-image" />
-                </Link>
+            </a>
+          </div>
+          <div className="image-card">
+            <a href="mailto:skhan139@icloud.com?subject=Contact%20West%20Virginia%20Offices">
+              <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Keyser" />
+              <div className="card-overlay">
+                <span className="card-icon">✉️</span>
+                <h3>West Virginia</h3>
+                <p>Regional Office</p>
               </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/33kmsuperjar.jpg`} alt="Best seller 3" className="slider-image" />
-                </Link>
+            </a>
+          </div>
+          <div className="image-card">
+            <a href="mailto:jeff.haines@comcast.net?subject=Contact%20Garrett/Allegany%20Offices">
+              <img src={`${process.env.PUBLIC_URL}/assets/images/garrett.jpg`} alt="Garrett" />
+              <div className="card-overlay">
+                <span className="card-icon">✉️</span>
+                <h3>Maryland</h3>
+                <p>Garrett / Allegany County</p>
               </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/barkingbetty.jpg`} alt="Best seller 1" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src={`${process.env.PUBLIC_URL}/assets/images/696doubledeal.jpg`} alt="Best seller 2" className="slider-image" />
-                </Link>
-              </div>
-              {/* Add more images as needed */}
-            </Slider>
+            </a>
           </div>
         </div>
+      </section>
 
-        {/* Hot This Month Slider */}
-        <div className="slider-section">
-          <h2 className='sliderHead'>Tickets 🎟️</h2>
-          <div className="slider-container">
-            <Slider {...sliderSettings}>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src="/assets/images/captainjacks.jpg" alt="Hot this month 1" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src="/assets/images/bigfoots.jpg" alt="Hot this month 2" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src="/assets/images/buzzbucks.jpg" alt="Hot this month 3" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src="/assets/images/gangstersgold.jpg" alt="Hot this month 1" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src="/assets/images/thetourists.jpg" alt="Hot this month 2" className="slider-image" />
-                </Link>
-              </div>
-              <div>
-              <Link to={user ? "/members" : "/login"}>
-                  <img src="/assets/images/cashville.jpg" alt="Hot this month 3" className="slider-image" />
-                </Link>
-              </div>
-              {/* Add more images as needed */}
-            </Slider>
+      {/* Product Sliders */}
+      <section className="section-block">
+        <h2 className="section-title">Browse Our Products</h2>
+        <p className="section-subtitle">Click any product to view the full catalog</p>
+        <div className="sliders-row">
+          <div className="slider-section">
+            <div className="slider-badge">🎰 Pull Tabs</div>
+            <div className="slider-container">
+              <Slider {...sliderSettings}>
+                {['bigrig','colorofmoney','sparkles','brewskis','applepicking','snowblowin','gofish'].map((img, i) => (
+                  <div key={i}>
+                    <Link to={user ? '/members' : '/login'}>
+                      <img src={`${process.env.PUBLIC_URL}/assets/images/${img}.jpg`} alt={img} className="slider-image" />
+                    </Link>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          </div>
+
+          <div className="slider-section">
+            <div className="slider-badge">⚡ Best Sellers</div>
+            <div className="slider-container">
+              <Slider {...sliderSettings}>
+                {['doublejugs','redwhiteandblue','33kmsuperjar','barkingbetty','696doubledeal'].map((img, i) => (
+                  <div key={i}>
+                    <Link to={user ? '/members' : '/login'}>
+                      <img src={`${process.env.PUBLIC_URL}/assets/images/${img}.jpg`} alt={img} className="slider-image" />
+                    </Link>
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          </div>
+
+          <div className="slider-section">
+            <div className="slider-badge">🎟️ Tickets</div>
+            <div className="slider-container">
+              <Slider {...sliderSettings}>
+                {['captainjacks','bigfoots','buzzbucks','gangstersgold','thetourists','cashville'].map((img, i) => (
+                  <div key={i}>
+                    <Link to={user ? '/members' : '/login'}>
+                      <img src={`/assets/images/${img}.jpg`} alt={img} className="slider-image" />
+                    </Link>
+                  </div>
+                ))}
+              </Slider>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
