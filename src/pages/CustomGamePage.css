@@ -1,140 +1,196 @@
-@keyframes fadeIn {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --cgp-gold: #d4af37;
+  --cgp-gold-light: #f0d060;
+  --cgp-gold-dim: rgba(212, 175, 55, 0.16);
+  --cgp-border: rgba(212, 175, 55, 0.25);
+  --cgp-card: rgba(255, 255, 255, 0.04);
+  --cgp-text-muted: rgba(255, 255, 255, 0.75);
+  --cgp-radius: 14px;
+}
+
+@keyframes cgpFadeUp {
   from {
     opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.page-container {
-  background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Ensures the background image covers the entire viewport */
-  min-height: 170vh; /* Extend the minimum height to cover more vertical space */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px; /* Add padding to ensure content doesn't touch the edges */
-  color: rgb(255, 255, 255); /* Adjust text color for visibility */
-  padding-top: 60px; /* Add top padding to prevent overlapping with navbar */
-  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-  overflow-y: auto; /* Allow vertical scrolling */
-  animation: fadeIn 1s ease-in; /* Apply the fade-in animation */
+.cgpage-shell {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #141414 0%, #000 65%);
+  color: #fff;
+  padding: 118px 20px 70px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  animation: cgpFadeUp 0.5s ease;
 }
 
-.custom-game-page {
+.cgpage-container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.cgpage-hero-card {
+  background: var(--cgp-card);
+  border: 1px solid var(--cgp-border);
+  border-radius: var(--cgp-radius);
+  padding: 24px;
+  margin-bottom: 28px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.cgpage-hero-text {
+  margin: 0;
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 700;
+  color: var(--cgp-gold-light);
+  line-height: 1.6;
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.25);
+}
+
+.cgpage-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.cgpage-step-card {
+  background: var(--cgp-card);
+  border: 1px solid var(--cgp-border);
+  border-radius: var(--cgp-radius);
   padding: 20px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cgpage-step-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cgp-gold);
+  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.18);
+}
+
+.cgpage-step-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--cgp-gold-light);
+}
+
+.cgpage-step-card p {
+  margin: 0;
+  color: var(--cgp-text-muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.cgpage-examples-heading {
+  margin: 32px 0 20px;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 800;
+  color: var(--cgp-gold-light);
   text-align: center;
-  flex-grow: 1; /* Allow the custom-game-page to grow and fill available space */
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.25);
 }
 
-.flex-container {
+.cgpage-images-container {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
   justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
 }
 
-.flex-item {
-  flex: 1 1 calc(33.333% - 40px); /* 3 items per row with 20px gap */
-  background-color: #ffffff; /* Updated background color */
-  padding: 20px;
-  margin: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.cgpage-example-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--cgp-border);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.flex-item h3 {
-  margin-top: 0;
-  color: black;
+.cgpage-example-image:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 14px 36px rgba(212, 175, 55, 0.18);
 }
 
-.flex-item p {
-  margin-bottom: 0;
-  color: black;
+.cgpage-action-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
 }
 
-.custom-game {
-  color: rgb(255, 255, 255);
+.cgpage-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--cgp-gold), #b8962e);
+  color: #0b0b0b;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: 1px solid var(--cgp-border);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 24px rgba(212, 175, 55, 0.35);
 }
 
-.custom-game-box {
-  background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent background */
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.custom-game-image {
-  max-width: 100%;
-  height: auto;
-  width: 200px; /* Set a smaller fixed width for the image */
-  border-radius: 8px;
-  margin-top: 20px;
+.cgpage-action-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.5);
 }
 
 @media (max-width: 768px) {
-  .flex-item {
-    flex: 1 1 100%; /* Stack items vertically on small screens */
+  .cgpage-shell {
+    padding: 98px 14px 50px;
+  }
+
+  .cgpage-hero-card {
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .cgpage-step-card {
+    padding: 16px;
+  }
+
+  .cgpage-example-image {
+    width: 160px;
+    height: 160px;
+  }
+
+  .cgpage-images-container {
+    gap: 12px;
+    margin-bottom: 20px;
   }
 }
 
-@media (max-width: 576px) {
-  .custom-game-page {
-    padding: 10px;
+@media (max-width: 480px) {
+  .cgpage-examples-heading {
+    margin: 24px 0 16px;
   }
-  
-  .custom-game-box {
-    padding: 10px;
+
+  .cgpage-action-button {
+    width: 100%;
+    padding: 12px 20px;
   }
-  
-  .flex-item {
-    padding: 10px;
+
+  .cgpage-example-image {
+    width: 140px;
+    height: 140px;
   }
-}
 
-/* Adjusting space between the last div and the footer */
-.page-container {
-  margin-bottom: 20px; /* Default margin for all screen sizes */
-}
-
-@media (min-width: 1200px) {
-  .page-container {
-    margin-bottom: 1px; /* Less space for larger screens */
+  .cgpage-steps-grid {
+    gap: 12px;
+    margin-bottom: 24px;
   }
-}
-
-@media (max-width: 576px) {
-  .page-container {
-    margin-bottom: 100px; /* More space for smaller screens */
-  }
-}
-
-.at {
-  color: black;
-  text-shadow: 
-    -1px -1px 0 #ffffff, /* Top-left shadow */
-    1px -1px 0 #ffffff,  /* Top-right shadow */
-    -1px 1px 0 #ffffff,  /* Bottom-left shadow */
-    1px 1px 0 #ffffff;   /* Bottom-right shadow */
-}
-
-.custom-game-images-container {
-  display: flex; /* Use flexbox to align images in a row */
-  justify-content: center; /* Center the images horizontally */
-  gap: 20px; /* Add spacing between images */
-  flex-wrap: wrap; /* Allow wrapping if there are too many images for one row */
-  margin-top: 20px; /* Add spacing above the image row */
-}
-
-.custom-game-image {
-  max-width: 100%;
-  height: auto;
-  width: 200px; /* Set a fixed width for the images */
-  border-radius: 8px; /* Add rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }

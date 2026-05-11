@@ -90,11 +90,12 @@ const CustomGameCreator = () => {
   };
 
   return (
-    <div className="custom-game-creator">
-      <div className="form-container">
-        <h2>Build Your Custom Game</h2>
-        <form>
-          <label>
+    <div className="custom-game-shell">
+      <div className="custom-game-container">
+        <div className="custom-form-panel">
+          <h2 className="custom-game-title">Build Your Custom Game</h2>
+          <form className="custom-form">
+          <label className="custom-form-label">
             Club Name:
             <input
               type="text"
@@ -104,7 +105,7 @@ const CustomGameCreator = () => {
               placeholder="Enter your club name"
             />
           </label>
-          <label>
+          <label className="custom-form-label">
             Game Name:
             <input
               type="text"
@@ -114,7 +115,7 @@ const CustomGameCreator = () => {
               placeholder="Enter your game name"
             />
           </label>
-          <label>
+          <label className="custom-form-label">
             Top Seal Prize:
             <input
               type="text"
@@ -124,10 +125,10 @@ const CustomGameCreator = () => {
               placeholder="Enter top seal prize"
             />
           </label>
-          <label>
+          <label className="custom-form-label">
             Smaller Payouts:
             {formData.smallerPayouts.map((payout, index) => (
-              <div key={index} className="payout-field">
+              <div key={index} className="custom-payout-field">
                 <input
                   type="text"
                   value={payout.description}
@@ -139,23 +140,23 @@ const CustomGameCreator = () => {
                   value={payout.count}
                   onChange={(e) => handlePayoutChange(index, 'count', e.target.value)}
                   placeholder="Count"
-                  className="payout-count-field"
+                  className="custom-payout-count"
                 />
                 <button
                   type="button"
-                  className="remove-payout-button"
+                  className="custom-remove-payout-btn"
                   onClick={() => removePayoutField(index)}
-                  disabled={formData.smallerPayouts.length === 1} // Prevent removing the last field
+                  disabled={formData.smallerPayouts.length === 1}
                 >
                   Remove
                 </button>
               </div>
             ))}
-            <button type="button" className="add-payout-button" onClick={addPayoutField}>
-              Add Payout
+            <button type="button" className="custom-add-payout-btn" onClick={addPayoutField}>
+              + Add Payout
             </button>
           </label>
-          <label>
+          <label className="custom-form-label">
             Ticket Count/Take In:
             <input
               type="number"
@@ -165,7 +166,7 @@ const CustomGameCreator = () => {
               placeholder="Enter ticket count"
             />
           </label>
-          <label>
+          <label className="custom-form-label">
             Payout:
             <input
               type="text"
@@ -175,7 +176,7 @@ const CustomGameCreator = () => {
               placeholder="Enter payout amount"
             />
           </label>
-          <label>
+          <label className="custom-form-label">
             Games Per Case:
             <input
               type="number"
@@ -185,29 +186,29 @@ const CustomGameCreator = () => {
               placeholder="Enter number of games per case"
             />
           </label>
-          <label>
+          <label className="custom-form-label">
             Upload Club Logo:
             <input type="file" onChange={handleImageUpload} />
           </label>
         </form>
-        <div className="template-buttons">
+        <div className="custom-template-buttons">
           <button
             type="button"
-            className={`template-button ${selectedTemplate === 'template1' ? 'active' : ''}`}
+            className={`custom-template-btn ${selectedTemplate === 'template1' ? 'active' : ''}`}
             onClick={() => handleTemplateChange('template1')}
           >
             Classic Theme
           </button>
           <button
             type="button"
-            className={`template-button ${selectedTemplate === 'template2' ? 'active' : ''}`}
+            className={`custom-template-btn ${selectedTemplate === 'template2' ? 'active' : ''}`}
             onClick={() => handleTemplateChange('template2')}
           >
             Modern Theme
           </button>
           <button
             type="button"
-            className={`template-button ${selectedTemplate === 'template3' ? 'active' : ''}`}
+            className={`custom-template-btn ${selectedTemplate === 'template3' ? 'active' : ''}`}
             onClick={() => handleTemplateChange('template3')}
           >
             Fun Theme
@@ -215,36 +216,37 @@ const CustomGameCreator = () => {
         </div>
       </div>
 
-      <div className="preview-container">
-        <h2>Game Poster Preview</h2>
-        <div className={`game-card ${selectedTemplate}`}>
-  {formData.customImage && (
-    <img src={formData.customImage} alt="Club Logo" className="club-logo" />
-  )}
-  <h3>{formData.clubName || 'Your Club Name'}</h3>
-  <h4>{formData.gameName || 'Your Game Name'}</h4>
-  <p><strong>Top Seal Prize:</strong> {formData.topSealPrize || 'Enter a prize'}</p>
-  <p><strong>Smaller Payouts:</strong></p>
-  <div className="payouts-column">
-    {formData.smallerPayouts.map((payout, index) => (
-      <div key={index} className="payout-item">
-        <span>{payout.description || 'Enter payout'}</span>
-        <span>{payout.count || 'Enter count'} winners</span>
-      </div>
-    ))}
-  </div>
-  <p><strong>Ticket Count:</strong> {formData.ticketCount || 'Enter count'}</p>
-  <p><strong>Payout:</strong> {formData.payout || 'Enter payout'}</p>
-  <p><strong>Games Per Case:</strong> {formData.gamesPerCase || 'Enter number'}</p>
-</div>
-        <button className="download-pdf-button" onClick={downloadPDF}>
+      <div className="custom-preview-panel">
+        <h2 className="custom-preview-title">Game Poster Preview</h2>
+        <div className={`custom-game-card ${selectedTemplate}`}>
+          {formData.customImage && (
+            <img src={formData.customImage} alt="Club Logo" className="custom-club-logo" />
+          )}
+          <h3>{formData.clubName || 'Your Club Name'}</h3>
+          <h4>{formData.gameName || 'Your Game Name'}</h4>
+          <p><strong>Top Seal Prize:</strong> {formData.topSealPrize || 'Enter a prize'}</p>
+          <p><strong>Smaller Payouts/Instant Wins:</strong></p>
+          <div className="custom-payouts-column">
+            {formData.smallerPayouts.map((payout, index) => (
+              <div key={index} className="custom-payout-item">
+                <span>{payout.description || 'Enter payout'}</span>
+                <span>{payout.count || 'Enter count'} winners</span>
+              </div>
+            ))}
+          </div>
+          <p><strong>Ticket Count:</strong> {formData.ticketCount || 'Enter count'}</p>
+          <p><strong>Payout:</strong> {formData.payout || 'Enter payout'}</p>
+          <p><strong>Games Per Case:</strong> {formData.gamesPerCase || 'Enter number'}</p>
+        </div>
+        <button className="custom-download-pdf-btn" onClick={downloadPDF}>
           Download Poster as PDF
         </button>
-        <p className="email-instructions">
-          To create your custom game, download the poster with your game specs and email it 
+        <p className="custom-email-instructions">
+          To create your custom game, download the poster with your game specs and email it
           <a href="mailto:skhan139@icloud.com"> here</a>. We will get back to you to start the process.
         </p>
       </div>
+    </div>
     </div>
   );
 };

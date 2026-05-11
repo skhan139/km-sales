@@ -1,247 +1,366 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap'); /* Fun font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap');
 
-/* General Styles */
-.custom-game-creator {
+:root {
+  --cgc-gold: #d4af37;
+  --cgc-gold-light: #f0d060;
+  --cgc-gold-dim: rgba(212, 175, 55, 0.16);
+  --cgc-border: rgba(212, 175, 55, 0.25);
+  --cgc-card: rgba(255, 255, 255, 0.04);
+  --cgc-text-muted: rgba(255, 255, 255, 0.75);
+}
+
+@keyframes cgcFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-game-shell {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #141414 0%, #000 65%);
+  color: #fff;
+  padding: 118px 20px 70px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  animation: cgcFadeUp 0.5s ease;
+}
+
+.custom-game-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.custom-form-panel {
+  background: var(--cgc-card);
+  border: 1px solid var(--cgc-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.custom-game-title {
+  margin: 0 0 20px;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--cgc-gold-light);
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.25);
+}
+
+.custom-form {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.custom-form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.9rem;
+}
+
+.custom-form-label input,
+.custom-form-label textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--cgc-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
   font-family: 'Poppins', sans-serif;
 }
 
-.form-container {
-  width: 45%;
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.custom-form-label input::placeholder,
+.custom-form-label textarea::placeholder {
+  color: rgba(255, 255, 255, 0.48);
 }
 
-.form-container h2 {
-  margin-bottom: 20px;
+.custom-form-label input:focus,
+.custom-form-label textarea:focus {
+  outline: none;
+  border-color: var(--cgc-gold);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
 }
 
-.form-container label {
-  display: block;
-  margin-bottom: 15px;
-}
-
-.form-container input,
-.form-container textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.preview-container {
-  width: 45%;
-  text-align: center;
-}
-
-.game-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.game-card h3 {
-  margin: 10px 0;
-}
-
-.game-card p {
-  margin: 5px 0;
-}
-
-.club-logo {
-  max-width: 100px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-}
-
-.payout-field {
+.custom-payout-field {
   display: flex;
+  gap: 8px;
   align-items: center;
-  margin-bottom: 10px;
+  margin-top: 6px;
 }
 
-.payout-field input {
+.custom-payout-field input {
   flex: 1;
-  padding: 8px;
-  margin-right: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 8px 10px;
+  border: 1px solid var(--cgc-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font-size: 0.85rem;
 }
 
-.payout-count-field {
+.custom-payout-count {
   max-width: 80px;
 }
 
-.add-payout-button,
-.remove-payout-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 4px;
+.custom-remove-payout-btn,
+.custom-add-payout-btn {
+  border: 1px solid var(--cgc-border);
+  border-radius: 8px;
+  padding: 8px 12px;
   cursor: pointer;
-  font-size: 14px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
 }
 
-.add-payout-button:hover {
-  background-color: #0056b3;
+.custom-remove-payout-btn {
+  background: rgba(255, 80, 80, 0.14);
+  color: #ffdede;
 }
 
-.remove-payout-button {
-  background-color: #ff4d4d;
+.custom-remove-payout-btn:hover:not(:disabled) {
+  background: rgba(255, 80, 80, 0.24);
 }
 
-.remove-payout-button:hover {
-  background-color: #cc0000;
-}
-
-.remove-payout-button:disabled {
-  background-color: #ccc;
+.custom-remove-payout-btn:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-ul {
-  list-style-type: none; /* Remove default bullet points */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+.custom-add-payout-btn {
+  background: #0a0a10;
+  color: #fff;
+  width: fit-content;
+  margin-top: 6px;
 }
 
-ul li {
-  margin-bottom: 5px; /* Add spacing between list items */
-  font-size: 14px; /* Adjust font size */
+.custom-add-payout-btn:hover {
+  border-color: var(--cgc-gold);
+  background: rgba(212, 175, 55, 0.14);
 }
 
-.payouts-column {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: flex-start; /* Align items to the left */
-  gap: 5px; /* Add spacing between items */
+.custom-template-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 16px;
 }
 
-.payout-item {
-  display: flex;
-  justify-content: space-between; /* Space description and count */
-  width: 100%; /* Ensure items take up full width */
-  font-size: 14px; /* Adjust font size */
-}
-
-.download-pdf-button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+.custom-template-btn {
+  padding: 10px 12px;
+  border: 1px solid var(--cgc-border);
+  border-radius: 8px;
+  background: #0a0a10;
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
 }
 
-.download-pdf-button:hover {
-  background-color: #218838;
+.custom-template-btn:hover {
+  border-color: var(--cgc-gold);
 }
 
-.email-instructions {
-  margin-top: 20px;
-  font-size: 14px;
+.custom-template-btn.active {
+  background: linear-gradient(135deg, var(--cgc-gold), #b8962e);
+  color: #0b0b0b;
+  border-color: var(--cgc-gold);
+}
+
+.custom-preview-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.custom-preview-title {
+  margin: 0;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 800;
+  color: var(--cgc-gold-light);
+  text-shadow: 0 0 28px rgba(212, 175, 55, 0.25);
   text-align: center;
-  color: #555;
 }
 
-.email-instructions a {
-  color: #007bff;
+.custom-game-card {
+  background: var(--cgc-card);
+  border: 1px solid var(--cgc-border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+  text-align: center;
+}
+
+.custom-club-logo {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid var(--cgc-border);
+}
+
+.custom-game-card h3 {
+  margin: 10px 0;
+  font-size: 1.4rem;
+  color: var(--cgc-gold-light);
+}
+
+.custom-game-card h4 {
+  margin: 8px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.custom-game-card p {
+  margin: 8px 0;
+  color: var(--cgc-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.custom-payouts-column {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.custom-payout-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  font-size: 0.9rem;
+  color: var(--cgc-text-muted);
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+}
+
+.custom-download-pdf-btn {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, var(--cgc-gold), #b8962e);
+  color: #0b0b0b;
+  border: 1px solid var(--cgc-border);
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: center;
+}
+
+.custom-download-pdf-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.28);
+}
+
+.custom-email-instructions {
+  text-align: center;
+  color: var(--cgc-text-muted);
+  font-size: 0.9rem;
+  margin: 12px 0 0;
+}
+
+.custom-email-instructions a {
+  color: var(--cgc-gold-light);
   text-decoration: none;
+  font-weight: 600;
 }
 
-.email-instructions a:hover {
+.custom-email-instructions a:hover {
   text-decoration: underline;
 }
 
-/* Template 1: Classic Theme */
-.template1 .game-card {
-  font-family: 'Times New Roman', serif; /* Classic serif font */
-  background-color: #fff;
-  color: #000;
-  border: 2px solid #000;
+/* Template Styles */
+.template1 .custom-game-card {
+  font-family: 'Times New Roman', serif;
+  background: rgba(240, 240, 240, 0.05);
+  border: 2px solid var(--cgc-border);
 }
 
-.template1 .game-card h3,
-.template1 .game-card h4 {
-  font-weight: bold;
+.template1 .custom-game-card h3,
+.template1 .custom-game-card h4 {
+  color: var(--cgc-gold-light);
+  font-weight: 700;
 }
 
-.template1 .game-card p {
+.template1 .custom-game-card p {
   font-style: italic;
 }
 
-/* Template 2: Modern Theme */
-.template2 .game-card {
-  font-family: 'Arial', sans-serif; /* Modern sans-serif font */
-  background-color: #f4f4f4;
-  color: #333;
-  border: 2px solid #444;
+.template2 .custom-game-card {
+  font-family: 'Arial', sans-serif;
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--cgc-gold);
 }
 
-.template2 .game-card h3,
-.template2 .game-card h4 {
+.template2 .custom-game-card h3,
+.template2 .custom-game-card h4 {
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: var(--cgc-gold);
 }
 
-.template2 .game-card p {
-  font-size: 14px;
+.template3 .custom-game-card {
+  font-family: 'Comic Neue', cursive;
+  background: rgba(240, 208, 48, 0.12);
+  border: 2px dashed var(--cgc-gold);
 }
 
-/* Template 3: Fun Theme */
-.template3 .game-card {
-  font-family: 'Comic Neue', cursive; /* Fun and playful font */
-  background-color: #ffeb3b;
-  color: #000;
-  border: 2px dashed #f44336;
+.template3 .custom-game-card h3,
+.template3 .custom-game-card h4 {
+  color: var(--cgc-gold-light);
 }
 
-.template3 .game-card h3,
-.template3 .game-card h4 {
-  color: #f44336;
+.template3 .custom-game-card p {
+  font-weight: 600;
+  color: var(--cgc-gold-light);
 }
 
-.template3 .game-card p {
-  font-size: 16px;
-  font-weight: bold;
+@media (max-width: 1024px) {
+  .custom-game-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .custom-template-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Template Buttons */
-.template-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
-}
+@media (max-width: 640px) {
+  .custom-game-shell {
+    padding: 98px 14px 50px;
+  }
 
-.template-button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  background-color: #ddd;
-  color: #333;
-  transition: background-color 0.3s;
-}
+  .custom-form-panel {
+    padding: 16px;
+  }
 
-.template-button.active {
-  background-color: #007bff;
-  color: white;
-}
+  .custom-game-card {
+    padding: 16px;
+  }
 
-.template-button:hover {
-  background-color: #0056b3;
-  color: white;
+  .custom-payout-field {
+    flex-direction: column;
+  }
+
+  .custom-template-buttons {
+    grid-template-columns: 1fr;
+  }
 }
