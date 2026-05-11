@@ -123,7 +123,7 @@ const HomePage = () => {
             <div className="slider-badge">🎰 Pull Tabs</div>
             <div className="slider-container">
               <Slider {...sliderSettings}>
-                {['bigrig','colorofmoney','sparkles','brewskis','applepicking','snowblowin','gofish'].map((img, i) => (
+                {['bigrig','oneflag','bankvault','brewskis','1kfreedomrings','snowblowin','FAF'].map((img, i) => (
                   <div key={i}>
                     <Link to={user ? '/members' : '/login'}>
                       <img src={`${process.env.PUBLIC_URL}/assets/images/${img}.jpg`} alt={img} className="slider-image" />

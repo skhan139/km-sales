@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import './SignupPage.css'; // Reuse SignupPage styles
+import './ForgotPasswordPage.css';
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
@@ -32,22 +32,24 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <div className="page-container">
-      <div className="signup-page-container">
+    <div className="forgot-shell">
+      <div className="forgot-page-container">
         <h1>Reset Your Password</h1>
-        <p>Enter your email address below, and we'll send you a link to reset your password.</p>
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
-        <form onSubmit={handlePasswordReset}>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <button type="submit">Send Reset Email</button>
-        </form>
+        <p className="forgot-subheading">Enter your email address below, and we'll send you a link to reset your password.</p>
+        <div className="forgot-card">
+          {successMessage && <p className="success-message">{successMessage}</p>}
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <form onSubmit={handlePasswordReset}>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button type="submit">Send Reset Email</button>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -54,12 +54,12 @@ const SignupPage = () => {
   };
 
   return (
-    <div className="page-container">
-      <div className="signup-page-container">
+    <div className="auth-shell auth-shell-signup">
+      <div className="auth-page-container auth-signup-page-container">
         <h1>Create An Account To Login And View Our Products!</h1>
-        <div className="signup-page">
-          <div className="signup-container">
-            <h2 className='signupHeader'>Signup</h2>
+        <div className="auth-page auth-signup-page">
+          <div className="auth-card auth-signup-card">
+            <h2 className='auth-card-title'>Signup</h2>
             {signupSuccess && <p className="success-message">Signup successful!</p>}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
             <form onSubmit={handleSignup}>
@@ -134,7 +134,7 @@ const SignupPage = () => {
                 required
               />
               <button type="submit">Signup</button>
-              <p className='already'>Already Have An Account? Sign In <a href={`${process.env.PUBLIC_URL}/login`} style={{ color: 'white' }}>Here!</a>.</p>
+              <p className='auth-alt-link'>Already Have An Account? Sign In <a href={`${process.env.PUBLIC_URL}/login`}>Here!</a>.</p>
             </form>
           </div>
         </div>

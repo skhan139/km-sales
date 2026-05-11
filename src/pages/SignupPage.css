@@ -1,4 +1,145 @@
-/* src/pages/SignupPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+.auth-shell {
+  min-height: 100vh;
+  background: radial-gradient(ellipse at top, #141414 0%, #000 68%);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  padding: 120px 16px 60px;
+  box-sizing: border-box;
+}
+
+.auth-page-container {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.auth-page-container h1 {
+  margin: 0 0 22px;
+  font-size: clamp(1.55rem, 3vw, 2.1rem);
+  color: #f0d060;
+  text-shadow: 0 0 24px rgba(212, 175, 55, 0.24);
+}
+
+.auth-page {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  padding: 24px 20px;
+}
+
+.auth-card-title {
+  margin: 0 0 14px;
+  color: #f0d060;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.auth-card form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.auth-card input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  padding: 11px 12px;
+  font-size: 0.95rem;
+}
+
+.auth-card input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.16);
+}
+
+.auth-card button,
+.auth-alt-link {
+  grid-column: 1 / -1;
+}
+
+.auth-card button {
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #000;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.auth-card button:hover {
+  background: #111;
+  border-color: #111;
+}
+
+.auth-alt-link {
+  margin: 6px 0 2px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.auth-alt-link a {
+  color: #f0d060;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-alt-link a:hover {
+  text-decoration: underline;
+}
+
+.success-message {
+  margin: 0 0 10px;
+  background: rgba(25, 135, 84, 0.2);
+  border: 1px solid rgba(25, 135, 84, 0.45);
+  color: #d6ffe9;
+  padding: 8px 10px;
+  border-radius: 8px;
+  grid-column: 1 / -1;
+  font-size: 0.9rem;
+}
+
+.error-message {
+  margin: 0 0 10px;
+  background: rgba(220, 53, 69, 0.18);
+  border: 1px solid rgba(220, 53, 69, 0.45);
+  color: #ffd7db;
+  padding: 8px 10px;
+  border-radius: 8px;
+  grid-column: 1 / -1;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .auth-shell {
+    padding: 104px 12px 44px;
+  }
+
+  .auth-card {
+    padding: 20px 14px;
+  }
+
+  .auth-card form {
+    grid-template-columns: 1fr;
+  }
+}/* src/pages/SignupPage.css */
 
 .page-container {
   background-image: url('/public/assets/images/offwhitebg.jpg'); /* Path to your background image */

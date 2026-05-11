@@ -90,7 +90,7 @@ const Navbar = () => {
   </div>
       ) : (
         <>
-          <button className="toggle-button" onClick={toggleNavbar}>
+          <button className={`toggle-button ${isOpen ? 'active' : ''}`} onClick={toggleNavbar}>
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
@@ -181,6 +181,14 @@ const Navbar = () => {
               </>
             )}
           </ul>
+          {isOpen && (
+            <button
+              type="button"
+              className="navbar-mobile-overlay"
+              aria-label="Close navigation menu"
+              onClick={closeNavbar}
+            />
+          )}
         </>
       )}
       {selectedProduct && (

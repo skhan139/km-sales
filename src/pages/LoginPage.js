@@ -52,13 +52,13 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="page-container">
-      <div className="login-page-container">
+    <div className="auth-shell auth-shell-login">
+      <div className="auth-page-container auth-login-page-container">
         <h1>Existing K&M Customers Login Here!</h1>
-        <h2 className='view'>View Our Products, Place Orders, And More!</h2>
-        <div className="login-page">
-          <div className="login-container">
-            <h2 className='loginHeader'>Login</h2>
+        <h2 className='auth-subheading'>View Our Products, Place Orders, And More!</h2>
+        <div className="auth-page auth-login-page">
+          <div className="auth-card auth-login-card">
+            <h2 className='auth-card-title'>Login</h2>
             {errorMessage && <p className="error-message">{errorMessage}</p>} {/* Display error message */}
             <form onSubmit={handleLogin}>
               <input
@@ -75,7 +75,7 @@ const LoginPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <div className="show-password-container">
+                  <div className="auth-show-password-container">
                     <input
                       type="checkbox"
                       id="show-password"
@@ -87,10 +87,10 @@ const LoginPage = () => {
                 </>
               )}
               <button type="submit">Login</button>
-              <p className='need'>Need To Create An Account? Sign Up <a href={`${process.env.PUBLIC_URL}/signup`} style={{ color: 'white' }}>Here!</a>.</p>
+              <p className='auth-alt-link'>Need To Create An Account? Sign Up <a href={`${process.env.PUBLIC_URL}/signup`}>Here!</a>.</p>
             </form>
             <button
-              className="forgot-password-button"
+              className="forgot-password-button auth-secondary-button"
               onClick={() => navigate('/forgot-password')}
             >
               Forgot Password?
