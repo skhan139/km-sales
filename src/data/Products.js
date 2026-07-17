@@ -564,6 +564,7 @@ const products = [
 { id: 394, name: "210 Carnival", image: "/assets/images/hornets.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU033", takeIn: "210.00", payout: "$150.00", profit: "60.00", profitPercent: "28.57%", dealsPerCase: "40", seal: "$150", denomination: "$1" },
 { id: 395, name: "2030 4-Score", image: "/assets/images/4-score.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU033", takeIn: "$2,030.00", payout: "$1,375.00", profit: "655.00", profitPercent: "32.27%", dealsPerCase: "5", seal: "$1000", denomination: "$1", bottomPayout: "$1" },
 { id: 396, name: "4000 Rockets Red Glare", image: "/assets/images/rocketsredglare.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU011", takeIn: "$4,000.00", payout: "$2,750.00", profit: "$1,250.00", profitPercent: "31%", dealsPerCase: "1", seal: "$500", denomination: "$1", bottomPayout: "$5" },
+{ id: 397, name: "192 @ $20 Golden Ticket", image: "/assets/images/goldenticket.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$3,840.00", payout: "$3,000.00", profit: "840.00", profitPercent: "21.88%", dealsPerCase: "8", seal: "$1000", denomination: "20", bottomPayout: "$20" },
 ];
 
 
