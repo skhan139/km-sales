@@ -85,7 +85,7 @@ const products = [
   { id: 85, name: "4000 3/1 Scare Bears", images: ["/assets/images/ScareBears.jpg", "/assets/images/instantwinnerinfo.jpg"], category: "instant winners", tags: ["instant", "winner"], sku: "SKU033", takeIn: "$4,000.00", payout: "$3,200.00", profit: "$800.00", profitPercent: "20%", dealsPerCase: "8", seal: "$180", denomination: "$1", bundle: "3", bottomPayout: "$20" },
   { 
     id: 86, 
-    name: "Assorted Bingo Paper (12 Sheets Per Book)", 
+    name: "Assorted Bingo Paper", 
     images: ["/assets/images/bingopaper.jpg", "/assets/images/glowpaper.jpg"], 
     category: "bingo paper", 
     tags: ["bingo", "paper"], 
@@ -173,7 +173,7 @@ const products = [
   { id: 111, name: "973 Tater Tots", image: "/assets/images/tatertots.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$973.00", payout: "$725.00", profit: "$248.00", profitPercent: "25.49%", dealsPerCase: "16", seal: "$300", denomination: "$1", bottomPayout: "$5" },
   { id: 112, name: "973 Brewskis", image: "/assets/images/brewskis.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$973.00", payout: "$725.00", profit: "$248.00", profitPercent: "25.49%", dealsPerCase: "16", seal: "$300", denomination: "$1", bottomPayout: "$5" },
   { id: 113, name: "2184 .25 BINGO", image: "/assets/images/25bingo.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU002", takeIn: "$546.00", payout: "$372.00", profit: "$174.00", profitPercent: "31.87%", dealsPerCase: "4", seal: "$50", denomination: "$0.25", bottomPayout: "$0.50" },
-  { id: 114, name: "Double Deal Club Special", image: "/assets/images/doubledealclubspecial.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$352.00", payout: "$187.00", profit: "$165.00", profitPercent: "47%", dealsPerCase: "12", seal: "$100", denomination: "$1", bottomPayout: "$2" },
+  { id: 114, name: "704 Double Deal Club Special", image: "/assets/images/doubledealclubspecial.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$352.00", payout: "$187.00", profit: "$165.00", profitPercent: "47%", dealsPerCase: "12", seal: "$100", denomination: "$1", bottomPayout: "$2" },
   { id: 115, name: "3136 River Rat", image: "/assets/images/riverrat.jpg", category: "instant winners", tags: ["instant", "winners"], sku: "SKU002", takeIn: "$15,680.00", payout: "$12,100.00", profit: "$3,580.00", profitPercent: "22.83%", dealsPerCase: "5", seal: "$1,000", denomination: "$5", bottomPayout: "$5" },
   { id: 116, name: "3060 Big Green", images: ["/assets/images/biggreen.jpg","/assets/images/biggreeninfo.jpg" ], category: "tip jars", tags: ["tip", "jars"], sku: "SKU002", takeIn: "$3,060.00", payout: "$2,470.00", profit: "$590.00", profitPercent: "19%", dealsPerCase: "25", seal: "$1,000", denomination: "$1", bottomPayout: "$10" },
   { id: 117, name: "166 Smoke Break Bingo", image: "/assets/images/smokebreakbingo.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU002", takeIn: "$166.00", payout: "$110.00", profit: "$56.00", profitPercent: "33.73%", dealsPerCase: "16", seal: "$110", denomination: "$1" },
@@ -565,10 +565,11 @@ const products = [
 { id: 395, name: "2030 4-Score", image: "/assets/images/4-score.jpg", category: "bingo card games", tags: ["bingo", "card", "games"], sku: "SKU033", takeIn: "$2,030.00", payout: "$1,375.00", profit: "655.00", profitPercent: "32.27%", dealsPerCase: "5", seal: "$1000", denomination: "$1", bottomPayout: "$1" },
 { id: 396, name: "4000 Rockets Red Glare", image: "/assets/images/rocketsredglare.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU011", takeIn: "$4,000.00", payout: "$2,750.00", profit: "$1,250.00", profitPercent: "31%", dealsPerCase: "1", seal: "$500", denomination: "$1", bottomPayout: "$5" },
 { id: 397, name: "192 @ $20 Golden Ticket", image: "/assets/images/goldenticket.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$3,840.00", payout: "$3,000.00", profit: "840.00", profitPercent: "21.88%", dealsPerCase: "4", seal: "$1000", denomination: "20", bottomPayout: "$20" },
-{ id: 398, name: "136 @ $20 Lucky Locomotive", image: "/assets/images/lucylocomotive.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$2,720.00", payout: "$2,140.00", profit: "580.00", profitPercent: "21.32%", dealsPerCase: "4", seal: "$1000", denomination: "20", bottomPayout: "$20" },
+{ id: 398, name: "136 @ $20 Lucky Locomotive", image: "/assets/images/luckylocomotive.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$2,720.00", payout: "$2,140.00", profit: "580.00", profitPercent: "21.32%", dealsPerCase: "4", seal: "$1000", denomination: "20", bottomPayout: "$20" },
 { id: 399, name: "700 Flashin' Cash", image: "/assets/images/flashincash.jpg",  category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$700.00", payout: "$485.00", profit: "$215.00", profitPercent: "30.71%", dealsPerCase: "8", seal: "$300", denomination: "$1", bottomPayout: "$1" },
-{ id: 400, name: "700 Spin Em' & Win Em'!", image: "/assets/spinwin.jpg",  category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$700.00", payout: "$485.00", profit: "$215.00", profitPercent: "30.71%", dealsPerCase: "8", seal: "$300", denomination: "$1", bottomPayout: "$1" },
+{ id: 400, name: "700 Spin Em' & Win Em'!", image: "/assets/images/spinwin.jpg",  category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$700.00", payout: "$485.00", profit: "$215.00", profitPercent: "30.71%", dealsPerCase: "8", seal: "$300", denomination: "$1", bottomPayout: "$1" },
 { id: 401, name: "700 Hit Big", image: "/assets/images/hitbig.jpg",  category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$700.00", payout: "$485.00", profit: "$215.00", profitPercent: "30.71%", dealsPerCase: "8", seal: "$300", denomination: "$1", bottomPayout: "$1" },
+ { id: 402, name: "400 Football Night In America (20 Sets Per Bonus Board)", image: "/assets/images/FNIA.jpg", category: "bonus boards", tags: ["bonus", "boards"], sku: "SKU019", takeIn: "$400.00", payout: "$280.00", profit: "$120.00", profitPercent: "30%", dealsPerCase: "20", seal: "$500", denomination: "$1" },
 ];
 
 
