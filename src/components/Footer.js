@@ -20,6 +20,9 @@ const Footer = () => {
 <a href="https://www.muncienovelty.com/cms/" target="_blank" rel="noopener noreferrer">
   <img src="/assets/images/muncie.avif" alt="Muncie" />
 </a>
+<a href="https://www.goloyalpa.com/" target="_blank" rel="noopener noreferrer">
+  <img src="/assets/images/loyal.jpg" alt="Loyal Gaming Rewards" />
+</a>
           </div>
         </div>
         <div className="footer-section">
