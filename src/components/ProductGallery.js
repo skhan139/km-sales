@@ -1,603 +1,943 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import {
+  arrayUnion,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+} from 'firebase/firestore';
+
 import products from '../data/Products';
 import { useCart } from '../context/CartContext';
-import ProductModal from './ProductModal'; // Import the ProductModal component
-import QuantitySelectionModal from './QuantitySelectionModal'; // Import the QuantitySelectionModal component
-import './ProductGallery.css'; // Import the CSS file for styling
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '../firebase'; // Import Firebase configuration
-import { doc, getDoc, setDoc, updateDoc, arrayUnion } from 'firebase/firestore';
+import ProductModal from './ProductModal';
+import QuantitySelectionModal from './QuantitySelectionModal';
+import { auth, db } from '../firebase';
+import './ProductGallery.css';
 
-const itemsPerPage = 30; // Number of items to display per page
+const ITEMS_PER_PAGE = 30;
 
-const ProductGallery = ({ searchTerm }) => {
-  const [sortCriteria, setSortCriteria] = useState('all');
-  const [filteredProducts, setFilteredProducts] = useState([...products]);
-  const [currentPage, setCurrentPage] = useState(1); // State for the current page
-  const [selectedProduct, setSelectedProduct] = useState(null); // State for the selected product
-  const [viewMode, setViewMode] = useState('categories'); // State for the view mode
-  const [isQuantityModalOpen, setIsQuantityModalOpen] = useState(false); // State for the quantity selection modal
-  const [showPopup, setShowPopup] = useState(false); // Hidden by default
-  const { addItemToCart } = useCart(); // Use the Cart context
+const categories = [
+  {
+    name: 'Boards',
+    description: 'Browse all game and merchandise boards.',
+    criteria: 'boards',
+    image: 'hogsandkisses.jpg',
+  },
+  {
+    name: 'Pull Tabs',
+    description: 'Explore our complete pull-tab selection.',
+    criteria: 'tabs',
+    image: 'bigrig.jpg',
+  },
+  {
+    name: 'Instant Winners',
+    description: 'Find instant-win games and tickets.',
+    criteria: 'instant',
+    image: 'captainjacks.jpg',
+  },
+  {
+    name: 'Bingo Supplies',
+    description: 'Paper, daubers, games, and more.',
+    criteria: 'bingo',
+    image: 'bingopaper.jpg',
+  },
+  {
+    name: 'Tip Boards',
+    description: 'Browse tip boards for your organization.',
+    criteria: 'tip boards',
+    image: '24suretip.jpg',
+  },
+  {
+    name: 'Tip Jars',
+    description: 'Shop popular tip-jar games.',
+    criteria: 'tip jars',
+    image: 'doublejugs.jpg',
+  },
+  {
+    name: 'All Products',
+    description: 'View the complete K&M product catalog.',
+    criteria: 'all',
+    image: 'redwhiteandblue.jpg',
+  },
+];
 
-  const [user] = useAuthState(auth); // Get the authenticated user
+const menuGroups = [
+  {
+    label: 'Boards',
+    options: [
+      ['Tip Boards', 'tip boards'],
+      ['Coin Boards', 'coin boards'],
+      ['Bonus Boards', 'bonus boards'],
+      ['Scratch-Off Boards', 'scratch off boards'],
+      ['Merchandise Boards', 'merchandise boards'],
+      ['Gun Boards', 'gun boards'],
+      ['Knife Boards', 'knife boards'],
+    ],
+  },
+  {
+    label: 'Games and Tickets',
+    options: [
+      ['Pull Tabs', 'pull tabs'],
+      ['Instant Winners', 'instant winners'],
+      ['Strip Tickets', 'strip tickets'],
+      ['Raffle Tickets', 'raffle tickets'],
+      ['Elimination Games', 'elimination games'],
+      ['Chip Games', 'chip games'],
+      ['Variety Packs', 'variety packs'],
+      ['Tip Jars', 'tip jars'],
+    ],
+  },
+  {
+    label: 'Bingo Supplies',
+    options: [
+      ['Bingo Daubers', 'bingo daubers'],
+      ['Bingo Games', 'bingo games'],
+      ['Bingo Card Games', 'bingo card games'],
+      ['Bingo Paper', 'bingo paper'],
+    ],
+  },
+];
+
+const themes = [
+  ['Sports', 'sports'],
+  ['Christmas', 'christmas'],
+  ['Halloween', 'halloween'],
+  ['Easter', 'easter'],
+  ['Spring', 'spring'],
+  ['Fall', 'fall'],
+  ['Winter', 'winter'],
+  ['Summer', 'summer'],
+  ['Valentine’s Day', 'valentines'],
+  ['St. Patrick’s Day', 'st patricks'],
+  ['USA', 'usa'],
+  ['Law Enforcement', 'police'],
+  ['Fire and Rescue', 'firefighters'],
+  ['Military', 'military'],
+];
+
+const initialFilters = {
+  ticketCount: '',
+  seal: '',
+  profitPercent: '',
+  denomination: '',
+  windows: '',
+  bundle: '',
+  bottomPayout: '',
+  theme: '',
+};
+
+const parseNumber = (value) => {
+  if (value === undefined || value === null) {
+    return null;
+  }
+
+  const parsedValue = Number.parseFloat(
+    String(value).replace(/[^0-9.-]+/g, '')
+  );
+
+  return Number.isFinite(parsedValue) ? parsedValue : null;
+};
+
+const isWithinRange = (number, range) => {
+  if (number === null || !range) {
+    return !range;
+  }
+
+  const [minimum, maximum] = range;
+
+  return (
+    number >= minimum &&
+    (maximum === null || number <= maximum)
+  );
+};
+
+const getNumericRange = (value) => {
+  const ranges = {
+    '10-191': [10, 191],
+    '192-500': [192, 500],
+    '501-1000': [501, 1000],
+    '1001-2000': [1001, 2000],
+    '2001+': [2001, null],
+    '50-100': [50, 100],
+    '200-300': [200, 300],
+    '400-599': [400, 599],
+    '600+': [600, null],
+    '15-25': [15, 25],
+    '26-35': [26, 35],
+    '36-45': [36, 45],
+    '46+': [46, null],
+    '$0.50': [0.5, 0.5],
+    '$1': [1, 1],
+    '$2': [2, 2],
+    '$5': [5, 5],
+    '$10': [10, 10],
+    '>$10': [10.01, null],
+  };
+
+  return ranges[value] || null;
+};
+
+const ProductGallery = ({ searchTerm = '' }) => {
+  const [user] = useAuthState(auth);
+  const { addItemToCart } = useCart();
+
+  const [viewMode, setViewMode] = useState('categories');
+  const [category, setCategory] = useState('all');
+  const [filters, setFilters] = useState(initialFilters);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedProduct, setSelectedProduct] =
+    useState(null);
+  const [cartProduct, setCartProduct] = useState(null);
+  const [isQuantityModalOpen, setIsQuantityModalOpen] =
+    useState(false);
+  const [favoriteProductId, setFavoriteProductId] =
+    useState(null);
+
+  const filteredProducts = useMemo(() => {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    return products.filter((product) => {
+      const productName = String(
+        product.name || ''
+      ).toLowerCase();
+
+      const productCategory = String(
+        product.category || ''
+      ).toLowerCase();
+
+      const productTags = Array.isArray(product.tags)
+        ? product.tags.map((tag) =>
+            String(tag).toLowerCase()
+          )
+        : [];
+
+      const productTheme = String(
+        product.theme || ''
+      ).toLowerCase();
+
+      const matchesSearch =
+        !normalizedSearch ||
+        productName.includes(normalizedSearch) ||
+        productCategory.includes(normalizedSearch) ||
+        productTags.some((tag) =>
+          tag.includes(normalizedSearch)
+        );
+
+      const matchesCategory =
+        category === 'all' ||
+        (category === 'bingo paper'
+          ? productTags.includes('packs') ||
+            productTags.includes('paper')
+          : productTags.includes(category) ||
+            productCategory === category);
+
+      const matchesTheme =
+        !filters.theme ||
+        productTheme === filters.theme.toLowerCase();
+
+      const matchesTicketCount =
+        !filters.ticketCount ||
+        isWithinRange(
+          parseNumber(product.takeIn),
+          getNumericRange(filters.ticketCount)
+        );
+
+      const matchesSeal =
+        !filters.seal ||
+        isWithinRange(
+          parseNumber(product.seal),
+          getNumericRange(filters.seal)
+        );
+
+      const matchesProfit =
+        !filters.profitPercent ||
+        isWithinRange(
+          parseNumber(product.profitPercent),
+          getNumericRange(filters.profitPercent)
+        );
+
+      const matchesBottomPayout =
+        !filters.bottomPayout ||
+        isWithinRange(
+          parseNumber(product.bottomPayout),
+          getNumericRange(filters.bottomPayout)
+        );
+
+      const matchesDenomination =
+        !filters.denomination ||
+        String(product.denomination) ===
+          filters.denomination;
+
+      const matchesWindows =
+        !filters.windows ||
+        String(product.window) === filters.windows;
+
+      const matchesBundle =
+        !filters.bundle ||
+        String(product.bundle) === filters.bundle;
+
+      return (
+        matchesSearch &&
+        matchesCategory &&
+        matchesTheme &&
+        matchesTicketCount &&
+        matchesSeal &&
+        matchesProfit &&
+        matchesBottomPayout &&
+        matchesDenomination &&
+        matchesWindows &&
+        matchesBundle
+      );
+    });
+  }, [searchTerm, category, filters]);
 
   useEffect(() => {
-    filterProducts(searchTerm, sortCriteria);
-  }, [searchTerm, sortCriteria]);
+    setCurrentPage(1);
 
-  const handleClosePopup = () => {
-    setShowPopup(false); // Hide the pop-up when the close button is clicked
-  };
-
-  const handleSortChange = (criteria) => {
-    if (criteria === 'bingo paper') {
-      const filteredArray = products.filter(product =>
-        product.tags.includes('packs') || product.tags.includes('paper')
-      );
-      setFilteredProducts(filteredArray);
-    } else {
-      setSortCriteria(criteria);
-      setViewMode('products'); // Switch to product view mode
+    if (searchTerm.trim()) {
+      setViewMode('products');
     }
+  }, [searchTerm, category, filters]);
+
+  const totalPages = Math.ceil(
+    filteredProducts.length / ITEMS_PER_PAGE
+  );
+
+  const displayedProducts = filteredProducts.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const visiblePageNumbers = useMemo(() => {
+    if (totalPages <= 5) {
+      return Array.from(
+        { length: totalPages },
+        (_, index) => index + 1
+      );
+    }
+
+    const firstPage = Math.min(
+      Math.max(currentPage - 2, 1),
+      totalPages - 4
+    );
+
+    return Array.from(
+      { length: 5 },
+      (_, index) => firstPage + index
+    );
+  }, [currentPage, totalPages]);
+
+  const activeFilterCount =
+    Object.values(filters).filter(Boolean).length +
+    (category !== 'all' ? 1 : 0);
+
+  const handleCategoryChange = (criteria) => {
+    setCategory(criteria);
+    setViewMode('products');
+    setCurrentPage(1);
   };
 
-  const filterProducts = (searchTerm, criteria) => {
-    let filteredArray = products.filter(product => {
-      const matchesName = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesCategory = product.category.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesTag = product.tags && product.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-      const matchesCriteria = criteria === 'all' || product.tags.includes(criteria) || product.category.toLowerCase() === criteria.toLowerCase();
-      return (matchesName || matchesCategory || matchesTag) && matchesCriteria;
-    });
-
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
+  const handleFilterChange = (filterName, value) => {
+    setFilters((currentFilters) => ({
+      ...currentFilters,
+      [filterName]: value,
+    }));
   };
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product);
+  const handleClearFilters = () => {
+    setCategory('all');
+    setFilters(initialFilters);
+    setCurrentPage(1);
   };
 
-  const handleCloseModal = () => {
-    setSelectedProduct(null);
+  const handleBackToCategories = () => {
+    setViewMode('categories');
+    handleClearFilters();
   };
 
   const handlePageChange = (pageNumber) => {
+    if (pageNumber < 1 || pageNumber > totalPages) {
+      return;
+    }
+
     setCurrentPage(pageNumber);
+
+    document
+      .querySelector('.members-catalog')
+      ?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
   };
 
-  const handleBackToMainPage = () => {
-    setViewMode('categories');
-    setSortCriteria('all');
-  };
-
-  const handleAddToCartClick = (product) => {
-    setSelectedProduct(product); // Set the selected product to open the modal
+  const handleAddToCartClick = (event, product) => {
+    event.stopPropagation();
+    setCartProduct(product);
+    setIsQuantityModalOpen(true);
   };
 
   const handleQuantityModalClose = () => {
     setIsQuantityModalOpen(false);
-    setSelectedProduct(null);
+    setCartProduct(null);
   };
 
-  const handleQuantityModalSubmit = (quantity, quantityType) => {
-    addItemToCart({ ...selectedProduct, quantity, quantityType });
-    setIsQuantityModalOpen(false);
-    setSelectedProduct(null);
-  };
+ const handleQuantityModalSubmit = (selection) => {
+  if (!cartProduct) {
+    return;
+  }
 
-  const handlePriceFilterChange = (event) => {
-    const value = event.target.value;
-    let min, max;
-    switch (value) {
-      case '10-191':
-        min = 10;
-        max = 191;
-        break;
-      case '192-500':
-        min = 192;
-        max = 500;
-        break;
-      case '501-1000':
-        min = 501;
-        max = 1000;
-        break;
-      case '1001-2000':
-        min = 1001;
-        max = 2000;
-        break;
-      case '2001+':
-        min = 2001;
-        max = null;
-        break;
-      default:
-        min = 0;
-        max = null;
-    }
-    const filteredArray = products.filter(product => {
-      if (!product.takeIn) return false; // Ensure takeIn exists
-      const takeIn = parseFloat(product.takeIn.replace(/[^0-9.-]+/g, ""));
-      return takeIn >= min && (max === null || takeIn <= max);
-    });
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
-  };
+  addItemToCart({
+    ...cartProduct,
+    ...selection,
+  });
 
-  const handleDenominationFilterChange = (event) => {
-    const value = event.target.value;
-    const filteredArray = products.filter(product => product.denomination === value);
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
-  };
-
-  const handleWindowsFilterChange = (event) => {
-    const value = event.target.value;
-    const filteredArray = products.filter(product => product.window === value);
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
-  };
-  const handleBundleFilterChange = (event) => {
-    const value = event.target.value;
-    const filteredArray = products.filter(product => product.bundle === value);
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
-  };
-
-  const handleSealFilterChange = (event) => {
-    const value = event.target.value;
-    let min, max;
-    switch (value) {
-      case '50-100':
-        min = 50;
-        max = 100;
-        break;
-      case '200-300':
-        min = 200;
-        max = 300;
-        break;
-      case '400-599':
-        min = 400;
-        max = 599;
-        break;
-      case '600+':
-        min = 600;
-        max = null;
-        break;
-      default:
-        min = 0;
-        max = null;
-    }
-    const filteredArray = products.filter(product => {
-      if (!product.seal) return false; // Ensure seal exists
-      const seal = parseFloat(product.seal.replace(/[^0-9.-]+/g, ""));
-      return seal >= min && (max === null || seal <= max);
-    });
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
-  };
-
-  const handleProfitPercentFilterChange = (event) => {
-    const value = event.target.value;
-    let min, max;
-    switch (value) {
-      case '15-25':
-        min = 15;
-        max = 25;
-        break;
-      case '26-35':
-        min = 26;
-        max = 35;
-        break;
-      case '36-45':
-        min = 36;
-        max = 45;
-        break;
-      case '46+':
-        min = 46;
-        max = null;
-        break;
-      default:
-        min = 0;
-        max = null;
-    }
-    const filteredArray = products.filter(product => {
-      if (!product.profitPercent) return false; // Ensure profitPercent exists
-      const profitPercent = parseFloat(product.profitPercent.replace(/[^0-9.-]+/g, ""));
-      return profitPercent >= min && (max === null || profitPercent <= max);
-    });
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
-  };
-
-  const handleBottomPayoutFilterChange = (event) => {
-    const value = event.target.value;
-    let min, max;
-    switch (value) {
-      case '$0.50':
-        min = 0.5;
-        max = 0.5;
-        break;
-      case '$1':
-        min = 1;
-        max = 1;
-        break;
-      case '$2':
-        min = 2;
-        max = 2;
-        break;
-      case '$5':
-        min = 5;
-        max = 5;
-        break;
-      case '$10':
-        min = 10;
-        max = 10;
-        break;
-      case '>$10':
-        min = 10.01;
-        max = null;
-        break;
-      default:
-        min = 0;
-        max = null;
-    }
-    const filteredArray = products.filter(product => {
-      if (!product.bottomPayout) return false; // Ensure bottomPayout exists
-      const bottomPayout = parseFloat(product.bottomPayout.replace(/[^0-9.-]+/g, ""));
-      return bottomPayout >= min && (max === null || bottomPayout <= max);
-    });
-    setFilteredProducts(filteredArray);
-    setCurrentPage(1); // Reset to the first page whenever the filter changes
-  };
+  handleQuantityModalClose();
+};
 
   const handleFavoriteClick = async (product) => {
     if (!user) {
-      alert('Please log in to favorite products.');
+      window.alert(
+        'Please sign in before adding favorites.'
+      );
       return;
     }
-  
+
+    setFavoriteProductId(product.id);
+
     try {
-      const userDoc = doc(db, 'users', user.email); // Reference to the user's document
-      const docSnap = await getDoc(userDoc); // Check if the document exists
-  
-      if (!docSnap.exists()) {
-        // Create the document if it doesn't exist
-        await setDoc(userDoc, { favorites: [] });
+      const userDocument = doc(db, 'users', user.email);
+      const userSnapshot = await getDoc(userDocument);
+
+      if (!userSnapshot.exists()) {
+        await setDoc(userDocument, {
+          favorites: [],
+        });
       }
-  
-      // Add the product to the favorites array
-      await updateDoc(userDoc, {
+
+      await updateDoc(userDocument, {
         favorites: arrayUnion({
           id: product.id,
           name: product.name,
-          image: product.images ? product.images[0] : product.image, // Use the first image if available
+          image: product.images?.[0] || product.image,
         }),
       });
-  
-      alert(`${product.name} has been added to your favorites!`);
+
+      window.alert(
+        `${product.name} was added to your favorites.`
+      );
     } catch (error) {
-      console.error('Error adding to favorites:', error);
-      alert('An error occurred while adding to favorites. Please try again.');
+      console.error(
+        'Error adding product to favorites:',
+        error
+      );
+
+      window.alert(
+        'The product could not be added to your favorites.'
+      );
+    } finally {
+      setFavoriteProductId(null);
     }
   };
-  const handleThemeChange = (theme) => {
-    // Filter products by theme
-    const filtered = products.filter((product) => product.theme === theme);
-    setFilteredProducts(filtered); // Update the state with filtered products
-  };
-  const handleClearFilters = () => {
-    setSortCriteria('all'); // Reset the sort criteria
-    setFilteredProducts([...products]); // Reset the filtered products to all products
-    setCurrentPage(1); // Reset to the first page
-  
-    // Reset all dropdown filters to "Select"
-    const filterDropdowns = document.querySelectorAll('.filter-group select');
-    filterDropdowns.forEach((dropdown) => {
-      dropdown.value = ''; // Reset the dropdown to its default "Select" state
-    });
-  };
 
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-  const displayedProducts = filteredProducts.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+  const renderPagination = (location) => {
+    if (totalPages <= 1) {
+      return null;
+    }
+
+    return (
+      <nav
+        className="product-pagination"
+        aria-label={`${location} product pagination`}
+      >
+        <button
+          type="button"
+          className="pagination-button pagination-direction"
+          disabled={currentPage === 1}
+          onClick={() =>
+            handlePageChange(currentPage - 1)
+          }
+        >
+          <span aria-hidden="true">←</span>
+          Previous
+        </button>
+
+        <div className="pagination-pages">
+          {visiblePageNumbers.map((pageNumber) => (
+            <button
+              type="button"
+              key={pageNumber}
+              className={`pagination-button ${
+                currentPage === pageNumber
+                  ? 'active'
+                  : ''
+              }`}
+              aria-label={`Go to page ${pageNumber}`}
+              aria-current={
+                currentPage === pageNumber
+                  ? 'page'
+                  : undefined
+              }
+              onClick={() =>
+                handlePageChange(pageNumber)
+              }
+            >
+              {pageNumber}
+            </button>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className="pagination-button pagination-direction"
+          disabled={currentPage === totalPages}
+          onClick={() =>
+            handlePageChange(currentPage + 1)
+          }
+        >
+          Next
+          <span aria-hidden="true">→</span>
+        </button>
+      </nav>
+    );
+  };
 
   return (
     <div className="product-gallery-container">
       {viewMode === 'categories' ? (
-        <div className="category-gallery">
-          <div className="category-card" onClick={() => handleSortChange('boards')}>
-            <img src="/assets/images/hogsandkisses.jpg" alt="Shop Boards" className="category-image" />
-            <h2 className="category-name">Shop Boards</h2>
-          </div>
-          <div className="category-card" onClick={() => handleSortChange('tabs')}>
-            <img src="/assets/images/bigrig.jpg" alt="Shop Tip Jars" className="category-image" />
-            <h2 className="category-name">Shop Pull Tabs</h2>
-          </div>
-          <div className="category-card" onClick={() => handleSortChange('instant')}>
-            <img src="/assets/images/captainjacks.jpg" alt="Shop Tickets" className="category-image" />
-            <h2 className="category-name">Shop Instant Winners</h2>
-          </div>
-          <div className="category-card" onClick={() => handleSortChange('bingo')}>
-            <img src="/assets/images/bingopaper.jpg" alt="Shop Bingo Supplies" className="category-image" />
-            <h2 className="category-name">Shop Bingo Supplies</h2>
-          </div>
-          <div className="category-card" onClick={() => handleSortChange('tip boards')}>
-            <img src="/assets/images/24suretip.jpg" alt="Shop Tip Boards" className="category-image" />
-            <h2 className="category-name">Shop Tip Boards</h2>
-          </div>
-          <div className="category-card" onClick={() => handleSortChange('tip jars')}>
-            <img src="/assets/images/doublejugs.jpg" alt="Shop Tip Jars" className="category-image" />
-            <h2 className="category-name">Shop Tip Jars</h2>
-          </div>
-          <div className="category-card" onClick={() => handleSortChange('all')}>
-            <img src="/assets/images/redwhiteandblue.jpg" alt="Shop All" className="category-image" />
-            <h2 className="category-name">Shop All</h2>
-          </div>
-        </div>
+        <section
+          className="category-gallery"
+          aria-label="Product categories"
+        >
+          {categories.map((categoryItem, index) => (
+            <button
+              type="button"
+              className="category-card"
+              key={categoryItem.criteria}
+              onClick={() =>
+                handleCategoryChange(
+                  categoryItem.criteria
+                )
+              }
+            >
+              <img
+                src={`/assets/images/${categoryItem.image}`}
+                alt=""
+                className="category-image"
+              />
+
+              <span className="category-shade" />
+
+              <span className="category-number">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+
+              <span className="category-copy">
+                <strong className="category-name">
+                  {categoryItem.name}
+                </strong>
+
+                <small>
+                  {categoryItem.description}
+                </small>
+
+                <span className="category-action">
+                  Browse products
+                  <span aria-hidden="true">→</span>
+                </span>
+              </span>
+            </button>
+          ))}
+        </section>
       ) : (
         <>
-          <button onClick={handleBackToMainPage} className="back-button">Back to Main Page</button>
+          <div className="gallery-toolbar">
+            <button
+              type="button"
+              className="gallery-back-button"
+              onClick={handleBackToCategories}
+            >
+              <span aria-hidden="true">←</span>
+              Product categories
+            </button>
+
+            <div className="gallery-result-count">
+              <strong>{filteredProducts.length}</strong>
+              <span>
+                {filteredProducts.length === 1
+                  ? 'product'
+                  : 'products'}
+              </span>
+            </div>
+          </div>
+
           <div className="products-layout">
             <aside className="filters-sidebar">
-              <div className="sorting-options">
-                <nav className="sort-navbar">
-            <div className="sort-row">
-  <h3 className="label">
-    <button onClick={() => handleSortChange('all')}>All Products</button>
-  </h3>
-</div>
-{showPopup && (
-        <div className="discount-popup">
-          <button className="popup-close-button" onClick={handleClosePopup}>X</button>
-          <h3>Ordering For A Bash Or Large Fundraising Event?</h3>
-          <p>Get 10% off your order. Use code: <strong>KMBASH</strong></p>
-        </div>
-      )}
-<div className="sort-row">
-  <div className="dropdown">
-    <button className="dropdown-button">Boards</button>
-    <div className="dropdown-content">
-  <button onClick={() => handleSortChange('tip boards')}>Tip Boards</button>
-  <button onClick={() => handleSortChange('coin boards')}>Coin Boards</button>
-  <button onClick={() => handleSortChange('bonus boards')}>Bonus Boards</button>
-  <button onClick={() => handleSortChange('scratch off boards')}>Scratch Off Boards</button>
-  <button onClick={() => handleSortChange('merchandise boards')}>Merchandise Boards</button>
-  <button onClick={() => handleSortChange('gun boards')}>Gun Boards</button> {/* New Button */}
-  <button onClick={() => handleSortChange('knife boards')}>Knife Boards</button> {/* New Button */}
-</div>
-  </div>
-</div>
-<div className="sort-row">
-<div className="dropdown">
-  <button className="dropdown-button">Games/Tickets</button>
-  <div className="dropdown-content">
-  <button onClick={() => handleSortChange('pull tabs')}>Pull Tabs</button>
-  <button onClick={() => handleSortChange("instant winners")}>Instant Winners</button>
-  <button onClick={() => handleSortChange("strip tickets")}>Strip Tickets</button>
-  <button onClick={() => handleSortChange('raffle tickets')}>Raffle Tickets</button>
-  <button onClick={() => handleSortChange('elimination games')}>Elimination Games</button>
-  <button onClick={() => handleSortChange('chip games')}>Chip Games</button>
-  <button onClick={() => handleSortChange('variety packs')}>Variety Pack</button> {/* New button */}
-  <button onClick={() => handleSortChange('tip jars')}>Tip Jars</button> {/* New button */}
-</div>
-</div>
-</div>
-<div className="sort-row">
-  <div className="dropdown">
-    <button className="dropdown-button">Bingo Supplies</button>
-    <div className="dropdown-content">
-      <button onClick={() => handleSortChange('bingo daubers')}>Bingo Daubers</button>
-      <button onClick={() => handleSortChange('bingo games')}>Bingo Games</button>
-      <button onClick={() => handleSortChange('bingo card games')}>Bingo Card Games</button>
-      <button onClick={() => handleSortChange('bingo paper')}>Bingo Paper</button> {/* New Button */}
-    </div>
-  </div>
-</div>
-<div className="sort-row">
-  <div className="dropdown">
-    <button className="dropdown-button">Sort By Theme</button>
-    <div className="dropdown-content">
-      <button onClick={() => handleThemeChange('sports')}>Sports</button>
-      <button onClick={() => handleThemeChange('christmas')}>Christmas</button>
-      <button onClick={() => handleThemeChange('halloween')}>Halloween</button>
-      <button onClick={() => handleThemeChange('Easter')}>Easter</button>
-      <button onClick={() => handleThemeChange('spring')}>Spring</button>
-      <button onClick={() => handleThemeChange('fall')}>Fall</button>
-      <button onClick={() => handleThemeChange('winter')}>Winter</button>
-      <button onClick={() => handleThemeChange('summer')}>Summer</button>
-      <button onClick={() => handleThemeChange('valentines')}>Valentines</button>
-      <button onClick={() => handleThemeChange('st patricks')}>St. Patricks Day</button>
-      <button onClick={() => handleThemeChange('usa')}>USA</button>
-      <button onClick={() => handleThemeChange('police')}>Law Enforcement</button>
-      <button onClick={() => handleThemeChange('firefighters')}>Fire And Rescue</button>
-      <button onClick={() => handleThemeChange('military')}>Military</button>
-    </div>
-  </div>
-</div>
-<div className="sort-row">
-  <button onClick={handleClearFilters} className="clear-filters-button">
-    Clear Filters
-  </button>
-</div>
-                </nav>
+              <div className="filter-sidebar-header">
+                <div>
+                  <p>Refine catalog</p>
+                  <h2>Filters</h2>
+                </div>
+
+                {activeFilterCount > 0 && (
+                  <span>{activeFilterCount}</span>
+                )}
               </div>
+
+              <div className="sorting-options">
+                <button
+                  type="button"
+                  className={`all-products-button ${
+                    category === 'all' ? 'active' : ''
+                  }`}
+                  onClick={() =>
+                    handleCategoryChange('all')
+                  }
+                >
+                  All Products
+                  <span aria-hidden="true">→</span>
+                </button>
+
+                {menuGroups.map((group) => (
+                  <details
+                    className="filter-disclosure"
+                    key={group.label}
+                  >
+                    <summary>
+                      {group.label}
+                      <span aria-hidden="true">+</span>
+                    </summary>
+
+                    <div className="filter-menu">
+                      {group.options.map(
+                        ([label, value]) => (
+                          <button
+                            type="button"
+                            key={value}
+                            className={
+                              category === value
+                                ? 'active'
+                                : ''
+                            }
+                            onClick={() =>
+                              handleCategoryChange(value)
+                            }
+                          >
+                            {label}
+                          </button>
+                        )
+                      )}
+                    </div>
+                  </details>
+                ))}
+
+                <details className="filter-disclosure">
+                  <summary>
+                    Themes
+                    <span aria-hidden="true">+</span>
+                  </summary>
+
+                  <div className="filter-menu">
+                    {themes.map(([label, value]) => (
+                      <button
+                        type="button"
+                        key={value}
+                        className={
+                          filters.theme === value
+                            ? 'active'
+                            : ''
+                        }
+                        onClick={() =>
+                          handleFilterChange(
+                            'theme',
+                            value
+                          )
+                        }
+                      >
+                        {label}
+                      </button>
+                    ))}
+                  </div>
+                </details>
+              </div>
+
               <div className="filter-options">
-  <div className="filter-group">
-    <h3>Sort By Ticket Count</h3>
-    <select onChange={handlePriceFilterChange}>
-      <option value="">Select</option>
-      <option value="10-191">10 - 191 Ticket Count</option>
-      <option value="192-500">192 - 500 Ticket Count</option>
-      <option value="501-1000">501 - 1000 Ticket Count</option>
-      <option value="1001-2000">1001 - 2000 Ticket Count</option>
-      <option value="2001+">2000+ Ticket Count</option>
-    </select>
-  </div>
-  <div className="filter-group">
-    <h3>Sort By Game Seal</h3>
-    <select onChange={handleSealFilterChange}>
-      <option value="">Select</option>
-      <option value="50-100">$50 - $100</option>
-      <option value="200-300">$200 - $300</option>
-      <option value="400-599">$400 - $599</option>
-      <option value="600+">$600+</option>
-    </select>
-  </div>
-  <div className="filter-group">
-    <h3>Sort By Profit Percent</h3>
-    <select onChange={handleProfitPercentFilterChange}>
-      <option value="">Select</option>
-      <option value="15-25">15-25%</option>
-      <option value="26-35">26-35%</option>
-      <option value="36-45">36-45%</option>
-      <option value="46+">46% +</option>
-    </select>
-  </div>
-  <div className="filter-group">
-  <h3>Sort By Denomination</h3>
-  <select onChange={handleDenominationFilterChange}>
-    <option value="">Select</option>
-    <option value="$0.25">$.25</option>
-    <option value="$0.50">$.50</option>
-    <option value="$1">$1</option>
-    <option value="$2">$2</option>
-  </select>
-</div>
-<div className="filter-group">
-  <h3>Sort By Windows</h3>
-  <select onChange={handleWindowsFilterChange}>
-    <option value="">Select</option>
-    <option value="1">1 Window</option>
-    <option value="3">3 Windows</option>
-    <option value="5">5 Windows</option>
-  </select>
-</div>
-  <div className="filter-group">
-  <h3>Sort By Bundle</h3>
-  <select onChange={handleBundleFilterChange}>
-    <option value="">Select</option>
-    <option value="3">Bundle of 3</option>
-    <option value="4">Bundle of 4</option>
-    <option value="5">Bundle of 5</option>
-  </select>
-</div>
-<div className="filter-group">
-    <h3>Sort By Bottom Payout</h3>
-    <select onChange={handleBottomPayoutFilterChange}>
-      <option value="">Select</option>
-      <option value="$0.50">$0.50</option>
-      <option value="$1">$1</option>
-      <option value="$2">$2</option>
-      <option value="$5">$5</option>
-      <option value="$10">$10</option>
-      <option value=">$10">Over $10</option>
-    </select>
-  </div>
-</div>
+                <FilterSelect
+                  label="Ticket Count"
+                  value={filters.ticketCount}
+                  onChange={(value) =>
+                    handleFilterChange(
+                      'ticketCount',
+                      value
+                    )
+                  }
+                  options={[
+                    ['10–191 tickets', '10-191'],
+                    ['192–500 tickets', '192-500'],
+                    ['501–1,000 tickets', '501-1000'],
+                    ['1,001–2,000 tickets', '1001-2000'],
+                    ['2,001+ tickets', '2001+'],
+                  ]}
+                />
+
+                <FilterSelect
+                  label="Game Seal"
+                  value={filters.seal}
+                  onChange={(value) =>
+                    handleFilterChange('seal', value)
+                  }
+                  options={[
+                    ['$50–$100', '50-100'],
+                    ['$200–$300', '200-300'],
+                    ['$400–$599', '400-599'],
+                    ['$600+', '600+'],
+                  ]}
+                />
+
+                <FilterSelect
+                  label="Profit Percentage"
+                  value={filters.profitPercent}
+                  onChange={(value) =>
+                    handleFilterChange(
+                      'profitPercent',
+                      value
+                    )
+                  }
+                  options={[
+                    ['15–25%', '15-25'],
+                    ['26–35%', '26-35'],
+                    ['36–45%', '36-45'],
+                    ['46%+', '46+'],
+                  ]}
+                />
+
+                <FilterSelect
+                  label="Denomination"
+                  value={filters.denomination}
+                  onChange={(value) =>
+                    handleFilterChange(
+                      'denomination',
+                      value
+                    )
+                  }
+                  options={[
+                    ['$0.25', '$0.25'],
+                    ['$0.50', '$0.50'],
+                    ['$1', '$1'],
+                    ['$2', '$2'],
+                  ]}
+                />
+
+                <FilterSelect
+                  label="Windows"
+                  value={filters.windows}
+                  onChange={(value) =>
+                    handleFilterChange(
+                      'windows',
+                      value
+                    )
+                  }
+                  options={[
+                    ['1 window', '1'],
+                    ['3 windows', '3'],
+                    ['5 windows', '5'],
+                  ]}
+                />
+
+                <FilterSelect
+                  label="Bundle"
+                  value={filters.bundle}
+                  onChange={(value) =>
+                    handleFilterChange('bundle', value)
+                  }
+                  options={[
+                    ['Bundle of 3', '3'],
+                    ['Bundle of 4', '4'],
+                    ['Bundle of 5', '5'],
+                  ]}
+                />
+
+                <FilterSelect
+                  label="Bottom Payout"
+                  value={filters.bottomPayout}
+                  onChange={(value) =>
+                    handleFilterChange(
+                      'bottomPayout',
+                      value
+                    )
+                  }
+                  options={[
+                    ['$0.50', '$0.50'],
+                    ['$1', '$1'],
+                    ['$2', '$2'],
+                    ['$5', '$5'],
+                    ['$10', '$10'],
+                    ['Over $10', '>$10'],
+                  ]}
+                />
+              </div>
+
+              <button
+                type="button"
+                className="clear-filters-button"
+                onClick={handleClearFilters}
+                disabled={activeFilterCount === 0}
+              >
+                Clear all filters
+              </button>
             </aside>
-            <div className="products-content">
-              <div className="pagination">
-          <button
-  onClick={() => handlePageChange(currentPage - 1)}
-  className="pagination-button"
-  disabled={currentPage === 1} // Disable the "Previous" button on the first page
->
-  <i className="fa fa-arrow-left" aria-hidden="true"></i> Previous
-</button>
-  {Array.from({ length: Math.min(5, totalPages) }, (_, index) => {
-    const pageNumber = currentPage <= 3 ? index + 1 : currentPage - 2 + index;
-    if (pageNumber > totalPages) return null; // Don't render buttons beyond the total pages
-    return (
-      <button
-        key={pageNumber}
-        onClick={() => handlePageChange(pageNumber)}
-        className={`pagination-button ${currentPage === pageNumber ? 'active' : ''}`}
-      >
-        {pageNumber}
-      </button>
-    );
-  })}
-<button
-  onClick={() => handlePageChange(currentPage + 1)}
-  className="pagination-button"
-  disabled={currentPage === totalPages} // Disable the "Next" button on the last page
->
-  Next <i className="fa fa-arrow-right" aria-hidden="true"></i>
-</button>
-</div>
-              <div className="product-gallery">
-  {displayedProducts.length === 0 ? (
-    <p>Sorry, there are no products in this category.</p>
-  ) : (
-    displayedProducts.map((product) => (
-      <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
-        <img
-          src={product.images ? product.images[0] : product.image} // Use the first image if multiple images exist
-          alt={product.name}
-          className="product-image"
-        />
-        <h2 className="product-name">{product.name}</h2>
-        <div className="more-info">More Info</div>
-        <br /> <br />
-        <button
-  onClick={(e) => {
-    e.stopPropagation();
-    handleAddToCartClick(product);
-  }}
-  className="add-to-cart-button"
->
-  <i className="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart
-</button>
-      </div>
-    ))
-  )}
-</div>
-<div className="pagination">
-<button
-  onClick={() => handlePageChange(currentPage - 1)}
-  className="pagination-button"
-  disabled={currentPage === 1} // Disable the "Previous" button on the first page
->
-  <i className="fa fa-arrow-left" aria-hidden="true"></i> Previous
-</button>
-  {Array.from({ length: Math.min(5, totalPages) }, (_, index) => {
-    const pageNumber = currentPage <= 3 ? index + 1 : currentPage - 2 + index;
-    if (pageNumber > totalPages) return null; // Don't render buttons beyond the total pages
-    return (
-      <button
-        key={pageNumber}
-        onClick={() => handlePageChange(pageNumber)}
-        className={`pagination-button ${currentPage === pageNumber ? 'active' : ''}`}
-      >
-        {pageNumber}
-      </button>
-    );
-  })}
-  <button
-  onClick={() => handlePageChange(currentPage + 1)}
-  className="pagination-button"
-  disabled={currentPage === totalPages} // Disable the "Next" button on the last page
->
-  Next <i className="fa fa-arrow-right" aria-hidden="true"></i>
-</button>
-</div>
-            </div>
+
+            <section className="products-content">
+              {renderPagination('Top')}
+
+              {displayedProducts.length === 0 ? (
+                <div className="gallery-empty-state">
+                  <span aria-hidden="true">?</span>
+                  <h2>No products found</h2>
+                  <p>
+                    Try changing your search or removing
+                    some filters.
+                  </p>
+
+                  <button
+                    type="button"
+                    onClick={handleClearFilters}
+                  >
+                    Clear filters
+                  </button>
+                </div>
+              ) : (
+                <div className="product-gallery">
+                  {displayedProducts.map((product) => (
+                    <article
+                      key={product.id}
+                      className="product-card"
+                    >
+                      <button
+                        type="button"
+                        className="product-image-button"
+                        aria-label={`View details for ${product.name}`}
+                        onClick={() =>
+                          setSelectedProduct(product)
+                        }
+                      >
+                        <img
+                          src={
+                            product.images?.[0] ||
+                            product.image
+                          }
+                          alt={product.name}
+                          className="product-image"
+                          loading="lazy"
+                        />
+
+                        <span className="more-info">
+                          View details
+                          <span aria-hidden="true">→</span>
+                        </span>
+                      </button>
+
+                      <div className="product-card-content">
+                        <p className="product-card-label">
+                          K&amp;M Product
+                        </p>
+
+                        <h2 className="product-name">
+                          {product.name}
+                        </h2>
+
+                        {product.denomination && (
+                          <p className="product-meta">
+                            Denomination:{' '}
+                            {product.denomination}
+                          </p>
+                        )}
+
+                        <button
+                          type="button"
+                          className="add-to-cart-button"
+                          onClick={(event) =>
+                            handleAddToCartClick(
+                              event,
+                              product
+                            )
+                          }
+                        >
+                          <span>Add to cart</span>
+                          <span aria-hidden="true">+</span>
+                        </button>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              )}
+
+              {renderPagination('Bottom')}
+            </section>
           </div>
         </>
       )}
-      <ProductModal
+
+     <ProductModal
   product={selectedProduct}
-  onClose={handleCloseModal}
-  onFavorite={handleFavoriteClick} // Pass the handleFavoriteClick function as a prop
+  onClose={() => setSelectedProduct(null)}
+  onFavorite={handleFavoriteClick}
+  favoriteLoading={
+    favoriteProductId === selectedProduct?.id
+  }
 />
-{selectedProduct && (
+
+{isQuantityModalOpen && cartProduct && (
   <QuantitySelectionModal
     isOpen={isQuantityModalOpen}
     onRequestClose={handleQuantityModalClose}
     onSubmit={handleQuantityModalSubmit}
-    product={selectedProduct}
+    product={cartProduct}
   />
 )}
+
+      <QuantitySelectionModal
+        isOpen={isQuantityModalOpen}
+        onRequestClose={handleQuantityModalClose}
+        onSubmit={handleQuantityModalSubmit}
+        product={cartProduct}
+      />
+    </div>
+  );
+};
+
+const FilterSelect = ({
+  label,
+  value,
+  options,
+  onChange,
+}) => {
+  const selectId = `filter-${label
+    .toLowerCase()
+    .replace(/\s+/g, '-')}`;
+
+  return (
+    <div className="filter-group">
+      <label htmlFor={selectId}>{label}</label>
+
+      <select
+        id={selectId}
+        value={value}
+        onChange={(event) =>
+          onChange(event.target.value)
+        }
+      >
+        <option value="">Any</option>
+
+        {options.map(([optionLabel, optionValue]) => (
+          <option
+            value={optionValue}
+            key={optionValue}
+          >
+            {optionLabel}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

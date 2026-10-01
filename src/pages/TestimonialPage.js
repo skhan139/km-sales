@@ -1,32 +1,228 @@
 import React from 'react';
-import './TestimonialPage.css'; // Import the updated CSS for styling
+import { Link } from 'react-router-dom';
+import './TestimonialPage.css';
+
+const benefits = [
+  {
+    id: 1,
+    number: '01',
+    title: 'Fast Fulfillment',
+    summary: 'Local service without unnecessary delays.',
+    text:
+      'We approach every order with urgency. Being close to our customers often allows us to fulfill orders on the day they are placed or the following day. We understand that long delays can put organizations at a disadvantage.',
+    featured: true,
+  },
+  {
+    id: 2,
+    number: '02',
+    title: 'No Delivery Fee',
+    summary: 'Regional delivery at no additional cost.',
+    text:
+      'We provide free delivery throughout Mineral, Allegany, and surrounding counties. Our goal is to support your club without adding unnecessary delivery charges to your order.',
+    featured: true,
+  },
+  {
+    id: 3,
+    number: '03',
+    title: 'Custom Products',
+    summary: 'Games designed around your organization.',
+    text:
+      'From ticket games to custom card games, we can create products based on your specifications. Custom names, themes, illustrations, and payouts are available to help bring your idea to life.',
+  },
+  {
+    id: 4,
+    number: '04',
+    title: 'Personal Product Guidance',
+    summary: 'Help finding the right fit for your goals.',
+    text:
+      'We provide product guidance online and in person. With so many options available, our team helps you choose products that fit your organization, audience, and revenue goals.',
+  },
+  {
+    id: 5,
+    number: '05',
+    title: 'Community Commitment',
+    summary: 'Relationships that extend beyond an order.',
+    text:
+      'We take pride in supporting our customers and their events. Giving back to the communities we serve is an important part of developing lasting relationships.',
+  },
+  {
+    id: 6,
+    number: '06',
+    title: 'On-Site Event Support',
+    summary: 'Additional help when your event needs it.',
+    text:
+      'Our team can attend bashes, fundraisers, and charity events with extra inventory and hands-on assistance. We help with product distribution and other needs to make the fundraising process as efficient as possible.',
+  },
+  {
+    id: 7,
+    number: '07',
+    title: 'Web and Software Development',
+    summary: 'Digital tools built for your organization.',
+    text:
+      'Our team can create websites and mobile applications for clubs, bashes, and events. Existing customers may also qualify for discounted development rates.',
+  },
+];
+
+const highlights = [
+  {
+    value: '40+',
+    label: 'Years of Service',
+  },
+  {
+    value: 'Free',
+    label: 'Regional Delivery',
+  },
+  {
+    value: 'Local',
+    label: 'Customer Support',
+  },
+];
 
 const TestimonialPage = () => {
-  // Sample testimonials data
-  const testimonials = [
-    { id: 1, name: "Instant Fulfilment", text: "We take pride in immediate fulfuillment and move with urgency. Being in a close radius to our customers allows us to fulfill orders on the day placed or the day after. We understand that waiting an extended period of time to fulfill orders puts our customers at a disadvantage. " },
-    { id: 2, name: "No Delivery Fee", text: "We cover Mineral, Allegheny, and surrounding counties for FREE. We refuse to charge extra fees, as our goal is to help YOUR club first before anything else." },
-    { id: 3, name: "Customize Your Product", text: "From custom ticket games to custom card games, we can design almost anything to your desired specifications. Things like custom game names, custom themes and cartoons, and custom payouts are all available to fit your needs." },
-    { id: 4, name: "Find The Right Fit", text: "We offer product guidance to every single one of our customers. This can be done both online and in person. Our goal is to find the products that fit your needs the best while helping you generate revenue for your club or event. We understand that the amount of options to choose from may be overwhelming, which is why we’re here to help!" },
-    { id: 5, name: "Commitment To Community", text: "We take pride in giving back to our customers. We proudly support our customers events and believe that giving back is crucial to developing strong relationships." },
-    { id: 6, name: "On-Site Customer Support", text: "We will attend your bash, fundraiser, or charity event and cater to any extra needs you may have. This includes bringing extra inventory for the day, assisting with the distribution of any of our products, or any other of your needs to ensure you have a positive experience with us. Our goal is to make your fundraising process as efficient as possible and we are willing to help in any way that we can." },
-    { id: 7, name: "Web And Software Development", text: "We can build websites and mobile apps for your club, bash, or event! With a professional software developer on our team, we can enhance your digital presence and help you thrive! Existing customers are eligible for discounted rates." },
-  ];
-
   return (
-    <div className="testimonial-page-shell">
+    <main className="testimonial-page-shell">
+      <div className="testimonial-background-grid" />
+      <div className="testimonial-orb testimonial-orb--one" />
+      <div className="testimonial-orb testimonial-orb--two" />
+
       <div className="testimonial-page">
-      <h1 className="testimonial-title">Why Choose K&M?</h1>
-      <div className="testimonials-container">
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="testimonial-card">
-            <h3>{testimonial.name}</h3>
-            <p>{testimonial.text}</p>
+        <header className="testimonial-hero">
+          <p className="testimonial-eyebrow">
+            The K&amp;M Difference
+          </p>
+
+          <h1>
+            More than a supplier.
+            <span> A partner in your success.</span>
+          </h1>
+
+          <p className="testimonial-introduction">
+            Our customers choose K&amp;M for dependable
+            products, responsive regional service, and a team
+            that understands the needs of clubs, charities,
+            and community organizations.
+          </p>
+
+          <div className="testimonial-hero-actions">
+            <Link
+              to="/members"
+              className="testimonial-primary-button"
+            >
+              Browse Products
+              <span aria-hidden="true">→</span>
+            </Link>
+
+            <Link
+              to="/contact"
+              className="testimonial-secondary-button"
+            >
+              Contact Our Team
+            </Link>
           </div>
-        ))}
+        </header>
+
+        <section
+          className="testimonial-highlights"
+          aria-label="K and M Sales highlights"
+        >
+          {highlights.map((highlight) => (
+            <div key={highlight.label}>
+              <strong>{highlight.value}</strong>
+              <span>{highlight.label}</span>
+            </div>
+          ))}
+        </section>
+
+        <section className="testimonial-benefits">
+          <div className="testimonial-section-heading">
+            <div>
+              <p className="testimonial-section-kicker">
+                Why customers choose us
+              </p>
+
+              <h2>
+                Service designed around your organization.
+              </h2>
+            </div>
+
+            <p>
+              From fast local delivery to custom products and
+              on-site assistance, we work to make ordering
+              and fundraising easier.
+            </p>
+          </div>
+
+          <div className="testimonials-container">
+            {benefits.map((benefit) => (
+              <article
+                key={benefit.id}
+                className={`testimonial-card ${
+                  benefit.featured ? 'featured' : ''
+                }`}
+              >
+                <div className="testimonial-card-top">
+                  <span className="testimonial-number">
+                    {benefit.number}
+                  </span>
+
+                  {benefit.featured && (
+                    <span className="testimonial-featured-label">
+                      Customer favorite
+                    </span>
+                  )}
+                </div>
+
+                <div className="testimonial-card-content">
+                  <p className="testimonial-summary">
+                    {benefit.summary}
+                  </p>
+
+                  <h3>{benefit.title}</h3>
+                  <p className="testimonial-description">
+                    {benefit.text}
+                  </p>
+                </div>
+
+                <div
+                  className="testimonial-card-line"
+                  aria-hidden="true"
+                />
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="testimonial-service-banner">
+          <div className="service-banner-mark">
+            <span aria-hidden="true">KM</span>
+          </div>
+
+          <div className="service-banner-content">
+            <p className="testimonial-section-kicker">
+              Personal regional service
+            </p>
+
+            <h2>
+              Your goals matter to us.
+            </h2>
+
+            <p>
+              Tell us about your organization, event, or
+              fundraising goals. Our team will help you find
+              products and services that fit your needs.
+            </p>
+          </div>
+
+          <Link
+            to="/contact"
+            className="testimonial-primary-button"
+          >
+            Start a Conversation
+            <span aria-hidden="true">→</span>
+          </Link>
+        </section>
       </div>
-      </div>
-    </div>
+    </main>
   );
 };
 

@@ -1,171 +1,455 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './HomePage.css';
-import { useAuthState } from 'react-firebase-hooks/auth';
+
 import { auth } from '../firebase';
 
+const stats = [
+  { value: '40+', label: 'Years in Business' },
+  { value: '2', label: 'States Served' },
+  { value: '500+', label: 'Products Available' },
+  { value: '10%', label: 'New Club Discount' },
+];
+
+const regions = [
+  {
+    name: 'Maryland',
+    office: 'Allegany County Office',
+    image: 'baltimore.jpg',
+    email: 'everettr627@gmail.com',
+    subject: 'Contact Maryland Offices',
+  },
+  {
+    name: 'West Virginia',
+    office: 'Regional Office',
+    image: 'queenspoint.jpg',
+    email: 'skhan139@icloud.com',
+    subject: 'Contact West Virginia Offices',
+  },
+  {
+    name: 'Maryland',
+    office: 'Garrett / Allegany County',
+    image: 'garrett.jpg',
+    email: 'jeff.haines@comcast.net',
+    subject: 'Contact Garrett/Allegany Offices',
+  },
+];
+
+const productCategories = [
+  {
+    name: 'Pull Tabs',
+    icon: '01',
+    description: 'Browse our newest pull-tab games.',
+    images: [
+      'bigrig',
+      'oneflag',
+      'bankvault',
+      'brewskis',
+      '1kfreedomrings',
+      'snowblowin',
+      'FAF',
+    ],
+  },
+  {
+    name: 'Best Sellers',
+    icon: '02',
+    description: 'Customer favorites and proven performers.',
+    images: [
+      'doublejugs',
+      'redwhiteandblue',
+      '33kmsuperjar',
+      'barkingbetty',
+      '696doubledeal',
+    ],
+  },
+  {
+    name: 'Tickets',
+    icon: '03',
+    description: 'Popular tickets for clubs and organizations.',
+    images: [
+      'captainjacks',
+      'bigfoots',
+      'buzzbucks',
+      'gangstersgold',
+      'thetourists',
+      'cashville',
+    ],
+  },
+];
+
+const formatImageName = (imageName) => {
+  return imageName
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+};
+
 const HomePage = () => {
-  const [showPopup1, setShowPopup1] = useState(true);
+  const [showAnnouncement, setShowAnnouncement] =
+    useState(true);
   const [user] = useAuthState(auth);
+
+  const catalogDestination = user ? '/members' : '/login';
 
   const sliderSettings = {
     dots: true,
+    arrows: true,
     infinite: true,
     speed: 600,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    pauseOnHover: true,
+    pauseOnFocus: true,
     fade: true,
-    cssEase: 'linear',
+    cssEase: 'ease-in-out',
+    accessibility: true,
   };
 
-  const stats = [
-    { value: '40+', label: 'Years in Business' },
-    { value: '2', label: 'States Served' },
-    { value: '500+', label: 'Products Available' },
-    { value: '10%', label: 'New Club Discount' },
-  ];
-
   return (
-    <div className="home-page-container">
-      {/* Announcement Banner */}
-      {showPopup1 && (
-        <div className="announcement-banner">
-          <span className="banner-badge">🎉 New Club Offer</span>
-          <p>New clubs are eligible for <strong>10% off</strong> their first three orders!</p>
-          <button className="banner-close" onClick={() => setShowPopup1(false)}>×</button>
-        </div>
+    <main className="home-page-container">
+      {showAnnouncement && (
+        <aside
+          className="announcement-banner"
+          aria-label="New club promotion"
+        >
+          <span
+            className="announcement-icon"
+            aria-hidden="true"
+          >
+            %
+          </span>
+
+          <div className="announcement-copy">
+            <span className="banner-badge">
+              New club offer
+            </span>
+
+            <p>
+              New clubs receive <strong>10% off</strong>{' '}
+              their first three orders.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            className="banner-close"
+            aria-label="Dismiss promotion"
+            onClick={() => setShowAnnouncement(false)}
+          >
+            ×
+          </button>
+        </aside>
       )}
 
-      {/* Hero Section */}
       <section className="hero-section">
-        <div className="hero-content">
-          <span className="hero-eyebrow">West Virginia & Maryland's #1 Gaming Supplier</span>
-          <h1 className="hero-title">
-            Welcome to <span className="hero-highlight">K&amp;M Sales</span>
-          </h1>
-          <p className="hero-subtitle">
-            Proudly supplying bingo and gaming products for over 40 years across West Virginia and Maryland.
-            Pull tabs, tip jars, bingo games, tickets &amp; more — everything your club or organization needs.
-            Browse our catalog, build your cart, and our team will follow up with a personalized price quote.
-            New to K&amp;M? First-time clubs enjoy 10% off their first three orders.
+        <div className="hero-background-grid" />
+        <div className="hero-orb hero-orb--one" />
+        <div className="hero-orb hero-orb--two" />
+
+        <div className="hero-layout">
+          <div className="hero-content">
+            <span className="hero-eyebrow">
+              Serving West Virginia and Maryland
+            </span>
+
+            <h1 className="hero-title">
+              Your trusted partner for
+              <span className="hero-highlight">
+                {' '}
+                bingo and gaming supplies.
+              </span>
+            </h1>
+
+            <p className="hero-subtitle">
+              For more than four decades, K&amp;M Sales has
+              helped clubs and organizations find the games,
+              tickets, and supplies they need—all backed by
+              personal, local service.
+            </p>
+
+            <div className="hero-actions">
+              <Link
+                to={catalogDestination}
+                className="btn-primary"
+              >
+                <span>
+                  {user
+                    ? 'Browse Products'
+                    : 'Sign In to Shop'}
+                </span>
+                <span aria-hidden="true">→</span>
+              </Link>
+
+              <Link
+                to="/custom-game"
+                className="btn-secondary"
+              >
+                Create a Custom Game
+              </Link>
+            </div>
+
+            <div className="hero-trust-row">
+              <span className="hero-trust-mark">
+                <span aria-hidden="true">✓</span>
+                Personalized quotes
+              </span>
+
+              <span className="hero-trust-mark">
+                <span aria-hidden="true">✓</span>
+                Regional support
+              </span>
+
+              <span className="hero-trust-mark">
+                <span aria-hidden="true">✓</span>
+                Established 40+ years
+              </span>
+            </div>
+          </div>
+
+          <div
+            className="hero-showcase"
+            aria-label="K and M Sales services"
+          >
+            <div className="hero-showcase__top">
+              <span className="showcase-label">
+                K&amp;M Sales
+              </span>
+              <span className="showcase-status">
+                <span />
+                Taking orders
+              </span>
+            </div>
+
+            <div className="showcase-main">
+              <p>Your local gaming supply partner</p>
+              <strong>Everything your club needs.</strong>
+            </div>
+
+            <div className="showcase-services">
+              <div className="showcase-service">
+                <span>01</span>
+                <div>
+                  <strong>Browse</strong>
+                  <p>Explore hundreds of available products.</p>
+                </div>
+              </div>
+
+              <div className="showcase-service">
+                <span>02</span>
+                <div>
+                  <strong>Build</strong>
+                  <p>Create an order that fits your club.</p>
+                </div>
+              </div>
+
+              <div className="showcase-service">
+                <span>03</span>
+                <div>
+                  <strong>Connect</strong>
+                  <p>Receive personal service and pricing.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="showcase-footer">
+              <span>WV</span>
+              <div />
+              <span>MD</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="stats-section"
+        aria-label="Company highlights"
+      >
+        <div className="stats-bar">
+          {stats.map((stat) => (
+            <div className="stat-item" key={stat.label}>
+              <span className="stat-value">
+                {stat.value}
+              </span>
+              <span className="stat-label">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-block regions-section">
+        <div className="section-header">
+          <div>
+            <span className="section-kicker">
+              Local service
+            </span>
+            <h2 className="section-title">
+              Connect with your region
+            </h2>
+          </div>
+
+          <p className="section-subtitle">
+            Our regional representatives are ready to help
+            with products, orders, and questions.
           </p>
-          <div className="hero-actions">
-            <Link to={user ? '/members' : '/login'} className="btn-primary">
-              {user ? 'Shop Products' : 'Login to Shop'}
-            </Link>
-            <Link to="/custom-game" className="btn-secondary">
-              Custom Game Creator
-            </Link>
-          </div>
         </div>
-        <div className="hero-glow" />
-      </section>
 
-      {/* Stats Bar */}
-      <section className="stats-bar">
-        {stats.map((stat, i) => (
-          <div className="stat-item" key={i}>
-            <span className="stat-value">{stat.value}</span>
-            <span className="stat-label">{stat.label}</span>
-          </div>
-        ))}
-      </section>
-
-      {/* Regional Contacts */}
-      <section className="section-block">
-        <h2 className="section-title">Our Regions</h2>
-        <p className="section-subtitle">Click a region to reach your local representative</p>
         <div className="image-row">
-          <div className="image-card">
-            <a href="mailto:everettr627@gmail.com?subject=Contact%20Maryland%20Offices">
-              <img src={`${process.env.PUBLIC_URL}/assets/images/baltimore.jpg`} alt="Baltimore" />
-              <div className="card-overlay">
-                <span className="card-icon">✉️</span>
-                <h3>Maryland</h3>
-                <p>Allegany County Office</p>
-              </div>
-            </a>
-          </div>
-          <div className="image-card">
-            <a href="mailto:skhan139@icloud.com?subject=Contact%20West%20Virginia%20Offices">
-              <img src={`${process.env.PUBLIC_URL}/assets/images/queenspoint.jpg`} alt="Keyser" />
-              <div className="card-overlay">
-                <span className="card-icon">✉️</span>
-                <h3>West Virginia</h3>
-                <p>Regional Office</p>
-              </div>
-            </a>
-          </div>
-          <div className="image-card">
-            <a href="mailto:jeff.haines@comcast.net?subject=Contact%20Garrett/Allegany%20Offices">
-              <img src={`${process.env.PUBLIC_URL}/assets/images/garrett.jpg`} alt="Garrett" />
-              <div className="card-overlay">
-                <span className="card-icon">✉️</span>
-                <h3>Maryland</h3>
-                <p>Garrett / Allegany County</p>
-              </div>
-            </a>
-          </div>
+          {regions.map((region, index) => (
+            <article
+              className="image-card"
+              key={`${region.office}-${region.email}`}
+            >
+              <a
+                href={`mailto:${region.email}?subject=${encodeURIComponent(
+                  region.subject
+                )}`}
+                aria-label={`Email the ${region.office}`}
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/assets/images/${region.image}`}
+                  alt={`${region.name} service region`}
+                />
+
+                <div className="card-shade" />
+
+                <div className="region-number">
+                  {String(index + 1).padStart(2, '0')}
+                </div>
+
+                <div className="card-overlay">
+                  <span className="card-label">
+                    Regional contact
+                  </span>
+
+                  <h3>{region.name}</h3>
+                  <p>{region.office}</p>
+
+                  <span className="card-action">
+                    Send an email
+                    <span aria-hidden="true">↗</span>
+                  </span>
+                </div>
+              </a>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Product Sliders */}
-      <section className="section-block">
-        <h2 className="section-title">Browse Our Products</h2>
-        <p className="section-subtitle">Click any product to view the full catalog</p>
+      <section className="section-block products-section">
+        <div className="section-header">
+          <div>
+            <span className="section-kicker">
+              Product catalog
+            </span>
+            <h2 className="section-title">
+              Find your next customer favorite
+            </h2>
+          </div>
+
+          <p className="section-subtitle">
+            Preview some of our popular products, then visit
+            the catalog to explore the full collection.
+          </p>
+        </div>
+
         <div className="sliders-row">
-          <div className="slider-section">
-            <div className="slider-badge">🎰 Pull Tabs</div>
-            <div className="slider-container">
-              <Slider {...sliderSettings}>
-                {['bigrig','oneflag','bankvault','brewskis','1kfreedomrings','snowblowin','FAF'].map((img, i) => (
-                  <div key={i}>
-                    <Link to={user ? '/members' : '/login'}>
-                      <img src={`${process.env.PUBLIC_URL}/assets/images/${img}.jpg`} alt={img} className="slider-image" />
-                    </Link>
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          </div>
+          {productCategories.map((category) => (
+            <article
+              className="slider-section"
+              key={category.name}
+            >
+              <div className="slider-heading">
+                <span className="slider-number">
+                  {category.icon}
+                </span>
 
-          <div className="slider-section">
-            <div className="slider-badge">⚡ Best Sellers</div>
-            <div className="slider-container">
-              <Slider {...sliderSettings}>
-                {['doublejugs','redwhiteandblue','33kmsuperjar','barkingbetty','696doubledeal'].map((img, i) => (
-                  <div key={i}>
-                    <Link to={user ? '/members' : '/login'}>
-                      <img src={`${process.env.PUBLIC_URL}/assets/images/${img}.jpg`} alt={img} className="slider-image" />
-                    </Link>
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          </div>
+                <div>
+                  <h3>{category.name}</h3>
+                  <p>{category.description}</p>
+                </div>
+              </div>
 
-          <div className="slider-section">
-            <div className="slider-badge">🎟️ Tickets</div>
-            <div className="slider-container">
-              <Slider {...sliderSettings}>
-                {['captainjacks','bigfoots','buzzbucks','gangstersgold','thetourists','cashville'].map((img, i) => (
-                  <div key={i}>
-                    <Link to={user ? '/members' : '/login'}>
-                      <img src={`/assets/images/${img}.jpg`} alt={img} className="slider-image" />
-                    </Link>
-                  </div>
-                ))}
-              </Slider>
-            </div>
-          </div>
+              <div className="slider-container">
+                <Slider {...sliderSettings}>
+                  {category.images.map((imageName) => (
+                    <div key={imageName}>
+                      <Link
+                        to={catalogDestination}
+                        className="product-slide"
+                        aria-label={`View ${formatImageName(
+                          imageName
+                        )} in the product catalog`}
+                      >
+                        <img
+                          src={`${process.env.PUBLIC_URL}/assets/images/${imageName}.jpg`}
+                          alt={formatImageName(imageName)}
+                          className="slider-image"
+                          loading="lazy"
+                        />
+
+                        <span className="product-slide-overlay">
+                          View catalog
+                          <span aria-hidden="true">→</span>
+                        </span>
+                      </Link>
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+
+              <Link
+                to={catalogDestination}
+                className="category-link"
+              >
+                Explore {category.name}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
-    </div>
+
+      <section className="home-cta">
+        <div className="home-cta-content">
+          <span className="section-kicker">
+            Ready to get started?
+          </span>
+
+          <h2>Find the right products for your club.</h2>
+
+          <p>
+            Browse the catalog or contact your regional
+            representative for personal assistance.
+          </p>
+        </div>
+
+        <div className="home-cta-actions">
+          <Link
+            to={catalogDestination}
+            className="btn-primary"
+          >
+            Browse Products
+            <span aria-hidden="true">→</span>
+          </Link>
+
+          <a
+            href="mailto:skhan139@icloud.com?subject=K%26M%20Sales%20Product%20Inquiry"
+            className="btn-secondary"
+          >
+            Contact Our Team
+          </a>
+        </div>
+      </section>
+    </main>
   );
 };
 

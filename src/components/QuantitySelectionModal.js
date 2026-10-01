@@ -1,174 +1,367 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Modal from 'react-modal';
 import './QuantitySelectionModal.css';
 
 const paperVariants = [
-  "12 on Bingo Paper",
-  "9 on Bingo Paper",
-  "6 on Bingo Paper",
-  "3 on Bingo Paper",
-  "2 on Bingo Paper",
-  "1 on Bingo Paper"
+  '12 on Bingo Paper',
+  '9 on Bingo Paper',
+  '6 on Bingo Paper',
+  '3 on Bingo Paper',
+  '2 on Bingo Paper',
+  '1 on Bingo Paper',
 ];
 
-const QuantitySelectionModal = ({ isOpen, onRequestClose, onSubmit, product }) => {
-  const [caseQuantity, setCaseQuantity] = useState(1); // Default to 1 for cases
-  const [customQuantity, setCustomQuantity] = useState(1); // Default to 1 for custom quantities
-  const [quantityType, setQuantityType] = useState('cases');
-  const [selectedPaper, setSelectedPaper] = useState(paperVariants[0]);
+const quantityOptions = Array.from(
+  { length: 11 },
+  (_, index) => index + 1
+);
 
-  const handleSubmit = () => {
-    const validCaseQuantity = Math.max(caseQuantity, 1); // Ensure caseQuantity is at least 1
-    const validCustomQuantity = Math.max(customQuantity, 1); // Ensure customQuantity is at least 1
-  
-    const type = product.tags && product.tags.includes('paper') ? 'packs' : quantityType;
-  
-    onSubmit({ caseQuantity: validCaseQuantity, customQuantity: validCustomQuantity, quantityType: type, selectedPaper });
-    onRequestClose();
+const QuantitySelectionModal = ({
+  isOpen,
+  onRequestClose,
+  onSubmit,
+  product,
+}) => {
+  const [caseQuantity, setCaseQuantity] = useState(1);
+  const [customQuantity, setCustomQuantity] = useState(1);
+  const [quantityType, setQuantityType] =
+    useState('cases');
+  const [selectedPaper, setSelectedPaper] = useState(
+    paperVariants[0]
+  );
+
+  const productTags = useMemo(() => {
+    if (!Array.isArray(product?.tags)) {
+      return [];
+    }
+
+    return product.tags.map((tag) =>
+      String(tag).toLowerCase()
+    );
+  }, [product]);
+
+  const isPack = productTags.includes('packs');
+  const isBoard = productTags.includes('boards');
+  const isPaper = productTags.includes('paper');
+  const isDauber = productTags.includes('daubers');
+
+  /*
+   * Reset the form whenever a new product is opened.
+   */
+  useEffect(() => {
+    if (!isOpen || !product) {
+      return;
+    }
+
+    setCaseQuantity(1);
+    setCustomQuantity(1);
+    setSelectedPaper(paperVariants[0]);
+
+    if (productTags.includes('paper')) {
+      setQuantityType('books');
+    } else if (productTags.includes('packs')) {
+      setQuantityType('packs');
+    } else if (productTags.includes('boards')) {
+      setQuantityType('boards');
+    } else if (productTags.includes('daubers')) {
+      setQuantityType('cases');
+    } else {
+      setQuantityType('cases');
+    }
+  }, [isOpen, product, productTags]);
+
+  /*
+   * All hooks must remain above this guard.
+   */
+  if (!isOpen || !product) {
+    return null;
+  }
+
+  const normalizeQuantity = (value) => {
+    const parsedValue = Number.parseInt(value, 10);
+
+    if (!Number.isFinite(parsedValue)) {
+      return 1;
+    }
+
+    return Math.max(parsedValue, 1);
   };
 
-  const handleCustomQuantityChange = (e, type) => {
-    const value = Math.max(parseInt(e.target.value, 10) || 1, 1); // Ensure value is at least 1
-    setCustomQuantity(value);
-    setQuantityType(type);
+  const handleCustomQuantityChange = (
+    event,
+    selectedType
+  ) => {
+    setCustomQuantity(
+      normalizeQuantity(event.target.value)
+    );
+    setQuantityType(selectedType);
   };
 
-  const handleCaseQuantityChange = (e) => {
-    const value = Math.max(parseInt(e.target.value, 10) || 1, 1); // Ensure value is at least 1
-    setCaseQuantity(value);
+  const handleCaseQuantityChange = (event) => {
+    setCaseQuantity(
+      normalizeQuantity(event.target.value)
+    );
     setQuantityType('cases');
   };
 
-  const getLabel = (type) => {
-    if (product.tags && product.tags.includes('paper')) {
-      return 'books';
+  const handleSubmit = () => {
+    let submittedQuantity = customQuantity;
+    let submittedType = quantityType;
+
+    if (quantityType === 'cases') {
+      submittedQuantity = caseQuantity;
     }
-    return type === 'cases' ? 'cases' : 'games';
+
+    if (isPaper) {
+      submittedQuantity = customQuantity;
+      submittedType = 'books';
+    } else if (isPack) {
+      submittedQuantity = customQuantity;
+      submittedType = 'packs';
+    } else if (isBoard) {
+      submittedQuantity = customQuantity;
+      submittedType = 'boards';
+    }
+
+    onSubmit({
+      quantity: normalizeQuantity(submittedQuantity),
+      quantityType: submittedType,
+      caseQuantity: normalizeQuantity(caseQuantity),
+      customQuantity: normalizeQuantity(customQuantity),
+      selectedPaper: isPaper ? selectedPaper : null,
+    });
   };
 
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel="Select Quantity"
+      contentLabel={`Select quantity for ${product.name}`}
       className="modal-content"
       overlayClassName="modal-overlay"
+      shouldCloseOnOverlayClick
+      shouldCloseOnEsc
     >
-      <button className="close-button" onClick={onRequestClose}>×</button>
+      <button
+        type="button"
+        className="close-button"
+        onClick={onRequestClose}
+        aria-label="Close quantity selection"
+      >
+        ×
+      </button>
+
+      <p className="quantity-modal-eyebrow">
+        Add to cart
+      </p>
+
       <h2>Select Quantity</h2>
-      {product.tags && product.tags.includes('packs') ? (
+
+      <p className="quantity-product-name">
+        {product.name}
+      </p>
+
+      {isPack ? (
         <div className="quantity-selection">
-          <label htmlFor="quantity-select">Number of packs:</label>
+          <label htmlFor="pack-quantity">
+            Number of packs
+          </label>
+
           <input
             type="number"
-            id="quantity-select"
+            id="pack-quantity"
             value={customQuantity}
-            onChange={(e) => handleCustomQuantityChange(e, 'packs')}
+            onChange={(event) =>
+              handleCustomQuantityChange(
+                event,
+                'packs'
+              )
+            }
             min="1"
+            inputMode="numeric"
           />
         </div>
-      ) : product.tags && product.tags.includes('boards') ? (
+      ) : isBoard ? (
         <div className="quantity-selection">
-          <label htmlFor="quantity-select">Number of boards:</label>
+          <label htmlFor="board-quantity">
+            Number of boards
+          </label>
+
           <select
-            id="quantity-select"
+            id="board-quantity"
             value={customQuantity}
-            onChange={(e) => handleCustomQuantityChange(e, 'boards')}
+            onChange={(event) =>
+              handleCustomQuantityChange(
+                event,
+                'boards'
+              )
+            }
           >
-            {[...Array(10).keys()].map((num) => (
-              <option key={num + 1} value={num + 1}>
-                {num + 1} {num + 1 === 1 ? 'board' : 'boards'}
-              </option>
-            ))}
+            {quantityOptions.slice(0, 10).map(
+              (quantity) => (
+                <option
+                  key={quantity}
+                  value={quantity}
+                >
+                  {quantity}{' '}
+                  {quantity === 1
+                    ? 'board'
+                    : 'boards'}
+                </option>
+              )
+            )}
           </select>
         </div>
-      ) : product.tags && product.tags.includes('paper') ? (
+      ) : isPaper ? (
         <>
           <div className="quantity-selection">
-            <label htmlFor="paper-select">Select type of paper:</label>
+            <label htmlFor="paper-type">
+              Type of bingo paper
+            </label>
+
             <select
-              id="paper-select"
+              id="paper-type"
               value={selectedPaper}
-              onChange={(e) => setSelectedPaper(e.target.value)}
+              onChange={(event) =>
+                setSelectedPaper(event.target.value)
+              }
             >
               {paperVariants.map((variant) => (
-                <option key={variant} value={variant}>
+                <option
+                  key={variant}
+                  value={variant}
+                >
                   {variant}
                 </option>
               ))}
             </select>
           </div>
+
           <div className="quantity-selection">
-            <label htmlFor="quantity-select">Number of {getLabel('books')}:</label>
+            <label htmlFor="book-quantity">
+              Number of books
+            </label>
+
             <select
-              id="quantity-select"
+              id="book-quantity"
               value={customQuantity}
-              onChange={(e) => handleCustomQuantityChange(e, 'books')}
+              onChange={(event) =>
+                handleCustomQuantityChange(
+                  event,
+                  'books'
+                )
+              }
             >
-              {[...Array(11).keys()].map((num) => (
-                <option key={num} value={num}>
-                  {num}
+              {quantityOptions.map((quantity) => (
+                <option
+                  key={quantity}
+                  value={quantity}
+                >
+                  {quantity}{' '}
+                  {quantity === 1 ? 'book' : 'books'}
                 </option>
               ))}
             </select>
           </div>
         </>
-      ) : product.tags && product.tags.includes('daubers') ? (
+      ) : isDauber ? (
         <>
           <div className="quantity-selection">
-            <label htmlFor="quantity-select">Number of cases:</label>
+            <label htmlFor="dauber-case-quantity">
+              Number of cases
+            </label>
+
             <select
-              id="quantity-select"
+              id="dauber-case-quantity"
               value={caseQuantity}
               onChange={handleCaseQuantityChange}
             >
-              {[...Array(11).keys()].map((num) => (
-                <option key={num + 1} value={num + 1}>
-                  {num + 1}
+              {quantityOptions.map((quantity) => (
+                <option
+                  key={quantity}
+                  value={quantity}
+                >
+                  {quantity}{' '}
+                  {quantity === 1 ? 'case' : 'cases'}
                 </option>
               ))}
             </select>
           </div>
+
           <div className="custom-quantity">
-            <label htmlFor="custom-quantity-input">Or enter number of daubers:</label>
+            <label htmlFor="dauber-quantity">
+              Or enter the number of individual daubers
+            </label>
+
             <input
               type="number"
-              id="custom-quantity-input"
+              id="dauber-quantity"
               value={customQuantity}
-              onChange={(e) => handleCustomQuantityChange(e, 'daubers')}
+              onChange={(event) =>
+                handleCustomQuantityChange(
+                  event,
+                  'daubers'
+                )
+              }
               min="1"
+              inputMode="numeric"
             />
           </div>
         </>
       ) : (
         <>
           <div className="quantity-selection">
-            <label htmlFor="quantity-select">Number of cases:</label>
+            <label htmlFor="case-quantity">
+              Number of cases
+            </label>
+
             <select
-              id="quantity-select"
+              id="case-quantity"
               value={caseQuantity}
               onChange={handleCaseQuantityChange}
             >
-              {[...Array(11).keys()].map((num) => (
-                <option key={num + 1} value={num + 1}>
-                  {num + 1}
+              {quantityOptions.map((quantity) => (
+                <option
+                  key={quantity}
+                  value={quantity}
+                >
+                  {quantity}{' '}
+                  {quantity === 1 ? 'case' : 'cases'}
                 </option>
               ))}
             </select>
           </div>
+
           <div className="custom-quantity">
-            <label htmlFor="custom-quantity-input">Or enter number of games:</label>
+            <label htmlFor="game-quantity">
+              Or enter the number of individual games
+            </label>
+
             <input
               type="number"
-              id="custom-quantity-input"
+              id="game-quantity"
               value={customQuantity}
-              onChange={(e) => handleCustomQuantityChange(e, 'games')}
+              onChange={(event) =>
+                handleCustomQuantityChange(
+                  event,
+                  'games'
+                )
+              }
               min="1"
+              inputMode="numeric"
             />
           </div>
         </>
       )}
-      <button onClick={handleSubmit}>Add to Cart</button>
+
+      <button
+        type="button"
+        className="quantity-submit-button"
+        onClick={handleSubmit}
+      >
+        <span>Add to Cart</span>
+        <span aria-hidden="true">→</span>
+      </button>
     </Modal>
   );
 };
