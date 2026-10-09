@@ -939,3 +939,43 @@
     transform: translateY(0) scale(1);
   }
 }
+
+/* Append these rules to Navbar.css. */
+
+/*
+ * The overlay must sit below the navbar's stacking context. The mobile drawer
+ * is a child of .site-navbar, so its own z-index cannot rise above a sibling
+ * overlay that is already above .site-navbar.
+ */
+.site-navbar-mobile-overlay {
+  z-index: 1190;
+}
+
+@media (max-width: 860px) {
+  /*
+   * The mobile header and drawer both use nearly opaque backgrounds, so the
+   * navbar-level blur is unnecessary and can cause text rasterization issues
+   * in mobile Safari while the transformed drawer is open.
+   */
+  .site-navbar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-navbar-mobile {
+    z-index: 1260;
+    filter: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .site-navbar-mobile .site-navbar-link,
+  .site-navbar-mobile .mobile-navigation-heading,
+  .site-navbar-mobile .mobile-info-menu,
+  .site-navbar-mobile .mobile-account-actions {
+    position: relative;
+    z-index: 1;
+    filter: none;
+    opacity: 1;
+  }
+}
