@@ -1,14 +1,42 @@
 // src/pages/GameTerminology.js
 
 import React from 'react';
-import './ContactPage.css'; // Reuse the CSS file for styling
+import './GameTerminology.css';
 
 const GameTerminology = () => {
   return (
-    <div className="page-container">
-      <h1 className="contact">Learn the Terminology of Bingo and Gaming</h1>
-      <div className="contact-page">
-        <h1 className="contact">Game Terminology</h1>
+    <main className="terminology-page-shell">
+      <div className="terminology-background-grid" />
+      <div className="terminology-orb terminology-orb--one" />
+      <div className="terminology-orb terminology-orb--two" />
+
+      <header className="terminology-hero">
+        <p className="terminology-eyebrow">K&amp;M Learning Center</p>
+        <h1>
+          Learn the language of <span>bingo and gaming.</span>
+        </h1>
+        <p className="terminology-introduction">
+          Explore common terminology used throughout bingo, pull-tab games,
+          tickets, boards, and fundraising events.
+        </p>
+        <div className="terminology-summary" aria-label="Directory summary">
+          <span><strong>80+</strong> Industry terms</span>
+          <span><strong>A–Z</strong> Quick reference</span>
+          <span><strong>Free</strong> Learning resource</span>
+        </div>
+      </header>
+
+      <section className="terminology-directory">
+        <div className="terminology-section-heading">
+          <div>
+            <p className="terminology-section-kicker">Terminology directory</p>
+            <h2>Gaming terms from A to Z</h2>
+          </div>
+          <p>
+            Browse the reference cards below to learn about common games,
+            equipment, formats, and industry language.
+          </p>
+        </div>
         <div className="flex-container">
         <div className="flex-item">
   <h3>Admission Packet</h3>
@@ -593,8 +621,8 @@ const GameTerminology = () => {
   </p>
 </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

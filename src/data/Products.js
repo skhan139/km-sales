@@ -603,7 +603,7 @@ const products = [
   { id: 433, name: "504 Lucky Lumberjack", image: "/assets/images/300LLJ.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$504.00", payout: "$329.00", profit: "$175.00", profitPercent: "34.72%", dealsPerCase: "4", seal: "$300", denomination: "$1", bottomPayout: "$1" },
   { id: 434, name: "2170 Cereal Killers", image: "/assets/images/2170cerealkillers.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$2,170.00", payout: "$1,618.00", profit: "$552.00", profitPercent: "25.44%", dealsPerCase: "4", seal: "$1293", denomination: "$1", bottomPayout: "$1" },
   { id: 435, name: "220 Candy Rush", image: "/assets/images/candyrush.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$2,200.00", payout: "$1,630.00", profit: "$570.00", profitPercent: "25.91%", dealsPerCase: "4", seal: "$1000", denomination: "$1", bottomPayout: "$1" },
-  { id: 436, name: "1890 Stranger Wins", image: "/assets/images/1890stranagerwins.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$1,890.00", payout: "$1,295.00", profit: "$595.00", profitPercent: "31.48%", dealsPerCase: "4", seal: "$500", denomination: "$1", bottomPayout: "$1" },
+  { id: 436, name: "1890 Stranger Wins", image: "/assets/images/1890strangerwins.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$1,890.00", payout: "$1,295.00", profit: "$595.00", profitPercent: "31.48%", dealsPerCase: "4", seal: "$500", denomination: "$1", bottomPayout: "$1" },
 ];
 
 

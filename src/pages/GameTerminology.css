@@ -1,0 +1,279 @@
+.terminology-page-shell {
+  --terms-gold: #d4af37;
+  --terms-gold-light: #f0d060;
+  --terms-gold-soft: rgba(212, 175, 55, 0.14);
+  --terms-gold-border: rgba(212, 175, 55, 0.26);
+  --terms-background: #080810;
+  --terms-surface: rgba(255, 255, 255, 0.045);
+  --terms-surface-hover: rgba(255, 255, 255, 0.07);
+  --terms-border: rgba(255, 255, 255, 0.1);
+  --terms-muted: rgba(255, 255, 255, 0.6);
+  --terms-subtle: rgba(255, 255, 255, 0.4);
+  --terms-transition: 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(75px, 9vw, 120px) clamp(17px, 5vw, 64px) clamp(75px, 10vw, 130px);
+  overflow: hidden;
+  color: #fff;
+  background: radial-gradient(circle at 85% 5%, rgba(212, 175, 55, 0.09), transparent 30rem), var(--terms-background);
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  isolation: isolate;
+}
+
+.terminology-page-shell *,
+.terminology-page-shell *::before,
+.terminology-page-shell *::after { box-sizing: border-box; }
+
+.terminology-background-grid {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  opacity: 0.2;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: linear-gradient(to bottom, black, transparent 55%);
+}
+
+.terminology-orb {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+.terminology-orb--one {
+  top: -350px;
+  right: -200px;
+  width: 680px;
+  height: 680px;
+  background: rgba(212, 175, 55, 0.06);
+}
+
+.terminology-orb--two {
+  top: 1300px;
+  left: -350px;
+  width: 650px;
+  height: 650px;
+  background: rgba(212, 175, 55, 0.035);
+}
+
+.terminology-hero,
+.terminology-directory {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+}
+
+.terminology-hero { animation: terminology-enter 650ms ease both; }
+
+.terminology-eyebrow {
+  display: inline-flex;
+  min-height: 34px;
+  margin: 0 0 23px;
+  padding: 0 14px;
+  align-items: center;
+  border: 1px solid var(--terms-gold-border);
+  border-radius: 999px;
+  color: var(--terms-gold-light);
+  background: var(--terms-gold-soft);
+  font-size: .66rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.terminology-hero h1 {
+  max-width: 930px;
+  margin: 0;
+  color: #fff;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: clamp(2.7rem, 6vw, 5.4rem);
+  font-weight: 710;
+  letter-spacing: -.06em;
+  line-height: 1;
+}
+
+.terminology-hero h1 span { color: var(--terms-gold); }
+
+.terminology-introduction {
+  max-width: 720px;
+  margin: 28px 0 0;
+  color: var(--terms-muted);
+  font-size: clamp(.98rem, 1.5vw, 1.08rem);
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.terminology-summary {
+  display: flex;
+  margin-top: 37px;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.terminology-summary > span {
+  display: inline-flex;
+  min-height: 48px;
+  padding: 0 15px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--terms-border);
+  border-radius: 11px;
+  color: var(--terms-subtle);
+  background: var(--terms-surface);
+  font-size: .61rem;
+  font-weight: 600;
+}
+
+.terminology-summary strong {
+  color: var(--terms-gold);
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: .78rem;
+}
+
+.terminology-directory { padding-top: clamp(90px, 12vw, 150px); }
+
+.terminology-section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
+  margin-bottom: 43px;
+  align-items: end;
+  gap: 45px;
+}
+
+.terminology-section-kicker {
+  margin: 0 0 10px;
+  color: var(--terms-gold);
+  font-size: .63rem;
+  font-weight: 750;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.terminology-section-heading h2 {
+  max-width: 700px;
+  margin: 0;
+  color: #fff;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: clamp(1.9rem, 4vw, 3.25rem);
+  letter-spacing: -.05em;
+  line-height: 1.1;
+}
+
+.terminology-section-heading > p {
+  margin: 0;
+  color: var(--terms-muted);
+  font-size: .78rem;
+  line-height: 1.75;
+}
+
+.terminology-page-shell .flex-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  counter-reset: terminology-card;
+}
+
+.terminology-page-shell .flex-item {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 235px;
+  padding: 23px;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid var(--terms-border);
+  border-radius: 16px;
+  color: #fff;
+  background: radial-gradient(circle at 100% 0, rgba(212,175,55,.06), transparent 13rem), var(--terms-surface);
+  box-shadow: none;
+  text-align: left;
+  counter-increment: terminology-card;
+  transition: border-color var(--terms-transition), background-color var(--terms-transition), box-shadow var(--terms-transition), transform var(--terms-transition);
+}
+
+.terminology-page-shell .flex-item:hover {
+  border-color: var(--terms-gold-border);
+  background-color: var(--terms-surface-hover);
+  box-shadow: 0 20px 48px rgba(0,0,0,.27);
+  transform: translateY(-4px);
+}
+
+.terminology-page-shell .flex-item::before {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 31px;
+  place-items: center;
+  border-radius: 10px;
+  color: var(--terms-gold);
+  background: var(--terms-gold-soft);
+  content: counter(terminology-card, decimal-leading-zero);
+  font-size: .58rem;
+  font-weight: 800;
+}
+
+.terminology-page-shell .flex-item::after {
+  width: 42px;
+  height: 2px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-bottom: 2px solid var(--terms-gold);
+  content: "";
+  transition: width var(--terms-transition);
+}
+
+.terminology-page-shell .flex-item:hover::after { width: 78px; }
+
+.terminology-page-shell .flex-item h3 {
+  margin: 0 0 11px;
+  color: #fff;
+  font-family: "Manrope", "Poppins", sans-serif;
+  font-size: .97rem;
+  font-weight: 720;
+  letter-spacing: -.025em;
+  line-height: 1.35;
+}
+
+.terminology-page-shell .flex-item p {
+  margin: 0;
+  color: var(--terms-muted);
+  font-size: .68rem;
+  line-height: 1.72;
+}
+
+@media (max-width: 950px) {
+  .terminology-section-heading {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 17px;
+  }
+  .terminology-section-heading > p { max-width: 650px; }
+  .terminology-page-shell .flex-container { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .terminology-page-shell { padding-right: 14px; padding-left: 14px; }
+  .terminology-hero h1 { font-size: clamp(2.55rem, 12vw, 3.6rem); }
+  .terminology-summary { display: grid; }
+  .terminology-summary > span { width: 100%; }
+  .terminology-page-shell .flex-container { grid-template-columns: 1fr; }
+  .terminology-page-shell .flex-item { min-height: 215px; padding: 21px 18px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminology-page-shell *,
+  .terminology-page-shell *::before,
+  .terminology-page-shell *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@keyframes terminology-enter {
+  from { opacity: 0; transform: translateY(17px); }
+  to { opacity: 1; transform: translateY(0); }
+}
