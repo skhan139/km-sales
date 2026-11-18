@@ -614,6 +614,8 @@ const products = [
   { id: 444, name: "210 Cherries", image: "/assets/images/210cherries.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$210.00", payout: "$137.00", profit: "$73.00", profitPercent: "34.76%", dealsPerCase: "50", seal: "$100", denomination: "$1", bottomPayout: "$1" },
   { id: 445, name: "980 The Good, The Bad, And The Ugly", image: "/assets/images/TGTBTU.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$980.00", payout: "$705.00", profit: "$275.00", profitPercent: "28.06%", dealsPerCase: "8", seal: "$400", denomination: "$1", bottomPayout: "$2" },
   { id: 446, name: "1400 Cashillac Jack", image: "/assets/images/cashjack.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU033", takeIn: "$1,400.00", payout: "$1,035.00", profit: "$365.00", profitPercent: "26.07%", dealsPerCase: "4", seal: "$300", denomination: "$1", bottomPayout: "$1" },
+  { id: 447, name: "910 Weenie Derby", image: "/assets/images/weeniederby.jpg", category: "bingo games", tags: ["bingo", "games"], sku: "SKU038", takeIn: "$910.00", payout: "$650.00", profit: "$260.00", profitPercent: "28.57%", dealsPerCase: "8", seal: "$250", denomination: "$1", bottomPayout: "$1" },
+  { id: 448, name: "1100 Take Me To The Top", image: "/assets/images/takemetothetop.jpg", category: "pull tabs", tags: ["pull", "tabs"], sku: "SKU038", takeIn: "$1,100.00", payout: "$770.00", profit: "$330.00", profitPercent: "30.00%", dealsPerCase: "4", seal: "$600", denomination: "$1", bottomPayout: "$1" },
 ];
 
 

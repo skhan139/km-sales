@@ -9,7 +9,7 @@ const manufacturers = [
     image: '/assets/images/bonanza.avif',
   },
   {
-    name: 'Paramount',
+    name: 'Paramount Games',
     website: 'https://pginventory.com/',
     image: '/assets/images/paramount.avif',
   },
